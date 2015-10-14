@@ -1,0 +1,57 @@
+$first-font: "Trebuchet MS", Helvetica, sans-serif;
+
+$hex-color: violet;
+$hex-sz1: 20px;
+$hex-space: 8px;
+
+$hex-sz2: $hex-sz1*(52/30);
+$hex-pad: $hex-sz1*1.732;
+$hex-pad: -($hex-sz2)/(0.577);
+$hex-gap: 0.866*$hex-space;
+
+$hex-txt-size: $hex-sz1;
+
+
+div.hex-row{
+	clear: left;}
+	
+
+div.hex{
+	float: left;
+    margin-left: $hex-space;
+    margin-bottom: $hex-pad;}
+
+div.hex-below{
+	padding-left: $hex-sz2+ 1.5*$hex-space;
+	padding-top: -($hex-pad)+ $hex-gap;}
+
+	
+div.hex-top{
+	width: 0;
+	border-bottom: $hex-sz1 solid $hex-color;
+	border-left: $hex-sz2 solid transparent;
+	border-right: $hex-sz2 solid transparent; }
+  
+div.hex-bottom{
+	width: 0;
+	border-top: $hex-sz1 solid $hex-color;
+	border-left: $hex-sz2 solid transparent;
+	border-right: $hex-sz2 solid transparent; }
+  
+div.hex-mid{
+	width: 2*$hex-sz2;
+	height: 2*$hex-sz1;
+	background-color: $hex-color;
+	text-align: center;}
+
+	
+a.hex-link{
+	color: black;
+	line-height: 2*$hex-sz1;
+	text-decoration: none;
+	font-size: $hex-txt-size;}
+
+a.hex-link:hover{
+	color: blue;}
+
+ 

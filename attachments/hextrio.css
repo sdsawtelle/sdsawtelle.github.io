@@ -1,0 +1,40 @@
+div.hex-row {
+  clear: left; }
+
+div.hex {
+  float: left;
+  margin-left: 8px;
+  margin-bottom: -60.08088px; }
+
+div.hex-below {
+  padding-left: 46.66667px;
+  padding-top: 67.00888px; }
+
+div.hex-top {
+  width: 0;
+  border-bottom: 20px solid violet;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-bottom {
+  width: 0;
+  border-top: 20px solid violet;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-mid {
+  width: 69.33333px;
+  height: 40px;
+  background-color: violet;
+  text-align: center; }
+
+a.hex-link {
+  color: black;
+  line-height: 40px;
+  text-decoration: none;
+  font-size: 20px; }
+
+a.hex-link:hover {
+  color: blue; }
+
+/*# sourceMappingURL=hextrio.css.map */

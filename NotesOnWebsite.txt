@@ -1,0 +1,63 @@
+purpose of the website:
+
+1) showcase quantitative skills and background for potential employers
+2) collect resources that i have created so they are available on the web
+
+landing page should have a statement like "I solve quantitative problems"
+landing page should have my name
+
+
+quantitative skills should have math and science courses and links to notecards
+quantitative skills should have repository of any major pieces of code
+
+about page should have summary panel at top with skills, interests, linked in, CV, pic etc.
+
+
+
+
+
+
+
+
+ABOUT PAGE
+
+
+In brief...
+	compulsive optimizer (it takes me 6 minutes and 26 seconds to make 2 weeks worth of breakfast.)
+	self starter (you have to be to survive a PhD.)
+	frugal minimalist (there are three spoons in my household of two people.)
+	non-conformer (i'm not on facebook.  me and that one other guy are going to start our own club.)I have one Lovely Husband, one Stinky Dog, and three aforementioned Spoons.
+	
+Bio...
+	Born in St. Johnsbury Vermont.
+	Went to undergrad in Louisiana to escape the cold.
+	Followed my husband to Indiana and learned to be a teacher.
+	Discovered that learning physics is much more fun than teaching physics.
+	Moved to Connecticut to get a PhD in physics, learning every day. Also, cold again.
+	I want to continue solving quantitative problems after grad school.
+
+Quantitative Skills...
+
+	If you want to solve quantitative problems in the real world you have to be good at math, you have to be good at computers, and you have to be good at critical thinking. I practice most of these skills every day so that I can be a better problem solver.
+	
+	My academic coursework in physics and math gives me a solid mathematical foundation. I learn programming skills through self-study and through my physics research, which often requires data analyis and simulation. And many years of immersion in the scientific method has trained me to think carefully and logically.
+	
+	Quantitative Coursework Highlights:
+	
+	Calculus 
+	Linear Algebra
+	Discrete Math
+	Probability and Statistics
+	Ordinary DiffEQ
+	Partial DiffEQ
+	Complex Analysis
+	
+	Graduate Electricity and Magnetism
+	Graduate Quantum Mechanics
+	Graduate Statistical Mechanics
+	Graduate Solid State Physics
+	Classical Mechanics
+	Mathematical Methods in Physics
+	
+
+	

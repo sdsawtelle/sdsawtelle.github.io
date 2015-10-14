@@ -1,0 +1,88 @@
+body {
+  background-image: url("images/backgrnd7.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  line-height: 1.5;
+  margin: 0px 0px; }
+
+div.contain {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -225.18198px;
+  margin-left: -183px; }
+
+div.hex-row {
+  clear: left; }
+
+hex-row-even {
+  margin-left: 53px; }
+
+div.hex {
+  float: left;
+  margin-left: 12px;
+  margin-bottom: -135.18198px; }
+
+div.hex-top {
+  width: 0;
+  border-bottom: 45px solid #FF3399;
+  border-left: 78px solid transparent;
+  border-right: 78px solid transparent; }
+
+div.hex-bottom {
+  width: 0;
+  border-top: 45px solid #FF3399;
+  border-left: 78px solid transparent;
+  border-right: 78px solid transparent; }
+
+div.hex-mid {
+  width: 156px;
+  height: 90px;
+  background-color: #FF3399;
+  text-align: center; }
+
+div.hex-below {
+  padding-left: 96px;
+  padding-top: 145.57398px; }
+
+ul.contact {
+  list-style: none;
+  text-align: right;
+  padding-left: 0px;
+  float: right;
+  margin-right: 1.5em;
+  margin-top: 0px; }
+
+p.contact {
+  float: right; }
+
+ul.contact li {
+  padding: 0.2em 0px; }
+
+li.nameplate {
+  font-size: 40px;
+  color: white; }
+
+a.contact:link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #FF3399; }
+
+a.contact:hover {
+  color: blue; }
+
+a.contact:visited {
+  color: #FF3399; }
+
+a.hex-link {
+  line-height: 90px;
+  text-decoration: none;
+  font-size: 38.25px;
+  color: black; }
+
+a.hex-link:hover {
+  color: blue; }
+
+/*# sourceMappingURL=home.css.map */

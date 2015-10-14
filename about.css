@@ -1,0 +1,214 @@
+body {
+  background-image: url("images/backgrnd7.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  line-height: 1.5;
+  margin: 0px 0px; }
+
+section.main {
+  padding-bottom: 20px;
+  width: 100%;
+  height: 100%;
+  background-color: white; }
+
+section.in-brief, .bio, .quant-skills {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 2em; }
+
+h1.heading {
+  background-image: linear-gradient(90deg, white 30%, #FF78BB);
+  font-size: 200%;
+  margin: 0.8em 0em; }
+
+mark.highlight {
+  background-color: #222;
+  border-radius: 3px;
+  color: #FF78BB;
+  font-size: 0.875rem;
+  /* rem means relative to font-size of root element */
+  padding: 3px 5px 3px 7px;
+  position: relative;
+  top: -3px; }
+
+mark.lvl {
+  background-color: #fff;
+  border-radius: 3px;
+  color: #2963CF;
+  font-size: 0.6rem;
+  padding: 1px 2px;
+  margin-left: 4px;
+  position: relative;
+  border: solid black 1px; }
+
+th.skills {
+  font-size: 1.2em;
+  color: #2963CF;
+  text-align: center; }
+
+td.skills {
+  width: 20%;
+  text-align: center; }
+
+ul.skills {
+  list-style-type: none;
+  display: inline; }
+
+img.states {
+  max-width: 20%; }
+
+img {
+  max-width: 10%; }
+
+img.research {
+  max-width: 60%;
+  float: left;
+  margin: 1rem;
+  margin-left: 0px; }
+
+img.research-right {
+  max-width: 80%;
+  float: right;
+  margin: 1rem;
+  margin-right: 0px; }
+
+a {
+  color: black; }
+
+a:hover {
+  color: #2963CF; }
+
+footer {
+  margin: 70px 2% 0px;
+  border: dashed #2963CF 2px;
+  background-image: linear-gradient(90deg, white, #0B50BF, white);
+  padding: 10px 15px; }
+
+ul.foot-nav {
+  text-align: center;
+  margin: 0px 0px; }
+
+ul.foot-nav li {
+  display: inline;
+  padding: 0px 1em;
+  list-style: none;
+  padding-left: 0px; }
+
+li.to-the-top {
+  margin-left: 0px;
+  float: left; }
+
+ul.nav-panel {
+  float: right;
+  padding: 0px 0px; }
+
+ul.contact {
+  list-style: none;
+  text-align: right;
+  padding-left: 0px;
+  float: right;
+  margin-right: 1.5em;
+  margin-top: 0px; }
+
+p.contact {
+  float: right; }
+
+ul.contact li {
+  padding: 0.2em 0px; }
+
+li.nameplate {
+  font-size: 40px;
+  color: white; }
+
+a.contact:link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #FF3399; }
+
+a.contact:hover {
+  color: blue; }
+
+a.contact:visited {
+  color: #FF3399; }
+
+blockquote {
+  font-style: italic;
+  margin: 2em 2em;
+  padding-left: 3em;
+  border-left: 8px solid #2963CF; }
+
+nav.hex-row {
+  margin-left: 20px; }
+
+div.hex {
+  float: left;
+  margin-left: 8px;
+  margin-top: 14px; }
+
+div.hex-top {
+  width: 0;
+  border-bottom: 20px solid #FF3399;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-bottom {
+  width: 0;
+  border-top: 20px solid #FF3399;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-mid {
+  width: 69.33333px;
+  height: 40px;
+  background-color: #FF3399;
+  text-align: center; }
+
+div.hex-top-home {
+  width: 0;
+  border-bottom: 20px solid #FF3399;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-bottom-home {
+  width: 0;
+  border-top: 20px solid #FF3399;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-mid-home {
+  width: 69.33333px;
+  height: 40px;
+  background-color: #FF3399;
+  text-align: center; }
+
+div.hex-top-cur {
+  width: 0;
+  border-bottom: 20px solid #FFFFFF;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-bottom-cur {
+  width: 0;
+  border-top: 20px solid #FFFFFF;
+  border-left: 34.66667px solid transparent;
+  border-right: 34.66667px solid transparent; }
+
+div.hex-mid-cur {
+  width: 69.33333px;
+  height: 40px;
+  background-color: #FFFFFF;
+  text-align: center;
+  box-shadow: 0px 0px 6px #FFFFFF; }
+
+a.hex-link {
+  line-height: 40px;
+  text-decoration: none;
+  font-size: 17px;
+  color: black; }
+
+a.hex-link:hover {
+  color: blue; }
+
+/*# sourceMappingURL=about.css.map */

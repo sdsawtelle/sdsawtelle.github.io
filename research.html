@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sonya Sawtelle - About</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" href="about.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+
+</head>
+
+<body>
+<a name="top"></a>
+
+<header>
+	<nav class="hex-row">
+		<div class="hex">
+			<div class="hex-top"></div>
+			<div class="hex-mid">
+				<a class="hex-link"; href="home.html">home</a> 
+			</div>
+			<div class="hex-bottom"></div>
+		</div>
+		<div class="hex">
+			<div class="hex-top-cur"></div>
+			<div class="hex-mid-cur">
+				<a class="hex-link"; href="research.html">research</a> 
+			</div>
+			<div class="hex-bottom-cur"></div>
+		</div>
+		<div class="hex">
+			<div class="hex-top"></div>
+			<div class="hex-mid">
+				<a class="hex-link"; href="skills.html">skills</a> 
+			</div>
+			<div class="hex-bottom"></div>
+		</div>
+		<div class="hex">
+			<div class="hex-top"></div>
+			<div class="hex-mid">
+				<a class="hex-link"; href="about.html">about</a> 
+			</div>
+			<div class="hex-bottom"></div>
+		</div>
+	</nav>	
+	<p class="contact">
+		<ul class="contact">
+			<li class="nameplate"><b>Sonya S.</b></li>
+			<li><a href="mailto:sonya.sawtelle@yale.edu" class="contact">email me. </a><a href="https://www.linkedin.com/pub/sonya-sawtelle/30/b34/176" class="contact">linked in.</a></li>
+		</ul>
+	</p>
+	<div style="clear: both;"></div>
+</header>
+
+<section class="main">
+	<section class = "in-brief">
+		<h1 class="heading">Charge Transport in Single Molecule Devices</h1>
+		<h3>October 2013</h3>
+		<p>
+			This project investigates electron transport behavior in single organic molecules under electrostatic modulation of orbital energies. Low-temperature charge transport measurements in nanojunctions was done previously by our group, and we are now reviving this project under a new NSF grant. Group member <a href="http://www.eng.yale.edu/reedlab/ZakKobos.htm">Zak Kobos</a> (Yale GS, EE) has masterminded our cryostat setup and built the low-noise electronics necessary for these small signal measurements, in collaboration with undergraduate Alex Noonan (Yale College, EE).
+			
+			So far my work has focused on developing a cleanroom fabrication protocol for making our charge transport devices and developing feedback-controlled electromigration protocol for creating nanogaps in the wires. We fabricate very thin gold wires which are addressed with macroscopic source and drain lines, and which can be electrostatically modulated with an underlying gate electrode. We fabricate our wires by a series of electron beam lithographies and subsequent metal depositions. The final device consists of a 15 nm thick Au nanowire which is 60 nm wide at its narrowest constriction, and fans out to 400nm at its ends. The Au nanowire rests on top of a 30 nm thick Al gate line which has a few-nm thermal aluminum oxide layer covering it.
+			
+			<img src="images/hillock.png" class="research">
+			
+			We make gaps a few nanometers wide in these wires by using the electromigrated break junction technique, and seek to suspend single organic molecules across the gap. Electromigration (EM) is a process in which atoms of a metal migrate preferentially in one direction under applied bias. The mechanism of this migration is transfer of the field-induced momentum of charge carriers to the atomic nuclei via scattering events. The key to controlled EMBJ is to maintain a constant junction temperature (corresponding to a constant power dissipated in the junction) once the migration has started. If the constant power constraint is not met, thermal runaway ensues as an increase in junction resistance gives an increase in temperature, which in turn facilitates more rapid breaking. Working with undergraduate Stan Swidwinski (Yale College, Physics) we have created a fully-automated controlled breaking program. Experiments are underway to analyze devices which have been coated with suitable organic molecule prior to loading in our cryostat for electromigration.
+		</p>
+		
+	</section>	
+	
+	<section class = "in-brief">
+		<h1 class="heading">Charge-based Biosensing with SiNW FETs</h1>
+		<h2>June 2013</h2>
+		<p>
+			The goal of this project is the detection of low concentrations of protein in solution using a silicon nanowire field-effect transistor (SiNW FET). Our approach has an advantage over other sensing modalities because it give rapid real-time response, doesn't require labeling of the target molecule, and can be easily incorporated on-chip with other CMOS electronics.
+			
+			<img src="images/nanowires2.png" class="research">
+			
+			In collaboration with <a href="http://www.eng.yale.edu/reedlab/MaryMu.htm">Mary Mu</a> (Yale GS, EE) we fabricated these FETs in our cleanroom at Yale, using CMOS-compatible top-down processes. The final devices have 1um wide active channels in Si with a 20nm thick thermal oxide. The entire chip is coated with SU-8 polymer and window openings are patterned only in the region over the active channel, which allows solution to be placed in direct contact with the chip surface for sensing. The chips are bonded into DIP packages to be interfaced with the electrical sensing setup. We use integrated microfluidics to target the solutions to individual devices for certain applications.
+			Our devices sense the presence of molecules on their top surface due to electrostatic gating of the active channel from the net charge of these molecules in solution. Initially the FETs are gated into the linear regime by a solution gate, so that any additional gating potential from charged molecules can be linearly related to the change in observed current. 
+			
+			<img src="images/fluorescence.png" class="research-right">
+
+			We functionalize the top of the nanowire with antibodies specific to the protein of interest to achieve a prolonged response which occurs only in the presence of our target protein. With our electrical sensing setup we are able to observe the source-drain current of the FETs as we expose them to different solutions.
+			
+			In order to verify and optimize the functionalization chemistry, we have performed experiments to monitor the signal intensity from fluorescent antibodies on the surface. We have investigated a variety of chemistries on silicon dioxide, aluminum oxide and nitride dielectrics, all of which have been used as sensing surfaces for our SiNW devices.
+		</p>
+		
+	</section>	
+
+	<section class = "in-brief">
+		<h1 class="heading">Dielectrophoretic Control of Cells</h1>
+		<h2>August 2012</h2>
+		<p>
+			This project was designed and spearheaded by <a href="http://www.eng.yale.edu/reedlab/MonikaWeber.htm">Monika Weber</a> (Yale GS, EE) - the goal is to begin with a physiological or environmental fluid sample and perform a sensitive test for low concentrations of bacteria. The basic functionalities are dielectrophoretic separation and concentration of bacteria cells and charge-based sensing of those cells with silicon nanowire FETs. The following overview is excerpted from our entry to the 2013 Invent Now Collegiate Inventors Competition.
+			<blockquote>"We demonstrate a cost-effective, miniaturized, rapid pathogen screening device for detection of pathogenic bacteria from contaminated water. Highly portable, our device can be used in any field conditions and for point-of-care measurements in highly mobile medical units in developing countries. Our highly sensitive device can detect low amounts of bacteria from large volumes of water. It can potentially detect any chosen type of bacteria by modification of the sensing element. The data acquisition system is reusable and handheld. Under mass manufacturing this device will reduce both the cost of testing and the waiting time by a factor of 50. The disposable sensor device size will reduce to less than 1 cubic inch and cost $1 per test."</blockquote>
+				
+			My work on this project focused on the dielectrophoretic manipulation of E.coli and red blood cells in collaboration with <a href="http://www.eng.yale.edu/reedlab/ShariYosinski.htm">Shari Yosinski</a> (Yale GS, BME) and Claudia Shin (Yale College '16). Initially I worked on simulating DEP forces on cells as a function of frequency and fluid medium properties. The code base for these simulations is provided in my <a href="skills.html">code collection</a>. 
+			The dominant physics here is the different mechanisms of induced dipole formation, each with different relaxation time, which occur in the bulk media and at the interfaces. 
+			
+			<img src="images/test.png" class="research">
+			
+			These effects are modeled by a complex clausius-mossoti (CM) factor which governs the force and torque on the particles. The CM factor inherits the frequency-dependence of the various complex permittivities of the material.
+			We used the simulation to guide our experiments in manipulating and concentrating E.coli in various physiological saline solutions. Using fabricated microelectrodes and fluorescence microscopy, we gathered data on E.coli behavior at a range of frequencies and solution conductivities. The cells can be pushed toward either high-field (toward electrodes) or low-field (toward gaps) depending on whether the fluid is more or less polarizable than the cell at a given frequency. This behavior is known as positive (PDEP) and negative (NDEP) dielectrophoresis, respectively, and is dictated by the sign of the CM factor. In the process we observed electroosmotic (EO) behavior dominating at low frequencies and high conductivity. This is an electrokinetic effect due to ion flow in the double layer over the electrodes. 
+			
+			We expanded our experiment to investigate differential manipulation of E.coli and human red blood cells, which is predicted to occur in some small range of frequencies where one type experiences PDEP and the other experiences NDEP. We were able to achieve selective capture of E.coli on electrodes in a solution of mixed cell type. This may be useful for applying this method to blood samples, but needs further investigation. [many thanks to Claudia Shin for wonderful video editing.]
+			<p>
+				<iframe style="float: left; overflow: auto; margin-right: 4%;" width="48%" height="315" src="http://www.youtube.com/embed/o_Nto_96NgI?rel=0" frameborder="0" allowfullscreen></iframe>
+				<iframe width="48%" height="315" src="http://www.youtube.com/embed/j9gzTQVC3Lg?rel=0" frameborder="0" allowfullscreen></iframe>
+			</p>		
+			<div style="clear: both;"></div>
+		</p>
+	</section>
+	<footer>
+		<ul class="foot-nav">
+			<li class="to-the-top"><a href="#top">Back to the top.</a></li>
+			<li>
+				<ul class="nav-panel">
+					<li><a href="home.html">Home</a>.</li>
+					<li><a href="about.html">About</a>.</li>
+					<li><a href="research.html">Research</a>.</li>
+					<li><a href="skills.html">Skills</a>.</li>
+				</ul>
+			</li>
+		<ul>
+	</footer>
+</section
+
+</body>
+
+</html>

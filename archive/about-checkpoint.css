@@ -1,0 +1,282 @@
+
+body {
+  background-image: url("images/backgrnd7.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+  line-height: 1.5;
+  margin: 0px 0px;
+}
+
+section.main {
+	padding-bottom: 20px;
+    width: 100%;
+	height: 100%;
+    background-color: white;
+}
+section.in-brief,.bio,.quant-skills{
+	margin-left: 15%;
+	margin-right: 15%;
+	padding-top: 2em;
+}
+
+h1.heading{
+	background-image: linear-gradient(90deg, white 30%, #FF78BB);
+	border-radius: 3px;
+	border-color: #FF78BB;
+	border-width: 1px;
+	font-size: 200%;
+	padding: 2px 0px;
+	margin: 0.6em 0em;
+}
+
+
+mark.highlight{
+	background-color: #222;
+    border-radius: 3px;
+    color: #FF78BB;
+    font-size: 0.875rem;
+    padding: 3px 5px 3px 7px;
+    position: relative;
+    top: -3px;
+}
+mark.lvl{
+	background-color: #fff;
+    border-radius: 3px;
+    color: #0B50BF;
+    font-size: 0.6rem;
+    padding: 1px 2px;
+	margin-left: 4px;
+    position: relative;
+	border: solid black 1px;
+}
+
+
+th.skills{
+	font-size: 135%;
+	color: #2963CF;
+	text-align: center;
+}
+td.skills {
+	width: 20%;
+	background-color: lighter;
+	text-align: center;
+}
+ul.skills{
+	list-style-type: none;
+	display: inline;
+}
+
+img.states{
+	max-width:20%
+}
+img{
+	max-width: 10%
+}
+
+img.research{
+	max-width:60%;
+	float: left;
+	margin: 1rem;
+	margin-left: 0px;
+}
+
+img.research-right{
+	max-width:80%;
+	float: right;
+	margin: 1rem;
+	margin-right: 0px;
+}
+
+a{
+	color: black;
+}
+
+a:hover{
+	color: #0B50BF;
+}
+
+
+footer{
+	margin: 70px 2%;
+	margin-bottom: 0px;
+	border: dashed #0B50BF 2px;
+	background-image: linear-gradient(90deg, white, #7BA0DC, white);
+	padding: 10px 15px;
+}
+
+ul.foot-nav{
+	text-align: center;
+	margin: 0px 0px;
+}
+
+ul.foot-nav li{
+	display: inline;
+	padding: 0px 1em;
+	list-style: none;
+	padding-left: 0px;
+}
+
+li.to-the-top{
+	margin-left: 0px;
+	float: left;
+}
+
+ul.nav-panel {
+	float: right;
+	padding: 0px 0px;
+}
+
+
+
+
+
+
+
+ul.contact{
+	list-style: none;
+	text-align: right;
+	padding-left: 0px;
+	float: right;
+	margin-right: 1.5em;
+	margin-top: 0px;
+}
+
+p.contact{
+	float: right;
+}
+
+ul.contact li{
+	padding: 0.2em 0px;
+}
+
+li.nameplate{
+	font-size: 40px;
+	color: white;
+ }
+
+a.contact:link {
+  font-size: 18px;
+  text-decoration: none;
+  color: #ff3399;
+}
+
+a.contact:hover {
+  color: blue;
+}
+
+
+
+blockquote {
+  font-style: italic;
+  margin: 2em 2em;
+  padding-left: 3em;
+  border-left: 8px solid #7BA0DC;
+}
+
+
+nav.hex-row{
+	margin-left: 10px;
+}
+
+
+div.hex{
+  float: left;
+  margin-left: 8px;
+  margin-top: 11.2px;
+}
+
+
+
+
+/* line 74, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-top {
+  width: 0;
+  border-bottom: 16px solid #ff3399;
+  border-left: 27.73333px solid transparent;
+  border-right: 27.73333px solid transparent;
+}
+
+/* line 77, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-bottom {
+  width: 0;
+  border-top: 16px solid #ff3399;
+  border-left: 27.73333px solid transparent;
+  border-right: 27.73333px solid transparent;
+}
+
+/* line 80, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-mid {
+  width: 55.46667px;
+  height: 32px;
+  background-color: #ff3399;
+  text-align: center;
+}
+
+/* line 87, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-top-home {
+  width: 0;
+  border-bottom: 16px solid #ff3399;
+  border-left: 27.73333px solid transparent;
+  border-right: 27.73333px solid transparent;
+}
+
+/* line 90, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-bottom-home {
+  width: 0;
+  border-top: 16px solid #ff3399;
+  border-left: 27.73333px solid transparent;
+  border-right: 27.73333px solid transparent;
+}
+
+/* line 93, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-mid-home {
+  width: 55.46667px;
+  height: 32px;
+  background-color: #ff3399;
+  text-align: center;
+}
+
+/* line 101, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-top-cur {
+  width: 0;
+  border-bottom: 16px solid white;
+  border-left: 27.73333px solid transparent;
+  border-right: 27.73333px solid transparent;
+}
+
+/* line 104, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-bottom-cur {
+  width: 0;
+  border-top: 16px solid white;
+  border-left: 27.73333px solid transparent;
+  border-right: 27.73333px solid transparent;
+}
+
+/* line 107, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+div.hex-mid-cur {
+  width: 55.46667px;
+  height: 32px;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0px 0px 6px white;
+}
+
+
+
+
+
+/* line 134, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+a.hex-link {
+  line-height: 32px;
+  text-decoration: none;
+  font-size: 13.6px;
+  color: black;
+}
+
+/* line 140, C:/Users/Sonya/Documents/Code/my-website/about.scss */
+a.hex-link:hover {
+  color: blue;
+}
+ 

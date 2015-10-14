@@ -1,0 +1,186 @@
+/* line 15, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+body {
+  background-image: url("images/backgrnd7.jpg");
+  background-size: cover;
+  padding-left: 11em;
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  color: black;
+}
+
+/* line 23, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.contain {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -225.18198px;
+  margin-left: -183px;
+}
+
+/* line 30, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.hex-row {
+  clear: left;
+}
+
+/* line 33, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+hex-row-even {
+  margin-left: 53px;
+}
+
+/* line 36, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.hex {
+  float: left;
+  margin-left: 12px;
+  margin-bottom: -135.18198px;
+}
+
+/* line 41, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.hex-top {
+  width: 0;
+  border-bottom: 45px solid #ff3399;
+  border-left: 78px solid transparent;
+  border-right: 78px solid transparent;
+}
+
+/* line 47, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.hex-bottom {
+  width: 0;
+  border-top: 45px solid #ff3399;
+  border-left: 78px solid transparent;
+  border-right: 78px solid transparent;
+}
+
+/* line 53, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.hex-mid {
+  width: 156px;
+  height: 90px;
+  background-color: #ff3399;
+  text-align: center;
+}
+
+/* line 59, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.hex-below {
+  padding-left: 96px;
+  padding-top: 145.57398px;
+}
+
+/* line 64, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a:link {
+  color: black;
+}
+
+/* line 67, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a:visited {
+  color: black;
+}
+
+/* line 70, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a.hex-link {
+  line-height: 90px;
+  text-decoration: none;
+  font-size: 33.75px;
+}
+
+/* line 75, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a.hex-link:hover {
+  color: blue;
+}
+
+/* line 78, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a.contact:link {
+  padding-top: 15px;
+  padding-right: 15px;
+  font-size: 25px;
+  text-decoration: none;
+  color: #ff3399;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+/* line 88, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a.contact:hover {
+  color: blue !important;
+}
+
+/* line 91, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a.contact:visited {
+  color: #ff3399;
+}
+
+
+
+/* a.catchphrase:link {
+  padding-top: 15px;
+  padding-right: none;
+  font-size: 25px;
+  text-decoration: none;
+  color:  #ff3399;
+  position: absolute;
+  bottom: 20%;
+  left: center;
+}
+
+/* line 88, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a.catchphrase:hover {
+  color: blue !important;
+}
+
+/* line 91, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+a.catchphrase:visited {
+  color:  #ff3399; */
+  
+
+
+/* line 95, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+div.spanner {
+  position: absolute;
+  left: 0px;
+  top: 10%;
+  width: 100%;
+  height: 82%;
+  background-color: #dae3f2;
+  /*border-style: solid;
+  border-color: $spanner-border-color;*/
+}
+
+/* line 106, C:/Users/Sonya/Documents/Code/my-website/home.scss */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  width: 400px;
+  height: 10px;
+}
+
+
+
+
+
+a.contact:link {
+  font-size: 20px;
+  text-decoration: none;
+  color: #ff3399;
+}
+
+ul.contact{
+	list-style: none;
+	text-align: right;
+	padding-left: 0px;
+	float: right;
+	margin-top: -4px;
+	margin-right: 22px;
+}
+
+
+p.contact{
+	float: right;
+}
+
+li.nameplate{
+	font-size: 25px;
+	color: white;
+/* 	font-family: "Times New Roman";
+ */
+	
+ }
+

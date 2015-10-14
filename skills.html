@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sonya Sawtelle - About</title>
+  <link rel="stylesheet" type="text/css" href="reset.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+<a name="top"></a>
+
+<header>
+	<nav class="hex-row">
+		<div class="hex">
+			<div class="hex-top"></div>
+			<div class="hex-mid">
+				<a class="hex-link"; href="home.html">home</a> 
+			</div>
+			<div class="hex-bottom"></div>
+		</div>
+		<div class="hex">
+			<div class="hex-top"></div>
+			<div class="hex-mid">
+				<a class="hex-link"; href="research.html">research</a> 
+			</div>
+			<div class="hex-bottom"></div>
+		</div>
+		<div class="hex">
+			<div class="hex-top-cur"></div>
+			<div class="hex-mid-cur">
+				<a class="hex-link"; href="skills.html">skills</a> 
+			</div>
+			<div class="hex-bottom-cur"></div>
+		</div>
+		<div class="hex">
+			<div class="hex-top"></div>
+			<div class="hex-mid">
+				<a class="hex-link"; href="about.html">about</a> 
+			</div>
+			<div class="hex-bottom"></div>
+		</div>
+	</nav>	
+	<p class="contact">
+		<ul class="contact">
+			<li class="nameplate"><b>Sonya S.</b></li>
+			<li><a href="mailto:sonya.sawtelle@yale.edu" class="contact">email me. </a><a href="https://www.linkedin.com/pub/sonya-sawtelle/30/b34/176" class="contact">linked in.</a></li>
+		</ul>
+	</p>
+	<div style="clear: both;"></div>
+</header>
+	
+<section class="main">
+	<section class = "in-brief">
+		<h1 class="heading">Dielectrophoretic Simulation Library</h1>
+		<mark class="highlight">MATLAB</mark>
+		<p>The goal of this code library is to facilitate making predictions regarding DEP forces on particles in different solutions and at different frequencies. This package can be used to model prokaryotic cells with membrane and cell wall, eukaryotic cells or organelles with membrane, and homogeneous solid spheres such as polystyrene beads. 
+		<img src="images/cmsim.png" class="research">
+		Common needs in DEP simulation are comparing CM factor vs. frequency for different particles in the same medium, and calculating crossover frequency vs. conductivity. To increase flexibility of the library I have built independent functions for each of our major particles of interest which will calculate the complex permittivity given an input vector of particle parameters and an input frequency. Different functions are needed for different particles due to modeling shelled vs unshelled and spherical vs non-spherical particles. I have separated the function for finding the complex permittivity of a particle from the function for finding the CM factor to provide for flexibility for those who want to modify the code for different mathematical models of CM factor. I have also used these basic functions to code scripts for some common needs.</p>
+		<div style="clear: both;"></div>
+		<ul>
+			<li><a href="attachments/CM_Simulations_Overview.pdf" class="code">documentation</a></li>
+			<li><a href="attachments/CM_Simulation_Library.zip" class="code">library.zip</a></li>
+			<li><a href="https://github.com/sdsawtelle/dep-simulations.git" class="code">@ github</a></li>
+		</ul>
+	</section>	
+
+	<section class = "bio">
+		<h1 class="heading">Dynamic Hexagon Trio</h1>
+		<mark class="highlight">SASS</mark>
+		<p>
+		<img src="images/hextrio.png" class="research-right">
+		<a href="http://sass-lang.com/guide">SASS is amazing</a> - it allows you to use variables and arithmetic operators along with other goodies in writing your CSS. This is the SASS code I used to draw the hexagons on <a href="home.html.">my home page.</a> This SASS + HTML snippet will build a trio of hexagons given input parameters for color, size, and spacing. 
+		
+		You can modify the HTML to build other tesselations besides the trio. You will need a SASS interpreter (I use <a href="http://mhs.github.io/scout-app/">Scout</a>). Also check out the <a href="http://jtauber.github.io/articles/css-hexagon.html">CSS tutorial</a> that taught me how to build these hexagons.</p>
+		<ul>
+			<li><a href="attachments/hextrio.html" class="code">HTML snippet</a></li>
+			<li><a href="attachments/hextrio.scss" class="code">SASS snippet</a></li>
+		</ul>
+	</section>	
+
+<!-- 
+
+
+	
+		<div>
+			<div class="h1" style="float: left">Dielectrophoretic Simulation Library</div>
+			<div class="lang" style="float: left;">MATLAB</div>
+		</div>
+		<div class="h2" style="clear: both">January 2013</div>
+		<div class="code-table"">
+			<div class="table-elem">	
+			The goal of this code library is to facilitate making predictions regarding DEP forces on particles in different solutions and at different frequencies. This package can be used to model prokaryotic cells with membrane and cell wall, eukaryotic cells or organelles with membrane, and homogeneous solid spheres such as polystyrene beads. Common needs in DEP simulation are comparing CM factor vs. frequency for different particles in the same medium, and calculating crossover frequency vs. conductivity. <br><br>To increase flexibility of the library I have built independent functions for each of our major particles of interest which will calculate the complex permittivity given an input vector of particle parameters and an input frequency. Different functions are needed for different particles due to modeling shelled vs unshelled and spherical vs non-spherical particles. I have separated the function for finding the complex permittivity of a particle from the function for finding the CM factor to provide for flexibility for those who want to modify the code for different mathematical models of CM factor. I have also used these basic functions to code scripts for some common needs. 
+			<br><br><a href="attachments/CM_Simulations_Overview.pdf" class="code">documentation</a>
+			<br><a href="attachments/CM_Simulation_Library.zip" class="code">library.zip</a>
+			<br><a href="https://github.com/sdsawtelle/dep-simulations.git" class="code">@ github</a>
+			</div>
+			<div class="table-elem"><img src="images/cmsim.png" align="right" style="margin-left: 40px;"/></div>
+		</div>
+		<div class="hr"><hr noshade size=3></div>
+	
+
+		<div>
+			<div class="h1" style="float: left">Dynamic Hexagon Trio</div>
+			<div class="lang" style="float: left;">SASS</div>
+		</div>
+		<div class="h2" style="clear: both"></div>
+		<div class="code-table"">
+			<div class="table-elem">	
+			<a href="http://sass-lang.com/guide">SASS is amazing</a> - it allows you to use variables and arithmetic operators along with other goodies in writing your CSS. This is the SASS code I used to draw the hexagons on <a href="home.html.">my home page.</a> This SASS + HTML snippet will build a trio of hexagons given input parameters for color, size, and spacing. You can modify the HTML to build other tesselations besides the trio. You will need a SASS interpreter (I use <a href="http://mhs.github.io/scout-app/">Scout</a>). Also check out the <a href="http://jtauber.github.io/articles/css-hexagon.html">CSS tutorial</a> that taught me how to build these hexagons.
+			<br><br><a href="attachments/hextrio.html" class="code">HTML snippet</a>
+			<br><a href="attachments/hextrio.scss" class="code">SASS snippet</a>
+			<br><a href="https://github.com/sdsawtelle/dynamic-hex-trio.git" class="code">@ github</a>
+			</div>
+			<div class="table-elem"><img src="images/hextrio.png" align="right" style="margin-left: 50px; margin-right: 50px;"/></div>
+		</div>
+		<div class="hr"><hr noshade size=3></div>	
+	
+
+	</div> -->
+
+	<footer>
+		<ul class="foot-nav">
+			<li class="to-the-top"><a href="#top">Back to the top.</a></li>
+			<li>
+				<ul class="nav-panel">
+					<li><a href="home.html">Home</a>.</li>
+					<li><a href="about.html">About</a>.</li>
+					<li><a href="research.html">Research</a>.</li>
+					<li><a href="skills.html">Skills</a>.</li>
+				</ul>
+			</li>
+		<ul>
+	</footer>
+</section
+
+</body>
+
+</html>

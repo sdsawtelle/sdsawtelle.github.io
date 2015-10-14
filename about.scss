@@ -1,0 +1,269 @@
+$first-font: "Trebuchet MS", Helvetica, sans-serif;
+
+$primary-color: #FF3399;
+$primary-color-light: #FF78BB;
+
+$secondary-color: #2963CF;
+$secondary-color-light:#0B50BF;
+
+$bright-accent-color: blue;
+
+$mark-highlight-background-color: #222;
+$mark-lvl-background-color: #fff;
+
+$hex-color: #FF3399;
+$hex-sz1: 20px;
+$hex-sz2: $hex-sz1*(52/30);
+$hex-pad: $hex-sz1*1.732;
+$hex-pad: -($hex-sz2)/(0.577);
+$hex-space: 8px;
+$hex-gap: 0.866*$hex-space;
+
+$hex-color-cur: #FFFFFF;	
+$hex-sz1-cur: 1*$hex-sz1; 
+$hex-sz2-cur: 1*$hex-sz2;
+
+$hex-color-home: $hex-color;
+
+
+body {
+  background-image: url("images/backgrnd7.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  font-family: $first-font;
+  color: black;
+  line-height: 1.5;
+  margin: 0px 0px;
+}
+
+section.main {
+	padding-bottom: 20px;
+    width: 100%;
+	height: 100%;
+    background-color: white;
+}
+
+section.in-brief,.bio,.quant-skills{
+	margin-left: 15%;
+	margin-right: 15%;
+	padding-top: 2em;
+}
+
+h1.heading{
+	background-image: linear-gradient(90deg, white 30%, $primary-color-light);
+	font-size: 200%;
+	margin: 0.8em 0em;
+}
+
+
+mark.highlight{
+	background-color: $mark-highlight-background-color;
+    border-radius: 3px;
+    color: $primary-color-light;
+    font-size: 0.875rem;  /* rem means relative to font-size of root element */
+    padding: 3px 5px 3px 7px;
+    position: relative;
+    top: -3px;
+}
+mark.lvl{
+	background-color: $mark-lvl-background-color;
+    border-radius: 3px;
+    color: $secondary-color;
+    font-size: 0.6rem;
+    padding: 1px 2px;
+	margin-left: 4px;
+    position: relative;
+	border: solid black 1px;
+}
+  
+th.skills{
+	font-size: 1.2em;
+	color: $secondary-color; 
+	text-align: center;
+}
+td.skills {
+	width: 20%;
+	text-align: center;
+}
+ul.skills{
+	list-style-type: none;
+	display: inline;
+}
+
+img.states{
+	max-width:20%
+}
+img{
+	max-width: 10%
+} 
+  
+  
+img.research{
+	max-width:60%;
+	float: left;
+	margin: 1rem;
+	margin-left: 0px;
+}
+
+img.research-right{
+	max-width:80%;
+	float: right;
+	margin: 1rem;
+	margin-right: 0px;
+}
+  
+a{
+	color: black;
+}
+a:hover{
+	color: $secondary-color;
+}
+  
+footer{
+	margin: 70px 2% 0px;
+	border: dashed $secondary-color 2px;
+	background-image: linear-gradient(90deg, white, $secondary-color-light, white);
+	padding: 10px 15px;
+}
+
+ul.foot-nav{
+	text-align: center;
+	margin: 0px 0px;
+}
+
+ul.foot-nav li{
+	display: inline;
+	padding: 0px 1em;
+	list-style: none;
+	padding-left: 0px;
+}
+
+li.to-the-top{
+	margin-left: 0px;
+	float: left;
+}
+
+ul.nav-panel {
+	float: right;
+	padding: 0px 0px;
+}
+
+
+ul.contact{
+	list-style: none;
+	text-align: right;
+	padding-left: 0px;
+	float: right;
+	margin-right: 1.5em;
+	margin-top: 0px;
+}
+
+p.contact{
+	float: right;
+}
+
+ul.contact li{
+	padding: 0.2em 0px;
+}
+
+li.nameplate{
+	font-size: 40px;
+	color: white;
+ }
+
+a.contact:link {
+  font-size: 18px;
+  text-decoration: none;
+  color: $primary-color;
+}
+
+a.contact:hover {
+  color: $bright-accent-color;
+}
+
+a.contact:visited {
+  color: $primary-color;
+}
+
+
+blockquote {
+  font-style: italic;
+  margin: 2em 2em;
+  padding-left: 3em;
+  border-left: 8px solid $secondary-color;
+}
+
+
+nav.hex-row{
+	margin-left:1*$hex-sz1;
+}
+	
+div.hex{
+	float: left;
+    margin-left: $hex-space;
+    margin-top: 0.7*$hex-sz1;}
+
+
+@mixin hex-top-mix($color,$hex-sz1,$hex-sz2) {
+	width: 0;
+	border-bottom: $hex-sz1 solid $color;
+	border-left: $hex-sz2 solid transparent;
+	border-right: $hex-sz2 solid transparent;}
+
+@mixin hex-bottom-mix($color,$hex-sz1,$hex-sz2) {
+	width: 0;
+	border-top: $hex-sz1 solid $color;
+	border-left: $hex-sz2 solid transparent;
+	border-right: $hex-sz2 solid transparent;}	
+	
+@mixin hex-mid-mix($color,$hex-sz1,$hex-sz2) {
+	width: 2*$hex-sz2;
+	height: 2*$hex-sz1;
+	background-color: $color;
+	text-align: center;}		
+	
+	
+div.hex-top{
+	@include hex-top-mix($hex-color,$hex-sz1,$hex-sz2);}
+  
+div.hex-bottom{
+	@include hex-bottom-mix($hex-color,$hex-sz1,$hex-sz2);}
+  
+div.hex-mid{
+	@include hex-mid-mix($hex-color,$hex-sz1,$hex-sz2);}
+
+	
+	
+	
+	
+div.hex-top-home{
+	@include hex-top-mix($hex-color-home,$hex-sz1,$hex-sz2);}
+  
+div.hex-bottom-home{
+	@include hex-bottom-mix($hex-color-home,$hex-sz1,$hex-sz2);}
+  
+div.hex-mid-home{
+	@include hex-mid-mix($hex-color-home,$hex-sz1,$hex-sz2);}
+
+
+	
+div.hex-top-cur{
+	@include hex-top-mix($hex-color-cur,$hex-sz1-cur,$hex-sz2-cur);}
+  
+div.hex-bottom-cur{
+	@include hex-bottom-mix($hex-color-cur,$hex-sz1-cur,$hex-sz2-cur);}
+  
+div.hex-mid-cur{
+	@include hex-mid-mix($hex-color-cur,$hex-sz1-cur,$hex-sz2-cur);
+	box-shadow: 0px 0px 6px $hex-color-cur;}	
+
+  
+a.hex-link{
+	line-height: 2*$hex-sz1;
+	text-decoration: none;
+	font-size: $hex-sz1*0.85;
+	color: black;}
+
+a.hex-link:hover{
+	color: $bright-accent-color;
+	}
