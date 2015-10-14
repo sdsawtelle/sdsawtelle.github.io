@@ -116,7 +116,8 @@ p.contact {
   float: right; }
 
 ul.contact li {
-  padding: 0.2em 0px; }
+  padding: 0.2em 0px;
+  padding-bottom: 0px; }
 
 li.nameplate {
   font-size: 40px;
@@ -125,13 +126,13 @@ li.nameplate {
 a.contact:link {
   font-size: 18px;
   text-decoration: none;
-  color: #FF3399; }
+  color: deepPink; }
 
 a.contact:hover {
   color: blue; }
 
 a.contact:visited {
-  color: #FF3399; }
+  color: deepPink; }
 
 blockquote {
   font-style: italic;
@@ -149,38 +150,38 @@ div.hex {
 
 div.hex-top {
   width: 0;
-  border-bottom: 20px solid #FF3399;
+  border-bottom: 20px solid deepPink;
   border-left: 34.66667px solid transparent;
   border-right: 34.66667px solid transparent; }
 
 div.hex-bottom {
   width: 0;
-  border-top: 20px solid #FF3399;
+  border-top: 20px solid deepPink;
   border-left: 34.66667px solid transparent;
   border-right: 34.66667px solid transparent; }
 
 div.hex-mid {
   width: 69.33333px;
   height: 40px;
-  background-color: #FF3399;
+  background-color: deepPink;
   text-align: center; }
 
 div.hex-top-home {
   width: 0;
-  border-bottom: 20px solid #FF3399;
+  border-bottom: 20px solid deepPink;
   border-left: 34.66667px solid transparent;
   border-right: 34.66667px solid transparent; }
 
 div.hex-bottom-home {
   width: 0;
-  border-top: 20px solid #FF3399;
+  border-top: 20px solid deepPink;
   border-left: 34.66667px solid transparent;
   border-right: 34.66667px solid transparent; }
 
 div.hex-mid-home {
   width: 69.33333px;
   height: 40px;
-  background-color: #FF3399;
+  background-color: deepPink;
   text-align: center; }
 
 div.hex-top-cur {
@@ -203,6 +204,12 @@ div.hex-mid-cur {
   box-shadow: 0px 0px 6px #FFFFFF; }
 
 a.hex-link {
+  line-height: 40px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white; }
+
+a.hex-link-cur {
   line-height: 40px;
   text-decoration: none;
   font-size: 17px;

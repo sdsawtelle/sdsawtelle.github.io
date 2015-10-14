@@ -59,7 +59,8 @@ p.contact {
   float: right; }
 
 ul.contact li {
-  padding: 0.2em 0px; }
+  padding: 0.2em 0px;
+  padding-bottom: 0px; }
 
 li.nameplate {
   font-size: 40px;
@@ -68,19 +69,19 @@ li.nameplate {
 a.contact:link {
   font-size: 18px;
   text-decoration: none;
-  color: #FF3399; }
+  color: deepPink; }
 
 a.contact:hover {
   color: blue; }
 
 a.contact:visited {
-  color: #FF3399; }
+  color: deepPink; }
 
 a.hex-link {
   line-height: 90px;
   text-decoration: none;
   font-size: 38.25px;
-  color: black; }
+  color: white; }
 
 a.hex-link:hover {
   color: blue; }

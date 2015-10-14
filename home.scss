@@ -1,6 +1,6 @@
 $first-font: "Trebuchet MS", Helvetica, sans-serif;
 
-$primary-color: #FF3399;
+$primary-color: deepPink;
 $primary-color-light: #FF78BB;
 
 $secondary-color: #2963CF;
@@ -92,6 +92,7 @@ p.contact{
 
 ul.contact li{
 	padding: 0.2em 0px;
+	padding-bottom: 0px;
 }
 
 li.nameplate{
@@ -117,8 +118,9 @@ a.hex-link{
 	line-height: 2*$hex-sz1;
 	text-decoration: none;
 	font-size: $hex-sz1*0.85;
-	color: black;}
+	color: white;}
 
+	
 a.hex-link:hover{
 	color: $bright-accent-color;
 	}
