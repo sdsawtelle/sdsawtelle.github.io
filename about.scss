@@ -44,7 +44,7 @@ section.main {
     background-color: white;
 }
 
-section.in-brief,.bio,.quant-skills{
+section.subsection{
 	margin-left: 15%;
 	margin-right: 15%;
 	padding-top: 2em;
@@ -276,3 +276,7 @@ a.hex-link-cur{
 a.hex-link:hover{
 	color: $bright-accent-color;
 	}
+
+a.hex-link-cur:hover{
+color: $bright-accent-color;
+}

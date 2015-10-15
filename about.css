@@ -13,7 +13,7 @@ section.main {
   height: 100%;
   background-color: white; }
 
-section.in-brief, .bio, .quant-skills {
+section.subsection {
   margin-left: 15%;
   margin-right: 15%;
   padding-top: 2em; }
@@ -216,6 +216,9 @@ a.hex-link-cur {
   color: black; }
 
 a.hex-link:hover {
+  color: blue; }
+
+a.hex-link-cur:hover {
   color: blue; }
 
 /*# sourceMappingURL=about.css.map */
