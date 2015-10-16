@@ -18,20 +18,57 @@ section.subsection {
   margin-right: 15%;
   padding-top: 2em; }
 
+section.overview {
+  margin-left: 15%;
+  margin-right: 15%;
+  padding-top: 4em;
+  padding-bottom: 2em; }
+
 h1.heading {
   background-image: linear-gradient(90deg, white 30%, #FF78BB);
   font-size: 200%;
   margin: 0.8em 0em; }
 
+ul.languages {
+  list-style-type: none; }
+
+ul.languages li {
+  padding: 0.6em 0em; }
+
 mark.highlight {
   background-color: #222;
   border-radius: 3px;
-  color: #FF78BB;
+  color: white;
   font-size: 0.875rem;
   /* rem means relative to font-size of root element */
   padding: 3px 5px 3px 7px;
-  position: relative;
-  top: -3px; }
+  position: relative; }
+
+mark.matlab, .python, .cpp, .r, .git, .web {
+  background-color: #222;
+  border-radius: 3px;
+  font-size: 0.875rem;
+  /* rem means relative to font-size of root element */
+  padding: 3px 5px 3px 7px;
+  position: relative; }
+
+mark.matlab {
+  color: red; }
+
+mark.python {
+  color: lime; }
+
+mark.cpp {
+  color: aqua; }
+
+mark.r {
+  color: orange; }
+
+mark.web {
+  color: magenta; }
+
+mark.git {
+  color: pink; }
 
 mark.lvl {
   background-color: #fff;
@@ -70,6 +107,16 @@ img.research {
 
 img.research-right {
   max-width: 80%;
+  float: right;
+  margin: 1rem;
+  margin-right: 0px; }
+
+img.thumbnailstrip {
+  max-width: 100%;
+  margin-top: 1em; }
+
+img.code {
+  max-width: 40%;
   float: right;
   margin: 1rem;
   margin-right: 0px; }
@@ -139,6 +186,12 @@ blockquote {
   margin: 2em 2em;
   padding-left: 3em;
   border-left: 8px solid #2963CF; }
+
+blockquote.code {
+  font-style: normal;
+  margin: 4em 0em;
+  padding-left: 3em;
+  border-left: 14px solid deepPink; }
 
 nav.hex-row {
   margin-left: 20px; }

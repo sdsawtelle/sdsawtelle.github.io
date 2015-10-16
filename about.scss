@@ -3,6 +3,7 @@ $first-font: "Trebuchet MS", Helvetica, sans-serif;
 
 $primary-color: deepPink;
 $primary-color-light: #FF78BB;
+$primary-color-very-light: #FFBCE0;
 
 $secondary-color: #2963CF;
 $secondary-color-light:#0B50BF;
@@ -50,22 +51,55 @@ section.subsection{
 	padding-top: 2em;
 }
 
+section.overview{
+	margin-left: 15%;
+	margin-right: 15%;
+	padding-top: 4em;
+	padding-bottom: 2em;
+}
+
 h1.heading{
 	background-image: linear-gradient(90deg, white 30%, $primary-color-light);
 	font-size: 200%;
 	margin: 0.8em 0em;
 }
 
+	
+ul.languages{
+	list-style-type: none;
+}
+
+	ul.languages li{
+	padding: 0.6em 0em;
+}
+
 
 mark.highlight{
 	background-color: $mark-highlight-background-color;
     border-radius: 3px;
-    color: $primary-color-light;
+    color: white;
     font-size: 0.875rem;  /* rem means relative to font-size of root element */
     padding: 3px 5px 3px 7px;
     position: relative;
-    top: -3px;
 }
+
+
+mark.matlab,.python,.cpp,.r,.git,.web{
+	background-color: $mark-highlight-background-color;
+    border-radius: 3px;
+    font-size: 0.875rem;  /* rem means relative to font-size of root element */
+    padding: 3px 5px 3px 7px;
+    position: relative;
+}
+
+mark.matlab{color: red;}
+mark.python{color: lime;}
+mark.cpp{color: aqua;}
+mark.r{color: orange;}
+mark.web{color: magenta;}
+mark.git{color: pink;}
+
+
 mark.lvl{
 	background-color: $mark-lvl-background-color;
     border-radius: 3px;
@@ -112,7 +146,20 @@ img.research-right{
 	margin: 1rem;
 	margin-right: 0px;
 }
-  
+ 
+img.thumbnailstrip{
+	max-width: 100%;
+	margin-top: 1em;
+}	
+ 
+img.code{
+	max-width: 40%;
+	float: right;
+	margin: 1rem;
+	margin-right: 0px;
+	}
+	
+ 
 a{
 	color: black;
 }
@@ -195,6 +242,12 @@ blockquote {
   border-left: 8px solid $secondary-color;
 }
 
+blockquote.code {
+  font-style: normal;
+  margin: 4em 0em;
+  padding-left: 3em;
+  border-left: 14px solid $primary-color;
+}
 
 nav.hex-row{
 	margin-left:1*$hex-sz1;
