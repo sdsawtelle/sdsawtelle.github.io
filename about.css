@@ -27,15 +27,15 @@ section.overview {
 h1.heading {
   /* background-image: linear-gradient(90deg, white 30%, $primary-color-light); */
   border: solid deepPink 1.5px;
-  border-right: solid deepPink 4px;
+  border-right: solid deepPink 5px;
   border-top: 0px;
   border-left: 0px;
   font-size: 200%;
-  margin-top: 0.8em;
+  margin-top: 1.2em;
   margin-bottom: 0px; }
 
 h1.borderaccent {
-  height: 6px;
+  height: 7px;
   border-left: solid deepPink 1.5px;
   margin-bottom: 0.8em;
   margin-top: 0px; }
@@ -101,18 +101,61 @@ mark.lvl {
   position: relative;
   border: solid black 1px; }
 
+mark.Tulane, .Yale, .Indiana, .Middlebury {
+  background-color: #fff;
+  border-radius: 3px;
+  color: #2963CF;
+  font-size: 0.6rem;
+  padding: 1px 2px;
+  margin-left: 4px;
+  position: relative;
+  border: solid black 1px;
+  font-weight: bold; }
+
+mark.Tulane {
+  color: #00331A; }
+
+mark.Yale {
+  color: #0E4C92; }
+
+mark.Indiana {
+  color: #7D110C; }
+
+mark.Middlebury {
+  color: #003F84; }
+
+table {
+  margin-top: 2.5em; }
+
 th.skills {
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: #2963CF;
   text-align: center; }
 
 td.skills {
   width: 20%;
-  text-align: center; }
+  text-align: center;
+  padding-top: 0.5em; }
 
 ul.skills {
+  margin-top: 1em;
   list-style-type: none;
-  display: inline; }
+  display: inline;
+  padding: 0px 0px; }
+
+tr.skill-lists {
+  vertical-align: top;
+  padding-top: 0px; }
+
+ul.courses {
+  margin-top: 1em;
+  list-style-type: none;
+  display: inline;
+  font-size: 0.8em;
+  padding: 0px 0px; }
+
+ul.courses li {
+  padding: 0.2em 0em; }
 
 img.states {
   max-width: 20%; }
@@ -137,10 +180,11 @@ img.thumbnailstrip {
   margin-top: 1em; }
 
 img.code {
-  max-width: 40%;
+  max-width: 30%;
   float: right;
   margin: 1rem;
-  margin-right: 0px; }
+  margin-right: 0px;
+  margin-top: 0px; }
 
 a {
   color: black; }
@@ -158,7 +202,7 @@ footer {
   margin-top: 10px;
   /* 	border: dashed $secondary-color 2px; */
   /* background-image: url("images/backgrnd7.jpg"); */
-  padding: 20px 15px; }
+  padding: 20px 12px 35px; }
 
 ul.foot-nav {
   text-align: center;
@@ -216,9 +260,17 @@ blockquote {
 
 blockquote.code {
   font-style: normal;
-  margin: 4em 0em;
+  margin: 0em;
+  margin-top: 6em;
   padding-left: 3em;
-  border-left: 14px solid #2963CF; }
+  border-left: 14px solid black;
+  border-bottom: 2px solid black;
+  padding-bottom: 1em; }
+
+p.accent {
+  border-right: 4px solid black;
+  margin-top: 0px;
+  height: 6px; }
 
 nav.hex-row {
   margin-left: 20px; }
