@@ -8,7 +8,7 @@ body {
   margin: 0px 0px; }
 
 section.main {
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   width: 100%;
   height: 100%;
   background-color: white; }
@@ -22,18 +22,39 @@ section.overview {
   margin-left: 15%;
   margin-right: 15%;
   padding-top: 4em;
-  padding-bottom: 2em; }
+  padding-bottom: 1.2em; }
 
 h1.heading {
-  background-image: linear-gradient(90deg, white 30%, #FF78BB);
+  /* background-image: linear-gradient(90deg, white 30%, $primary-color-light); */
+  border: solid deepPink 1.5px;
+  border-right: solid deepPink 4px;
+  border-top: 0px;
+  border-left: 0px;
   font-size: 200%;
-  margin: 0.8em 0em; }
+  margin-top: 0.8em;
+  margin-bottom: 0px; }
+
+h1.borderaccent {
+  height: 6px;
+  border-left: solid deepPink 1.5px;
+  margin-bottom: 0.8em;
+  margin-top: 0px; }
 
 ul.languages {
   list-style-type: none; }
 
 ul.languages li {
   padding: 0.6em 0em; }
+
+ul.attachments {
+  padding: 0px 0px; }
+
+ul.attachments li {
+  display: inline;
+  padding-right: 2em;
+  float: left;
+  /* list-style: none; */
+  /* padding-left: 0px; */ }
 
 mark.highlight {
   background-color: #222;
@@ -53,22 +74,22 @@ mark.matlab, .python, .cpp, .r, .git, .web {
   position: relative; }
 
 mark.matlab {
-  color: red; }
+  color: white; }
 
 mark.python {
-  color: lime; }
+  color: white; }
 
 mark.cpp {
-  color: aqua; }
+  color: white; }
 
 mark.r {
-  color: orange; }
+  color: white; }
 
 mark.web {
-  color: magenta; }
+  color: white; }
 
 mark.git {
-  color: pink; }
+  color: white; }
 
 mark.lvl {
   background-color: #fff;
@@ -127,11 +148,17 @@ a {
 a:hover {
   color: #2963CF; }
 
+/* footer{
+	margin: 70px 2% 0px;
+	border: dashed $secondary-color 2px;
+	background-image: linear-gradient(90deg, white, $secondary-color-light, white);
+	padding: 10px 15px;
+} */
 footer {
-  margin: 70px 2% 0px;
-  border: dashed #2963CF 2px;
-  background-image: linear-gradient(90deg, white, #0B50BF, white);
-  padding: 10px 15px; }
+  margin-top: 10px;
+  /* 	border: dashed $secondary-color 2px; */
+  /* background-image: url("images/backgrnd7.jpg"); */
+  padding: 20px 15px; }
 
 ul.foot-nav {
   text-align: center;
@@ -191,7 +218,7 @@ blockquote.code {
   font-style: normal;
   margin: 4em 0em;
   padding-left: 3em;
-  border-left: 14px solid deepPink; }
+  border-left: 14px solid #2963CF; }
 
 nav.hex-row {
   margin-left: 20px; }
@@ -273,5 +300,12 @@ a.hex-link:hover {
 
 a.hex-link-cur:hover {
   color: blue; }
+
+hr.style-two {
+  border: 0;
+  height: 1.2px;
+  background-image: linear-gradient(to right, #fff, rgba(0, 0, 0, 0.75), #fff);
+  margin-top: 3em;
+  margin-bottom: 0.2em; }
 
 /*# sourceMappingURL=about.css.map */

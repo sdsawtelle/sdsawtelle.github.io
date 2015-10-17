@@ -39,7 +39,7 @@ body {
 }
 
 section.main {
-	padding-bottom: 20px;
+	/* padding-bottom: 20px; */
     width: 100%;
 	height: 100%;
     background-color: white;
@@ -55,24 +55,46 @@ section.overview{
 	margin-left: 15%;
 	margin-right: 15%;
 	padding-top: 4em;
-	padding-bottom: 2em;
+	padding-bottom: 1.2em;
 }
 
 h1.heading{
-	background-image: linear-gradient(90deg, white 30%, $primary-color-light);
+	/* background-image: linear-gradient(90deg, white 30%, $primary-color-light); */
+	border: solid $primary-color 1.5px;
+	border-right: solid $primary-color 4px;
+	border-top: 0px;
+	border-left: 0px;
 	font-size: 200%;
-	margin: 0.8em 0em;
+	margin-top: 0.8em;
+	margin-bottom: 0px;
 }
 
+h1.borderaccent{
+	height: 6px;
+	border-left:solid $primary-color 1.5px;
+	margin-bottom: 0.8em;
+	margin-top: 0px;
+}
 	
 ul.languages{
 	list-style-type: none;
 }
 
-	ul.languages li{
+ul.languages li{
 	padding: 0.6em 0em;
 }
 
+ul.attachments{
+	padding: 0px 0px;
+}
+
+ul.attachments li{
+	display: inline;
+	padding-right: 2em;
+	float: left;
+	/* list-style: none; */
+	/* padding-left: 0px; */
+}
 
 mark.highlight{
 	background-color: $mark-highlight-background-color;
@@ -92,12 +114,12 @@ mark.matlab,.python,.cpp,.r,.git,.web{
     position: relative;
 }
 
-mark.matlab{color: red;}
-mark.python{color: lime;}
-mark.cpp{color: aqua;}
-mark.r{color: orange;}
-mark.web{color: magenta;}
-mark.git{color: pink;}
+mark.matlab{color: white;}
+mark.python{color: white;}
+mark.cpp{color: white;}
+mark.r{color: white;}
+mark.web{color: white;}
+mark.git{color: white;}
 
 
 mark.lvl{
@@ -167,11 +189,18 @@ a:hover{
 	color: $secondary-color;
 }
   
-footer{
+/* footer{
 	margin: 70px 2% 0px;
 	border: dashed $secondary-color 2px;
 	background-image: linear-gradient(90deg, white, $secondary-color-light, white);
 	padding: 10px 15px;
+} */
+
+footer{
+	margin-top: 10px;
+/* 	border: dashed $secondary-color 2px; */	
+	/* background-image: url("images/backgrnd7.jpg"); */
+	padding: 20px 15px;
 }
 
 ul.foot-nav{
@@ -246,7 +275,7 @@ blockquote.code {
   font-style: normal;
   margin: 4em 0em;
   padding-left: 3em;
-  border-left: 14px solid $primary-color;
+  border-left: 14px solid $secondary-color;
 }
 
 nav.hex-row{
@@ -332,4 +361,14 @@ a.hex-link:hover{
 
 a.hex-link-cur:hover{
 color: $bright-accent-color;
+}
+
+
+
+hr.style-two {
+    border: 0;
+    height: 1.2px;
+    background-image: linear-gradient(to right, #fff, rgba(0, 0, 0, 0.75), #fff);
+	margin-top: 3em;
+	margin-bottom: 0.2em;
 }
