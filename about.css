@@ -8,7 +8,7 @@ body {
   margin: 0px 0px; }
 
 section.main {
-  padding-bottom: 20px;
+  /* padding-bottom: 20px; */
   width: 100%;
   height: 100%;
   background-color: white; }
@@ -22,18 +22,39 @@ section.overview {
   margin-left: 15%;
   margin-right: 15%;
   padding-top: 4em;
-  padding-bottom: 2em; }
+  padding-bottom: 1.2em; }
 
 h1.heading {
-  background-image: linear-gradient(90deg, white 30%, #FF78BB);
+  /* background-image: linear-gradient(90deg, white 30%, $primary-color-light); */
+  border: solid deepPink 1.5px;
+  border-right: solid deepPink 5px;
+  border-top: 0px;
+  border-left: 0px;
   font-size: 200%;
-  margin: 0.8em 0em; }
+  margin-top: 1.2em;
+  margin-bottom: 0px; }
+
+h1.borderaccent {
+  height: 7px;
+  border-left: solid deepPink 1.5px;
+  margin-bottom: 0.8em;
+  margin-top: 0px; }
 
 ul.languages {
   list-style-type: none; }
 
 ul.languages li {
   padding: 0.6em 0em; }
+
+ul.attachments {
+  padding: 0px 0px; }
+
+ul.attachments li {
+  display: inline;
+  padding-right: 2em;
+  float: left;
+  /* list-style: none; */
+  /* padding-left: 0px; */ }
 
 mark.highlight {
   background-color: #222;
@@ -53,22 +74,22 @@ mark.matlab, .python, .cpp, .r, .git, .web {
   position: relative; }
 
 mark.matlab {
-  color: red; }
+  color: white; }
 
 mark.python {
-  color: lime; }
+  color: white; }
 
 mark.cpp {
-  color: aqua; }
+  color: white; }
 
 mark.r {
-  color: orange; }
+  color: white; }
 
 mark.web {
-  color: magenta; }
+  color: white; }
 
 mark.git {
-  color: pink; }
+  color: white; }
 
 mark.lvl {
   background-color: #fff;
@@ -80,18 +101,61 @@ mark.lvl {
   position: relative;
   border: solid black 1px; }
 
+mark.Tulane, .Yale, .Indiana, .Middlebury {
+  background-color: #fff;
+  border-radius: 3px;
+  color: #2963CF;
+  font-size: 0.6rem;
+  padding: 1px 2px;
+  margin-left: 4px;
+  position: relative;
+  border: solid black 1px;
+  font-weight: bold; }
+
+mark.Tulane {
+  color: #00331A; }
+
+mark.Yale {
+  color: #0E4C92; }
+
+mark.Indiana {
+  color: #7D110C; }
+
+mark.Middlebury {
+  color: #003F84; }
+
+table {
+  margin-top: 2.5em; }
+
 th.skills {
-  font-size: 1.2em;
+  font-size: 1.4em;
   color: #2963CF;
   text-align: center; }
 
 td.skills {
   width: 20%;
-  text-align: center; }
+  text-align: center;
+  padding-top: 0.5em; }
 
 ul.skills {
+  margin-top: 1em;
   list-style-type: none;
-  display: inline; }
+  display: inline;
+  padding: 0px 0px; }
+
+tr.skill-lists {
+  vertical-align: top;
+  padding-top: 0px; }
+
+ul.courses {
+  margin-top: 1em;
+  list-style-type: none;
+  display: inline;
+  font-size: 0.8em;
+  padding: 0px 0px; }
+
+ul.courses li {
+  padding: 0.2em 0em; }
 
 img.states {
   max-width: 20%; }
@@ -116,10 +180,11 @@ img.thumbnailstrip {
   margin-top: 1em; }
 
 img.code {
-  max-width: 40%;
+  max-width: 30%;
   float: right;
   margin: 1rem;
-  margin-right: 0px; }
+  margin-right: 0px;
+  margin-top: 0px; }
 
 a {
   color: black; }
@@ -127,11 +192,17 @@ a {
 a:hover {
   color: #2963CF; }
 
+/* footer{
+	margin: 70px 2% 0px;
+	border: dashed $secondary-color 2px;
+	background-image: linear-gradient(90deg, white, $secondary-color-light, white);
+	padding: 10px 15px;
+} */
 footer {
-  margin: 70px 2% 0px;
-  border: dashed #2963CF 2px;
-  background-image: linear-gradient(90deg, white, #0B50BF, white);
-  padding: 10px 15px; }
+  margin-top: 10px;
+  /* 	border: dashed $secondary-color 2px; */
+  /* background-image: url("images/backgrnd7.jpg"); */
+  padding: 20px 12px 35px; }
 
 ul.foot-nav {
   text-align: center;
@@ -189,9 +260,17 @@ blockquote {
 
 blockquote.code {
   font-style: normal;
-  margin: 4em 0em;
+  margin: 0em;
+  margin-top: 6em;
   padding-left: 3em;
-  border-left: 14px solid deepPink; }
+  border-left: 14px solid black;
+  border-bottom: 2px solid black;
+  padding-bottom: 1em; }
+
+p.accent {
+  border-right: 4px solid black;
+  margin-top: 0px;
+  height: 6px; }
 
 nav.hex-row {
   margin-left: 20px; }
@@ -273,5 +352,12 @@ a.hex-link:hover {
 
 a.hex-link-cur:hover {
   color: blue; }
+
+hr.style-two {
+  border: 0;
+  height: 1.2px;
+  background-image: linear-gradient(to right, #fff, rgba(0, 0, 0, 0.75), #fff);
+  margin-top: 3em;
+  margin-bottom: 0.2em; }
 
 /*# sourceMappingURL=about.css.map */
