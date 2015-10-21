@@ -134,8 +134,8 @@
 			I really like learning new languages for coding and markup. When I'm learning a new tool I use some structured materials (books, courses) and also jump right in with small projects -  the two approaches complement one another. Below is an overview of the languages I have experience in, and some selected pieces of code and projects.	
 		</p>
 
-		<p><mark class="python">Python</mark> is my language of choice for fun projects. I started learning with the intro course at <a href="https://www.codecademy.com/en/tracks/python">codeacademy.com</a> created a set of <a href="https://dl.dropboxusercontent.com/u/351724/Resources/150901_Codecademy_PythonCliffnotes/CodeAcademyNotes.pdf">python cliffnotes</a> from it. I'd like to eventually learn web app development using Python as a back-end.</p>
-		<p>I use <mark class="matlab">MATLAB</mark> for all of my data analysis and visualization for my PhD research in. I have used it regularly for the last four years to do a do all sorts of tasks from image analysis to model implementation.</p>
+		<p><mark class="python">Python</mark> is my language of choice for fun projects. I started learning with the intro course at <a href="https://www.codecademy.com/en/tracks/python">codeacademy.com</a> created a set of <a href="https://dl.dropboxusercontent.com/u/351724/Resources/150901_Codecademy_PythonCliffnotes/CodeAcademyNotes.pdf">python cliffnotes</a> from it. I'd like to eventually learn web app development using Python as a back-end. I also would like to migrate to python for my data analyis, visualization and simulation work - all other things being equal I'd rather not be tied to an expensive proprietary product. Speaking of which...</p> 
+		<p>I use <mark class="matlab">MATLAB</mark> for all of my data analysis and visualization for my PhD research. I have used it regularly for the last four years to do a do all sorts of tasks from image analysis to model implementation.</p>
 		<p>I code all my instrument control and data acquisition routines in <mark class="cpp">C++</mark>. I started learning with the <em>Sam's Teach Yourself C++</em> book - here are my <a href="https://dl.dropboxusercontent.com/u/351724/Resources/151001_SamsTeachYourself_CppCliffnotes/sams-teach-yourself-cplusplus.pdf">collected C++ notes</a>.</p>
 		<p>I used <mark class="r">R</mark> for a probability and statistics course and also for a device fabrication lab which required a lot of data analysis.</p>
 		<p>For any project of significant size I use <mark class="git">Git</mark> terminal for version control.</a></p>
@@ -150,7 +150,7 @@
 			<p>
 				<img src="images/cmsim.png" class="code"> 
 				The goal of this code library is to facilitate making predictions regarding DEP forces on particles in different solutions and at different frequencies. This package can be used to model prokaryotic cells with membrane and cell wall, eukaryotic cells or organelles with membrane, and homogeneous solid spheres such as polystyrene beads. 
-				Common needs in DEP simulation are comparing CM factor vs. frequency for different particles in the same medium, and calculating crossover frequency vs. conductivity. To increase flexibility of the library I have built independent functions for each of our major particles of interest which will calculate the complex permittivity given an input vector of particle parameters and an input frequency. Different functions are needed for different particles due to modeling shelled vs unshelled and spherical vs non-spherical particles. I have separated the function for finding the complex permittivity of a particle from the function for finding the CM factor to provide for flexibility for those who want to modify the code for different mathematical models of CM factor. I have also used these basic functions to code scripts for some common needs.
+				Common needs in DEP simulation are comparing CM factor vs. frequency for different particles in the same medium, and calculating crossover frequency vs. conductivity. To increase flexibility of the library I have built independent functions for each of our major particles of interest and used these basic functions to code scripts for some common needs.
 				<ul class="attachments">
 					<li><a href="attachments/CM_Simulations_Overview.pdf" class="code">documentation</a></li>
 					<li><a href="attachments/CM_Simulation_Library.zip" class="code">library.zip</a></li>
@@ -186,7 +186,7 @@
 			</p>
 			<p>
 				<img src="images/ContactAngle.png" class="code"> 
-				The angle that a droplet of liquid (usually water) makes in contact with a surface is a function of the surface properties. For example, you can alter a gold surface on which water will spread rapidly to a hydrophobic surface on which water will bead up, by functionalizing the gold atoms with a monolayer of small organic thiols. The degree to which the water beads up after functionalization tells you how successful your chemistry was.
+				The angle that a droplet of liquid (usually water) makes in contact with a surface is a function of the surface properties and is often a useful thing to measure and analyze.
 				This code takes a set of contact angle images and for each image the program lets you zoom in and three points on the image around the droplet boundary, then the program will do the calculation and draw the chord and tangent lines on the image along with the extracted angle, so you can visually verify that it isn't doing something stupid.
 				After looping through all the images you are prompted with, the program will output a .csv containing the filenames and contact angles in degrees. The program will also plot all the contact angles by sample number for visual inspection.
 				<ul class="attachments">
