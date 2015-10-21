@@ -353,7 +353,7 @@ a.hex-link:hover {
 a.hex-link-cur:hover {
   color: blue; }
 
-hr.style-two {
+hr.footer-divider {
   border: 0;
   height: 1.2px;
   background-image: linear-gradient(to right, #fff, rgba(0, 0, 0, 0.75), #fff);
