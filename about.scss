@@ -318,14 +318,14 @@ blockquote.code {
   margin: 0em;
   margin-top: 6em;
   padding-left: 3em;
-  border-left: 14px solid black;
-  border-bottom: 2px solid black;
+  border-left: 4px solid black;
+  border-bottom: 1px solid black;
   padding-bottom: 1em;
 }
 
 p.accent{
-	border-right: 4px solid black;
-    margin-top: 0px;
+	border-right: 1px solid black;
+    margin: 0em;
     height: 6px;
 }
 
@@ -421,6 +421,6 @@ hr.footer-divider {
     border: 0;
     height: 1px;
     background-image: linear-gradient(to right, #fff, rgba(0, 0, 0, 0.75), #fff);
-	margin-top: 3em;
+	margin-top: 6em;
 	margin-bottom: 0.2em;
 }
