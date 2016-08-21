@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Blog static-generating engine stuff
+blog/plugins
+
 # C extensions
 *.so
 
