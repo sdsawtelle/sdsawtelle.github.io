@@ -1,38 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-        <meta charset="utf-8" />
-        <title>SonyaSawtelle</title>
-        <link rel="stylesheet" href=" http://username.github.io/blog/theme/css/main.css" />
-        <link href=" http://username.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="SonyaSawtelle Atom Feed" />
-
-        <!--[if IE]>
-            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        <![endif]-->
-</head>
-
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href=" http://username.github.io/blog/">SonyaSawtelle </a></h1>
-                <nav><ul>
-                    <li><a href=" http://username.github.io/blog/category/posts.html">posts</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href=" http://username.github.io/blog/first-post.html">First Post</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2016-06-08T20:00:00-04:00">
-                Published: Wed 08 June 2016
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href=" http://username.github.io/blog/author/vik-paruchuri.html">Vik Paruchuri</a>
-        </address>
-<p>In <a href=" http://username.github.io/blog/category/posts.html">posts</a>.</p>
-<p>tags: <a href=" http://username.github.io/blog/tag/python-firsts.html">python firsts</a> </p>
-</footer><!-- /.post-info --><style type="text/css">/*!
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SonyaSawtelle</title><link href="%20http://username.github.io/blog/" rel="alternate"></link><link href="%20http://username.github.io/blog/feeds/all.atom.xml" rel="self"></link><id> http://username.github.io/blog/</id><updated>2016-06-08T20:00:00-04:00</updated><entry><title>First Post</title><link href="%20http://username.github.io/blog/first-post.html" rel="alternate"></link><published>2016-06-08T20:00:00-04:00</published><author><name>Vik Paruchuri</name></author><id>tag:,2016-06-08: http://username.github.io/blog/first-post.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -263,7 +230,7 @@ div.unrecognized_cell .inner_cell a:hover {
   text-decoration: none;
 }
 @media (max-width: 540px) {
-  div.unrecognized_cell > div.prompt {
+  div.unrecognized_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -316,19 +283,19 @@ div.input_prompt {
   color: #303F9F;
   border-top: 1px solid transparent;
 }
-div.input_area > div.highlight {
+div.input_area &gt; div.highlight {
   margin: 0.4em;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-div.input_area > div.highlight > pre {
+div.input_area &gt; div.highlight &gt; pre {
   margin: 0px;
   border: none;
   padding: 0px;
   background-color: transparent;
 }
-/* The following gets added to the <head> if it is detected that the user has a
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
  * monospace font with inconsistent normal/bold/italic height.  See
  * notebookmain.js.  Such fonts will have keywords vertically offset with
  * respect to the rest of the text.  The user should select a better font.
@@ -374,7 +341,7 @@ div.input_area > div.highlight > pre {
 }
 /*
 
-Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
 Adapted from GitHub theme
 
 */
@@ -836,7 +803,7 @@ div.text_cell {
   align-items: stretch;
 }
 @media (max-width: 540px) {
-  div.text_cell > div.prompt {
+  div.text_cell &gt; div.prompt {
     display: none;
   }
 }
@@ -901,8 +868,8 @@ h6:hover .anchor-link {
   font-size: 100%;
   font-style: italic;
 }
-</style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
@@ -966,8 +933,8 @@ h6:hover .anchor-link {
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;style type="text/css"&gt;
 /* Temporary definitions which will become obsolete with Notebook release 5.0 */
 .ansi-black-fg { color: #3E424D; }
 .ansi-black-bg { background-color: #3E424D; }
@@ -1003,21 +970,21 @@ h6:hover .anchor-link {
 .ansi-white-intense-bg { background-color: #A1A6B2; }
 
 .ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This would be a writeup that would be a really really shallow discussion of the python execution model.</p>
-<p>It would start by explaining about objects being chunks of stuff at a specific physical location in memory.</p>
-<p>Then it would talk about how the assignment operator really just creates and moves around tags/handles/labels</p>
-<p>Then it would talk about immutable and mutable objects in memory</p>
-<p>Then it would talk about how everything is an object!</p>
-</div>
-</div>
-</div>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;This would be a writeup that would be a really really shallow discussion of the python execution model.&lt;/p&gt;
+&lt;p&gt;It would start by explaining about objects being chunks of stuff at a specific physical location in memory.&lt;/p&gt;
+&lt;p&gt;Then it would talk about how the assignment operator really just creates and moves around tags/handles/labels&lt;/p&gt;
+&lt;p&gt;Then it would talk about immutable and mutable objects in memory&lt;/p&gt;
+&lt;p&gt;Then it would talk about how everything is an object!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
@@ -1043,37 +1010,5 @@ h6:hover .anchor-link {
         "}); ";
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
-</script>
-                </article>
-            </aside><!-- /#featured -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>blogroll</h2>
-                        <ul>
-                            <li><a href="http://getpelican.com/">Pelican</a></li>
-                            <li><a href="http://python.org/">Python.org</a></li>
-                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href=" http://username.github.io/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
-</body>
-</html>
+&lt;/script&gt;
+</summary><category term="python firsts"></category></entry></feed>
