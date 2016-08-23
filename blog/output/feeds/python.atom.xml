@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SonyaSawtelle</title><link href="/" rel="alternate"></link><link href="/feeds/python.atom.xml" rel="self"></link><id>/</id><updated>2016-08-21T13:30:00+02:00</updated><entry><title>Scrabble Wordlists with Python</title><link href="/scrabble-wordlists-with-python.html" rel="alternate"></link><published>2016-08-21T13:30:00+02:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-08-21:scrabble-wordlists-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SonyaSawtelle</title><link href="sdsawtelle.github.io/blog/" rel="alternate"></link><link href="sdsawtelle.github.io/blog/feeds/python.atom.xml" rel="self"></link><id>sdsawtelle.github.io/blog/</id><updated>2016-08-21T13:30:00+02:00</updated><entry><title>Scrabble Wordlists with Python</title><link href="sdsawtelle.github.io/blog/scrabble-wordlists-with-python.html" rel="alternate"></link><published>2016-08-21T13:30:00+02:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-08-21:sdsawtelle.github.io/blog/scrabble-wordlists-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
