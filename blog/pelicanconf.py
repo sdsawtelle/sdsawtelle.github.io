@@ -2,13 +2,17 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
 AUTHOR = u'Sonya Sawtelle'
 SITENAME = u'SonyaSawtelle'
 SITEURL = ''
 
 PATH = 'content'
 
-TIMEZONE = 'America/New_York'
+TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = u'en'
 
@@ -39,6 +43,5 @@ MARKUP = ('md', 'ipynb')
 PLUGIN_PATH = './plugins'
 PLUGINS = ['ipynb.markup']
 
+LOAD_CONTENT_CACHE = False
 THEME = "pelican-themes/clean-blog"
-
-SITESUBTITLE = "living a quantitative life"
