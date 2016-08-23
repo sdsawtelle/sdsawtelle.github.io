@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import sys
 reload(sys)
 sys.setdefaultencoding("utf-8")
+
 # This file is only used if you use `make publish` or
 # explicitly specify it as your config file.
 

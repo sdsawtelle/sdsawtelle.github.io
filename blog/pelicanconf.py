@@ -12,7 +12,7 @@ SITEURL = ''
 
 PATH = 'content'
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'America/New_York'
 
 DEFAULT_LANG = u'en'
 
@@ -45,3 +45,5 @@ PLUGINS = ['ipynb.markup']
 
 LOAD_CONTENT_CACHE = False
 THEME = "pelican-themes/clean-blog"
+
+SITESUBTITLE = "a quantitative life"
