@@ -8,7 +8,7 @@ sys.setdefaultencoding("utf-8")
 
 AUTHOR = u'Sonya Sawtelle'
 SITENAME = u'SonyaSawtelle'
-SITEURL = ''
+SITEURL = 'sdsawtelle.github.io'
 
 PATH = 'content'
 
@@ -44,6 +44,6 @@ PLUGIN_PATH = './plugins'
 PLUGINS = ['ipynb.markup']
 
 LOAD_CONTENT_CACHE = False
-THEME = "pelican-themes/blue-penguin"
+THEME = "pelican-themes/clean-blog"
 
 SITESUBTITLE = "a quantitative life"

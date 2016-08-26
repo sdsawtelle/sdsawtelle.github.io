@@ -29,8 +29,8 @@ green     #859900  operators, other keywords
 .highlight .cm { color: #586e75 } /* Comment.Multiline */
 .highlight .cp { color: #859900 } /* Comment.Preproc */
 .highlight .c1 { color: #586e75 } /* Comment.Single */
-.highlight .cs { color: #859900 } /* Comment.Special */
 .highlight .gd { color: #2aa198 } /* Generic.Deleted */
+.highlight .cs { color: #859900 } /* Comment.Special */
 .highlight .ge { color: #93a1a1; font-style: italic } /* Generic.Emph */
 .highlight .gr { color: #dc322f } /* Generic.Error */
 .highlight .gh { color: #cb4b16 } /* Generic.Heading */

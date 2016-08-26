@@ -14,7 +14,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'sdsawtelle.github.io/blog'
+SITEURL = 'sdsawtelle.github.io'
 RELATIVE_URLS = True
 
 FEED_ALL_ATOM = 'feeds/all.atom.xml'
