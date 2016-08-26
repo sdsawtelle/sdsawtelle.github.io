@@ -44,6 +44,6 @@ PLUGIN_PATH = './plugins'
 PLUGINS = ['ipynb.markup']
 
 LOAD_CONTENT_CACHE = False
-#THEME = "pelican-themes/clean-blog"
+THEME = "pelican-themes/clean-blog"
 
 SITESUBTITLE = "a quantitative life"
