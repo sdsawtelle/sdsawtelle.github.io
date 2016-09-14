@@ -45,5 +45,3 @@ PLUGINS = ['ipynb.markup']
 
 LOAD_CONTENT_CACHE = False
 THEME = "pelican-themes/clean-blog"
-
-SITESUBTITLE = "a quantitative life"
