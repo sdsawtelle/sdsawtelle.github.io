@@ -39,7 +39,7 @@
 
         <meta name="tags" contents="python" />
         <meta name="tags" contents="bash" />
-        <meta name="tags" contents="LSW" />
+        <meta name="tags" contents="WSL" />
 
 
 			<meta property="og:locale" content="en">
@@ -1092,10 +1092,10 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>So, I have a Windows machine that I'm rather fond of. Maybe you do too. The unfortunate thing about this situation is that Unix shell (commonly <code>bash</code>) sort of stomps Windows system shell and is much more common in the quantitative computing universe (and on servers and clusters). Once I began poking around in the data science ecosystem it became clear that this was a pretty large gap in my skill set. Not just the lack of <code>bash</code> language skills but also just the lack of command line in my work flow - I wondered what I was missing. Turns out my timing on this issue is great, because the most recent update to Windows 10 rolled out a feature that is going to let me play around with native <code>bash</code> pretty seamlessly - it's called the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq">Linux Subystem for Windows</a> (LSW).</p>
-<p>Before getting all freaky with <code>bash</code>, I'd like to point out that I <em>really</em> like the idea of my work flow being operating system agnostic. And I <em>really really</em> like the idea of minimizing the number of tools and languages I depend on. But at the same time I think I should have <em>some</em> degree of familiarity with <code>bash</code> because it's everywhere, and because I'm sure some things are just easier with the right <code>bash</code> one-liner or the right command line tool. So I decided to build a work flow that is <em>mostly</em> operating system agnostic (read: <code>Python</code>) while picking up the most useful <code>bash</code> with this LSW witchcraft.</p>
-<p>This post is for Windows users doing scientific computing, and who are noobs at Unix command line but who want to fix that by playing with the new LSW, but who still want to do most stuff in Python not <code>bash</code>. Not counting myself that might be the empty set, I dunno. Anyway, here I'll describe what the hell <code>bash</code> even is and how <code>IPython</code> is actally a viable alternative. Then I'll outline how to get your LSW up and running, and then how to get your Anaconda toolset up and running on top of it.</p>
-<p>Part 2 of this freakshow will build out the specific functionality in Python that can replace a lot of what <code>bash</code> is commonly used for.</p>
+<p>So, I have a Windows machine that I'm rather fond of. Maybe you do too. The unfortunate thing about this situation is that Unix shell (commonly <code>bash</code>) is much more common than Windows system shell in the quantitative computing universe. In the World of Windows we don't really have much of a culture around command line, and so I'm basically a giant command line noob. Once I began poking around in the data science ecosystem it became clear that this was a pretty large gap in my skill set. Not just the lack of <code>bash</code> language skills but also just the lack of command line in my work flow , and I was curious what I was missing. Turns out my timing on this issue is great, because the most recent update to Windows 10 rolled out a feature that is going to let me play around with native <code>bash</code> pretty seamlessly - it's called the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq">Windows Subystem for Linux</a> (WSL).</p>
+<p>Before getting freaky with <code>bash</code>, I'd like to point out that I <em>really</em> like the idea of my work flow being operating system agnostic. And I <em>really really</em> like the idea of minimizing the number of tools and languages I depend on. But at the same time I think I should have <em>some</em> degree of familiarity with <code>bash</code> because it's everywhere, and because I'm sure some things are just easier with the right <code>bash</code> one-liner or the right command line tool. So I'm trying to build a command line work flow that is <em>mostly</em> operating system agnostic (read: <code>Python</code>) while still learning some useful <code>bash</code> with this WSL voodoo.</p>
+<p>So this post is for Windows users doing scientific computing, and who are noobs at Unix command line but who want to fix that by playing with the new WSL, but who still want to do most stuff in Python not <code>bash</code>. Not counting myself that might be the empty set, I dunno. Anyway, here I'll describe what the hell <code>bash</code> even is and how <code>IPython</code> is actally a viable alternative console. Then I'll outline how to get your WSL up and running, and then how to get your Anaconda toolset up and running on top of it.</p>
+<p>I'll gradually build out the specific functionality in Python that can replace a lot of what <code>bash</code> is commonly used for, and I may put that into a later post.</p>
 </div>
 </div>
 </div>
@@ -1238,7 +1238,7 @@ While this is a useful Bash alias:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Get-Ubuntu-on-Windows!">Get Ubuntu on Windows!<a class="anchor-link" href="#Get-Ubuntu-on-Windows!">¶</a></h1><p>The Linux Subsystem for Windows is a new (as in, still in Beta) feature for Windows 10 that provides a way to run Linux tools on a Windows machine. This feature defines a mapping between the Ubuntu operating system and Windows, which allows you to work with native Linux command line tools - that includes native <code>bash</code>! Check out the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq">official FAQ for LSW</a> for more information. Following <a href="http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">this quick guide</a>, here is the gist of what you need to do to get it up and running:</p>
+<h1 id="Get-Ubuntu-on-Windows!">Get Ubuntu on Windows!<a class="anchor-link" href="#Get-Ubuntu-on-Windows!">¶</a></h1><p>The Linux Subsystem for Windows is a new (as in, still in Beta) feature for Windows 10 that provides a way to run Linux tools on a Windows machine. This feature defines a mapping between the Ubuntu operating system and Windows, which allows you to work with native Linux command line tools - that includes native <code>bash</code>! Check out the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq">official FAQ for WSL</a> for more information. Following <a href="http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">this quick guide</a>, here is the gist of what you need to do to get it up and running:</p>
 <ul>
 <li>Do you have Windows 10? If not, <a href="https://www.microsoft.com/en-us/accessibility/windows10upgrade">get it</a>. Else, proceed!</li>
 <li>From <code>cmd</code> run <code>winver</code> to see if you have at least Version 1607 of Windows 10, and if not do:<ul>
@@ -1252,7 +1252,7 @@ While this is a useful Bash alias:
 <li>Run <code>cmd</code> and execute <code>lxrun /install /y</code> which installs Ubuntu on your subsystem</li>
 <li>Run the new app called <em>Bash on Ubuntu on Windows</em>. You are now using Bash! On Windows! Is your mind blown?</li>
 </ul>
-<p><strong>In <code>bash</code> execute <code>cd /mnt/c/</code> to get to the Windows filesystem you know and love.</strong> As a side note, if you want to use your windows system to access the files on the LSW then you need to open <code>cmd</code> and use <code>cd %LocalAppData%\lxss</code> which will navigate you to the LSW files. Once you know where this is you can go there in the file explorer GUI, but keep in mind you will need to show hidden files.</p>
+<p><strong>In <code>bash</code> execute <code>cd /mnt/c/</code> to get to the Windows filesystem you know and love.</strong> As a side note, if you want to use your windows system to access the files on the WSL then you need to open <code>cmd</code> and use <code>cd %LocalAppData%\lxss</code> which will navigate you to the WSL files. Once you know where this is you can go there in the file explorer GUI, but keep in mind you will need to show hidden files.</p>
 </div>
 </div>
 </div>
@@ -1424,7 +1424,7 @@ While this is a useful Bash alias:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You have now unlocked the full power of <code>Bash</code>... in a <code>Python</code> Terminal... on Linux... on Windows. Rejoice!</p>
-<p>Sadly people that was definitely the easy part of what I'm trying to do. The hard part is learning the python modules that can replicate some common <code>bash</code> functionality. A final simple step will be customizing the <code>IPython</code> configuration so that when it launches it is all set up for this kind of work. All of that is left to Part 2.</p>
+<p>Sadly people that was definitely the easy part of what I'm trying to do. The hard part is learning the python modules that can replicate some common <code>bash</code> functionality, and as I mentioned that might be part of later post. I also want to customize the <code>IPython</code> configuration so that when it launches it is all set up for this kind of work. Wish me luck!</p>
 </div>
 </div>
 </div>
