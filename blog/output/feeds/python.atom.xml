@@ -976,7 +976,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="In-which-I-learn-what-people-are-actually-doing-with-all-those-black-terminals,-and-brainstorm-how-I-too-can-look-like-a-cool-hacker."&gt;In which I learn what people are actually doing with all those black terminals, and brainstorm how I too can look like a cool hacker.&lt;a class="anchor-link" href="#In-which-I-learn-what-people-are-actually-doing-with-all-those-black-terminals,-and-brainstorm-how-I-too-can-look-like-a-cool-hacker."&gt;¶&lt;/a&gt;&lt;/h1&gt;
+&lt;h1 id="In-which-I-learn-what-people-are-doing-with-those-black-terminals,-and-brainstorm-how-I-too-can-look-like-a-cool-hacker."&gt;In which I learn what people are doing with those black terminals, and brainstorm how I too can look like a cool hacker.&lt;a class="anchor-link" href="#In-which-I-learn-what-people-are-doing-with-those-black-terminals,-and-brainstorm-how-I-too-can-look-like-a-cool-hacker."&gt;¶&lt;/a&gt;&lt;/h1&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -985,9 +985,9 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;So, I have a Windows machine that I'm rather fond of. Maybe you do too. The unfortunate thing about this situation is that Unix shell (commonly &lt;code&gt;Bash&lt;/code&gt;) sort of stomps Windows system shell and is much more common in the quantiative computing universe (and on servers and clusters). Once I began poking around in the data science ecosystem, it became clear that this was a pretty large gap in my skill set. Not just the lack of &lt;code&gt;bash&lt;/code&gt; language skills but also just the lack of command line in my work flow - I wondered what I was missing. Turns out my timing on this issue is great, because the most recent update to Windows 10 rolled out a feature that is going to let me play around with native &lt;code&gt;bash&lt;/code&gt; pretty seamlessly - it's called the &lt;a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq"&gt;Linux Subystem for Windows&lt;/a&gt; (LSW).&lt;/p&gt;
-&lt;p&gt;Before getting all freaky with &lt;code&gt;bash&lt;/code&gt;, I'd like to point out that I &lt;em&gt;really&lt;/em&gt; like the idea of my work flow being operating system agnostic. And I &lt;em&gt;really really&lt;/em&gt; like the idea of minimizing the number of tools and languages I depend on. But at the same time I think I should have &lt;em&gt;some&lt;/em&gt; degree of familiarity with &lt;code&gt;bash&lt;/code&gt; because it's everywhere, and because some things are just easier with the right &lt;code&gt;bash&lt;/code&gt; single-liner or the right command line tool. So the solution? I am going to build a work flow that is &lt;em&gt;mostly&lt;/em&gt; operating system agnostic (read: &lt;code&gt;Python&lt;/code&gt;) while picking up the most useful &lt;code&gt;Bash&lt;/code&gt; with this kickass LSW feature.&lt;/p&gt;
-&lt;p&gt;This post is for Windows users who are aspiring data scientists, and who are noobs at command line but who want to fix that by using the new LSW, but who still want to do most stuff in Python not &lt;code&gt;bash&lt;/code&gt;. Excluding myself that might be the empty set, I dunno. Anyway, here I'll describe what the hell &lt;code&gt;bash&lt;/code&gt; even is and how &lt;code&gt;IPython&lt;/code&gt; can actually be an alternative system shell. Then I'll outline how to get your LSW up and running, and then how to get your Anaconda toolset up and running on top of it.&lt;/p&gt;
+&lt;p&gt;So, I have a Windows machine that I'm rather fond of. Maybe you do too. The unfortunate thing about this situation is that Unix shell (commonly &lt;code&gt;bash&lt;/code&gt;) sort of stomps Windows system shell and is much more common in the quantitative computing universe (and on servers and clusters). Once I began poking around in the data science ecosystem it became clear that this was a pretty large gap in my skill set. Not just the lack of &lt;code&gt;bash&lt;/code&gt; language skills but also just the lack of command line in my work flow - I wondered what I was missing. Turns out my timing on this issue is great, because the most recent update to Windows 10 rolled out a feature that is going to let me play around with native &lt;code&gt;bash&lt;/code&gt; pretty seamlessly - it's called the &lt;a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq"&gt;Linux Subystem for Windows&lt;/a&gt; (LSW).&lt;/p&gt;
+&lt;p&gt;Before getting all freaky with &lt;code&gt;bash&lt;/code&gt;, I'd like to point out that I &lt;em&gt;really&lt;/em&gt; like the idea of my work flow being operating system agnostic. And I &lt;em&gt;really really&lt;/em&gt; like the idea of minimizing the number of tools and languages I depend on. But at the same time I think I should have &lt;em&gt;some&lt;/em&gt; degree of familiarity with &lt;code&gt;bash&lt;/code&gt; because it's everywhere, and because I'm sure some things are just easier with the right &lt;code&gt;bash&lt;/code&gt; one-liner or the right command line tool. So I decided to build a work flow that is &lt;em&gt;mostly&lt;/em&gt; operating system agnostic (read: &lt;code&gt;Python&lt;/code&gt;) while picking up the most useful &lt;code&gt;bash&lt;/code&gt; with this LSW witchcraft.&lt;/p&gt;
+&lt;p&gt;This post is for Windows users doing scientific computing, and who are noobs at Unix command line but who want to fix that by playing with the new LSW, but who still want to do most stuff in Python not &lt;code&gt;bash&lt;/code&gt;. Not counting myself that might be the empty set, I dunno. Anyway, here I'll describe what the hell &lt;code&gt;bash&lt;/code&gt; even is and how &lt;code&gt;IPython&lt;/code&gt; is actally a viable alternative. Then I'll outline how to get your LSW up and running, and then how to get your Anaconda toolset up and running on top of it.&lt;/p&gt;
 &lt;p&gt;Part 2 of this freakshow will build out the specific functionality in Python that can replace a lot of what &lt;code&gt;bash&lt;/code&gt; is commonly used for.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1000,14 +1000,14 @@ h6:hover .anchor-link {
 &lt;h1 id="What-is-the-Shell-Even-For?"&gt;What is the Shell Even For?&lt;a class="anchor-link" href="#What-is-the-Shell-Even-For?"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;To kick off &lt;a href="https://en.wikipedia.org/wiki/Bash_(Unix_shell"&gt;with Wikipedia&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;Bash is a command processor that typically runs in a text window, where the user types commands that cause actions. Bash can also read commands from a file, called a script. Like all Unix shells, it supports filename globbing (wildcard matching),piping, ... variables and control structures....&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;Bash&lt;/code&gt; and shells in general are heavily used for stuff in the realm of sys admin, like operating on files and commands such as configs or logs (see &lt;a href="https://www.quora.com/Can-Python-fully-replace-a-shell-script-such-as-Bash-or-zsh-in-Linux-administration"&gt;this quora answer&lt;/a&gt;). But &lt;code&gt;Bash&lt;/code&gt; is also very useful when most of what you're doing is communicating and piping between various specialized programs or tools (see &lt;a href="http://stackoverflow.com/questions/2872041/is-there-any-use-for-bash-scripting-anymore"&gt;this stackoverflow&lt;/a&gt;) where it acts like a kind of &lt;a href="http://stackoverflow.com/questions/199331/is-it-worth-learning-bash-when-i-know-perl"&gt;&lt;em&gt;glue&lt;/em&gt; language&lt;/a&gt;:&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;&lt;code&gt;Bash&lt;/code&gt; epitomises the spirit of UNIX -- combining multiple simple tools to solve a more complex problem, usually using pipes to direct the output of one command to the input of the next... Bash still represent the Unix spirit of little languages - it is a language just for executing and connecting programs and it is extremely suitable for that.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Bash&lt;/code&gt; and shells in general are heavily used for stuff in the realm of sys admin, like operating on files and commands such as configs or logs (see &lt;a href="https://www.quora.com/Can-Python-fully-replace-a-shell-script-such-as-Bash-or-zsh-in-Linux-administration"&gt;this on quora&lt;/a&gt;). But &lt;code&gt;bash&lt;/code&gt; is also very useful when most of what you're doing is communicating and piping between various specialized programs or tools (see &lt;a href="http://stackoverflow.com/questions/2872041/is-there-any-use-for-bash-scripting-anymore"&gt;this on SO&lt;/a&gt;) where it acts like a kind of &lt;a href="http://stackoverflow.com/questions/199331/is-it-worth-learning-bash-when-i-know-perl"&gt;&lt;em&gt;glue&lt;/em&gt; language&lt;/a&gt;:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;&lt;code&gt;Bash&lt;/code&gt; epitomises the spirit of UNIX -- combining multiple simple tools to solve a more complex problem, usually using pipes to direct the output of one command to the input of the next.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;There is a large set of these specialized utilities that &lt;code&gt;Bash&lt;/code&gt; integrates - &lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt;, and I've heard of most of these super adorable names, though I don't know what the hell they do. (&lt;a href="http://practical-data-science.blogspot.com/2012/09/basic-unix-shell-commands-for-data.html"&gt;This article&lt;/a&gt; summarizes some of the more useful commands and command line tools for doing data science.)&lt;/p&gt;
-&lt;p&gt;More to the point for my purposes, in contemplating using &lt;code&gt;Python&lt;/code&gt; in place of &lt;code&gt;Bash&lt;/code&gt;, &lt;a href="http://stackoverflow.com/questions/2872041/is-there-any-use-for-bash-scripting-anymore"&gt;this stackoverflow response&lt;/a&gt; captures the fundamental difference:&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;Python is a general purpose scripting language, while &lt;code&gt;Bash&lt;/code&gt; is simply a way to run a myriad of small (and often very fast) programs in a series. Python can do this, but it is not optimized for it. The programs (sort, find, uniq, scp) might do very complex tasks very simply, and bash allows these tasks to interoperate very simply with piping, flushing output in and out from files or devices etc.&lt;/p&gt;
+&lt;p&gt;There is a large set of these specialized utilities that &lt;code&gt;bash&lt;/code&gt; integrates - &lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;awk&lt;/code&gt;, &lt;code&gt;sed&lt;/code&gt;, &lt;code&gt;scp&lt;/code&gt;... I've heard of most of these super adorable names, though I don't know what they do. (&lt;a href="http://practical-data-science.blogspot.com/2012/09/basic-unix-shell-commands-for-data.html"&gt;This article&lt;/a&gt; summarizes some of the more useful commands and command line tools for doing data science.)&lt;/p&gt;
+&lt;p&gt;More to the point for my purposes, in contemplating using Python in place of &lt;code&gt;bash&lt;/code&gt;, &lt;a href="http://stackoverflow.com/a/2872171/4639070e"&gt;this stackoverflow response&lt;/a&gt; captures the fundamental difference:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;...python is a general purpose scripting language, while bash is simply a way to run a myriad of small (and often very fast) programs in a series. Python can do this, but it is not optimized for it. The programs (sort, find, uniq, scp) might do very complex tasks very simply, and bash allows these tasks to interoperate very simply with piping, flushing output in and out from files or devices etc.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;For data science work rather than hardcore sys admin, I'm optimistic that a large chunk of functionality can be efficiently implemented in &lt;code&gt;Python&lt;/code&gt; rather than as &lt;code&gt;bash&lt;/code&gt;. &lt;strong&gt;My hope is that I can use &lt;code&gt;Python&lt;/code&gt; with a few modules to replace a large chunk of the work done by these microtools. This makes my skillset more OS-agnostic and simplifies my toolbox.&lt;/strong&gt;  But, the first task is choosing a terminal environment.&lt;/p&gt;
+&lt;p&gt;For data science work rather than hardcore sys admin, I'm optimistic that I can use Python with a few modules to replace a large chunk of the work done by these microtools. I think for my purposes it's mostly going to be working with files and directories, at least to start. So onward to choosing a terminal!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1016,7 +1016,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="IPython-as-System-Shell"&gt;IPython as System Shell&lt;a class="anchor-link" href="#IPython-as-System-Shell"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;One of the most dominant &lt;code&gt;Python&lt;/code&gt; terminals is &lt;a href="http://ipython.readthedocs.io/en/stable/interactive/shell.htmlhttp://ipython.readthedocs.io/en/stable/index.html"&gt;&lt;code&gt;IPython&lt;/code&gt;&lt;/a&gt; and it was actually built with &lt;a href="http://ipython.readthedocs.io/en/stable/interactive/shell.html"&gt;usage as system shell in mind&lt;/a&gt;! This guy was the obvious candidate for what I wanted to do, and it conveniently ships standard with the Anaconda distribution of python. &lt;code&gt;IPython&lt;/code&gt; is also the &lt;code&gt;Python&lt;/code&gt; kernel for the awesome browser-based jupyter notebooks that I am literally writing this in right now.&lt;/p&gt;
+&lt;h1 id="IPython-as-System-Shell"&gt;IPython as System Shell&lt;a class="anchor-link" href="#IPython-as-System-Shell"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;One of the most dominant Python terminals is &lt;a href="http://ipython.readthedocs.io/en/stable/interactive/shell.htmlhttp://ipython.readthedocs.io/en/stable/index.html"&gt;&lt;code&gt;IPython&lt;/code&gt;&lt;/a&gt; and it was actually built with &lt;a href="http://ipython.readthedocs.io/en/stable/interactive/shell.html"&gt;usage as system shell in mind&lt;/a&gt;! This guy was the obvious candidate for what I wanted to do, and it conveniently ships standard with the Anaconda distribution of python. &lt;code&gt;IPython&lt;/code&gt; is also the backend for the awesome browser-based jupyter notebooks that I am literally writing this in right now.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://unix.stackexchange.com/questions/4495/object-oriented-shell-for-nix/4497#4497"&gt;This SE answer&lt;/a&gt; outlines the desired features of any system shell:&lt;/p&gt;
 &lt;blockquote&gt;&lt;ul&gt;
 &lt;li&gt;Interactive usability: common commands should be short, text completion&lt;/li&gt;
@@ -1024,14 +1024,14 @@ h6:hover .anchor-link {
 &lt;li&gt;System access: working with files, processes, windows, databases, system configuration&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;code&gt;IPython&lt;/code&gt; was cunningly designed with the basic interactivity features (tab completion, command history). System access can be provided by a handful of modules, while programming functionality blows &lt;code&gt;Bash&lt;/code&gt; out of the water because, umm, you're using Python. And since it was designed with system shell purposes in mind, &lt;code&gt;IPyton&lt;/code&gt; actually aliases a handful of the common Bash commands (meaning you can just type them like you normally would in shell) such as &lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;Remember how I said I was writing this in jupyter notebook? That means I can show you what I'm babbling about:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;IPython&lt;/code&gt; was cunningly designed with interactivity features (tab completion, command history), and system access can be provided by a handful of Python modules. As far as programming functionality, it's blowing &lt;code&gt;bash&lt;/code&gt; out of the water because, umm, you're using Python. And since it was designed with system shell purposes in mind, &lt;code&gt;IPython&lt;/code&gt; actually aliases a handful of the common Bash commands (meaning you can just type them like you normally would in shell) such as &lt;code&gt;cd&lt;/code&gt; and &lt;code&gt;ls&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Since I'm writing this in jupyter notebook I can show you what I'm babbling about:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [22]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"This is python...&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s2"&gt;While this is a useful Bash alias:"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
@@ -1053,7 +1053,7 @@ While this is a useful Bash alias:
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [23]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;pwd&lt;/span&gt;
@@ -1063,9 +1063,9 @@ While this is a useful Bash alias:
 &lt;/div&gt;
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[23]:&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[2]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;'/mnt/c/Users/Sonya/Documents/My Box Files/Projects/blog-bash'&lt;/pre&gt;
+&lt;pre&gt;'/mnt/c/Users/Sonya/Box Sync/Projects/blog-bash'&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1076,13 +1076,13 @@ While this is a useful Bash alias:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;And here are all those useful &lt;code&gt;IPython&lt;/code&gt; aliased commands I mentioned:&lt;/p&gt;
+&lt;p&gt;And here are all those useful &lt;code&gt;IPython&lt;/code&gt; aliased commands I mentioned (plus you can add your own custom ones):&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [26]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;alias&lt;/span&gt;
@@ -1098,7 +1098,7 @@ While this is a useful Bash alias:
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[26]:&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;[('cat', 'cat'),
  ('cp', 'cp'),
@@ -1122,7 +1122,7 @@ While this is a useful Bash alias:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Another nifty feature is that any line you preface with a &lt;code&gt;!&lt;/code&gt; is automatically shunted to your actual system shell for execution, meaning if you're running &lt;code&gt;Ipython&lt;/code&gt; on Unix, you can seamlessly switch between executing &lt;code&gt;Bash&lt;/code&gt; and Python commands without leaving the &lt;code&gt;IPython&lt;/code&gt; terminal! That's &lt;em&gt;if&lt;/em&gt; you are running on Unix... which on Windows is exactly what you are NOT doing. Which brings me to the next point.&lt;/p&gt;
+&lt;p&gt;Another nifty feature is that any line you preface with a &lt;code&gt;!&lt;/code&gt; is automatically shunted to your actual system shell for execution, meaning if you're running &lt;code&gt;Ipython&lt;/code&gt; on Unix, you can seamlessly switch between executing &lt;code&gt;bash&lt;/code&gt; and Python commands without leaving the &lt;code&gt;IPython&lt;/code&gt; terminal! That's &lt;em&gt;if&lt;/em&gt; you are running on Unix... which on Windows is exactly what you are NOT doing. Which brings me to the next point.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1131,7 +1131,7 @@ While this is a useful Bash alias:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Get-Ubuntu-on-Windows!"&gt;Get Ubuntu on Windows!&lt;a class="anchor-link" href="#Get-Ubuntu-on-Windows!"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The Linux Subsystem for Windows is a new (as in, still in Beta) feature for Windows 10 that provides a way to run Linux tools on a Windows machine. This feature defines a mapping between the Ubuntu operating system and Windows, which allows you to work with native Linux command line tools - that includes native &lt;code&gt;Bash&lt;/code&gt;! Check out the &lt;a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq"&gt;official FAQ for LSW&lt;/a&gt; for more information. Following this &lt;a href="http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/"&gt;quick guide on getting this up and running&lt;/a&gt;, here is the gist of what you need to do:&lt;/p&gt;
+&lt;h1 id="Get-Ubuntu-on-Windows!"&gt;Get Ubuntu on Windows!&lt;a class="anchor-link" href="#Get-Ubuntu-on-Windows!"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The Linux Subsystem for Windows is a new (as in, still in Beta) feature for Windows 10 that provides a way to run Linux tools on a Windows machine. This feature defines a mapping between the Ubuntu operating system and Windows, which allows you to work with native Linux command line tools - that includes native &lt;code&gt;bash&lt;/code&gt;! Check out the &lt;a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq"&gt;official FAQ for LSW&lt;/a&gt; for more information. Following &lt;a href="http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/"&gt;this quick guide&lt;/a&gt;, here is the gist of what you need to do to get it up and running:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Do you have Windows 10? If not, &lt;a href="https://www.microsoft.com/en-us/accessibility/windows10upgrade"&gt;get it&lt;/a&gt;. Else, proceed!&lt;/li&gt;
 &lt;li&gt;From &lt;code&gt;cmd&lt;/code&gt; run &lt;code&gt;winver&lt;/code&gt; to see if you have at least Version 1607 of Windows 10, and if not do:&lt;ul&gt;
@@ -1154,16 +1154,17 @@ While this is a useful Bash alias:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Grab-the-Anconda-Python-Distro-for-Linux"&gt;Grab the Anconda Python Distro for Linux&lt;a class="anchor-link" href="#Grab-the-Anconda-Python-Distro-for-Linux"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Ubuntu comes with &lt;code&gt;Python&lt;/code&gt;, so you could start using it right off the bat in your new &lt;code&gt;Bash&lt;/code&gt; terminal. But being aspiring data scientists we want all sorts of scientific computing goodies like &lt;code&gt;jupyter&lt;/code&gt; notebooks. An easy way to get said goodies is to install the (most recent) Anaconda distro of Python for Linux following &lt;a href="http://www.cgranade.com/blog/2016/08/22/qutip-on-wsl.html"&gt;this blog post&lt;/a&gt;. In your shiny new &lt;code&gt;bash&lt;/code&gt; shell:&lt;/p&gt;
+&lt;h1 id="Grab-the-Anconda-Python-Distro-for-Linux"&gt;Grab the Anconda Python Distro for Linux&lt;a class="anchor-link" href="#Grab-the-Anconda-Python-Distro-for-Linux"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Ubuntu comes with Python, so you could start using it right off the bat in your new &lt;code&gt;bash&lt;/code&gt; terminal. But being aspiring data scientists we want all sorts of scientific computing goodies like &lt;code&gt;jupyter&lt;/code&gt; notebooks. An easy way to get said goodies is to install the (most recent) Anaconda distro of Python for Linux following &lt;a href="http://www.cgranade.com/blog/2016/08/22/qutip-on-wsl.html"&gt;this blog post&lt;/a&gt;. In your shiny new &lt;code&gt;bash&lt;/code&gt; shell:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;wget http://repo.continuum.io/archive/Anaconda3-4.0.0-Linux-x86_64.sh&lt;/code&gt; (downloads a shell script for installation)&lt;ul&gt;
-&lt;li&gt;This initially gave an error that I didn't have permission to write. You apparently can't just &lt;code&gt;sudo&lt;/code&gt; in &lt;code&gt;bash&lt;/code&gt; for Windows) so close and then restart &lt;code&gt;bash&lt;/code&gt; by right-clicking on the app and choosing to &lt;code&gt;Run as Administrator&lt;/code&gt;. &lt;/li&gt;
+&lt;li&gt;This initially gave an error that I didn't have permission to write. You apparently can't just &lt;code&gt;sudo&lt;/code&gt; in WSL, so close and then restart bash by right-clicking on the app and choosing to "Run as Administrator". &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;bash Anaconda3-4.0.0-Linux-x86_64.sh&lt;/code&gt; (runs the above shell script)&lt;/li&gt;
 &lt;li&gt;Follow the prompts and definitely say yes to prepend Anaconda root to your PATH.&lt;/li&gt;
 &lt;li&gt;Now restart your &lt;code&gt;Bash terminal&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;You just used your first native Linux utility by the way - &lt;code&gt;wget&lt;/code&gt; is a native Linux command line utility for pulling files down from the web!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1172,50 +1173,17 @@ While this is a useful Bash alias:
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Get-Jupyter-Working-on-Linux-on-Windows"&gt;Get Jupyter Working on Linux on Windows&lt;a class="anchor-link" href="#Get-Jupyter-Working-on-Linux-on-Windows"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;If you are full of naive optimism then you can now try to get a notebook running on your &lt;code&gt;Bash&lt;/code&gt; terminal by:&lt;/p&gt;
+&lt;h1 id="Get-Jupyter-Working-on-Linux-on-Windows"&gt;Get Jupyter Working on Linux on Windows&lt;a class="anchor-link" href="#Get-Jupyter-Working-on-Linux-on-Windows"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;If you are full of naive optimism then you can now try to get a notebook running on your &lt;code&gt;bash&lt;/code&gt; terminal by:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;jupyter notebook --no-browser&lt;/code&gt; (WSL doesn't support linux GUI applications, just command line)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;jupyter notebook --no-browser&lt;/code&gt; (WSL doesn't support linux graphical applications, just command line for now)&lt;/li&gt;
 &lt;li&gt;Open your browser on Windows and point it to &lt;code&gt;http://localhost:8888&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Open or create a new notebook in the browser&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;You probably see a dead kernel in your notebook and a bunch of failed connection errors in terminal? Perfect. But actually that's not how it's supposed to work. This bug is documented &lt;a href="https://github.com/jupyter/notebook/issues/1331"&gt;here&lt;/a&gt; and &lt;a href="https://github.com/Microsoft/BashOnWindows/issues/185"&gt;here&lt;/a&gt;, with two different workarounds depending on whether your &lt;code&gt;jupyter&lt;/code&gt; is coming via Anaconda or not. For more clarification from kickass user @aseering:&lt;/p&gt;
+&lt;p&gt;You probably see a dead kernel in your notebook and a bunch of failed connection errors in terminal? Perfect. But, actually no, that's not how it's supposed to work. This bug is documented &lt;a href="https://github.com/jupyter/notebook/issues/1331"&gt;here&lt;/a&gt; and &lt;a href="https://github.com/Microsoft/BashOnWindows/issues/185"&gt;here&lt;/a&gt;, with two different workarounds depending on whether your &lt;code&gt;jupyter&lt;/code&gt; is coming via Anaconda or not. For more clarification from kickass user @aseering:&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;This bug is not a bug in Python. IPython (and Jupyter) Notebook are not pure Python; they contain some native code as well, and that native code links against some third-party native systemwide C libraries. The problem is a bug in one of those libraries, "libzmq". All versions of Notebook link libzmq. Because it's an independent system library, it doesn't matter what version of iPython/Jupyter you're using, nor what version of Python. But which libzmq do they link? The iPython that comes with Ubuntu uses the libzmq that comes with Ubuntu. I believe pip will try to use the system libzmq as well. My updated patch fixes Ubuntu's version of the library. Anaconda bundles their own copy of libzmq, so you have to use @jzuhone 's solution to get their fix.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;The solution by @jzuhone's that works for those of us that pulled down &lt;code&gt;jupyter&lt;/code&gt; via Anaconda is to grab his fix by typing in our &lt;code&gt;Bash&lt;/code&gt; terminal:&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;conda&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;jzuhone&lt;/span&gt; &lt;span class="n"&gt;zeromq&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;4.1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dev0&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;Fetching package metadata .........
-Solving package specifications: .
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_subarea output_stream output_stderr output_text"&gt;
-&lt;pre&gt;Using Anaconda Cloud api site https://api.anaconda.org
-Error: Package missing in current win-64 channels: 
-  - zeromq 4.1.dev0*
-
-You can search for packages on anaconda.org with
-
-    anaconda search -t conda zeromq
-&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+&lt;p&gt;The solution by @jzuhone's that works for those of us that pulled down &lt;code&gt;jupyter&lt;/code&gt; via Anaconda is to grab his fix by typing in our &lt;code&gt;bash&lt;/code&gt; terminal &lt;code&gt;conda install -c jzuhone zeromq=4.1.dev0&lt;/code&gt;. (Conda is the python package manager that comes in the Anaconda bundle.)&lt;/p&gt;
+&lt;p&gt;These people are seriously heroes, lets make them some cookies or something.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1224,22 +1192,13 @@ You can search for packages on anaconda.org with
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;These people deserve a medal or some homemade cookies. They are heroes.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Running-IPython-on-Linux-on-Windows"&gt;Running IPython on Linux on Windows&lt;a class="anchor-link" href="#Running-IPython-on-Linux-on-Windows"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Jupyter&lt;/code&gt; notebooks are a great interface for certain tasks, but for daily command-line work I want to just be using the trusty old console. To enter the &lt;code&gt;IPython&lt;/code&gt; console environment within the &lt;code&gt;Bash&lt;/code&gt; shell, just type &lt;code&gt;IPython3&lt;/code&gt;. Since we're actually running on Linux we can use the &lt;code&gt;!&lt;/code&gt; magic command with real lines of &lt;code&gt;bash&lt;/code&gt; rather than windows commands. Let us experiment within this notebook front-end&lt;/p&gt;
+&lt;h1 id="Running-IPython-on-Linux-on-Windows"&gt;Running IPython on Linux on Windows&lt;a class="anchor-link" href="#Running-IPython-on-Linux-on-Windows"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Jupyter&lt;/code&gt; notebooks are a great interface for certain tasks, but for daily command-line work I want to just be using the trusty old console. To enter the &lt;code&gt;IPython&lt;/code&gt; console environment within the &lt;code&gt;bash&lt;/code&gt; shell, just type &lt;code&gt;IPython3&lt;/code&gt;. Since we're actually running on Linux we can use the &lt;code&gt;!&lt;/code&gt; magic command with real lines of &lt;code&gt;bash&lt;/code&gt; rather than windows commands. Let us experiment within this notebook front-end:&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [45]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="nv"&gt;$PATH&lt;/span&gt;
@@ -1260,7 +1219,7 @@ You can search for packages on anaconda.org with
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [46]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;"Is there anybody in here?"&lt;/span&gt;
@@ -1284,13 +1243,14 @@ You can search for packages on anaconda.org with
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Super nifty! As a final exercise we'll install a spiffy command line microtool called &lt;code&gt;tree&lt;/code&gt; that prints out a nice heirarchical picture of directory structures - just type &lt;code&gt;! get-apt install tree&lt;/code&gt; and it should install itself. Usage is pretty self-explanatory:&lt;/p&gt;
+&lt;p&gt;Super nifty! As a final exercise we'll install a command line microtool called &lt;code&gt;tree&lt;/code&gt; that prints out a nice heirarchical picture of directory structures - just type &lt;code&gt;! get-apt install tree&lt;/code&gt; and it should install itself. (&lt;code&gt;apt-get&lt;/code&gt; is another native linux utility, it's the main tool for linux package management.)&lt;/p&gt;
+&lt;p&gt;Usage of &lt;code&gt;tree&lt;/code&gt; is pretty self-explanatory...&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [68]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mnt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Sonya&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Documents&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="s2"&gt;"My Box Files"&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Projects&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;blog&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;mydir&lt;/span&gt;
@@ -1302,7 +1262,8 @@ You can search for packages on anaconda.org with
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
-&lt;pre&gt;/mnt/c/Users/Sonya/Documents/My Box Files/Projects/blog-bash/mydir
+&lt;pre&gt;[Errno 2] No such file or directory: '/mnt/c/Users/Sonya/Documents/My Box Files/Projects/blog-bash/mydir'
+/mnt/c/Users/Sonya/Box Sync/Projects/blog-bash
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1311,7 +1272,7 @@ You can search for packages on anaconda.org with
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [69]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt; tree
@@ -1324,15 +1285,26 @@ You can search for packages on anaconda.org with
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;&lt;span class="ansi-blue-fg ansi-green-bg"&gt;.&lt;/span&gt;
-├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subdir1&lt;/span&gt;
-│   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt3.txt&lt;/span&gt;
-├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subdir2&lt;/span&gt;
-│   ├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subsubdir&lt;/span&gt;
-│   │   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt1.txt&lt;/span&gt;
-│   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt2.txt&lt;/span&gt;
-└── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt4.txt&lt;/span&gt;
+├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;mydir&lt;/span&gt;
+│   ├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subdir1&lt;/span&gt;
+│   │   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt3.txt&lt;/span&gt;
+│   ├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subdir2&lt;/span&gt;
+│   │   ├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subsubdir&lt;/span&gt;
+│   │   │   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt1.txt&lt;/span&gt;
+│   │   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt2.txt&lt;/span&gt;
+│   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt4.txt&lt;/span&gt;
+├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;mydir_clean_copy&lt;/span&gt;
+│   ├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subdir1&lt;/span&gt;
+│   │   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt3.txt&lt;/span&gt;
+│   ├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subdir2&lt;/span&gt;
+│   │   ├── &lt;span class="ansi-blue-fg ansi-green-bg"&gt;subsubdir&lt;/span&gt;
+│   │   │   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt1.txt&lt;/span&gt;
+│   │   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt2.txt&lt;/span&gt;
+│   └── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;txt4.txt&lt;/span&gt;
+├── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;post-bash.ipynb&lt;/span&gt;
+└── &lt;span class="ansi-green-intense-fg ansi-bold"&gt;sys_shell.txt&lt;/span&gt;
 
-3 directories, 4 files
+8 directories, 10 files
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1345,7 +1317,7 @@ You can search for packages on anaconda.org with
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;You have now unlocked the full power of &lt;code&gt;Bash&lt;/code&gt;... in a &lt;code&gt;Python&lt;/code&gt; Terminal... on Linux... on Windows. Rejoice!&lt;/p&gt;
-&lt;p&gt;Sadly people that was definitely the easy part of what I'm trying to do. The hard part is learning the python modules that can replicate a lot of common &lt;code&gt;bash&lt;/code&gt; functionality. A final simple step will be customizing the &lt;code&gt;IPython&lt;/code&gt; configuration so that when it launches it is all set up for this kind of work. All of that is left to Part 2.&lt;/p&gt;
+&lt;p&gt;Sadly people that was definitely the easy part of what I'm trying to do. The hard part is learning the python modules that can replicate some common &lt;code&gt;bash&lt;/code&gt; functionality. A final simple step will be customizing the &lt;code&gt;IPython&lt;/code&gt; configuration so that when it launches it is all set up for this kind of work. All of that is left to Part 2.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
