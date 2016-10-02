@@ -3,7 +3,7 @@
 from __future__ import unicode_literals
 
 import sys
-reload(sys)
+# reload(sys)
 sys.setdefaultencoding("utf-8")
 
 AUTHOR = u'Sonya Sawtelle'
