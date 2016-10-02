@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SonyaSawtelle</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/all.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-09-18T13:30:00-04:00</updated><entry><title>Markov Chain Monte Carlo in Python with PyMC</title><link href="sdsawtelle.github.io/mcmc-in-python-with-pymc.html" rel="alternate"></link><published>2016-09-18T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-18:sdsawtelle.github.io/mcmc-in-python-with-pymc.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Over the Ridge</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/all.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-09-18T13:30:00-04:00</updated><entry><title>Markov Chain Monte Carlo in Python with PyMC</title><link href="sdsawtelle.github.io/mcmc-in-python-with-pymc.html" rel="alternate"></link><published>2016-09-18T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-18:sdsawtelle.github.io/mcmc-in-python-with-pymc.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -6311,7 +6311,7 @@ Hypothesis prediction success rate is 0.78
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="machine learning"></category><category term="sklearn"></category></entry><entry><title>Week #2 Andrew Ng Machine Learning - Pythonified</title><link href="sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html" rel="alternate"></link><published>2016-09-01T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-01:sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="machine learning"></category><category term="sklearn"></category><category term="logistic regression."></category></entry><entry><title>Week2 Andrew Ng Machine Learning Homework - Pythonified</title><link href="sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html" rel="alternate"></link><published>2016-09-01T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-01:sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -9944,7 +9944,7 @@ sGP/H4gXSB5zoXBMAAAAAElFTkSuQmCC
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="machine learning"></category><category term="sklearn"></category></entry><entry><title>A Python+Bash Workflow, Plot Twist: On Windows!</title><link href="sdsawtelle.github.io/bash-and-ipython-on-ubuntu-for-windows.html" rel="alternate"></link><published>2016-08-29T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-08-29:sdsawtelle.github.io/bash-and-ipython-on-ubuntu-for-windows.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="machine learning"></category><category term="sklearn"></category><category term="linear regression"></category></entry><entry><title>IPython+Bash (Plot Twist: On Windows!)</title><link href="sdsawtelle.github.io/bash-and-ipython-on-ubuntu-for-windows.html" rel="alternate"></link><published>2016-08-29T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-08-29:sdsawtelle.github.io/bash-and-ipython-on-ubuntu-for-windows.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -11293,7 +11293,7 @@ While this is a useful Bash alias:
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="bash"></category><category term="WSL"></category></entry><entry><title>Scrabble Wordlists with Python</title><link href="sdsawtelle.github.io/scrabble-wordlists-with-python.html" rel="alternate"></link><published>2016-08-21T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-08-21:sdsawtelle.github.io/scrabble-wordlists-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="bash"></category><category term="WSL"></category></entry><entry><title>Scrabble Cheatsheet with Python</title><link href="sdsawtelle.github.io/scrabble-cheatsheet-with-python.html" rel="alternate"></link><published>2016-08-21T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-08-21:sdsawtelle.github.io/scrabble-cheatsheet-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
