@@ -8,7 +8,7 @@ sys.setdefaultencoding("utf-8")
 
 AUTHOR = u'Sonya Sawtelle'
 SITENAME = u'Over the Ridge'
-SUBTITLE = u'Snippets From an Aspiring Data Scientist.'
+SITESUBTITLE = u'Snippets From Learning Data Science.'
 SITEURL = 'sdsawtelle.github.io'
 
 PATH = 'content'
