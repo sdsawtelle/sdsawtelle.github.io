@@ -6660,7 +6660,7 @@ J_{LSQ}^{reg}(\theta) = \frac{1}{m}\bigg[\sum_1^m\frac{1}{2}(h(x_i)-y_i)^2 + \la
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="python"></category><category term="machine learning"></category><category term="sklearn"></category><category term="logistic regression."></category></entry><entry><title>LinearRegression vs. SGDRegressor in Sklearn (Andrew Ng ML HW Wk2)</title><link href="sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html" rel="alternate"></link><published>2016-09-01T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-01:sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="python"></category><category term="machine learning"></category><category term="sklearn"></category><category term="logistic regression."></category></entry><entry><title>LinearRegression vs. SGDRegressor (Andrew Ng ML HW Wk2)</title><link href="sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html" rel="alternate"></link><published>2016-09-01T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-01:sdsawtelle.github.io/week2-andrew-ng-machine-learning-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
