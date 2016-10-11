@@ -8,10 +8,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Over the Ridge</title>
+        <title>Following the Ridge</title>
 
-            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Over the Ridge Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Over the Ridge Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Following the Ridge Full Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Following the Ridge Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -44,12 +44,12 @@
 
 
 			<meta property="og:locale" content="en">
-		<meta property="og:site_name" content="Over the Ridge">
+		<meta property="og:site_name" content="Following the Ridge">
 
 	<meta property="og:type" content="article">
 	<meta property="article:author" content="">
 	<meta property="og:url" content="./week2-andrew-ng-machine-learning-with-python.html">
-	<meta property="og:title" content="Andrew Ng Machine Learning Homework Pythonified: Week2 - Linear Regression">
+	<meta property="og:title" content="LinearRegression vs. SGDRegressor in Sklearn (Andrew Ng ML HW Wk2)">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="./">
 	<meta property="article:published_time" content="2016-09-01 13:30:00-04:00">
@@ -89,7 +89,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Andrew Ng Machine Learning Homework Pythonified: Week2 - Linear Regression</h1>
+                        <h1>LinearRegression vs. SGDRegressor in Sklearn (Andrew Ng ML HW Wk2)</h1>
                         <span class="meta">Posted by
                                 <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
                              on Thu 01 September 2016
@@ -1084,7 +1084,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.<a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">¶</a></h1><p>This is a "solution" to Andrew Ng's ML course on coursera for Week 2 programming assignment. It's a solution in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use, rather than implementing the algorithms from scratch. In places I have copied his directions from the homework exactly <em>in italics</em>.</p>
+<h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.<a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">¶</a></h1><p>This is a "solution" to the Week 2 homework for Andrew Ng's ML course on Coursera. It's a solution in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use, rather than implementing the algorithms from scratch. In places I have copied his directions from the homework exactly <em>in italics</em>.</p>
 <blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
 <li><code>SGDRegressor</code> for general linear model regression specifying a loss and penalty</li>
 <li><code>LinearRegression</code> for normal equation solution to least squares loss linear regression</li>
@@ -1421,12 +1421,12 @@ the gradient of the error with respect to that single training example only.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tools-in-sklearn-for-Stochastic-Gradient-Descent">Tools in <code>sklearn</code> for Stochastic Gradient Descent<a class="anchor-link" href="#Tools-in-sklearn-for-Stochastic-Gradient-Descent">¶</a></h3><p>OK, pretty straightforward. With the <code>SGDRegressor</code> object you need to explicitly set your cost function to be squared error and tell it not to use any "penalty" (which Andrew hasn't discussed yet, but is essentially another way to influence the specific hypothesis which the ML algorithm returns).</p>
+<h3 id="Tools-in-sklearn-for-Stochastic-Gradient-Descent">Tools in <code>sklearn</code> for Stochastic Gradient Descent<a class="anchor-link" href="#Tools-in-sklearn-for-Stochastic-Gradient-Descent">¶</a></h3><p>With the <code>SGDRegressor</code> object you need to explicitly set your cost function to be squared error and tell it not to use any "penalty" (which Andrew hasn't discussed yet, but is essentially another way to influence the specific hypothesis which the ML algorithm returns).</p>
 <p>From the official documentation of <code>scikit-learn</code>:</p>
-<blockquote><p>Stochastic gradient descent is a simple yet very efficient approach to fit linear models. It is particularly useful when the number of samples (and the number of features) is very large. The classes SGDClassifier and SGDRegressor provide functionality to fit linear models for classification and regression using different (convex) loss functions and different penalties. E.g., with loss="log", SGDClassifier fits a logistic regression model, while with loss="hinge" it fits a linear support vector machine (SVM).</p>
+<blockquote><p>Stochastic gradient descent is a simple yet very efficient approach to fit linear models. It is particularly useful when the number of samples (and the number of features) is very large. The classes SGDClassifier and SGDRegressor provide functionality to fit linear models for classification and regression using different (convex) loss functions and different penalties. E.g., with loss="log", SGDClassifier fits a logistic regression model...</p>
 </blockquote>
-<p>The <a href="http://scikit-learn.org/stable/modules/sgd.html#sgd">official documention page for <code>SGD</code></a> is excellent and very clear. As mentioned above, this is a more general linear regression fitting object, so below I will outline the basics of using with a focus on using it with squared error cost and using this HW data set as an example.</p>
-<p>First we need to instantiate the fitting object, telling it what our cost function AKA loss function is - in our case cost is squared error. We could also instantiate it with a penalty function here, but we're not using those so instead we set <code>None</code> since the default is actually <code>L2</code> penalty or "regularization" (don't worry about it).</p>
+<p>The <a href="http://scikit-learn.org/stable/modules/sgd.html#sgd">official documention page for <code>SGD</code></a> is excellent and very clear. As mentioned above, this is a more general linear regression fitting object, so below I will outlineusing it with a focus on using it with squared error cost and using this HW data set as an example.</p>
+<p>First we need to instantiate the fitting object, telling it what our cost function AKA loss function is - in our case cost is squared error. We could also instantiate it with a penalty function here, but we're not using those so instead we set <code>None</code> since the default is actually <code>L2</code> penalty or "regularization" (don't worry about it for now).</p>
 </div>
 </div>
 </div>
@@ -1503,12 +1503,7 @@ the gradient of the error with respect to that single training example only.</p>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You might see some names that seem to correspond with Andrew's lectures such as <code>alpha</code> ("learning rate"), <code>epsilon</code> (criterion for convergence, he mentioned this briefly), <code>n_iter</code> (probably how many times it had to step before converging). But actually <code>SGDRegressor</code> is just messing with you and all of these have different meanings. Here's a couple "gotchas":</p>
-<ul>
-<li>The learning rate in this implementation is actually variable and is decreased automatically as you approach convergence (<code>alpha</code> has to do with the penalty).</li>
-<li>This algorithm does multiple runs of gradient descent from random starting points to make sure you aren't getting a different minimum each time (not an issue with linear least squares) - <code>n_iter</code> is the number of runs it does.</li>
-</ul>
-<p>As you can see, this is unfortunately implemented as a pretty high-level tool so it doesn't expose all the innards of the gradient descent is just performed. This means we can't, for example, plot the cost function $J$ as a function of number of iterations. <a href="https://github.com/scikit-learn/scikit-learn/tree/master/sklearn/linear_model">Here</a> is the source code for <code>sklearn.linear_model</code> on github, I guess maybe you could implement a spin-off class that would give users more access?</p>
+<p>You might see some names that seem to correspond with Andrew's lectures such as <code>alpha</code> and <code>epsilon</code>. But actually <code>SGDRegressor</code> is just messing with you and all of these have different meanings from what Andrew talked about. Here's a couple "gotchas". Also this guy is implemented as a pretty high-level tool so it doesn't expose all the innards of the gradient descent is just performed. This means we can't, for example, plot the cost function $J$ as a function of number of iterations.</p>
 <p>At any rate, the fit is done and we can call the <code>predict</code> method of the fittng object to actually use the selected hypothesis in predicting new data. For instance:</p>
 </div>
 </div>
@@ -1800,7 +1795,7 @@ BWOMMUH/H+2/9jMedUyIAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Why-Does-it-Suck-Out-of-the-Box?">Why Does it Suck Out of the Box?<a class="anchor-link" href="#Why-Does-it-Suck-Out-of-the-Box?">¶</a></h3><p>By eye I'd say this did kind of a poopy job and a slightly smaller intercept with a slightly larger positive slope would improve 
-our fit. What is the reason for this crappiness?  Well, since we aren't allowed to see the $J$ profile, and since there is a variable learning rate under the hood, we don't really know. But <a href="http://datascience.stackexchange.com/questions/6676/scikit-learn-getting-sgdclassifier-to-predict-as-well-as-a-logistic-regression">this SE</a> answer where someone ran into the same issue was super helpful. It turns out <a href="http://scikit-learn.org/stable/modules/sgd.html#tips-on-practical-use">a good rule of thumb</a> for the number of passes over the training set is <code>n_iter = np.ceil(10**6 / n)</code> to get convergence. Let's try it out:</p>
+our fit. What is the reason for this crappiness?  Well, <a href="http://datascience.stackexchange.com/questions/6676/scikit-learn-getting-sgdclassifier-to-predict-as-well-as-a-logistic-regression">this SE</a> answer where someone ran into the same issue was super helpful in troubleshoting. It turns out <a href="http://scikit-learn.org/stable/modules/sgd.html#tips-on-practical-use">a good rule of thumb</a> for the number of passes over the training set is <code>n_iter = np.ceil(10**6 / n)</code> to get convergence. Let's try it out:</p>
 </div>
 </div>
 </div>

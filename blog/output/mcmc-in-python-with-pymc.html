@@ -8,10 +8,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Over the Ridge</title>
+        <title>Following the Ridge</title>
 
-            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Over the Ridge Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Over the Ridge Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Following the Ridge Full Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Following the Ridge Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -43,12 +43,12 @@
 
 
 			<meta property="og:locale" content="en">
-		<meta property="og:site_name" content="Over the Ridge">
+		<meta property="og:site_name" content="Following the Ridge">
 
 	<meta property="og:type" content="article">
 	<meta property="article:author" content="">
 	<meta property="og:url" content="./mcmc-in-python-with-pymc.html">
-	<meta property="og:title" content="Markov Chain Monte Carlo in Python with PyMC">
+	<meta property="og:title" content="Markov Chain Monte Carlo with PyMC">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="./">
 	<meta property="article:published_time" content="2016-09-18 13:30:00-04:00">
@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Markov Chain Monte Carlo in Python with PyMC</h1>
+                        <h1>Markov Chain Monte Carlo with PyMC</h1>
                         <span class="meta">Posted by
                                 <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
                              on Sun 18 September 2016
@@ -1092,7 +1092,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Markov Chain Monte Carlo (MCMC) is a technique for generating a sample from a distribution, and it works even if all you have is a non-normalized representation of the distribution. Why does a data scientist care about this? Well, non-normalized forms of the posterior distribution are super easy to come by in a Bayesian analysis, being just the product of likelihood and prior - so <strong>MCMC can be used to sample from a Bayesian posterior</strong>. In python one of the most widely used packages for doing exactly this is called <a href="https://pymc-devs.github.io/pymc/#"><code>PyMC</code></a>, and this post is me having a go at understanding it and typing up a reference for myself. Note that I'm mostly following <a href="http://www.map.ox.ac.uk/media/PDF/Patil_et_al_2010.pdf">this</a> excellent technical article and the coding example in it, but I'm (hopefully) going to extract out only the most basic and important features.</p>
+<p>Markov Chain Monte Carlo (MCMC) is a technique for generating a sample from a distribution, and it works even if all you have is a non-normalized representation of the distribution. Why does a data scientist care about this? Well, in a Bayesian analysis a non-normalized form of the posterior distribution is super easy to come by, being just the product of likelihood and prior - so <strong>MCMC can be used to sample from (essentially simulate) a Bayesian posterior</strong>. In python one of the most widely used packages for doing exactly this is called <a href="https://pymc-devs.github.io/pymc/#"><code>PyMC</code></a>, and this post is me having a go at understanding it and typing up a reference for myself. Note that I'm mostly following <a href="http://www.map.ox.ac.uk/media/PDF/Patil_et_al_2010.pdf">this</a> excellent technical article and the coding example in it, but I'm (hopefully) going to extract out only the most basic and important features.</p>
 <p>First a quick refresher on how MCMC achieves this magic.</p>
 </div>
 </div>
@@ -1105,13 +1105,14 @@ h6:hover .anchor-link {
 <h1 id="A-Reminder-of-What-MCMC-is-Actually-Doing">A Reminder of What MCMC is <em>Actually</em> Doing<a class="anchor-link" href="#A-Reminder-of-What-MCMC-is-Actually-Doing">¶</a></h1><p>Since PyMC takes over so much of the operation of the analysis once you've fully specified your model and priors, it would be really easy to forget what exactly MCMC does and how it works. Here is a reminder:</p>
 <ul>
 <li>A Markov Chain is a sequence of RVs $\{X\}$ each of which will have an observed value from the state space of possible values, $\{x\}$.</li>
-<li>A Markov Process is a sequence of such RVs where the distribution of the initial RV's value is specified ($\Pi_0$) as well as a <em>Transition Rule</em> ($\mathbf{P}$) which gives the probability to transition from one state to another, $\mathbf{P}(i,j) = P(X_{n+1}=x_j | X_n=x_i)$, for all pairs of states.  </li>
+<li>A Markov Process is a sequence of such RVs where the distribution of the initial RV's value is specified ($\Pi_0$) as well as a <em>Transition Rule</em> ($\mathbf{P}$) which gives the probability to transition from one state to another, $\mathbf{P}(i,j) = P(X_{n+1}=x_j | X_n=x_i)$, for all pairs of states.</li>
+<li>Notice $P$ does not give a crap what happened in the chain leading up to the current state, this "memorylessness" is an important element of the definition of a Markov Process. </li>
 <li>Time-reversible Markov Processes are those which satisfy $\mu_i\mathbf{P}(i,j)=\mu_j\mathbf{P}(j,i)$ for some distribution $\mu$. Such processes have the guarantee that the long-run fractions of state values in the sequence approaches $\mu$. </li>
 <li>Thus if we want a sample from a distribution $\mu$ we could just find a $\mathbf{P}$ with which it satisfies time-reversibility and then simulate a long Markov Chain.</li>
-<li>The <strong>Metropolis-Hastings</strong> Method is an algorithm for constructing such a $\mathbf{P}$ given only a non-normalized form of the $\mu$ of interest. </li>
-<li>Non-normalized forms of the posterior distribution are super easy to come by in a Bayesian analysis, being just the product of likelihood and priors. We can then use this form to run an MCMC and get a simulated sample from the posterior, which allows us to estimate various thing about this distribution. </li>
+<li>The <strong>Metropolis-Hastings</strong> Method is an algorithm for constructing such a $\mathbf{P}$ given only a non-normalized form of the $\mu$ of interest.</li>
+<li>So given a non-normalized posterior from a Bayesian analysis, we can run an MCMC and get a simulated sample from it, which allows us to estimate various things about this posterior distribution. </li>
 </ul>
-<p>Now that all of that is 100% super clear and obvious (/sarc), lets get our environment set up:</p>
+<p>Now that all of that is 100% super clear and obvious, lets get our environment set up:</p>
 </div>
 </div>
 </div>
@@ -1144,15 +1145,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stochastic-and-Deterministic-Subclasses-(Variables)"><code>Stochastic</code> and <code>Deterministic</code> Subclasses (Variables)<a class="anchor-link" href="#Stochastic-and-Deterministic-Subclasses-(Variables)">¶</a></h2><p>All <code>Stochastic</code> and <code>Deterministic</code> variables in PyMC have parents (variables that are their inputs) and children (variables which take them as an input). <strong>Variables represented by the <code>Deterministic</code> subclass are those whose value is completely determined by the value of their parents</strong>. This is confusing because often <code>Deterministic</code>-implemented variables are RVs since their parents are RVs. On the other hand <strong>variables represented by the <code>Stochastic</code> subclass specify a probability distribution for their value given the values of the parents.</strong></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Stochastic-and-Deterministic-Subclasses-(Variables)"><code>Stochastic</code> and <code>Deterministic</code> Subclasses (Variables)<a class="anchor-link" href="#Stochastic-and-Deterministic-Subclasses-(Variables)">¶</a></h2><p>All <code>Stochastic</code> and <code>Deterministic</code> variables in PyMC have parents (variables that are their inputs) and children (variables which take them as an input). <strong>Variables represented by the <code>Deterministic</code> subclass are those whose specific value is completely determined by the value of their parents, while variables represented by the <code>Stochastic</code> subclass have a probability distribution for their value given the values of the parents.</strong> This is confusing terminology because often <code>Deterministic</code>-implemented variables are RVs since their parents are RVs.</p>
 <p>To prepare for implementing your system in PyMC you should write down your model in the following form:</p>
 <ul>
 <li>distribution of the data given all the relevant quantities</li>
@@ -1213,7 +1206,7 @@ s \sim \mathrm{DiscreteUniform}(t_l, t_h)\\
 e \sim \mathrm{Exponential}(r_e)\\
 l \sim \mathrm{Exponential}(r_l)\\
 \end{align*}$</p>
-<p>If you can't write down something like the above on pencil and paper then you aren't ready for code and you'll want to spend some more time mathematically representing your system and specifying your model. Assuming you're good with all that, then you need to start out by implementing each variable as an appropriate object in <code>PyMC</code>. In this case the only thing we would implement as <code>Deterministic</code> would be $r(t)$, whose parents $s$, $l$ and $e$ fully determine it. The <code>Stochastic</code> implementation of $s$, $e$, and $l$ is our Bayesian prior ($r_e$ and $r_l$ are just specific constants we need to choose for these priors), while the stochastic implementation of $D(t)$ is our likelihood.</p>
+<p>If you can't write down something like the above on pencil and paper then you aren't ready to code and you'll want to spend some more time mathematically representing your system and specifying your model. Assuming you're good with all that, then you need to start out by implementing each variable as an appropriate object in <code>PyMC</code>. In this case the only thing we would implement as <code>Deterministic</code> would be $r(t)$, whose parents $s$, $l$ and $e$ fully determine it. The <code>Stochastic</code> implementation of $s$, $e$, and $l$ is our Bayesian prior ($r_e$ and $r_l$ are just specific constants we need to choose for these priors), while the stochastic implementation of $D(t)$ is our likelihood.</p>
 </div>
 </div>
 </div>

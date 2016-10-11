@@ -8,10 +8,10 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Over the Ridge</title>
+        <title>Following the Ridge</title>
 
-            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Over the Ridge Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Over the Ridge Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Following the Ridge Full Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Following the Ridge Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -43,12 +43,12 @@
 
 
 			<meta property="og:locale" content="en">
-		<meta property="og:site_name" content="Over the Ridge">
+		<meta property="og:site_name" content="Following the Ridge">
 
 	<meta property="og:type" content="article">
 	<meta property="article:author" content="">
 	<meta property="og:url" content="./bash-and-ipython-on-ubuntu-for-windows.html">
-	<meta property="og:title" content="IPython+Bash (Plot Twist: On Windows!)">
+	<meta property="og:title" content="Bash on Windows (!) with the Linux Subsystem">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="./">
 	<meta property="article:published_time" content="2016-08-29 13:30:00-04:00">
@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>IPython+Bash (Plot Twist: On Windows!)</h1>
+                        <h1>Bash on Windows (!) with the Linux Subsystem</h1>
                         <span class="meta">Posted by
                                 <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
                              on Mon 29 August 2016
@@ -1093,7 +1093,7 @@ h6:hover .anchor-link {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So, I have a Windows machine that I'm rather fond of. Maybe you do too. The unfortunate thing about this situation is that Unix shell (commonly <code>bash</code>) is much more common than Windows system shell in the quantitative computing universe. In the World of Windows we don't really have much of a culture around command line, and so I'm basically a giant command line noob. Once I began poking around in the data science ecosystem it became clear that this was a pretty large gap in my skill set. Not just the lack of <code>bash</code> language skills but also just the lack of command line in my work flow , and I was curious what I was missing. Turns out my timing on this issue is great, because the most recent update to Windows 10 rolled out a feature that is going to let me play around with native <code>bash</code> pretty seamlessly - it's called the <a href="https://msdn.microsoft.com/en-us/commandline/wsl/faq">Windows Subystem for Linux</a> (WSL).</p>
-<p>Before getting freaky with <code>bash</code>, I'd like to point out that I <em>really</em> like the idea of my work flow being operating system agnostic. And I <em>really really</em> like the idea of minimizing the number of tools and languages I depend on. But at the same time I think I should have <em>some</em> degree of familiarity with <code>bash</code> because it's everywhere, and because I'm sure some things are just easier with the right <code>bash</code> one-liner or the right command line tool. So I'm trying to build a command line work flow that is <em>mostly</em> operating system agnostic (read: <code>Python</code>) while still learning some useful <code>bash</code> with this WSL voodoo.</p>
+<p>Before diving in, I'd like to point out that I <em>really</em> like the idea of my work flow being operating system agnostic. And I <em>really really</em> like the idea of minimizing the number of tools and languages I depend on. But at the same time I think I should have <em>some</em> degree of familiarity with <code>bash</code> because it's everywhere, and because I'm sure some things are just easier with the right <code>bash</code> one-liner or the right command line tool. So I'm trying to build a command line work flow that is <em>mostly</em> operating system agnostic (read: <code>Python</code>) while still learning some useful <code>bash</code> with this WSL.</p>
 <p>So this post is for Windows users doing scientific computing, and who are noobs at Unix command line but who want to fix that by playing with the new WSL, but who still want to do most stuff in Python not <code>bash</code>. Not counting myself that might be the empty set, I dunno. Anyway, here I'll describe what the hell <code>bash</code> even is and how <code>IPython</code> is actally a viable alternative console. Then I'll outline how to get your WSL up and running, and then how to get your Anaconda toolset up and running on top of it.</p>
 <p>I'll gradually build out the specific functionality in Python that can replace a lot of what <code>bash</code> is commonly used for, and I may put that into a later post.</p>
 </div>
@@ -1125,14 +1125,13 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="IPython-as-System-Shell">IPython as System Shell<a class="anchor-link" href="#IPython-as-System-Shell">¶</a></h1><p>One of the most dominant Python terminals is <a href="http://ipython.readthedocs.io/en/stable/interactive/shell.htmlhttp://ipython.readthedocs.io/en/stable/index.html"><code>IPython</code></a> and it was actually built with <a href="http://ipython.readthedocs.io/en/stable/interactive/shell.html">usage as system shell in mind</a>! This guy was the obvious candidate for what I wanted to do, and it conveniently ships standard with the Anaconda distribution of python. <code>IPython</code> is also the backend for the awesome browser-based jupyter notebooks that I am literally writing this in right now.</p>
 <p><a href="https://unix.stackexchange.com/questions/4495/object-oriented-shell-for-nix/4497#4497">This SE answer</a> outlines the desired features of any system shell:</p>
-<blockquote><ul>
+<ul>
 <li>Interactive usability: common commands should be short, text completion</li>
 <li>Programming: data structures; concurrency (jobs, pipe, ...)</li>
 <li>System access: working with files, processes, windows, databases, system configuration</li>
 </ul>
-</blockquote>
-<p><code>IPython</code> was cunningly designed with interactivity features (tab completion, command history), and system access can be provided by a handful of Python modules. As far as programming functionality, it's blowing <code>bash</code> out of the water because, umm, you're using Python. And since it was designed with system shell purposes in mind, <code>IPython</code> actually aliases a handful of the common Bash commands (meaning you can just type them like you normally would in shell) such as <code>cd</code> and <code>ls</code>.</p>
-<p>Since I'm writing this in jupyter notebook I can show you what I'm babbling about:</p>
+<p><code>IPython</code> was cunningly designed with interactivity features (tab completion, command history), and system access can be provided by a handful of Python modules. As for programming functionality, it's blowing <code>bash</code> out of the water because, umm, you're using Python. And since it was designed with system shell purposes in mind, <code>IPython</code> actually aliases a handful of the common Bash commands (meaning you can just type them like you normally would in shell) such as <code>cd</code> and <code>ls</code>.</p>
+<p>Since I'm writing this in jupyter notebook I can show you what I'm on about:</p>
 </div>
 </div>
 </div>
@@ -1290,7 +1289,7 @@ While this is a useful Bash alias:
 <blockquote><p>This bug is not a bug in Python. IPython (and Jupyter) Notebook are not pure Python; they contain some native code as well, and that native code links against some third-party native systemwide C libraries. The problem is a bug in one of those libraries, "libzmq". All versions of Notebook link libzmq. Because it's an independent system library, it doesn't matter what version of iPython/Jupyter you're using, nor what version of Python. But which libzmq do they link? The iPython that comes with Ubuntu uses the libzmq that comes with Ubuntu. I believe pip will try to use the system libzmq as well. My updated patch fixes Ubuntu's version of the library. Anaconda bundles their own copy of libzmq, so you have to use @jzuhone 's solution to get their fix.</p>
 </blockquote>
 <p>The solution by @jzuhone's that works for those of us that pulled down <code>jupyter</code> via Anaconda is to grab his fix by typing in our <code>bash</code> terminal <code>conda install -c jzuhone zeromq=4.1.dev0</code>. (Conda is the python package manager that comes in the Anaconda bundle.)</p>
-<p>These people are seriously heroes, lets make them some cookies or something.</p>
+<p>These people are seriously heroes.</p>
 </div>
 </div>
 </div>
@@ -1423,7 +1422,7 @@ While this is a useful Bash alias:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You have now unlocked the full power of <code>Bash</code>... in a <code>Python</code> Terminal... on Linux... on Windows. Rejoice!</p>
-<p>Sadly people that was definitely the easy part of what I'm trying to do. The hard part is learning the python modules that can replicate some common <code>bash</code> functionality, and as I mentioned that might be part of later post. I also want to customize the <code>IPython</code> configuration so that when it launches it is all set up for this kind of work. Wish me luck!</p>
+<p>Sadly people that was definitely the easy part of what I'm trying to do. The hard part is learning the python modules that can replicate some common <code>bash</code> functionality, and as I mentioned that might be part of later post. I also want to customize the <code>IPython</code> configuration so that when it launches it is all set up for this kind of work.</p>
 </div>
 </div>
 </div>
