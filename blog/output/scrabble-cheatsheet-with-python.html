@@ -1117,7 +1117,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Readlines returns a list of lines of file until EOF.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Readlines returns a list of lines of file until EOF.</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"OWL3_Dictionary.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">text</span><span class="p">:</span>
     <span class="n">dictionary</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 
@@ -1143,7 +1143,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">dictionary</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dictionary</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1172,7 +1172,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Loop through the dictionary and create a set of more specific lists</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Loop through the dictionary and create a set of more specific lists</span>
 <span class="n">two_words</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># all the words of length 2</span>
 <span class="n">three_words</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># all the words of length 3</span>
 <span class="n">four_words</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># all the words of length 4</span>
@@ -1217,7 +1217,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">find_hooks</span><span class="p">(</span><span class="n">short_words</span><span class="p">,</span> <span class="n">long_words</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">find_hooks</span><span class="p">(</span><span class="n">short_words</span><span class="p">,</span> <span class="n">long_words</span><span class="p">):</span>
     <span class="sd">'''Take as an input two lists of words, the first being the list of smaller-sized words, </span>
 <span class="sd">    the second being the list of larger sized words to get hook letters from. Outputs a list </span>
 <span class="sd">    of lists with this hook information.'''</span>
@@ -1249,7 +1249,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">two_to_make_threes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">two_to_make_threes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1278,7 +1278,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># For writing to file the prefixes will be collapsed into a string, and likewise for the suffixes.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For writing to file the prefixes will be collapsed into a string, and likewise for the suffixes.</span>
 <span class="k">def</span> <span class="nf">print_hooks</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">hook_array</span><span class="p">):</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">text</span><span class="p">:</span>
         <span class="c1"># The join method for strings concatenates all the string elements in the input sequence by</span>
@@ -1307,7 +1307,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">pointer_lists</span><span class="p">(</span><span class="n">wordlist</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pointer_lists</span><span class="p">(</span><span class="n">wordlist</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
     <span class="sd">'''Create and write to file sorted (length, then alphabet) word lists.'''</span>
     <span class="n">shortlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">wordlist</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o"><=</span> <span class="mi">5</span><span class="p">]</span>
     <span class="c1"># The default sort behavior for a list of lists is sort on first element, then second etc.</span>
@@ -1339,7 +1339,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">q_without_u</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">q_words</span> <span class="k">if</span> <span class="s2">"u"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">word</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q_without_u</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">q_words</span> <span class="k">if</span> <span class="s2">"u"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">word</span><span class="p">]</span>
 <span class="n">q_without_u</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="p">),</span> <span class="n">item</span><span class="p">))</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"Q_without_U_Words.txt"</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">text</span><span class="p">:</span>
     <span class="n">text</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s2">"</span><span class="si">%s</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">q_without_u</span><span class="p">])</span>
@@ -1362,7 +1362,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [38]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">q_without_u</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">q_without_u</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1394,12 +1394,12 @@ will be "a" "e" "i" "o" and "u" and the threshold will be 66%.</p>
 <div class="prompt input_prompt">In [39]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">wordcontent</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">matchlist</span><span class="p">,</span> <span class="n">minfraction</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">wordcontent</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">matchlist</span><span class="p">,</span> <span class="n">minfraction</span><span class="p">):</span>
     <span class="sd">'''Determines if the percentage of characters which are in a "match list" in a </span>
 <span class="sd">    given word is greater than or equal to a certain percentage.'''</span>
     <span class="n">matches</span> <span class="o">=</span> <span class="p">[(</span><span class="n">char</span> <span class="ow">in</span> <span class="n">matchlist</span><span class="p">)</span> <span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">word</span><span class="p">]</span>
     <span class="n">percentage</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">matches</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">))</span>
-    <span class="k">return</span> <span class="bp">True</span> <span class="k">if</span> <span class="n">percentage</span> <span class="o">>=</span> <span class="n">minfraction</span> <span class="k">else</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">percentage</span> <span class="o">>=</span> <span class="n">minfraction</span> <span class="k">else</span> <span class="kc">False</span>
 
 
 <span class="c1"># Pull out only words have 66% or more vowels and are length six or less, and sort by length/alphabetical.</span>
@@ -1429,7 +1429,7 @@ will be "a" "e" "i" "o" and "u" and the threshold will be 66%.</p>
 <div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">voweldump</span><span class="p">[</span><span class="mi">65</span><span class="p">:</span><span class="mi">73</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">voweldump</span><span class="p">[</span><span class="mi">65</span><span class="p">:</span><span class="mi">73</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1458,7 +1458,7 @@ will be "a" "e" "i" "o" and "u" and the threshold will be 66%.</p>
 <div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">idump</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">dictionary</span> <span class="k">if</span> <span class="n">wordcontent</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">></span> <span class="mi">2</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idump</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">dictionary</span> <span class="k">if</span> <span class="n">wordcontent</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="o">></span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">idump</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">item</span><span class="p">:</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">item</span><span class="p">),</span> <span class="n">item</span><span class="p">))</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"I_Dumps.txt"</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">text</span><span class="p">:</span>
     <span class="n">text</span><span class="o">.</span><span class="n">writelines</span><span class="p">([</span><span class="s2">"</span><span class="si">%s</span><span class="se">\n</span><span class="s2">"</span> <span class="o">%</span> <span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">idump</span><span class="p">])</span>
@@ -1477,7 +1477,7 @@ will be "a" "e" "i" "o" and "u" and the threshold will be 66%.</p>
 <div class="prompt input_prompt">In [42]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">udump</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">udump</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1497,7 +1497,7 @@ will be "a" "e" "i" "o" and "u" and the threshold will be 66%.</p>
 <div class="prompt input_prompt">In [43]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">idump</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">idump</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1518,11 +1518,22 @@ will be "a" "e" "i" "o" and "u" and the threshold will be 66%.</p>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>That's it - all the lists I wanted on the cheat sheet now outputted as newline-delimited text files.</p>
-<h1 id="Making-the-Cheat-Sheet-in-Adobe-Illustrator---blergh!">Making the Cheat Sheet in Adobe Illustrator - blergh!<a class="anchor-link" href="#Making-the-Cheat-Sheet-in-Adobe-Illustrator---blergh!">¶</a></h1><p>This part was necessary, but also kind of sucked. The hook lists were especially problematic - I ended up importing the text files into Excel to get columns, then copy/pasting that into Word and doing all sorts of formatting gymnastics to get the columns to look how I wanted, then exporting that to a PDF and opening it in Illustrator. For the other word lists I want to mention the revelatory <code>Text > Text Area Options</code> menu in Illustrator that lets you format text into columns. Anyway, below is the finalized cheat sheet in all it's glory. Feel free to print and laminate a copy for your own use!</p>
-<ul>
-<li><a href="../content/post-scrabble-wordlists/OWL3_Cheat_Sheet1_lists.pdf">OWL3 Cheat Sheet #1</a> (J, Q, X, Z, 2-to-make-3s, vowel dumps)</li>
-<li><a href="../content/post-scrabble-wordlists/OWL3_Cheat_Sheet2_3sto4s.pdf">OWL3 Cheat Sheet #2</a> (3-to-make4s)</li>
-</ul>
+<h1 id="Making-the-Cheat-Sheet-in-Adobe-Illustrator---blergh!">Making the Cheat Sheet in Adobe Illustrator - blergh!<a class="anchor-link" href="#Making-the-Cheat-Sheet-in-Adobe-Illustrator---blergh!">¶</a></h1><p>This part was necessary, but also kind of sucked. The hook lists were especially problematic - I ended up importing the text files into Excel to get columns, then copy/pasting that into Word and doing all sorts of formatting gymnastics to get the columns to look how I wanted, then exporting that to a PDF and opening it in Illustrator. For the other word lists I want to mention the revelatory <code>Text > Text Area Options</code> menu in Illustrator that lets you format text into columns. Anyway, I set up an <a href="https://www.etsy.com/shop/ScrabbleSheets?ref=l2-shopheader-name">Etsy shop</a> to sell cheap downloads for the PDFs, but you can check out the pics below.</p>
+<p><img src="post-scrabble-wordlists/Scrabble_Cheat_Sheet_Lists_Front.png" />
+<img src="post-scrabble-wordlists/Scrabble_Cheat_Sheet_Lists_Back.png" />
+<img src="post-scrabble-wordlists/Scrabble_Cheat_Sheet_3toMake4s_Front.png" />
+<img src="post-scrabble-wordlists/Scrabble_Cheat_Sheet_3toMake4s_Back.png" /></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+</div>
 </div>
 </div>
 </div>
