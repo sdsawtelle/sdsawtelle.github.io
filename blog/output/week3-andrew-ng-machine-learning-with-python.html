@@ -1084,12 +1084,13 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Week-3">Week 3<a class="anchor-link" href="#Week-3">¶</a></h1><p>This is a "solution" to Andrew Ng's ML course on Coursera for Week 3 programming assignment. It's a solution in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the real tools a data scientist might make use of, rather than implementing the algorithms from scratch.</p>
-<h3 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h3><ul>
+<h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Linear-Regression-homework-in-Python-instead-of-Matlab.">In which I brazenly defy Professor Ng and do his Linear Regression homework in Python instead of Matlab.<a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Linear-Regression-homework-in-Python-instead-of-Matlab.">¶</a></h1><p>This is a "solution" to Andrew Ng's ML course on Coursera for Week 3 programming assignment. It's a solution in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use, rather than implementing the algorithms from scratch. In places I have copied his directions from the homework exactly <em>in italics</em>.</p>
+<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
 <li><code>SGDClassifier</code> for general classification problems (like logistic regression) specifying a loss and penalty</li>
 <li><code>LogisticRegression</code> for classification using log-loss and specifying a penalty (regularization)</li>
 <li><code>PolynomialFeatures</code> for automated creation of higher order feature terms</li>
 </ul>
+</blockquote>
 <h1 id="Logistic-Regression">Logistic Regression<a class="anchor-link" href="#Logistic-Regression">¶</a></h1><p><em>Suppose that you are the administrator of a university department and
 you want to determine each applicant's chance of admission based on their
 results on two exams. You have historical data from previous applicants
@@ -1104,7 +1105,7 @@ probability of admission based the scores from those two exams.</em></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [84]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -1140,28 +1141,18 @@ probability of admission based the scores from those two exams.</em></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [85]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"ex2data1.txt"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [86]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[86]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -3305,7 +3296,7 @@ Hypothesis prediction success rate is 0.78
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><span style="background-color:#d3a2f0">**Summary**:</span> <span style="background-color:#FFFFbb">Logistic Regression to fit the typical sigmoid hypothesis form can be done with `SGDClassifier` wherein you specify the specific loss function and penalty, and it will always use stochastic gradient descent for the optimization. The class `LogisticRegression` is less general and always uses the common log-loss, but still allows you do regularization using either $L1$ or $L2$ penalty. With this tool you must specify the "solver" it uses to actually do the optimization and a coordinate descent method is the default. In all cases the tool `PolynomialFeatures` automates the construction of higher order terms for you, just be sure to regularize properly in order to avoid overfitting.</span></p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>Logistic Regression to fit the typical sigmoid hypothesis form can be done with <code>SGDClassifier</code> wherein you specify the specific loss function and penalty, and it will always use stochastic gradient descent for the optimization. The class <code>LogisticRegression</code> is less general and always uses the common log-loss, but still allows you do regularization using either $L1$ or $L2$ penalty. With this tool you must specify the "solver" it uses to actually do the optimization and a coordinate descent method is the default. In all cases the tool <code>PolynomialFeatures</code> automates the construction of higher order terms for you, just be sure to regularize properly in order to avoid overfitting.</p>
 </div>
 </div>
 </div>
