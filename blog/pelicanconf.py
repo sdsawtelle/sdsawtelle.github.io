@@ -7,8 +7,8 @@ import sys
 sys.setdefaultencoding("utf-8")
 
 AUTHOR = u'Sonya Sawtelle'
-SITENAME = u'Following the Ridge'
-SITESUBTITLE = u'Snippets From Learning Data Science & Python.'
+SITENAME = u'Evening Session'
+SITESUBTITLE = u'Learning Data Science & Python in 2 Hr/Day.'
 SITEURL = 'sdsawtelle.github.io'
 
 PATH = 'content'

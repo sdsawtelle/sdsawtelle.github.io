@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Following the Ridge</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/python.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-09-18T13:30:00-04:00</updated><entry><title>Markov Chain Monte Carlo with PyMC</title><link href="sdsawtelle.github.io/mcmc-in-python-with-pymc.html" rel="alternate"></link><published>2016-09-18T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-18:sdsawtelle.github.io/mcmc-in-python-with-pymc.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Evening Session</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/python.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-09-18T13:30:00-04:00</updated><entry><title>Markov Chain Monte Carlo with PyMC</title><link href="sdsawtelle.github.io/mcmc-in-python-with-pymc.html" rel="alternate"></link><published>2016-09-18T13:30:00-04:00</published><author><name>Sonya Sawtelle</name></author><id>tag:,2016-09-18:sdsawtelle.github.io/mcmc-in-python-with-pymc.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
