@@ -1084,7 +1084,15 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.<a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">¶</a></h1><p>This is a "solution" to the Week 3 homework for Andrew Ng's ML course on Coursera.. It's a solution in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use, rather than implementing the algorithms from scratch. In places I have copied his directions from the homework exactly <em>in italics</em>.</p>
+<h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.<a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">¶</a></h1><p>Week 3 of Andrew Ng's ML course on Coursera focuses on doing classification using the standard sigmoid hypothesis and the log-loss cost function, and multiclass classification is covered under the one-vs-rest approach. This is my "solution" to the Week 3 homework, in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use rather than implementing the algorithms from scratch. Also sometimes I digress from the homework. Like, a lot.</p>
+<p>I'll be walking through the following steps with the homework data set:</p>
+<ul>
+<li>visualizing the data</li>
+<li>training a binary classifier and assessing its performance</li>
+<li>visualizing the decision boundary </li>
+<li>adding polynomial features for higher complexity</li>
+<li>adding regularization to the algorithm</li>
+</ul>
 <blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
 <li><code>SGDClassifier</code> for general classification problems (like logistic regression) specifying a loss and penalty</li>
 <li><code>LogisticRegression</code> for classification using log-loss and specifying a penalty (regularization)</li>
@@ -1097,7 +1105,7 @@ results on two exams. You have historical data from previous applicants
 that you can use as a training set for logistic regression. For each training
 example, you have the applicant's scores on two exams and the admissions
 decision.
-Your task is to build a classication model that estimates an applicant's
+Your task is to build a classifcation model that estimates an applicant's
 probability of admission based the scores from those two exams.</em></p>
 <h2 id="Plotting-the-Data">Plotting the Data<a class="anchor-link" href="#Plotting-the-Data">¶</a></h2>
 </div>
