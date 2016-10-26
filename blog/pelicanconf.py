@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 import sys
 # reload(sys)
-sys.setdefaultencoding("utf-8")
+# sys.setdefaultencoding("utf-8")
 
 AUTHOR = u'Sonya Sawtelle'
 SITENAME = u'Evening Session'
