@@ -183,7 +183,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-the-hell-Mean-Average-Precision-is.">In which I spare you an abundance of "map"-related puns while explaining what the hell Mean Average Precision is.<a class="anchor-link" href="#In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-the-hell-Mean-Average-Precision-is.">¶</a></h1><p>(Ok there's one pun.) Since you're reading this I'm assuming you've come up against the slightly convoluted "Mean Average Precision", or MAP metric for evaluating ML algorithms. If you are here on a kaggle quest then you are me two days ago - kaggle is where I first heard about MAP and the reason I typed up this post.</p>
+<h1 id="In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-Mean-Average-Precision-is.">In which I spare you an abundance of "map"-related puns while explaining what Mean Average Precision is.<a class="anchor-link" href="#In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-Mean-Average-Precision-is.">¶</a></h1><p>(Ok there's one pun.) Since you're reading this I'm assuming you've come up against the slightly convoluted "Mean Average Precision", or MAP metric for evaluating ML algorithms. If you are here on a kaggle quest then you are me two days ago - kaggle is where I first heard about MAP and the reason I typed up this post.</p>
 <p>MAP is very popular evaluation metric for algorithms that do information retrieval (think google search results) but it also can apply to user-targeted product recommendations. <strong>If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (imagine relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (imagine search results at the bottom of the page), then maybe MAP is the metric for you!</strong></p>
 </div>
 </div>
@@ -281,9 +281,9 @@
 <h1 id="Examples-and-Intuition-for-AP">Examples and Intuition for AP<a class="anchor-link" href="#Examples-and-Intuition-for-AP">¶</a></h1><p>Let's imagine recommending $N=3$ products (AP@3) to a user who actually added a total of $m=3$ products. Here are some examples of outcomes:</p>
 <table>
 <thead><tr>
-<th>Recommendations</th>
-<th>Precision @ k's</th>
-<th>AP@3</th>
+<th><strong><em>__</em></strong>Recommendations<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Precision @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>AP@3<strong><em>__</em></strong></th>
 </tr>
 </thead>
 <tbody>
@@ -307,9 +307,9 @@
 <p>Notice that in all the rows you got just one recommendations correct, but when it was your first recommendation you got the largest AP. Having your one correct recommendation as the second element was half as good as having it as the first and one third as good when you instead have it as the third element. How about some more examples to illustrate this subtlety.</p>
 <table>
 <thead><tr>
-<th>Recommendations</th>
-<th>Precision @ k's</th>
-<th>AP@3</th>
+<th><strong><em>__</em></strong>Recommendations<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Precision @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>AP@3<strong><em>__</em></strong></th>
 </tr>
 </thead>
 <tbody>
@@ -378,11 +378,11 @@ AP = 0 \qquad \textrm{if $m=0$}.
 <div class="text_cell_render border-box-sizing rendered_html">
 <table>
 <thead><tr>
-<th>Recommendations</th>
-<th>Precision @ k's</th>
-<th>Recall @ k's</th>
-<th>Change in Recall @ k's</th>
-<th>AP@3</th>
+<th><strong><em>__</em></strong>Recs<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Prec @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Recall @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Change r @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>AP@3<strong><em>__</em></strong></th>
 </tr>
 </thead>
 <tbody>
@@ -411,11 +411,11 @@ AP = 0 \qquad \textrm{if $m=0$}.
 </table>
 <table>
 <thead><tr>
-<th>Recommendations</th>
-<th>Precision @ k's</th>
-<th>Recall @ k's</th>
-<th>Change in Recall @ k's</th>
-<th>AP@3</th>
+<th><strong><em>__</em></strong>Recs<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Prec @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Recall @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Change r @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>AP@3<strong><em>__</em></strong></th>
 </tr>
 </thead>
 <tbody>
