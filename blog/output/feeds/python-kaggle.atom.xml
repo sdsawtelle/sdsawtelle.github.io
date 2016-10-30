@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Evening Session</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/python-kaggle.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-10-25T13:30:00-04:00</updated><entry><title>Mean Average Precision (MAP) For Recommender Systems</title><link href="sdsawtelle.github.io/mean-average-precision-MAP-for-recommender-systems.html" rel="alternate"></link><published>2016-10-25T13:30:00-04:00</published><updated>2016-10-25T13:30:00-04:00</updated><author><name>Sonya Sawtelle</name></author><id>tag:,2016-10-25:sdsawtelle.github.io/mean-average-precision-MAP-for-recommender-systems.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell&gt;div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area&gt;div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area&gt;div.highlight&gt;pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell&gt;div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="In-which-I-spare-you-an-abundance-of-&amp;quot;map&amp;quot;-related-puns-while-explaining-what-Mean-Average-Precision-is."&gt;In which I spare you an abundance of "map"-related puns while explaining what Mean Average Precision is.&lt;a class="anchor-link" href="#In-which-I-spare-you-an-abundance-of-&amp;quot;map&amp;quot;-related-puns-while-explaining-what-Mean-Average-Precision-is."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;(Ok there's one pun.) Since you're reading this I'm assuming you've come up against the slightly convoluted "Mean Average Precision", or MAP metric for evaluating ML algorithms. If you are here on a kaggle quest then you are me two days ago - kaggle is where I first heard about MAP and the reason I typed up this post.&lt;/p&gt;
+&lt;p&gt;MAP is very popular evaluation metric for algorithms that do information retrieval (think google search results) but it also can apply to user-targeted product recommendations. &lt;strong&gt;If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (imagine relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (imagine search results at the bottom of the page), then maybe MAP is the metric for you!&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="MAP-for-Recommender-Algorithms"&gt;MAP for Recommender Algorithms&lt;a class="anchor-link" href="#MAP-for-Recommender-Algorithms"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;MAP is a pretty common metric for user recommendation systems, like when Amazon shows you a short list of products it thinks you might &lt;em&gt;also&lt;/em&gt; want to purchase after you've added something to your cart. &lt;strong&gt;Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task.&lt;/strong&gt; This often makes perfect sense! A user has a finite amount of time and attention, so we want to know not just five products they might like, but also which are most liked or which we are most confident of. This lets you show the top recommendations first and maybe market them more aggressively.&lt;/p&gt;
+&lt;p&gt;So we just want a metric that rewards you for getting lots of "correct" or relevant recommendations, and rewards you for having them earlier on in the list (higher ranked). Before we can construct this metric though, we need &lt;strong&gt;Precision&lt;/strong&gt; and &lt;strong&gt;Recall&lt;/strong&gt;. That's what I call my left and right fist. Only joking, those are actually two things I conveniently just learned about in Andrew Ng's ML course on Coursera!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Precision-and-Recall-of-a-Binary-Classifier"&gt;Precision and Recall of a Binary Classifier&lt;a class="anchor-link" href="#Precision-and-Recall-of-a-Binary-Classifier"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;So let's start where professor Ng started. If we have binary classifier for predicting having a condition ($y=1$) vs not, then we define:&lt;/p&gt;
+\begin{align*}
+\textrm{precision:} \qquad P = \frac{\textrm{# correct positive}}{\textrm{# predicted positive}}\\
+\\
+\textrm{recall:} \qquad r  = \frac{\textrm{# correct positive}}{\textrm{# with condition}}
+\end{align*}&lt;p&gt;In maybe more familiar terminology, precision is (1 -  &lt;em&gt;false positive rate&lt;/em&gt;), and the recall is (1 - &lt;em&gt;false negative rate&lt;/em&gt;). Actually I'm baffled as to why two new terms were needed for this.&lt;/p&gt;
+&lt;p&gt;It might also be helpful to some people to think in terms of conditional probabilities: $P = \textrm{P}(y=1\  \big|\  h_\theta(x)=1)$ and $r =  \textrm{P}(h_\theta(x)=1 \ \big| \  y=1)$, where $h_\theta(x)$ is the prediction output of your algorithm for data point $x$.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Precision-and-Recall-of-Recommender-Systems"&gt;Precision and Recall of Recommender Systems&lt;a class="anchor-link" href="#Precision-and-Recall-of-Recommender-Systems"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;OK so how does this map (ding!) to recommender systems? In modeling pretty much all recommendation systems we're going to have the following quantities with their corresponding ones in the binary classifier:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;Terminology in Binary Classifier&lt;/th&gt;
+&lt;th&gt;Terminology in Recommender System&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;# with condition&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;B_r&lt;/td&gt;
+&lt;td&gt;$, the number of items that would be &lt;strong&gt;r&lt;/strong&gt;elevant ("correct") choices&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;# predicted positive&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;B_s&lt;/td&gt;
+&lt;td&gt;$, the number of items we &lt;strong&gt;s&lt;/strong&gt;elected to recommend&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;# correct positives&lt;/td&gt;
+&lt;td&gt;$&lt;/td&gt;
+&lt;td&gt;B_{rs}&lt;/td&gt;
+&lt;td&gt;$, the number of items that are actually &lt;strong&gt;r&lt;/strong&gt;elevant from among those that we &lt;strong&gt;s&lt;/strong&gt;elected to recommend&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Notice how I bolded the letters responsible for generating the subscripts. I'm nice like that. The reason we use the pipes $| |$ is because typically $B_r$ would be a set, and $|B_r|$ would be the size of the set. OK so now with almost no effort we have:&lt;/p&gt;
+\begin{align*}
+\textrm{recommender system precision:} \qquad P = \frac{\textrm{# of our recommendations that are relevant}}{\textrm{# of items we recommended}}\\
+\\
+\textrm{recommender system recall:} \qquad r  = \frac{\textrm{# of our recommendations that are relevant}}{\textrm{# of all the possible relevant items}}
+\end{align*}&lt;p&gt;Let's say I am asked to recommend $N=5$ products (this means I predict "positve" for five prducts), from all the possible products there are only 3 that are actually relevant to the user, and my successes and failures in my ranked list are $[0, 1, 1, 0, 0]$. Then: $B_r = 3$, $B_s = 5$ and $B_{rs} = 2$.&lt;/p&gt;
+&lt;p&gt;People love examples, so here's a visual one. Let's say we're being asked to recommend financial "products" to Bank users and we compare our recommendations to the products that a user actually added in the following month (these are all the possible "relevant" ones).&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/map/area_pic.png" width="800" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Precision-and-Recall-at-Cutoff-k"&gt;Precision and Recall at Cutoff k&lt;a class="anchor-link" href="#Precision-and-Recall-at-Cutoff-k"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;So that's nice and all, BUT Precision and Recall don't give a crap about ordering of our recommendations. So instead let's talk about &lt;strong&gt;precision and recall at cutoff k&lt;/strong&gt;. Imagine taking your list of $N$ recommendations and considering only the first element, then only the first two, then only the first three, etc... these subsets can be indexed by $k$. &lt;strong&gt;Precision at cutoff k, $P(k)$, and Recall at cutoff k, $r(k)$, are simply the precision and recall calculated by considering only the subset of your recommendations from rank 1 through $k$&lt;/strong&gt;. Really it would be more intuitive to say "up to cutoff k" rather than "at".&lt;/p&gt;
+&lt;p&gt;Sticking with the bank example, here is what I mean:
+&lt;img src="images/map/subset_pic.png" width="800" /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Average-Precision"&gt;Average Precision&lt;a class="anchor-link" href="#Average-Precision"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;OK are you ready for Average Precision now? If we are asked to recommend $N$ items, the number of relevant items in the full space of items is $m$, then:&lt;/p&gt;
+\begin{align*}
+\textrm{AP@N} = \frac{1}{m}\sum_{k=1}^N \textrm{($P(k)$ if $k^{th}$ item was relevant)} = \frac{1}{m}\sum_{k=1}^N P(k)\cdot rel(k),
+\end{align*}&lt;p&gt;where $rel(k)$ is just an indicator that says whether that $k^{th}$ item was relevant ($rel(k)=1$) or not ($rel(k)=0$). I'd like to point out that instead of recommending $N$ items would could have recommended, say, $2N$, but the AP@N metric says we only care about the average precision up to the $N^{th}$ item.&lt;/p&gt;
+&lt;p&gt;Let's imagine recommending $N=3$ products (AP@3) to a user who actually added a total of $m=3$ products. Here are some examples of outcomes:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;---Recommendations---&lt;/th&gt;
+&lt;th&gt;-------Precision @ k's -------&lt;/th&gt;
+&lt;th&gt;-------- AP@3 ---------&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;[1, 0, 0]&lt;/td&gt;
+&lt;td&gt;[1/1, 1/2, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1) = 1/3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 1, 0]&lt;/td&gt;
+&lt;td&gt;[0, 1/2, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1/2) = 1/6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 0, 1]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1/3) = 1/9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Notice that in all the rows you got just one recommendations correct, but when it was your first recommendation you got the largest AP. Having your one correct recommendation as the second element was half as good as having it as the first and one third as good when you instead have it as the third element. How about some more examples to illustrate this subtlety.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;---Recommendations---&lt;/th&gt;
+&lt;th&gt;-------Precision @ k's-------&lt;/th&gt;
+&lt;th&gt;-------- m*(AP) ---------&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 0, 1]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)&lt;strong&gt;(1/3)&lt;/strong&gt; = 1/9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 1, 1]&lt;/td&gt;
+&lt;td&gt;[0, 1/2, 2/3]&lt;/td&gt;
+&lt;td&gt;(1/3)[(1/2) + &lt;strong&gt;(2/3)&lt;/strong&gt;] = 7/18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[1, 1, 1]&lt;/td&gt;
+&lt;td&gt;[1/1, 2/2, 3/3]&lt;/td&gt;
+&lt;td&gt;(1/3)[(1) + (2/2) + &lt;strong&gt;(3/3)&lt;/strong&gt;] = 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Notice that starting from the first row where only the third recommendation is correct, when I add in a second and third correct element I get an increasing AP. This is because the precision of the $k^{th}$ subset adds to the AP sum only if you got the $k^{th}$ recommendation correct, thus &lt;strong&gt;AP rewards you for giving correct recommendations&lt;/strong&gt; (surprising absolutely no one).&lt;/p&gt;
+&lt;p&gt;Now the third row of the table - here we're getting everything right so each element is adding the same $P(k)$ to the precision ($P=1$). Now look at the last column of the table, in each row I've bolded the term which came from the correct recommendation in the third slot. Notice it is bigger when there have been more successes in front of it - that's because your precision for the $k^{th}$ subset is larger the better you've done up to $k$. Thus, &lt;strong&gt;AP rewards you for front-loading the recommendations that are most likely to be correct&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;These two features are what makes AP a useful metric when your algorithm is returning a ranked ordering of items, each item is either hit or miss, and items further down in the list are less likely to be used/seen.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="The-&amp;quot;Mean&amp;quot;-in-MAP"&gt;The "Mean" in MAP&lt;a class="anchor-link" href="#The-&amp;quot;Mean&amp;quot;-in-MAP"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;OK that was Average Precision, which applies to a single data point (like a single user). What about MAP@N? All that remains is to average the AP@N metric over all your $|U|$ users. Yes, an average of an average.&lt;/p&gt;
+\begin{align*}
+\textrm{MAP@N} = \frac{1}{|U|}\sum_{u=1}^|U|(\textrm{AP@N})_u = \frac{1}{|U|} \sum_{u=1}^|U| \frac{1}{m}\sum_{k=1}^N P_u(k)\cdot rel_u(k).
+\end{align*}&lt;h2 id="Minor-Details"&gt;Minor Details&lt;a class="anchor-link" href="#Minor-Details"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Often you see the AP metric modified slightly when there might be more possible correct recommendations then the number of recommendations you are asked to give. Say, a super active user at the bank who adds $m=10$ accounts the next month, while your algorithm is only supposed to report $N=5$. In this case the normalization factor used is $1/\textrm{min}(m, N)$, which prevents your AP score from being unfairly suppressed when your number of recommendations couldn't possibly capture all the correct ones.&lt;/p&gt;
+\begin{align*}
+\textrm{AP@N} = \frac{1}{\textrm{min}(m,N)}\sum_{k=1}^N P(k)\cdot rel(k).
+\end{align*}&lt;p&gt;You also might encounter a somewhat sloppier usage where there is no indicator function $rel(k)$ in the AP@N sum. In this case the person is re-defining the precision at cutoff $k$ to be zero when the $k^{th}$ recommendation was incorrect, that way it still doesn't contribute to the sum:&lt;/p&gt;
+\begin{align*}
+\textrm{AP@N} = \frac{1}{m}\sum_{k=1}^N P(k),\\
+P(k) = 0 \textrm{ if $k^{th}$ element is irrelevant / incorrect.}
+\end{align*}&lt;p&gt;Finally, the if it's possible for there to be no relevant or correct recommendations possible ($m=0$) then often the AP is defined to be zero for those points. This is just to prevent us from trying to divide by zero in the normalization. Note that it will have the effect of dragging the MAP number of an algorithm down the more users there are who didn't actually add any products. This doesn't matter for comparing the performance of two algorithms on the same data set, but it does mean that you shouldn't place any kind of absolute meaning on the final number.&lt;/p&gt;
+\begin{align*}
+\textrm{AP@N} = \frac{1}{\textrm{min}(m,N)}\sum_{k=1}^N P(k)\cdot rel(k) \qquad \textrm{ if $m\neq 0$,}\\
+AP = 0 \qquad \textrm{if $m=0$}.
+\end{align*}
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="So-Why-Did-I-Bother-Defining-Recall?"&gt;So Why Did I Bother Defining Recall?&lt;a class="anchor-link" href="#So-Why-Did-I-Bother-Defining-Recall?"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;There is an alternative formulation for the AP in terms of Precision &lt;em&gt;and&lt;/em&gt; Recall, and I didn't want you to feel left out when people start talking about it at parties:&lt;/p&gt;
+\begin{align*}
+\textrm{AP@N} = \sum_{k=1}^N \textrm{(precision at $k$)}\cdot\textrm{(change in recall at $k$)} = \sum_{k=1}^N P(k)\Delta r(k),
+\end{align*}&lt;p&gt;where $\Delta r(k)$ is the change in recall from the $k-1^{th}$ to the $k^{th}$ subset. This formulation is actually kind of nice because we don't need to "leave out" terms in the sum with an indicator function, instead the change in recall term is zero when the $k^{th}$ recommendation is incorrect so those guys get wiped out anyway. Hopefully you noticed that the prefactor $1/m$ is missing too, it turns out that when the $k^{th}$ recommendation &lt;em&gt;is&lt;/em&gt; correct the change in recall is exactly $1/m$.  OK let me stop talking and make with the examples. Same as before, recommending $N=3$ products (AP@3) to a user who actually added a total of $m=3$ products:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;---Recommendations---&lt;/th&gt;
+&lt;th&gt;-------Precision @ k's-------&lt;/th&gt;
+&lt;th&gt;----------Recall @ k's----------&lt;/th&gt;
+&lt;th&gt;---Change in Recall @ k's---&lt;/th&gt;
+&lt;th&gt;-------- AP@3 ---------&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;[1, 0, 0]&lt;/td&gt;
+&lt;td&gt;[1, 1/2, 1/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 0, 0]&lt;/td&gt;
+&lt;td&gt;(1)(1/3) = 1/3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 1, 0]&lt;/td&gt;
+&lt;td&gt;[0, 1/2, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 0]&lt;/td&gt;
+&lt;td&gt;(1/2)(1/3) = 1/6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 0, 1]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1/3) = 1/9&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;---Recommendations---&lt;/th&gt;
+&lt;th&gt;-------Precision @ k's-------&lt;/th&gt;
+&lt;th&gt;----------Recall @ k's----------&lt;/th&gt;
+&lt;th&gt;---Change in Recall @ k's---&lt;/th&gt;
+&lt;th&gt;-------- AP@3 ---------&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 0, 1]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;(1/3)(1/3)&lt;/strong&gt; = 1/12&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 1, 1]&lt;/td&gt;
+&lt;td&gt;[0, 1/2, 2/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 2/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1/2) + &lt;strong&gt;(1/3)(2/3)&lt;/strong&gt; = 7/18&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[1, 1, 1]&lt;/td&gt;
+&lt;td&gt;[1, 2/2, 3/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 2/3, 3/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1) + (1/3)(1) + &lt;strong&gt;(1/3)(1)&lt;/strong&gt; = 3/4&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Hopefully you can convince yourself that you are getting exactly the same result for this formulation of AP as we got before.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Graphical-Representation-of-$P(i)$-and-$r(i)$"&gt;Graphical Representation of $P(i)$ and $r(i)$&lt;a class="anchor-link" href="#Graphical-Representation-of-$P(i)$-and-$r(i)$"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can think of $P(i)$ and $r(i)$ as functions of the index $i$, and we can plot them accordingly, e.g. $P(i)$ vs. $i$. The resulting plot would of course depend heavily on the particular sequence of correct/incorrect recommendations that we are indexing through. More often what you see is a plot in the $P(i)$ x $r(i)$ plane that traces out the trajectory of both these quantities as you index through the list of recommendations. Analytically we can already imagine what such a trajectory will do: if at the next $i$ we got a correct recommendation then both precision and recall should increase, whereas if we got that recommendation wrong then precision will decrease while recall will be unchanged.&lt;/p&gt;
+&lt;p&gt;Let me show you :)&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [9]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;recoms&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# N = 7&lt;/span&gt;
+&lt;span class="n"&gt;NUM_ACTUAL_ADDED_ACCT&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; 
+&lt;span class="n"&gt;precs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+&lt;span class="n"&gt;recalls&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;indx&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;rec&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recoms&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;precs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recoms&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;indx&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;indx&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+    &lt;span class="n"&gt;recalls&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recoms&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="n"&gt;indx&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;NUM_ACTUAL_ADDED_ACCT&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;precs&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recalls&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;[0.0, 0.5, 0.3333333333333333, 0.5, 0.4, 0.5, 0.5714285714285714]
+[0.0, 0.2, 0.2, 0.4, 0.4, 0.6, 0.8]
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;plt&lt;/span&gt;
+&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;matplotlib&lt;/span&gt; &lt;span class="n"&gt;inline&lt;/span&gt;
+&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;recalls&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;precs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;markersize&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;marker&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"o"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Recall"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Precision"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"P(i) vs. r(i) for Increasing $i$ for AP@7"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[10]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&lt;matplotlib.text.text at 0x245c3b25fd0&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_png output_subarea "&gt;
+&lt;img src="data:image/png;base64,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
+YII=
+"&gt;
+&lt;/img&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;The jaggedness of this type of plot has lead to the creation of some "smoothed" average precision metrics as alternatives, but I'll not talk about them here.&lt;/p&gt;
+&lt;h1 id="To-Summarize..."&gt;To Summarize...&lt;a class="anchor-link" href="#To-Summarize..."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;MAP is very popular evaluation metric for algorithms that do information retrieval (think google search results) but it also can apply to user-targeted product recommendations. If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (imagine relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (imagine search results at the bottom of the page), then MAP might be a useful metric. In recommendation systems MAP computes the mean of the Average Precision (AP) over all your users. The Average Precision is a measure that takes in a ranked list of your $N$ recommendations and compares it to a list of the true set of relevant recommendations for that user. AP rewards you for having a lot of "correct" (relevant) recommendations in your list, and rewards you for putting the most likely correct recommendations at the top (you are penalized more when incorrect guesses are higher up in the ranking).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Further-Reading-on-MAP"&gt;Further Reading on MAP&lt;a class="anchor-link" href="#Further-Reading-on-MAP"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;from the source itself... &lt;a href="https://en.wikipedia.org/wiki/Information_retrieval#Average_precision"&gt;wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;from an all-things-ML blog &lt;a href="http://fastml.com/what-you-wanted-to-know-about-mean-average-precision/"&gt;fast ML&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;from &lt;a href="http://web.stanford.edu/class/cs276/handouts/EvaluationNew-handout-6-per.pdf"&gt;Stanford class slides&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;from a &lt;a href="https://sanchom.wordpress.com/tag/average-precision/"&gt;DS blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;from a &lt;a href="http://nlp.stanford.edu/IR-book/html/htmledition/evaluation-of-ranked-retrieval-results-1.html"&gt;Stanford online book&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;from June Andrews on why &lt;a href="https://juneandrews.com/2014/12/15/mean-average-precision-isnt-so-nice/"&gt;MAP is "mean"&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;from &lt;a href="http://www.cs.cornell.edu/courses/cs4300/2013fa/lectures/metrics-2-4pp.pdf"&gt;Cornell class slides&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="machine learning"></category><category term="mean average precision"></category><category term="MAP"></category><category term="kaggle"></category></entry></feed>
