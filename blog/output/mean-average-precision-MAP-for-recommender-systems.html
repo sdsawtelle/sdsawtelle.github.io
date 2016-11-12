@@ -183,8 +183,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-Mean-Average-Precision-is.">In which I spare you an abundance of "map"-related puns while explaining what Mean Average Precision is.<a class="anchor-link" href="#In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-Mean-Average-Precision-is.">¶</a></h1><p>(Ok there's one pun.) Since you're reading this I'm assuming you've come up against the slightly convoluted "Mean Average Precision", or MAP metric for evaluating ML algorithms. If you are here on a kaggle quest then you are me two days ago - kaggle is where I first heard about MAP and the reason I typed up this post.</p>
-<p>MAP is very popular evaluation metric for algorithms that do information retrieval (think google search results) but it also can apply to user-targeted product recommendations. <strong>If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (imagine relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (imagine search results at the bottom of the page), then maybe MAP is the metric for you!</strong></p>
+<h1 id="In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-Mean-Average-Precision-is.">In which I spare you an abundance of "map"-related puns while explaining what Mean Average Precision is.<a class="anchor-link" href="#In-which-I-spare-you-an-abundance-of-&quot;map&quot;-related-puns-while-explaining-what-Mean-Average-Precision-is.">¶</a></h1><p>(Ok there's one pun.) Since you're reading this you've probably just encountered the term "Mean Average Precision", or MAP. This is a very popular evaluation metric for algorithms that do information retrieval, like google search. <strong>If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (like relevant vs. irrelevant search results) and items further down in the list are less likely to be used (like search results at the bottom of the page), then maybe MAP is the metric for you!</strong></p>
 </div>
 </div>
 </div>
@@ -193,8 +192,8 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="MAP-for-Recommender-Algorithms">MAP for Recommender Algorithms<a class="anchor-link" href="#MAP-for-Recommender-Algorithms">¶</a></h1><p>MAP is a pretty common metric for user recommendation systems, like when Amazon shows you a short list of products it thinks you might <em>also</em> want to purchase after you've added something to your cart. <strong>Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task.</strong> This often makes perfect sense! A user has a finite amount of time and attention, so we want to know not just five products they might like, but also which are most liked or which we are most confident of. This lets you show the top recommendations first and maybe market them more aggressively.</p>
-<p>So we just want a metric that rewards you for getting lots of "correct" or relevant recommendations, and rewards you for having them earlier on in the list (higher ranked). Before we can construct this metric though, we need <strong>Precision</strong> and <strong>Recall</strong>. That's what I call my left and right fist. Only joking, those are actually two things I conveniently just learned about in Andrew Ng's ML course on Coursera!</p>
+<h1 id="MAP-for-Recommender-Algorithms">MAP for Recommender Algorithms<a class="anchor-link" href="#MAP-for-Recommender-Algorithms">¶</a></h1><p>It happens that MAP is also useful for user recommendation systems, like when Amazon shows you a short list of products it thinks you might <em>also</em> want to purchase after you've added something to your cart. <strong>Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task.</strong> This often makes perfect sense! A user has a finite amount of time and attention, so we want to know not just five products they might like, but also which are most liked or which we are most confident of. This lets you show the top recommendations first and maybe market them more aggressively.</p>
+<p>For this kind of task we want a metric that rewards us for getting lots of "correct" or relevant recommendations, and rewards us for having them earlier on in the list (higher ranked). Before we can construct this metric though, we need <strong>Precision</strong> and <strong>Recall</strong>. (That's what I call my left and right fist.)</p>
 </div>
 </div>
 </div>
@@ -203,13 +202,12 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Precision-and-Recall-of-a-Binary-Classifier">Precision and Recall of a Binary Classifier<a class="anchor-link" href="#Precision-and-Recall-of-a-Binary-Classifier">¶</a></h1><p>So let's start where professor Ng started. If we have binary classifier for predicting having a condition ($y=1$) vs not, then we define:</p>
+<h1 id="Precision-and-Recall-of-a-Binary-Classifier">Precision and Recall of a Binary Classifier<a class="anchor-link" href="#Precision-and-Recall-of-a-Binary-Classifier">¶</a></h1><p>I conveniently just learned about these terms in Andrew Ng's ML course on Coursera, so let's start there. If we have binary classifier for predicting having a condition ($y=1$) vs not, then we define:</p>
 \begin{align*}
 \textrm{precision:} \qquad P = \frac{\textrm{# correct positive}}{\textrm{# predicted positive}}\\
 \\
 \textrm{recall:} \qquad r  = \frac{\textrm{# correct positive}}{\textrm{# with condition}}
 \end{align*}<p>In maybe more familiar terminology, precision is (1 -  <em>false positive rate</em>), and the recall is (1 - <em>false negative rate</em>). Actually I'm baffled as to why two new terms were needed for this.</p>
-<p>It might also be helpful to some people to think in terms of conditional probabilities: $P = \textrm{P}(y=1\  \big|\  h_\theta(x)=1)$ and $r =  \textrm{P}(h_\theta(x)=1 \ \big| \  y=1)$, where $h_\theta(x)$ is the prediction output of your algorithm for data point $x$. (IF THAT WAS CONFUSING JUST PRETEND YOU DIDN'T HEAR IT.)</p>
 </div>
 </div>
 </div>
@@ -228,15 +226,15 @@
 <tbody>
 <tr>
 <td># with condition</td>
-<td>the number of all the actually relevant ("correct") items for a user</td>
+<td># of all the possible relevant ("correct") items for a user</td>
 </tr>
 <tr>
 <td># predicted positive</td>
-<td>the number of items we selected to recommend to a user (we predicted these as "relevant")</td>
+<td># of items we recommended (we predict these items as "relevant")</td>
 </tr>
 <tr>
 <td># correct positives</td>
-<td>the number of items that are actually relevant from among those that we selected to recommend</td>
+<td># of our recommendations that are relevant</td>
 </tr>
 </tbody>
 </table>
@@ -245,7 +243,7 @@
 \textrm{recommender system precision:} \qquad P = \frac{\textrm{# of our recommendations that are relevant}}{\textrm{# of items we recommended}}\\
 \\
 \textrm{recommender system recall:} \qquad r  = \frac{\textrm{# of our recommendations that are relevant}}{\textrm{# of all the possible relevant items}}
-\end{align*}<p>Let's say I am asked to recommend $N=5$ products (this means I predict "positve" for five prducts), from all the possible products there are only $m=3$ that are actually relevant to the user, and my successes and failures in my ranked list are $[0, 1, 1, 0, 0]$. Then:</p>
+\end{align*}<p>Let's say I am asked to recommend $N=5$ products (this means I predict "positive" for five products), from all the possible products there are only $m=3$ that are actually relevant to the user, and my successes and failures in my ranked list are $[0, 1, 1, 0, 0]$. Then:</p>
 <ul>
 <li># of items we recommended = 5</li>
 <li># of our recommendations that are relevant = 2</li>
@@ -253,8 +251,8 @@
 <li>precision = 2/5</li>
 <li>recall = 2/3</li>
 </ul>
-<p>People love examples, so here's a visual one. Let's say we're being asked to recommend financial "products" to Bank users and we compare our recommendations to the products that a user actually added in the following month (these are all the possible "relevant" ones).</p>
-<p><img src="images/map/area_pic.png" width="800" /></p>
+<p>Here's a visual example: we're being asked to recommend financial "products" to Bank users and we compare our recommendations to the products that a user actually added the following month (those are all the possible "relevant" ones).</p>
+<p><img src="images/map/area_pic.png" width="400" /></p>
 </div>
 </div>
 </div>
@@ -263,7 +261,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Precision-and-Recall-at-Cutoff-k">Precision and Recall at Cutoff k<a class="anchor-link" href="#Precision-and-Recall-at-Cutoff-k">¶</a></h2><p>So that's nice and all, BUT Precision and Recall don't give a crap about ordering of our recommendations. So instead let's talk about <strong>precision and recall at cutoff k</strong>. Imagine taking your list of $N$ recommendations and considering only the first element, then only the first two, then only the first three, etc... these subsets can be indexed by $k$. <strong>Precision at cutoff k, $P(k)$, and Recall at cutoff k, $r(k)$, are simply the precision and recall calculated by considering only the subset of your recommendations from rank 1 through $k$</strong>. Really it would be more intuitive to say "up to cutoff k" rather than "at".</p>
+<h2 id="Precision-and-Recall-at-Cutoff-k">Precision and Recall at Cutoff k<a class="anchor-link" href="#Precision-and-Recall-at-Cutoff-k">¶</a></h2><p>So that's nice, but Precision and Recall don't seem to care about ordering. So instead let's talk about <strong>precision and recall at cutoff k</strong>. Imagine taking your list of $N$ recommendations and considering only the first element, then only the first two, then only the first three, etc... these subsets can be indexed by $k$. <strong>Precision and Recall at cutoff k, $P(k)$ and $r(k)$, are simply the precision and recall calculated by considering only the subset of your recommendations from rank 1 through $k$</strong>. Really it would be more intuitive to say "up to cutoff k" rather than "at".</p>
 <p>Sticking with the bank example, here is what I mean:
 <img src="images/map/subset_pic.png" width="800" /></p>
 </div>
@@ -278,7 +276,35 @@
 \begin{align*}
 \textrm{AP@N} = \frac{1}{m}\sum_{k=1}^N \textrm{($P(k)$ if $k^{th}$ item was relevant)} = \frac{1}{m}\sum_{k=1}^N P(k)\cdot rel(k),
 \end{align*}<p>where $rel(k)$ is just an indicator that says whether that $k^{th}$ item was relevant ($rel(k)=1$) or not ($rel(k)=0$). I'd like to point out that instead of recommending $N$ items would could have recommended, say, $2N$, but the AP@N metric says we only care about the average precision up to the $N^{th}$ item.</p>
-<h1 id="Examples-and-Intuition-for-AP">Examples and Intuition for AP<a class="anchor-link" href="#Examples-and-Intuition-for-AP">¶</a></h1><p>Let's imagine recommending $N=3$ products (AP@3) to a user who actually added a total of $m=3$ products. Here are some examples of outcomes:</p>
+<h1 id="Examples-and-Intuition-for-AP">Examples and Intuition for AP<a class="anchor-link" href="#Examples-and-Intuition-for-AP">¶</a></h1><p>Let's imagine recommending $N=3$ products (AP@3) to a user who actually added a total of $m=3$ products. Here are some examples of outcomes for our algorithm:</p>
+<table>
+<thead><tr>
+<th><strong><em>__</em></strong>Recommendations<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>Precision @k's<strong><em>__</em></strong></th>
+<th><strong><em>__</em></strong>AP@3<strong><em>__</em></strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0, 0, 1]</td>
+<td>[0, 0, 1/3]</td>
+<td>(1/3)<strong>(1/3)</strong> = 0.11</td>
+</tr>
+<tr>
+<td>[0, 1, 1]</td>
+<td>[0, 1/2, 2/3]</td>
+<td>(1/3)[(1/2) + <strong>(2/3)</strong>] = 0.38</td>
+</tr>
+<tr>
+<td>[1, 1, 1]</td>
+<td>[1/1, 2/2, 3/3]</td>
+<td>(1/3)[(1) + (2/2) + <strong>(3/3)</strong>] = 1</td>
+</tr>
+</tbody>
+</table>
+<p>First notice that the more correct recommendations I have, the larger my AP. This is because the $k^{th}$ subset precision is included in AP sum only if you got the $k^{th}$ recommendation correct, thus <strong>AP rewards you for giving correct recommendations</strong> (surprising absolutely no one).</p>
+<p>There is more subtletly here though! In each row I've bolded the $P(k)$ term which came from the correct recommendation in the <em>third</em> slot. Notice it is larger when there have been more successes in front of it - that's because the precision of the $k^{th}$ subset is higher the more correct guesses you've had up to point $k$. Thus, <strong>AP rewards you for front-loading the recommendations that are most likely to be correct</strong>.</p>
+<p>These two features are what makes AP a useful metric when your algorithm is returning a ranked ordering of items where each item is either correct or incorrect, and items further down in the list are less likely to be used. One more set of examples might make this second point a little clearer.</p>
 <table>
 <thead><tr>
 <th><strong><em>__</em></strong>Recommendations<strong><em>__</em></strong></th>
@@ -290,49 +316,22 @@
 <tr>
 <td>[1, 0, 0]</td>
 <td>[1/1, 1/2, 1/3]</td>
-<td>(1/3)(1) = 1/3</td>
+<td>(1/3)(1) = 0.33</td>
 </tr>
 <tr>
 <td>[0, 1, 0]</td>
 <td>[0, 1/2, 1/3]</td>
-<td>(1/3)(1/2) = 1/6</td>
+<td>(1/3)(1/2) = 0.15</td>
 </tr>
 <tr>
 <td>[0, 0, 1]</td>
 <td>[0, 0, 1/3]</td>
-<td>(1/3)(1/3) = 1/9</td>
+<td>(1/3)(1/3) = 0.11</td>
 </tr>
 </tbody>
 </table>
-<p>Notice that in all the rows you got just one recommendations correct, but when it was your first recommendation you got the largest AP. Having your one correct recommendation as the second element was half as good as having it as the first and one third as good when you instead have it as the third element. How about some more examples to illustrate this subtlety.</p>
-<table>
-<thead><tr>
-<th><strong><em>__</em></strong>Recommendations<strong><em>__</em></strong></th>
-<th><strong><em>__</em></strong>Precision @k's<strong><em>__</em></strong></th>
-<th><strong><em>__</em></strong>AP@3<strong><em>__</em></strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>[0, 0, 1]</td>
-<td>[0, 0, 1/3]</td>
-<td>(1/3)<strong>(1/3)</strong> = 1/9</td>
-</tr>
-<tr>
-<td>[0, 1, 1]</td>
-<td>[0, 1/2, 2/3]</td>
-<td>(1/3)[(1/2) + <strong>(2/3)</strong>] = 7/18</td>
-</tr>
-<tr>
-<td>[1, 1, 1]</td>
-<td>[1/1, 2/2, 3/3]</td>
-<td>(1/3)[(1) + (2/2) + <strong>(3/3)</strong>] = 1</td>
-</tr>
-</tbody>
-</table>
-<p>Notice that starting from the first row where only the third recommendation is correct, when I add in a second and third correct element I get an increasing AP. This is because the $k^{th}$ subset precision is included in AP sum only if you got the $k^{th}$ recommendation correct, thus <strong>AP rewards you for giving correct recommendations</strong> (surprising absolutely no one).</p>
-<p>Now the third row of the table - here we're getting everything right so each element is adding the same $P(k)=1$ to the precision. Now look at the last column of the table, in each row I've bolded the term which came from the correct recommendation in the third slot. Notice it is bigger when there have been more successes in front of it - that's because your precision for the $k^{th}$ subset is larger the better you've done up to $k$. Thus, <strong>AP rewards you for front-loading the recommendations that are most likely to be correct</strong>.</p>
-<p>These two features are what makes AP a useful metric when your algorithm is returning a ranked ordering of items, each item is either hit or miss, and items further down in the list are less likely to be used/seen. A final point of note is that adding another recommendation can never <em>decrease</em> your AP score, so if you are asked for $N$ recommendations give all of them, even if you don't feel very confident about the ones lower down the list! <strong>AP will never penalize you for tacking on additional recommendations to your list - just make sure you front-load the best ones.</strong></p>
+<p>In all these cases you got just one recommendations correct, but AP was higher the further up the ranking that correct guess fell.</p>
+<p>A final point of note is that adding another recommendation can never <em>decrease</em> your AP score, so if you are asked for $N$ recommendations give all of them, even if you don't feel very confident about the ones lower down the list! <strong>AP will never penalize you for tacking on additional recommendations to your list - just make sure you front-load the best ones.</strong></p>
 </div>
 </div>
 </div>
@@ -344,14 +343,14 @@
 <h1 id="The-&quot;Mean&quot;-in-MAP">The "Mean" in MAP<a class="anchor-link" href="#The-&quot;Mean&quot;-in-MAP">¶</a></h1><p>OK that was Average Precision, which applies to a single data point (like a single user). What about MAP@N? All that remains is to average the AP@N metric over all your $|U|$ users. Yes, an average of an average.</p>
 \begin{align*}
 \textrm{MAP@N} = \frac{1}{|U|}\sum_{u=1}^|U|(\textrm{AP@N})_u = \frac{1}{|U|} \sum_{u=1}^|U| \frac{1}{m}\sum_{k=1}^N P_u(k)\cdot rel_u(k).
-\end{align*}<h2 id="Minor-Details">Minor Details<a class="anchor-link" href="#Minor-Details">¶</a></h2><p>Often you see the AP metric modified slightly when there might be more possible correct recommendations then the number of recommendations you are asked to give. Say, a super active user at the bank who adds $m=10$ accounts the next month, while your algorithm is only supposed to report $N=5$. In this case the normalization factor used is $1/\textrm{min}(m, N)$, which prevents your AP score from being unfairly suppressed when your number of recommendations couldn't possibly capture all the correct ones.</p>
+\end{align*}<h2 id="Common-Variations-on-AP-Formula">Common Variations on AP Formula<a class="anchor-link" href="#Common-Variations-on-AP-Formula">¶</a></h2><p>Often you see the AP metric modified slightly when there might be more possible correct recommendations then the number of recommendations you are asked to give. Say, a super active user at the bank who adds $m=10$ accounts the next month, while your algorithm is only supposed to report $N=5$. In this case the normalization factor used is $1/\textrm{min}(m, N)$, which prevents your AP score from being unfairly suppressed when your number of recommendations couldn't possibly capture all the correct ones.</p>
 \begin{align*}
 \textrm{AP@N} = \frac{1}{\textrm{min}(m,N)}\sum_{k=1}^N P(k)\cdot rel(k).
-\end{align*}<p>You also might encounter a somewhat sloppier usage where there is no indicator function $rel(k)$ in the AP@N sum. In this case the person is re-defining the precision at cutoff $k$ to be zero when the $k^{th}$ recommendation was incorrect, that way it still doesn't contribute to the sum:</p>
+\end{align*}<p>You also might encounter a somewhat sloppier usage where there is no indicator function $rel(k)$ in the AP@N sum. In this case the precision at cutoff $k$ is being implictly defined to be zero when the $k^{th}$ recommendation was incorrect, that way it still doesn't contribute to the sum:</p>
 \begin{align*}
 \textrm{AP@N} = \frac{1}{m}\sum_{k=1}^N P(k),\\
 P(k) = 0 \textrm{ if $k^{th}$ element is irrelevant / incorrect.}
-\end{align*}<p>Finally, the if it's possible for there to be no relevant or correct recommendations possible ($m=0$) then often the AP is defined to be zero for those points. This is just to prevent us from trying to divide by zero in the normalization. Note that it will have the effect of dragging the MAP number of an algorithm down the more users there are who didn't actually add any products. This doesn't matter for comparing the performance of two algorithms on the same data set, but it does mean that you shouldn't place any kind of absolute meaning on the final number.</p>
+\end{align*}<p>Finally, if it's possible for there to be no relevant or correct recommendations possible ($m=0$) then often the AP is defined to be zero for those points. Note that it will have the effect of dragging the MAP number of an algorithm down the more users there are who didn't actually add any products. This doesn't matter for comparing the performance of two algorithms on the same data set, but it does mean that you shouldn't place any kind of absolute meaning on the final number.</p>
 \begin{align*}
 \textrm{AP@N} = \frac{1}{\textrm{min}(m,N)}\sum_{k=1}^N P(k)\cdot rel(k) \qquad \textrm{ if $m\neq 0$,}\\
 AP = 0 \qquad \textrm{if $m=0$}.
@@ -387,25 +386,25 @@ AP = 0 \qquad \textrm{if $m=0$}.
 </thead>
 <tbody>
 <tr>
-<td>[1, 0, 0]</td>
-<td>[1, 1/2, 1/3]</td>
-<td>[1/3, 1/3, 1/3]</td>
-<td>[1/3, 0, 0]</td>
-<td>(1)(1/3) = 1/3</td>
-</tr>
-<tr>
-<td>[0, 1, 0]</td>
-<td>[0, 1/2, 1/3]</td>
-<td>[0, 1/3, 1/3]</td>
-<td>[0, 1/3, 0]</td>
-<td>(1/2)(1/3) = 1/6</td>
-</tr>
-<tr>
 <td>[0, 0, 1]</td>
 <td>[0, 0, 1/3]</td>
 <td>[0, 0, 1/3]</td>
 <td>[0, 0, 1/3]</td>
-<td>(1/3)(1/3) = 1/9</td>
+<td>(1/3)(1/3) = 0.11</td>
+</tr>
+<tr>
+<td>[0, 1, 1]</td>
+<td>[0, 1/2, 2/3]</td>
+<td>[0, 1/3, 2/3]</td>
+<td>[0, 1/3, 1/3]</td>
+<td>(1/3)(1/2) + (1/3)(2/3) = 0.38</td>
+</tr>
+<tr>
+<td>[1, 1, 1]</td>
+<td>[1, 2/2, 3/3]</td>
+<td>[1/3, 2/3, 3/3]</td>
+<td>[1/3, 1/3, 1/3]</td>
+<td>(1/3)(1) + (1/3)(1) + (1/3)(1) = 1</td>
 </tr>
 </tbody>
 </table>
@@ -420,25 +419,25 @@ AP = 0 \qquad \textrm{if $m=0$}.
 </thead>
 <tbody>
 <tr>
+<td>[1, 0, 0]</td>
+<td>[1, 1/2, 1/3]</td>
+<td>[1/3, 1/3, 1/3]</td>
+<td>[1/3, 0, 0]</td>
+<td>(1)(1/3) = 0.33</td>
+</tr>
+<tr>
+<td>[0, 1, 0]</td>
+<td>[0, 1/2, 1/3]</td>
+<td>[0, 1/3, 1/3]</td>
+<td>[0, 1/3, 0]</td>
+<td>(1/2)(1/3) = 0.15</td>
+</tr>
+<tr>
 <td>[0, 0, 1]</td>
 <td>[0, 0, 1/3]</td>
 <td>[0, 0, 1/3]</td>
 <td>[0, 0, 1/3]</td>
-<td><strong>(1/3)(1/3)</strong> = 1/12</td>
-</tr>
-<tr>
-<td>[0, 1, 1]</td>
-<td>[0, 1/2, 2/3]</td>
-<td>[0, 1/3, 2/3]</td>
-<td>[0, 1/3, 1/3]</td>
-<td>(1/3)(1/2) + <strong>(1/3)(2/3)</strong> = 7/18</td>
-</tr>
-<tr>
-<td>[1, 1, 1]</td>
-<td>[1, 2/2, 3/3]</td>
-<td>[1/3, 2/3, 3/3]</td>
-<td>[1/3, 1/3, 1/3]</td>
-<td>(1/3)(1) + (1/3)(1) + <strong>(1/3)(1)</strong> = 3/4</td>
+<td>(1/3)(1/3) = 0.11</td>
 </tr>
 </tbody>
 </table>
@@ -703,9 +702,10 @@ YII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The jaggedness of this type of plot has lead to the creation of some "smoothed" average precision metrics as alternatives, but I'll not talk about them here.</p>
-<h1 id="To-Summarize...">To Summarize...<a class="anchor-link" href="#To-Summarize...">¶</a></h1><p>MAP is very popular evaluation metric for algorithms that do information retrieval (think google search results) but it also can apply to user-targeted product recommendations. If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (imagine relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (imagine search results at the bottom of the page), then MAP might be a useful metric. Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task. This often makes perfect sense since a user has a finite amount of time and attention and we want to show the top recommendations first and maybe market them more aggressively.</p>
-<p>In recommendation systems MAP computes the mean of the Average Precision (AP) over all your users. The Average Precision is a measure that takes in a ranked list of your $N$ recommendations and compares it to a list of the true set of relevant recommendations for that user. AP rewards you for having a lot of "correct" (relevant) recommendations in your list, and rewards you for putting the most likely correct recommendations at the top (you are penalized more when incorrect guesses are higher up in the ranking). So order of "hits" and "misses" matters a lot in computing an AP score, but once you have front-loaded your best guesses you can never <em>decrease</em> your AP by tacking on more.</p>
+<p>The jaggedness of this type of plot has lead to the creation of some "smoothed" or "interpolated" average precision metrics as alternatives, but I'll not talk about them here.</p>
+<h1 id="To-Summarize...">To Summarize...<a class="anchor-link" href="#To-Summarize...">¶</a></h1><p>MAP is very popular evaluation metric for algorithms that do information retrieval like google search results, but it also can apply to user-targeted product recommendations. If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (like relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (like search results at the bottom of the page), then MAP might be a useful metric.</p>
+<p>Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task. This often makes perfect sense since a user has a finite amount of time and attention and we want to show the top recommendations first and maybe market them more aggressively.</p>
+<p>In recommendation systems MAP computes the mean of the Average Precision (AP) over all your users. The AP is a measure that takes in a ranked list of your $N$ recommendations and compares it to a list of the true set of "correct" or "relevant" recommendations for that user. AP rewards you for having a lot of "correct" (relevant) recommendations in your list, and rewards you for putting the most likely correct recommendations at the top (you are penalized more when incorrect guesses are higher up in the ranking). So order of "hits" and "misses" matters a lot in computing an AP score, but once you have front-loaded your best guesses you can never <em>decrease</em> your AP by tacking on more.</p>
 </div>
 </div>
 </div>

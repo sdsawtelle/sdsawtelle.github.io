@@ -5020,8 +5020,7 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="In-which-I-spare-you-an-abundance-of-&amp;quot;map&amp;quot;-related-puns-while-explaining-what-Mean-Average-Precision-is."&gt;In which I spare you an abundance of "map"-related puns while explaining what Mean Average Precision is.&lt;a class="anchor-link" href="#In-which-I-spare-you-an-abundance-of-&amp;quot;map&amp;quot;-related-puns-while-explaining-what-Mean-Average-Precision-is."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;(Ok there's one pun.) Since you're reading this I'm assuming you've come up against the slightly convoluted "Mean Average Precision", or MAP metric for evaluating ML algorithms. If you are here on a kaggle quest then you are me two days ago - kaggle is where I first heard about MAP and the reason I typed up this post.&lt;/p&gt;
-&lt;p&gt;MAP is very popular evaluation metric for algorithms that do information retrieval (think google search results) but it also can apply to user-targeted product recommendations. &lt;strong&gt;If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (imagine relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (imagine search results at the bottom of the page), then maybe MAP is the metric for you!&lt;/strong&gt;&lt;/p&gt;
+&lt;h1 id="In-which-I-spare-you-an-abundance-of-&amp;quot;map&amp;quot;-related-puns-while-explaining-what-Mean-Average-Precision-is."&gt;In which I spare you an abundance of "map"-related puns while explaining what Mean Average Precision is.&lt;a class="anchor-link" href="#In-which-I-spare-you-an-abundance-of-&amp;quot;map&amp;quot;-related-puns-while-explaining-what-Mean-Average-Precision-is."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;(Ok there's one pun.) Since you're reading this you've probably just encountered the term "Mean Average Precision", or MAP. This is a very popular evaluation metric for algorithms that do information retrieval, like google search. &lt;strong&gt;If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (like relevant vs. irrelevant search results) and items further down in the list are less likely to be used (like search results at the bottom of the page), then maybe MAP is the metric for you!&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5030,8 +5029,8 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="MAP-for-Recommender-Algorithms"&gt;MAP for Recommender Algorithms&lt;a class="anchor-link" href="#MAP-for-Recommender-Algorithms"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;MAP is a pretty common metric for user recommendation systems, like when Amazon shows you a short list of products it thinks you might &lt;em&gt;also&lt;/em&gt; want to purchase after you've added something to your cart. &lt;strong&gt;Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task.&lt;/strong&gt; This often makes perfect sense! A user has a finite amount of time and attention, so we want to know not just five products they might like, but also which are most liked or which we are most confident of. This lets you show the top recommendations first and maybe market them more aggressively.&lt;/p&gt;
-&lt;p&gt;So we just want a metric that rewards you for getting lots of "correct" or relevant recommendations, and rewards you for having them earlier on in the list (higher ranked). Before we can construct this metric though, we need &lt;strong&gt;Precision&lt;/strong&gt; and &lt;strong&gt;Recall&lt;/strong&gt;. That's what I call my left and right fist. Only joking, those are actually two things I conveniently just learned about in Andrew Ng's ML course on Coursera!&lt;/p&gt;
+&lt;h1 id="MAP-for-Recommender-Algorithms"&gt;MAP for Recommender Algorithms&lt;a class="anchor-link" href="#MAP-for-Recommender-Algorithms"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;It happens that MAP is also useful for user recommendation systems, like when Amazon shows you a short list of products it thinks you might &lt;em&gt;also&lt;/em&gt; want to purchase after you've added something to your cart. &lt;strong&gt;Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task.&lt;/strong&gt; This often makes perfect sense! A user has a finite amount of time and attention, so we want to know not just five products they might like, but also which are most liked or which we are most confident of. This lets you show the top recommendations first and maybe market them more aggressively.&lt;/p&gt;
+&lt;p&gt;For this kind of task we want a metric that rewards us for getting lots of "correct" or relevant recommendations, and rewards us for having them earlier on in the list (higher ranked). Before we can construct this metric though, we need &lt;strong&gt;Precision&lt;/strong&gt; and &lt;strong&gt;Recall&lt;/strong&gt;. (That's what I call my left and right fist.)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5040,13 +5039,12 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Precision-and-Recall-of-a-Binary-Classifier"&gt;Precision and Recall of a Binary Classifier&lt;a class="anchor-link" href="#Precision-and-Recall-of-a-Binary-Classifier"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;So let's start where professor Ng started. If we have binary classifier for predicting having a condition ($y=1$) vs not, then we define:&lt;/p&gt;
+&lt;h1 id="Precision-and-Recall-of-a-Binary-Classifier"&gt;Precision and Recall of a Binary Classifier&lt;a class="anchor-link" href="#Precision-and-Recall-of-a-Binary-Classifier"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;I conveniently just learned about these terms in Andrew Ng's ML course on Coursera, so let's start there. If we have binary classifier for predicting having a condition ($y=1$) vs not, then we define:&lt;/p&gt;
 \begin{align*}
 \textrm{precision:} \qquad P = \frac{\textrm{# correct positive}}{\textrm{# predicted positive}}\\
 \\
 \textrm{recall:} \qquad r  = \frac{\textrm{# correct positive}}{\textrm{# with condition}}
 \end{align*}&lt;p&gt;In maybe more familiar terminology, precision is (1 -  &lt;em&gt;false positive rate&lt;/em&gt;), and the recall is (1 - &lt;em&gt;false negative rate&lt;/em&gt;). Actually I'm baffled as to why two new terms were needed for this.&lt;/p&gt;
-&lt;p&gt;It might also be helpful to some people to think in terms of conditional probabilities: $P = \textrm{P}(y=1\  \big|\  h_\theta(x)=1)$ and $r =  \textrm{P}(h_\theta(x)=1 \ \big| \  y=1)$, where $h_\theta(x)$ is the prediction output of your algorithm for data point $x$. (IF THAT WAS CONFUSING JUST PRETEND YOU DIDN'T HEAR IT.)&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5065,15 +5063,15 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td&gt;# with condition&lt;/td&gt;
-&lt;td&gt;the number of all the actually relevant ("correct") items for a user&lt;/td&gt;
+&lt;td&gt;# of all the possible relevant ("correct") items for a user&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;# predicted positive&lt;/td&gt;
-&lt;td&gt;the number of items we selected to recommend to a user (we predicted these as "relevant")&lt;/td&gt;
+&lt;td&gt;# of items we recommended (we predict these items as "relevant")&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;# correct positives&lt;/td&gt;
-&lt;td&gt;the number of items that are actually relevant from among those that we selected to recommend&lt;/td&gt;
+&lt;td&gt;# of our recommendations that are relevant&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5082,7 +5080,7 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 \textrm{recommender system precision:} \qquad P = \frac{\textrm{# of our recommendations that are relevant}}{\textrm{# of items we recommended}}\\
 \\
 \textrm{recommender system recall:} \qquad r  = \frac{\textrm{# of our recommendations that are relevant}}{\textrm{# of all the possible relevant items}}
-\end{align*}&lt;p&gt;Let's say I am asked to recommend $N=5$ products (this means I predict "positve" for five prducts), from all the possible products there are only $m=3$ that are actually relevant to the user, and my successes and failures in my ranked list are $[0, 1, 1, 0, 0]$. Then:&lt;/p&gt;
+\end{align*}&lt;p&gt;Let's say I am asked to recommend $N=5$ products (this means I predict "positive" for five products), from all the possible products there are only $m=3$ that are actually relevant to the user, and my successes and failures in my ranked list are $[0, 1, 1, 0, 0]$. Then:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;# of items we recommended = 5&lt;/li&gt;
 &lt;li&gt;# of our recommendations that are relevant = 2&lt;/li&gt;
@@ -5090,8 +5088,8 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;li&gt;precision = 2/5&lt;/li&gt;
 &lt;li&gt;recall = 2/3&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;People love examples, so here's a visual one. Let's say we're being asked to recommend financial "products" to Bank users and we compare our recommendations to the products that a user actually added in the following month (these are all the possible "relevant" ones).&lt;/p&gt;
-&lt;p&gt;&lt;img src="images/map/area_pic.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;Here's a visual example: we're being asked to recommend financial "products" to Bank users and we compare our recommendations to the products that a user actually added the following month (those are all the possible "relevant" ones).&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/map/area_pic.png" width="400" /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5100,7 +5098,7 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Precision-and-Recall-at-Cutoff-k"&gt;Precision and Recall at Cutoff k&lt;a class="anchor-link" href="#Precision-and-Recall-at-Cutoff-k"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;So that's nice and all, BUT Precision and Recall don't give a crap about ordering of our recommendations. So instead let's talk about &lt;strong&gt;precision and recall at cutoff k&lt;/strong&gt;. Imagine taking your list of $N$ recommendations and considering only the first element, then only the first two, then only the first three, etc... these subsets can be indexed by $k$. &lt;strong&gt;Precision at cutoff k, $P(k)$, and Recall at cutoff k, $r(k)$, are simply the precision and recall calculated by considering only the subset of your recommendations from rank 1 through $k$&lt;/strong&gt;. Really it would be more intuitive to say "up to cutoff k" rather than "at".&lt;/p&gt;
+&lt;h2 id="Precision-and-Recall-at-Cutoff-k"&gt;Precision and Recall at Cutoff k&lt;a class="anchor-link" href="#Precision-and-Recall-at-Cutoff-k"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;So that's nice, but Precision and Recall don't seem to care about ordering. So instead let's talk about &lt;strong&gt;precision and recall at cutoff k&lt;/strong&gt;. Imagine taking your list of $N$ recommendations and considering only the first element, then only the first two, then only the first three, etc... these subsets can be indexed by $k$. &lt;strong&gt;Precision and Recall at cutoff k, $P(k)$ and $r(k)$, are simply the precision and recall calculated by considering only the subset of your recommendations from rank 1 through $k$&lt;/strong&gt;. Really it would be more intuitive to say "up to cutoff k" rather than "at".&lt;/p&gt;
 &lt;p&gt;Sticking with the bank example, here is what I mean:
 &lt;img src="images/map/subset_pic.png" width="800" /&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -5115,7 +5113,35 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 \begin{align*}
 \textrm{AP@N} = \frac{1}{m}\sum_{k=1}^N \textrm{($P(k)$ if $k^{th}$ item was relevant)} = \frac{1}{m}\sum_{k=1}^N P(k)\cdot rel(k),
 \end{align*}&lt;p&gt;where $rel(k)$ is just an indicator that says whether that $k^{th}$ item was relevant ($rel(k)=1$) or not ($rel(k)=0$). I'd like to point out that instead of recommending $N$ items would could have recommended, say, $2N$, but the AP@N metric says we only care about the average precision up to the $N^{th}$ item.&lt;/p&gt;
-&lt;h1 id="Examples-and-Intuition-for-AP"&gt;Examples and Intuition for AP&lt;a class="anchor-link" href="#Examples-and-Intuition-for-AP"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Let's imagine recommending $N=3$ products (AP@3) to a user who actually added a total of $m=3$ products. Here are some examples of outcomes:&lt;/p&gt;
+&lt;h1 id="Examples-and-Intuition-for-AP"&gt;Examples and Intuition for AP&lt;a class="anchor-link" href="#Examples-and-Intuition-for-AP"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Let's imagine recommending $N=3$ products (AP@3) to a user who actually added a total of $m=3$ products. Here are some examples of outcomes for our algorithm:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;Recommendations&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;Precision @k's&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;AP@3&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 0, 1]&lt;/td&gt;
+&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)&lt;strong&gt;(1/3)&lt;/strong&gt; = 0.11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 1, 1]&lt;/td&gt;
+&lt;td&gt;[0, 1/2, 2/3]&lt;/td&gt;
+&lt;td&gt;(1/3)[(1/2) + &lt;strong&gt;(2/3)&lt;/strong&gt;] = 0.38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[1, 1, 1]&lt;/td&gt;
+&lt;td&gt;[1/1, 2/2, 3/3]&lt;/td&gt;
+&lt;td&gt;(1/3)[(1) + (2/2) + &lt;strong&gt;(3/3)&lt;/strong&gt;] = 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;First notice that the more correct recommendations I have, the larger my AP. This is because the $k^{th}$ subset precision is included in AP sum only if you got the $k^{th}$ recommendation correct, thus &lt;strong&gt;AP rewards you for giving correct recommendations&lt;/strong&gt; (surprising absolutely no one).&lt;/p&gt;
+&lt;p&gt;There is more subtletly here though! In each row I've bolded the $P(k)$ term which came from the correct recommendation in the &lt;em&gt;third&lt;/em&gt; slot. Notice it is larger when there have been more successes in front of it - that's because the precision of the $k^{th}$ subset is higher the more correct guesses you've had up to point $k$. Thus, &lt;strong&gt;AP rewards you for front-loading the recommendations that are most likely to be correct&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;These two features are what makes AP a useful metric when your algorithm is returning a ranked ordering of items where each item is either correct or incorrect, and items further down in the list are less likely to be used. One more set of examples might make this second point a little clearer.&lt;/p&gt;
 &lt;table&gt;
 &lt;thead&gt;&lt;tr&gt;
 &lt;th&gt;&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;Recommendations&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;&lt;/th&gt;
@@ -5127,49 +5153,22 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;tr&gt;
 &lt;td&gt;[1, 0, 0]&lt;/td&gt;
 &lt;td&gt;[1/1, 1/2, 1/3]&lt;/td&gt;
-&lt;td&gt;(1/3)(1) = 1/3&lt;/td&gt;
+&lt;td&gt;(1/3)(1) = 0.33&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;[0, 1, 0]&lt;/td&gt;
 &lt;td&gt;[0, 1/2, 1/3]&lt;/td&gt;
-&lt;td&gt;(1/3)(1/2) = 1/6&lt;/td&gt;
+&lt;td&gt;(1/3)(1/2) = 0.15&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td&gt;[0, 0, 1]&lt;/td&gt;
 &lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
-&lt;td&gt;(1/3)(1/3) = 1/9&lt;/td&gt;
+&lt;td&gt;(1/3)(1/3) = 0.11&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;Notice that in all the rows you got just one recommendations correct, but when it was your first recommendation you got the largest AP. Having your one correct recommendation as the second element was half as good as having it as the first and one third as good when you instead have it as the third element. How about some more examples to illustrate this subtlety.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;&lt;tr&gt;
-&lt;th&gt;&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;Recommendations&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;Precision @k's&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;&lt;/th&gt;
-&lt;th&gt;&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;AP@3&lt;strong&gt;&lt;em&gt;__&lt;/em&gt;&lt;/strong&gt;&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;[0, 0, 1]&lt;/td&gt;
-&lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
-&lt;td&gt;(1/3)&lt;strong&gt;(1/3)&lt;/strong&gt; = 1/9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[0, 1, 1]&lt;/td&gt;
-&lt;td&gt;[0, 1/2, 2/3]&lt;/td&gt;
-&lt;td&gt;(1/3)[(1/2) + &lt;strong&gt;(2/3)&lt;/strong&gt;] = 7/18&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[1, 1, 1]&lt;/td&gt;
-&lt;td&gt;[1/1, 2/2, 3/3]&lt;/td&gt;
-&lt;td&gt;(1/3)[(1) + (2/2) + &lt;strong&gt;(3/3)&lt;/strong&gt;] = 1&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Notice that starting from the first row where only the third recommendation is correct, when I add in a second and third correct element I get an increasing AP. This is because the $k^{th}$ subset precision is included in AP sum only if you got the $k^{th}$ recommendation correct, thus &lt;strong&gt;AP rewards you for giving correct recommendations&lt;/strong&gt; (surprising absolutely no one).&lt;/p&gt;
-&lt;p&gt;Now the third row of the table - here we're getting everything right so each element is adding the same $P(k)=1$ to the precision. Now look at the last column of the table, in each row I've bolded the term which came from the correct recommendation in the third slot. Notice it is bigger when there have been more successes in front of it - that's because your precision for the $k^{th}$ subset is larger the better you've done up to $k$. Thus, &lt;strong&gt;AP rewards you for front-loading the recommendations that are most likely to be correct&lt;/strong&gt;.&lt;/p&gt;
-&lt;p&gt;These two features are what makes AP a useful metric when your algorithm is returning a ranked ordering of items, each item is either hit or miss, and items further down in the list are less likely to be used/seen. A final point of note is that adding another recommendation can never &lt;em&gt;decrease&lt;/em&gt; your AP score, so if you are asked for $N$ recommendations give all of them, even if you don't feel very confident about the ones lower down the list! &lt;strong&gt;AP will never penalize you for tacking on additional recommendations to your list - just make sure you front-load the best ones.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In all these cases you got just one recommendations correct, but AP was higher the further up the ranking that correct guess fell.&lt;/p&gt;
+&lt;p&gt;A final point of note is that adding another recommendation can never &lt;em&gt;decrease&lt;/em&gt; your AP score, so if you are asked for $N$ recommendations give all of them, even if you don't feel very confident about the ones lower down the list! &lt;strong&gt;AP will never penalize you for tacking on additional recommendations to your list - just make sure you front-load the best ones.&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5181,14 +5180,14 @@ kSz3/wH68U+TdA5ZjgAAAABJRU5ErkJggg==
 &lt;h1 id="The-&amp;quot;Mean&amp;quot;-in-MAP"&gt;The "Mean" in MAP&lt;a class="anchor-link" href="#The-&amp;quot;Mean&amp;quot;-in-MAP"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;OK that was Average Precision, which applies to a single data point (like a single user). What about MAP@N? All that remains is to average the AP@N metric over all your $|U|$ users. Yes, an average of an average.&lt;/p&gt;
 \begin{align*}
 \textrm{MAP@N} = \frac{1}{|U|}\sum_{u=1}^|U|(\textrm{AP@N})_u = \frac{1}{|U|} \sum_{u=1}^|U| \frac{1}{m}\sum_{k=1}^N P_u(k)\cdot rel_u(k).
-\end{align*}&lt;h2 id="Minor-Details"&gt;Minor Details&lt;a class="anchor-link" href="#Minor-Details"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Often you see the AP metric modified slightly when there might be more possible correct recommendations then the number of recommendations you are asked to give. Say, a super active user at the bank who adds $m=10$ accounts the next month, while your algorithm is only supposed to report $N=5$. In this case the normalization factor used is $1/\textrm{min}(m, N)$, which prevents your AP score from being unfairly suppressed when your number of recommendations couldn't possibly capture all the correct ones.&lt;/p&gt;
+\end{align*}&lt;h2 id="Common-Variations-on-AP-Formula"&gt;Common Variations on AP Formula&lt;a class="anchor-link" href="#Common-Variations-on-AP-Formula"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Often you see the AP metric modified slightly when there might be more possible correct recommendations then the number of recommendations you are asked to give. Say, a super active user at the bank who adds $m=10$ accounts the next month, while your algorithm is only supposed to report $N=5$. In this case the normalization factor used is $1/\textrm{min}(m, N)$, which prevents your AP score from being unfairly suppressed when your number of recommendations couldn't possibly capture all the correct ones.&lt;/p&gt;
 \begin{align*}
 \textrm{AP@N} = \frac{1}{\textrm{min}(m,N)}\sum_{k=1}^N P(k)\cdot rel(k).
-\end{align*}&lt;p&gt;You also might encounter a somewhat sloppier usage where there is no indicator function $rel(k)$ in the AP@N sum. In this case the person is re-defining the precision at cutoff $k$ to be zero when the $k^{th}$ recommendation was incorrect, that way it still doesn't contribute to the sum:&lt;/p&gt;
+\end{align*}&lt;p&gt;You also might encounter a somewhat sloppier usage where there is no indicator function $rel(k)$ in the AP@N sum. In this case the precision at cutoff $k$ is being implictly defined to be zero when the $k^{th}$ recommendation was incorrect, that way it still doesn't contribute to the sum:&lt;/p&gt;
 \begin{align*}
 \textrm{AP@N} = \frac{1}{m}\sum_{k=1}^N P(k),\\
 P(k) = 0 \textrm{ if $k^{th}$ element is irrelevant / incorrect.}
-\end{align*}&lt;p&gt;Finally, the if it's possible for there to be no relevant or correct recommendations possible ($m=0$) then often the AP is defined to be zero for those points. This is just to prevent us from trying to divide by zero in the normalization. Note that it will have the effect of dragging the MAP number of an algorithm down the more users there are who didn't actually add any products. This doesn't matter for comparing the performance of two algorithms on the same data set, but it does mean that you shouldn't place any kind of absolute meaning on the final number.&lt;/p&gt;
+\end{align*}&lt;p&gt;Finally, if it's possible for there to be no relevant or correct recommendations possible ($m=0$) then often the AP is defined to be zero for those points. Note that it will have the effect of dragging the MAP number of an algorithm down the more users there are who didn't actually add any products. This doesn't matter for comparing the performance of two algorithms on the same data set, but it does mean that you shouldn't place any kind of absolute meaning on the final number.&lt;/p&gt;
 \begin{align*}
 \textrm{AP@N} = \frac{1}{\textrm{min}(m,N)}\sum_{k=1}^N P(k)\cdot rel(k) \qquad \textrm{ if $m\neq 0$,}\\
 AP = 0 \qquad \textrm{if $m=0$}.
@@ -5224,25 +5223,25 @@ AP = 0 \qquad \textrm{if $m=0$}.
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;[1, 0, 0]&lt;/td&gt;
-&lt;td&gt;[1, 1/2, 1/3]&lt;/td&gt;
-&lt;td&gt;[1/3, 1/3, 1/3]&lt;/td&gt;
-&lt;td&gt;[1/3, 0, 0]&lt;/td&gt;
-&lt;td&gt;(1)(1/3) = 1/3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[0, 1, 0]&lt;/td&gt;
-&lt;td&gt;[0, 1/2, 1/3]&lt;/td&gt;
-&lt;td&gt;[0, 1/3, 1/3]&lt;/td&gt;
-&lt;td&gt;[0, 1/3, 0]&lt;/td&gt;
-&lt;td&gt;(1/2)(1/3) = 1/6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
 &lt;td&gt;[0, 0, 1]&lt;/td&gt;
 &lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
 &lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
 &lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
-&lt;td&gt;(1/3)(1/3) = 1/9&lt;/td&gt;
+&lt;td&gt;(1/3)(1/3) = 0.11&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 1, 1]&lt;/td&gt;
+&lt;td&gt;[0, 1/2, 2/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 2/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1/2) + (1/3)(2/3) = 0.38&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[1, 1, 1]&lt;/td&gt;
+&lt;td&gt;[1, 2/2, 3/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 2/3, 3/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;(1/3)(1) + (1/3)(1) + (1/3)(1) = 1&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5257,25 +5256,25 @@ AP = 0 \qquad \textrm{if $m=0$}.
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
+&lt;td&gt;[1, 0, 0]&lt;/td&gt;
+&lt;td&gt;[1, 1/2, 1/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;[1/3, 0, 0]&lt;/td&gt;
+&lt;td&gt;(1)(1/3) = 0.33&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;[0, 1, 0]&lt;/td&gt;
+&lt;td&gt;[0, 1/2, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 1/3]&lt;/td&gt;
+&lt;td&gt;[0, 1/3, 0]&lt;/td&gt;
+&lt;td&gt;(1/2)(1/3) = 0.15&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td&gt;[0, 0, 1]&lt;/td&gt;
 &lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
 &lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
 &lt;td&gt;[0, 0, 1/3]&lt;/td&gt;
-&lt;td&gt;&lt;strong&gt;(1/3)(1/3)&lt;/strong&gt; = 1/12&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[0, 1, 1]&lt;/td&gt;
-&lt;td&gt;[0, 1/2, 2/3]&lt;/td&gt;
-&lt;td&gt;[0, 1/3, 2/3]&lt;/td&gt;
-&lt;td&gt;[0, 1/3, 1/3]&lt;/td&gt;
-&lt;td&gt;(1/3)(1/2) + &lt;strong&gt;(1/3)(2/3)&lt;/strong&gt; = 7/18&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;[1, 1, 1]&lt;/td&gt;
-&lt;td&gt;[1, 2/2, 3/3]&lt;/td&gt;
-&lt;td&gt;[1/3, 2/3, 3/3]&lt;/td&gt;
-&lt;td&gt;[1/3, 1/3, 1/3]&lt;/td&gt;
-&lt;td&gt;(1/3)(1) + (1/3)(1) + &lt;strong&gt;(1/3)(1)&lt;/strong&gt; = 3/4&lt;/td&gt;
+&lt;td&gt;(1/3)(1/3) = 0.11&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -5540,9 +5539,10 @@ YII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;The jaggedness of this type of plot has lead to the creation of some "smoothed" average precision metrics as alternatives, but I'll not talk about them here.&lt;/p&gt;
-&lt;h1 id="To-Summarize..."&gt;To Summarize...&lt;a class="anchor-link" href="#To-Summarize..."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;MAP is very popular evaluation metric for algorithms that do information retrieval (think google search results) but it also can apply to user-targeted product recommendations. If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (imagine relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (imagine search results at the bottom of the page), then MAP might be a useful metric. Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task. This often makes perfect sense since a user has a finite amount of time and attention and we want to show the top recommendations first and maybe market them more aggressively.&lt;/p&gt;
-&lt;p&gt;In recommendation systems MAP computes the mean of the Average Precision (AP) over all your users. The Average Precision is a measure that takes in a ranked list of your $N$ recommendations and compares it to a list of the true set of relevant recommendations for that user. AP rewards you for having a lot of "correct" (relevant) recommendations in your list, and rewards you for putting the most likely correct recommendations at the top (you are penalized more when incorrect guesses are higher up in the ranking). So order of "hits" and "misses" matters a lot in computing an AP score, but once you have front-loaded your best guesses you can never &lt;em&gt;decrease&lt;/em&gt; your AP by tacking on more.&lt;/p&gt;
+&lt;p&gt;The jaggedness of this type of plot has lead to the creation of some "smoothed" or "interpolated" average precision metrics as alternatives, but I'll not talk about them here.&lt;/p&gt;
+&lt;h1 id="To-Summarize..."&gt;To Summarize...&lt;a class="anchor-link" href="#To-Summarize..."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;MAP is very popular evaluation metric for algorithms that do information retrieval like google search results, but it also can apply to user-targeted product recommendations. If you have an algorithm that is returning a ranked ordering of items, each item is either hit or miss (like relevant vs. irrelevant search results) and items further down in the list are less likely to be used/seen (like search results at the bottom of the page), then MAP might be a useful metric.&lt;/p&gt;
+&lt;p&gt;Using MAP to evaluate a recommender algorithm implies that you are treating the recommendation like a ranking task. This often makes perfect sense since a user has a finite amount of time and attention and we want to show the top recommendations first and maybe market them more aggressively.&lt;/p&gt;
+&lt;p&gt;In recommendation systems MAP computes the mean of the Average Precision (AP) over all your users. The AP is a measure that takes in a ranked list of your $N$ recommendations and compares it to a list of the true set of "correct" or "relevant" recommendations for that user. AP rewards you for having a lot of "correct" (relevant) recommendations in your list, and rewards you for putting the most likely correct recommendations at the top (you are penalized more when incorrect guesses are higher up in the ranking). So order of "hits" and "misses" matters a lot in computing an AP score, but once you have front-loaded your best guesses you can never &lt;em&gt;decrease&lt;/em&gt; your AP by tacking on more.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -5665,21 +5665,11 @@ YII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Neural-Nets-homework-in-Python-instead-of-Matlab."&gt;In which I brazenly defy Professor Ng and do his Neural Nets homework in Python instead of Matlab.&lt;a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Neural-Nets-homework-in-Python-instead-of-Matlab."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Weeks 4 &amp; 5 of Andrew Ng's ML course on Coursera focuses on the mathematical model for neural nets, a common cost function for fitting them, and the forward and back propagation algorithms. This is my "solution" to the Weeks 4 &amp; 5 homework, in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use rather than implementing the algorithms from scratch. Also sometimes I digress from the homework. Like, a lot.&lt;/p&gt;
-&lt;p&gt;I'll be walking through the following steps with the homework data set:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;visualizing the data&lt;/li&gt;
-&lt;li&gt;using one-vs-rest logistic regression to classify and assessing the performance&lt;/li&gt;
-&lt;li&gt;visualizing the misclassification errors&lt;/li&gt;
-&lt;li&gt;using a neural net to classify and assessing the performance&lt;/li&gt;
-&lt;li&gt;visualizing the cost function trajectory during fitting the net&lt;/li&gt;
-&lt;li&gt;visualizing and interpreting the fitted neural net&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Neural-Nets-homework-in-Python-instead-of-Matlab."&gt;In which I brazenly defy Professor Ng and do his Neural Nets homework in Python instead of Matlab.&lt;a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Neural-Nets-homework-in-Python-instead-of-Matlab."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Weeks 4 &amp; 5 of Andrew Ng's ML course on Coursera focuses on the mathematical model for neural nets, a common cost function for fitting them, and the forward and back propagation algorithms. Here I use the homework data set to learn about the relevant python tools.&lt;/p&gt;
 &lt;blockquote&gt;&lt;h2 id="Tools-Covered:"&gt;Tools Covered:&lt;a class="anchor-link" href="#Tools-Covered:"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;subplots&lt;/code&gt; for dividing up matplotlib plots and &lt;code&gt;imshow&lt;/code&gt; for visualizing matrices&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;groupby&lt;/code&gt; for splitting dataframes into groups based on some criteria&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;LogisticRegression&lt;/code&gt; for multiclass classification using one-vs-rest &lt;/li&gt;
 &lt;li&gt;&lt;code&gt;MLPClassifier&lt;/code&gt; for mutliclass classification using a neural net model&lt;/li&gt;
+&lt;li&gt;also &lt;code&gt;subplots&lt;/code&gt; for dividing up matplotlib plots, &lt;code&gt;imshow&lt;/code&gt; for visualizing matrices&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
@@ -15728,15 +15718,7 @@ QQAAAAZJREFU/wG/GtpYo5UXhQAAAABJRU5ErkJggg==
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab."&gt;In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.&lt;a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Week 3 of Andrew Ng's ML course on Coursera focuses on doing classification using the standard sigmoid hypothesis and the log-loss cost function, and multiclass classification is covered under the one-vs-rest approach. This is my "solution" to the Week 3 homework, in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use rather than implementing the algorithms from scratch. Also sometimes I digress from the homework. Like, a lot.&lt;/p&gt;
-&lt;p&gt;I'll be walking through the following steps with the homework data set:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;visualizing the data&lt;/li&gt;
-&lt;li&gt;training a binary classifier and assessing its performance&lt;/li&gt;
-&lt;li&gt;visualizing the decision boundary &lt;/li&gt;
-&lt;li&gt;adding polynomial features for higher complexity&lt;/li&gt;
-&lt;li&gt;adding regularization to the algorithm&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab."&gt;In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.&lt;a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Week 3 of Andrew Ng's ML course on Coursera focuses on doing classification using the standard sigmoid hypothesis and the log-loss cost function, and multiclass classification is covered under the one-vs-rest approach. Here I use the homework data set to learn about the relevant python tools.&lt;/p&gt;
 &lt;blockquote&gt;&lt;h2 id="Tools-Covered:"&gt;Tools Covered:&lt;a class="anchor-link" href="#Tools-Covered:"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SGDClassifier&lt;/code&gt; for general classification problems (like logistic regression) specifying a loss and penalty&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;LogisticRegression&lt;/code&gt; for classification using log-loss and specifying a penalty (regularization)&lt;/li&gt;
@@ -18090,8 +18072,8 @@ SinlQzQ5U0oppZTyIZqcKaWUUkr5EE3OlFJKKaV8iCZnSimllFI+RJMzpZRSSikfosmZUkoppZQP
 &lt;div class="prompt input_prompt"&gt;In [31]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;higher_terms&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;poly&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;higher_terms&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# A preview of the expanded features&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;polyX&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;poly&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit_transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;polyX&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# A preview of the expanded features&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -18418,24 +18400,17 @@ J_{LSQ}^{reg}(\theta) = \frac{1}{m}\bigg[\sum_1^m\frac{1}{2}(h(x_i)-y_i)^2 + \la
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Linear-Regression-homework-in-Python-instead-of-Matlab."&gt;In which I brazenly defy Professor Ng and do his Linear Regression homework in Python instead of Matlab.&lt;a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Linear-Regression-homework-in-Python-instead-of-Matlab."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Week 2 of Andrew Ng's ML course on Coursera focuses on doing linear regression with the common squared error cost function, using gradient descent for the actual fitting (remember to scale features!), and alternatively using the Normal Equation analytical solution. This is my "solution" to the Week 2 homework, in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use rather than implementing the algorithms from scratch. Also sometimes I digress from the homework. Like, a lot.&lt;/p&gt;
-&lt;p&gt;I'll be walking through the following steps with the homework data set:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;visualizing the data&lt;/li&gt;
-&lt;li&gt;using stochastic gradient descent for linear regression&lt;/li&gt;
-&lt;li&gt;comparing the gradient descent result to the normal equation solution&lt;/li&gt;
-&lt;li&gt;visualizing the cost function over parameter space&lt;/li&gt;
-&lt;/ul&gt;
+&lt;h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Linear-Regression-homework-in-Python-instead-of-Matlab."&gt;In which I brazenly defy Professor Ng and do his Linear Regression homework in Python instead of Matlab.&lt;a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Linear-Regression-homework-in-Python-instead-of-Matlab."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Week 2 of Andrew Ng's ML course on Coursera focuses on doing linear regression with the common squared error cost function, using gradient descent for the actual fitting (remember to scale features!), and alternatively using the Normal Equation analytical solution. Here I use the homework data set to learn about the relevant python tools.&lt;/p&gt;
 &lt;blockquote&gt;&lt;h2 id="Tools-Covered:"&gt;Tools Covered:&lt;a class="anchor-link" href="#Tools-Covered:"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SGDRegressor&lt;/code&gt; for general linear model regression specifying a loss and penalty&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;LinearRegression&lt;/code&gt; for normal equation solution to least squares loss linear regression&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mean_squared_error&lt;/code&gt; for computing this super common loss&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mean_squared_error&lt;/code&gt; for computing this super common loss metric&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;StandardScaler&lt;/code&gt; for feature scaling your data&lt;/li&gt;
-&lt;li&gt;Surface Plots and Contour Plots in &lt;code&gt;matplotlib&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;also Surface Plots and Contour Plots in &lt;code&gt;matplotlib&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/blockquote&gt;
-&lt;h1 id="Linear-Regression-With-One-Variable"&gt;Linear Regression With One Variable&lt;a class="anchor-link" href="#Linear-Regression-With-One-Variable"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;em&gt;Suppose you are the CEO of a restaurant franchise and are considering different cities for opening a new outlet. The chain already has trucks in various cities and you have data for profits and populations from the cities. You would like to use this data to help you select which city to expand to next. The file &lt;code&gt;ex1data1.txt&lt;/code&gt; contains the dataset for our linear regression problem. The first column is the population of a city and the second column is the profit of a food truck in that city. A negative value for profit indicates a loss.&lt;/em&gt;&lt;/p&gt;
-&lt;h2 id="Visualizing-the-Data"&gt;Visualizing the Data&lt;a class="anchor-link" href="#Visualizing-the-Data"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;em&gt;Before starting on any task, it is often useful to understand the data by visualizing it. For this dataset, you can use a scatter plot to visualize the data, since it has only two properties to plot (profit and population). (Many other problems that you will encounter in real life are multi-dimensional and can't be plotted on a 2-d plot.)&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="Visualizing-the-Data"&gt;Visualizing the Data&lt;a class="anchor-link" href="#Visualizing-the-Data"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;em&gt;Suppose you are the CEO of a restaurant franchise and are considering different cities for opening a new outlet. The chain already has trucks in various cities and you have data for profits and populations from the cities. You would like to use this data to help you select which city to expand to next. The file &lt;code&gt;ex1data1.txt&lt;/code&gt; contains the dataset for our linear regression problem. The first column is the population of a city and the second column is the profit of a food truck in that city. A negative value for profit indicates a loss.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Before starting on any task, it is often useful to understand the data by visualizing it. For this dataset, you can use a scatter plot to visualize the data, since it has only two properties to plot (profit and population). (Many other problems that you will encounter in real life are multi-dimensional and can't be plotted on a 2-d plot.)&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -18743,7 +18718,7 @@ IpKioCAiIikKCiIikvL/AUnsrCkcSLY3AAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Gradient-Descent"&gt;Gradient Descent&lt;a class="anchor-link" href="#Gradient-Descent"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;em&gt;In this part, you will fit the linear regression parameters to our dataset using gradient descent.&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id="Linear-Regression-With-One-Variable"&gt;Linear Regression With One Variable&lt;a class="anchor-link" href="#Linear-Regression-With-One-Variable"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="Gradient-Descent"&gt;Gradient Descent&lt;a class="anchor-link" href="#Gradient-Descent"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;em&gt;In this part, you will fit the linear regression parameters to our dataset using gradient descent.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html"&gt;According to the documentation&lt;/a&gt; &lt;code&gt;scikit-learn&lt;/code&gt;'s standard linear regression object is actually just a piece of code from &lt;code&gt;scipy&lt;/code&gt; which is wrapped to give a predictor object. The aforementioned &lt;code&gt;scipy&lt;/code&gt; function is &lt;strong&gt;&lt;a href="http://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.lstsq.html"&gt;&lt;code&gt;scipy.linalg.lstsq&lt;/code&gt;&lt;/a&gt; which just uses the Normal equation to compute the minimizer analytically&lt;/strong&gt;, and will give you an warning if the relevant matrix is non-invertible! This is interesting as Andrew mentioned the normal equation almost as an afterthought to gradient descent as far as implementing a real algorithm for doing linear regression, but it seems in the real world the default method is perhaps the normal equation.&lt;/p&gt;
 &lt;h3 id="Stochastic-versus-Batch-Gradient-Descent"&gt;Stochastic versus Batch Gradient Descent&lt;a class="anchor-link" href="#Stochastic-versus-Batch-Gradient-Descent"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;If you really want to get gradient descent in &lt;code&gt;scikit-learn&lt;/code&gt; then the relevant object is called &lt;code&gt;SGDRegressor&lt;/code&gt;&lt;/strong&gt; (or for classification problems &lt;code&gt;SGDClassifier&lt;/code&gt; - recall classification is where your labels are discrete category-like). The "SGD" stands for &lt;em&gt;stochastic&lt;/em&gt; gradient descent, so it's not quite the same as what Andrew covers in his class, although he does discuss it in the real &lt;a href="http://cs229.stanford.edu/notes/cs229-notes1.pdf"&gt;Stanford CS299 notes&lt;/a&gt;. On Coursera he mentions that using every data point in your training example to compute $\frac{\partial J}{\partial \theta_j}$ at every iteration of GD is called &lt;strong&gt;batch gradient descent&lt;/strong&gt;, but he doesn't detail the alternatives, one of which is &lt;strong&gt;stochastic gradient descent&lt;/strong&gt;. So allow me to quote from his real class notes:&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;In [stochastic gradient descent], we repeatedly run through the training set, and each time

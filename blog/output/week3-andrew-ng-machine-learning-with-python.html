@@ -182,15 +182,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.<a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">¶</a></h1><p>Week 3 of Andrew Ng's ML course on Coursera focuses on doing classification using the standard sigmoid hypothesis and the log-loss cost function, and multiclass classification is covered under the one-vs-rest approach. This is my "solution" to the Week 3 homework, in the sense that the objectives and ideas in the homework assignment are addressed using Python instead of matlab, and using the actual modules that a data scientist use rather than implementing the algorithms from scratch. Also sometimes I digress from the homework. Like, a lot.</p>
-<p>I'll be walking through the following steps with the homework data set:</p>
-<ul>
-<li>visualizing the data</li>
-<li>training a binary classifier and assessing its performance</li>
-<li>visualizing the decision boundary </li>
-<li>adding polynomial features for higher complexity</li>
-<li>adding regularization to the algorithm</li>
-</ul>
+<h1 id="In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">In which I brazenly defy Professor Ng and do his Logistic Regression homework in Python instead of Matlab.<a class="anchor-link" href="#In-which-I-brazenly-defy-Professor-Ng-and-do-his-Logistic-Regression-homework-in-Python-instead-of-Matlab.">¶</a></h1><p>Week 3 of Andrew Ng's ML course on Coursera focuses on doing classification using the standard sigmoid hypothesis and the log-loss cost function, and multiclass classification is covered under the one-vs-rest approach. Here I use the homework data set to learn about the relevant python tools.</p>
 <blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
 <li><code>SGDClassifier</code> for general classification problems (like logistic regression) specifying a loss and penalty</li>
 <li><code>LogisticRegression</code> for classification using log-loss and specifying a penalty (regularization)</li>
@@ -2544,8 +2536,8 @@ SinlQzQ5U0oppZTyIZqcKaWUUkr5EE3OlFJKKaV8iCZnSimllFI+RJMzpZRSSikfosmZUkoppZQP
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">higher_terms</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="n">higher_terms</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># A preview of the expanded features</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">polyX</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">polyX</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>  <span class="c1"># A preview of the expanded features</span>
 </pre></div>
 </div>
 </div>
