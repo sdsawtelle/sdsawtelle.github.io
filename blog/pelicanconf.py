@@ -8,7 +8,7 @@ import sys
 
 AUTHOR = u'Sonya Sawtelle'
 SITENAME = u'Evening Session'
-SITESUBTITLE = u'Learning Data Science & Python in 2 Hr/Day.'
+SITESUBTITLE = u'explorations in data science and python'
 SITEURL = 'sdsawtelle.github.io'
 
 PATH = 'content'

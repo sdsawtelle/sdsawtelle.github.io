@@ -22,6 +22,8 @@ CATEGORY_FEED_ATOM = 'feeds/%s.atom.xml'
 
 DELETE_OUTPUT_DIRECTORY = True
 
+COLOR_SCHEME_CSS = "github"
+
 # Following items are often useful when publishing
 
 #DISQUS_SITENAME = ""
