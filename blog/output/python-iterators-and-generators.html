@@ -182,19 +182,19 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-reiterate-how-important-it-is-to-generate-a-proper-appreciation-for-Iterators-and-Generators.">In which I reiterate how important it is to generate a proper appreciation for Iterators and Generators.<a class="anchor-link" href="#In-which-I-reiterate-how-important-it-is-to-generate-a-proper-appreciation-for-Iterators-and-Generators.">¶</a></h1><p>If you have done any Python at all you've probably come across the concepts <em>iterator</em> and <em>generator</em>, they sound a little intimidating but are actually very cuddly. This post tries to clearly define these (and related) terms, and also show you how and when to use these guys. We'll start with iterator stuff, and end with generator stuff.</p>
+<h1 id="In-which-I-reiterate-how-important-it-is-to-generate-a-proper-appreciation-for-these-essential-tools.">In which I reiterate how important it is to generate a proper appreciation for these essential tools.<a class="anchor-link" href="#In-which-I-reiterate-how-important-it-is-to-generate-a-proper-appreciation-for-these-essential-tools.">¶</a></h1><p>If you have done any Python at all you've probably come across the concepts of <em>iterator</em> and <em>generator</em>, they sound a little intimidating but they're really very friendly. This post tries to clearly define these (and related) terms, and also show you how and when to use these guys. We'll start with iterator stuff, and end with generator stuff.</p>
 <p>As always:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [249]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
 </div>
 </div>
@@ -205,10 +205,10 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Container-vs.-Iterator-vs.-Iterable">Container vs. Iterator vs. Iterable<a class="anchor-link" href="#Container-vs.-Iterator-vs.-Iterable">¶</a></h1><p>Unfortunately these terms are thrown around very sloppily, so first let's clear up the syntax. To summarize an <a href="nsnvie.com/posts/iterators-vs-generators/">excellent blog post by Vincent Driessen</a>:</p>
+<h1 id="Defining-Iterators">Defining Iterators<a class="anchor-link" href="#Defining-Iterators">¶</a></h1><p>The terms "iterator" and "iterable" sometimes get used quit recklessly, so first let's clear up the syntax. To summarize an <a href="nsnvie.com/posts/iterators-vs-generators/">excellent blog post by Vincent Driessen</a>:</p>
 <ul>
 <li>a <strong>container</strong> is any object that holds stuff and can be asked if it <em>contains</em> a certain element (think <code>dict</code>, <code>list</code>, <code>set</code>).</li>
-<li>an <strong><code>iterator</code></strong> is any object that remembers its state so it can produce the next value in a sequence when <code>next()</code> is called on it.</li>
+<li>an <strong>iterator</strong> is any object that remembers its state so it can produce the next value in a sequence when <code>next()</code> is called on it.</li>
 <li>an <strong>iterable</strong> is any object that can produce an <code>iterator</code> when <code>iter()</code> is called on it (most containers are iterable).</li>
 </ul>
 <p>Some examples are in order at this point.</p>
@@ -432,7 +432,69 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Itertools-Module">Itertools Module<a class="anchor-link" href="#Itertools-Module">¶</a></h2><p>The <code>itertools</code> module of the standard library implements many different kinds of useful <code>iterators</code> and iterator-centric functionality - I want to highlight some of the most useful stuff. I like to use the import name <code>it</code>, but I don't know if that's a very common convention.</p>
+<h2 id="Making-Your-Own-Iterators-(SKIP-IF-YOU-NEVER-USE-CLASSES)">Making Your Own Iterators (SKIP IF YOU NEVER USE CLASSES)<a class="anchor-link" href="#Making-Your-Own-Iterators-(SKIP-IF-YOU-NEVER-USE-CLASSES)">¶</a></h2><p>We can make our own classes which are iterators simply by exposing methods <code>__next__</code> and <code>__iter__</code>. Calling <code>next()</code> on these guys will cause Python to search the class for a <code>__next__</code> method. Lets make a class that defines objects who iterate through the integers:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [45]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">int_iter</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_int</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span> <span class="o">=</span> <span class="n">start_int</span>
+    
+    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Update this attribute to the next integer value</span>
+        <span class="k">return</span> <span class="n">temp</span>  <span class="c1"># Return the previous "current value"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_it</span> <span class="o">=</span> <span class="n">int_iter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">next</span><span class="p">(</span><span class="n">my_it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">my_it</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>(10, 11)</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Itertools-Module">Itertools Module<a class="anchor-link" href="#Itertools-Module">¶</a></h2><p>The <code>itertools</code> module of the standard library implements lots useful iterators and iterator-centric functionality - I'll just highlight some of the most useful stuff here. I like to use the import name <code>it</code>, but I don't know if that's a very common convention.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -588,11 +650,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>You can also check out:</p>
-<ul>
-<li>the <a href="https://docs.python.org/2/library/itertools.html">full itertools docs</a>.</li>
-<li>a great <a href="http://jmduke.com/posts/a-gentle-introduction-to-itertools/">intro to itertools by Justin Duke</a></li>
-</ul>
+<p>You can also check out the <a href="https://docs.python.org/2/library/itertools.html">full itertools docs</a>, or this great post <a href="http://jmduke.com/posts/a-gentle-introduction-to-itertools/">intro to itertools by Justin Duke</a></p>
 </div>
 </div>
 </div>
@@ -601,65 +659,14 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Making-Your-Own-Iterators-(skip-this-if-you-never-use-classes)">Making Your Own Iterators (skip this if you never use classes)<a class="anchor-link" href="#Making-Your-Own-Iterators-(skip-this-if-you-never-use-classes)">¶</a></h2><p>We can make our own classes which are iterators simply by exposing methods <code>__next__</code> and <code>__iter__</code>. Calling <code>next()</code> on these guys will cause Python to search the class for a <code>__next__</code> method. Lets make a class that defines objects who iterate through the integers:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [45]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">int_iter</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_int</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span> <span class="o">=</span> <span class="n">start_int</span>
-    
-    <span class="k">def</span> <span class="nf">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span>
-    
-    <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Update this attribute to the next integer value</span>
-        <span class="k">return</span> <span class="n">temp</span>  <span class="c1"># Return the previous "current value"</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [46]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_it</span> <span class="o">=</span> <span class="n">int_iter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-<span class="nb">next</span><span class="p">(</span><span class="n">my_it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">my_it</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>(10, 11)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Generators">Generators<a class="anchor-link" href="#Generators">¶</a></h1><p>Now that you know about iterators, you're in a position to understand generators. Sadly here there is an even more ambiguous usage of terms, so let me straighten out the syntax first:</p>
+<h1 id="Defining-Generators">Defining Generators<a class="anchor-link" href="#Defining-Generators">¶</a></h1><p>Now that you know about iterators, you're in a position to understand generators. Sadly here there is an even more ambiguous usage of terms. Allow me to set the record straight:</p>
 <ul>
 <li>a <strong>generator iterator</strong> is an object that can temporarily freeze it's execution, but later pick up exactly where it left-off. It is a true python <code>iterator</code>!</li>
 <li>a <strong>generator function</strong> is a function that returns a generator iterator object. It is a true python <code>function</code>!</li>
-<li>a <strong>generator</strong> is apparently whatever the hell you want it to be. (it gets used to mean both of the above).</li>
+<li>a <strong>generator</strong> is apparently whatever the hell you want it to be. (It gets used to mean both of the above).</li>
 </ul>
 <p>Generator functions are <em>functions</em> that return generator iterators, which are <em>iterators</em>. Use the term <em>generator</em> with reckless abandon to sew confusion and angst.</p>
-<h2 id="Write-Generator-Functions-with-yield">Write Generator Functions with <code>yield</code><a class="anchor-link" href="#Write-Generator-Functions-with-yield">¶</a></h2><p>In python you write a generator function just like a normal function, but you use the keyword <code>yield</code> instead of <code>return</code>. <strong>Each appearance of <code>yield</code> is a place where the returned generator iterator will freeze and then can later pick back up from that point.</strong> You don't explicitly <code>return</code> anything from a generator function, instead calling it will implicitly return a generator iterator. Was that sufficiently confusing? Here's an example:</p>
+<h2 id="Write-Generator-Functions-with-yield">Write Generator Functions with <code>yield</code><a class="anchor-link" href="#Write-Generator-Functions-with-yield">¶</a></h2><p>In python you write a generator function just like a normal function, but you use the keyword <code>yield</code> instead of <code>return</code>. <strong>Each appearance of <code>yield</code> is a place where the resulting generator iterator will freeze and then can later pick back up from that point.</strong> You don't explicitly <code>return</code> anything from a generator function, instead calling it will implicitly return a generator iterator. Was that sufficiently confusing? Here's an example:</p>
 </div>
 </div>
 </div>
@@ -886,7 +893,7 @@ wheee!
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [106]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># As a list comp</span>
@@ -898,7 +905,7 @@ wheee!
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[106]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>4950</pre>
 </div>
@@ -984,7 +991,7 @@ wheee!
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>One possible reason to prefer list comprehension is when you need any of the list methods like slicing, <code>sorted</code>, <code>reversed</code> etc. For instance you can do:</p>
+<p>There are still cases where list comprehension is preferable, say if you need any list methods like slicing, <code>sorted</code>, <code>reversed</code> etc. For instance with a real list you can do:</p>
 </div>
 </div>
 </div>
@@ -1832,10 +1839,10 @@ TkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Simulating-a-fair-coin--(see-Sahand-Saba&#x27;s-post)">Simulating a fair coin  (see <a href="http://sahandsaba.com/interview-question-groupon-probability.html">Sahand Saba's post</a>)<a class="anchor-link" href="#Simulating-a-fair-coin--(see-Sahand-Saba&#x27;s-post)">¶</a></h3><p>Given an unfair coin which flips as heads with probability $0<p&lt;1$ $\{hh,ht,th,tt\}$.="" $ht$="" $p(1−p)$="" $th$="" ($p="0.5$)." &lt;code="" a="" algorithm="" an="" and="" being="" both="" can="" coin="" coin.="" come="" consider="" exactly="" fair="" flips="" flips,="" generates="" generator="" get="" have="" heads="" map="" means="" of="" one="" only="" pair="" possible="" probability="" results="" set="" tails="" that="" the="" to="" unfair="" up="" using="" we="" which="" with="" write="">numpy.random.binomial(n=1, p=p)</p&lt;1$></p></div></div></div> with an unfair coin.
-
-
-
+<h3 id="Simulating-a-fair-coin-with-an-unfair-one.">Simulating a fair coin with an unfair one.<a class="anchor-link" href="#Simulating-a-fair-coin-with-an-unfair-one.">¶</a></h3><p>See <a href="http://sahandsaba.com/interview-question-groupon-probability.html">Sahand Saba's post</a>. Given an unfair coin which flips as heads with probability $0 < p < 1$ we can come up with an algorithm that flips a fair coin ($p=0.5$). Consider a pair of unfair coin flips, with the set of possible results being $\{HH,HT,TH,TT\}$. Both $HT$ and $TH$ have probability of exactly $p(1−p)$ which means we can map one to HEADS and one to TAILS to get a fair coin. Write a generator that generates fair flips, only using <code>numpy.random.binomial(n=1, p=p)</code> with an unfair coin.</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In [230]:</div>

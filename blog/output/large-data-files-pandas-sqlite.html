@@ -183,7 +183,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-learn-how-not-to-set-my-computer-on-fire-by-trying-to-read-a-3-GB-CSV-file.">In which I learn how <em>not</em> to set my computer on fire by trying to read a 3 GB CSV file.<a class="anchor-link" href="#In-which-I-learn-how-not-to-set-my-computer-on-fire-by-trying-to-read-a-3-GB-CSV-file.">¶</a></h1><p>Here I'll talk about some tricks for working with larger-than-memory data sets in python using our good friend <code>pandas</code> as well as a standard lib module <code>sqlite3</code> (for interfacing local (on your machine) databases). If you have a laptop with 4 or even 8 GB of RAM you could find yourself in this position with even just a normal Kaggle competition (I certainly did, hence this post).</p>
+<h1 id="In-which-I-learn-how-not-to-set-my-computer-on-fire-by-trying-to-read-a-3GB-CSV-file.">In which I learn how <em>not</em> to set my computer on fire by trying to read a 3GB CSV file.<a class="anchor-link" href="#In-which-I-learn-how-not-to-set-my-computer-on-fire-by-trying-to-read-a-3GB-CSV-file.">¶</a></h1><p>Here I'll talk about some tricks for working with larger-than-memory data sets in python using our good friend <code>pandas</code> as well as a standard lib module <code>sqlite3</code> for interfacing local (on your machine) databases. If you have a laptop with 4 or even 8 GB of RAM you could find yourself in this position with even just a normal Kaggle competition (I certainly did, hence this post).</p>
 <blockquote><p>Tools covered:</p>
 <ul>
 <li>Pandas <code>nrows</code> and <code>skiprows</code> kwargs for <code>read_csv</code></li>
@@ -222,7 +222,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [123]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Look at the first few rows of the CSV file</span>
@@ -233,7 +233,7 @@
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[123]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -277,7 +277,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [124]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Peek at the middle of the CSV file</span>
@@ -288,7 +288,7 @@
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[124]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -341,7 +341,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [125]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read in the data chunk by chunk</span>
@@ -369,6 +369,7 @@ Smith
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p>If instead of having one large csv file you have a crap ton of small ones then you'll want to read each one into a dataframe and combine those frames. In this case, remember that <code>append</code> is an expensive operation for data frames and it is preferable to create a long list of your dataframes and then execute <code>concat</code> once. A great discussion of this is <a href="https://tomaugspurger.github.io/modern-4-performance.html">here</a>.</p>
 <h1 id="Being-Smart-About-Data-Types">Being Smart About Data Types<a class="anchor-link" href="#Being-Smart-About-Data-Types">¶</a></h1><p>When reading in a .csv pandas does a good job inferring appropriate datatypes for each column, but it is not memory-optimized and with a large file this can cost you.</p>
 <p>A good approach is to read in a very large but manageable chunk of the data frame, check what <code>dtypes</code> pandas has defaulted to, and then inspect the columns of the dataframe to see if you can improve on the defaults. It's also informative to take a look at the dataframes <code>memory_usage</code>.</p>
 </div>
@@ -376,7 +377,7 @@ Smith
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [126]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
@@ -387,7 +388,7 @@ Smith
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[126]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -458,7 +459,7 @@ Smith
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [127]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -468,7 +469,7 @@ Smith
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[127]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>id            int64
 last_name    object
@@ -484,7 +485,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [128]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
@@ -494,7 +495,7 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[128]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>Index        80
 id           40
@@ -522,7 +523,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [129]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cast during the csv read</span>
@@ -538,7 +539,7 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [130]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
@@ -548,7 +549,7 @@ dtype: int64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[130]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>id            int16
 last_name    object
@@ -564,7 +565,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [131]:</div>
+<div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
@@ -574,7 +575,7 @@ dtype: object</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[131]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>Index        80
 id           10
@@ -610,14 +611,10 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [133]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cast during the csv read</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">LabelEncoder</span>
-<span class="n">le_sex</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-
-<span class="c1"># Impute the NaNs in the sex column, let's make them their own category:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Impute the NaNs in the sex column, let's make them their own category:</span>
 <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"NAN"</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
@@ -626,7 +623,7 @@ dtype: int64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[133]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>array([&apos;F&apos;, &apos;M&apos;, &apos;NAN&apos;], dtype=object)</pre>
 </div>
@@ -636,10 +633,14 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [134]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">le_sex</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>  <span class="c1"># Fit the encoder</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a label encoder and fit it</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">LabelEncoder</span>
+<span class="n">le_sex</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">le_sex</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+
 <span class="n">le_sex</span><span class="o">.</span><span class="n">classes_</span>  <span class="c1"># The fit results in two classes - M and F</span>
 </pre></div>
 </div>
@@ -647,7 +648,7 @@ dtype: int64</pre>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[134]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>array([&apos;F&apos;, &apos;M&apos;, &apos;NAN&apos;], dtype=object)</pre>
 </div>
@@ -660,16 +661,17 @@ dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Once the encoder has been fitted you can use it to "transform" other sets of this data into integers.</p>
+<p>Once the encoder has been fitted you can use it to "transform" this feature's category values into integers.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [135]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">le_sex</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example of the transform</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">le_sex</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">"M"</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">,</span> <span class="s2">"NAN"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -678,7 +680,7 @@ dtype: int64</pre>
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[0 1 2 0 1]
+<pre>[1 1 2 0]
 </pre>
 </div>
 </div>
@@ -737,7 +739,7 @@ Name: sex, dtype: int8</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Intro-to-Local-Databases-with-sqlite3">Intro to Local Databases with <code>sqlite3</code><a class="anchor-link" href="#Intro-to-Local-Databases-with-sqlite3">¶</a></h1><p><strong>Sqlite is a lean relational database software that runs locally on your PC</strong> (rather than a remote server). Each database is stored as a single file on disk. Sqlite understands most SQL language syntax although some things are omitted and other things added. <strong>The <code>sqlite3</code> module for in the Python Standard Library provides the functionality for working with Sqlite databases within Python.</strong></p>
+<h1 id="Intro-to-Local-Databases-with-sqlite3">Intro to Local Databases with <code>sqlite3</code><a class="anchor-link" href="#Intro-to-Local-Databases-with-sqlite3">¶</a></h1><p><strong>Sqlite is a lean relational database software that runs locally on your PC</strong> (rather than a remote server). Each database is stored as a single file on disk. Sqlite understands most SQL language syntax although some things are omitted and other things added. The <code>sqlite3</code> module for in the Python Standard Library provides the functionality for working with Sqlite databases within Python.</p>
 <p>Preliminarily, <strong>a database is a collection of <code>tables</code> each of which is like a spreadsheet with rows and columns.</strong> Fundamentally you must be able to <em>Create</em> (put new data into a table), <em>Read</em> (pull data out of a table), <em>Update</em> (modify existing data in a table), and <em>Delete</em> (drop data from a table).</p>
 <p>[If you want to physically browse through a sqlite DB there is software for that - <a href="http://sqlitebrowser.org/">DB Browser for Sqlite</a> is a good one.]</p>
 <h2 id="Create-sqlite-Database-and-Connect-to-it-with--Python">Create sqlite Database and Connect to it with  Python<a class="anchor-link" href="#Create-sqlite-Database-and-Connect-to-it-with--Python">¶</a></h2><p><strong>Within Python databases will be represented through <code>connection</code> type objects</strong> which you create. To actually interact with the database requires a <strong><code>cursor</code> object to which we can pass SQL commands.</strong> This is super easy to set up:</p>
@@ -746,7 +748,7 @@ Name: sex, dtype: int8</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
@@ -769,11 +771,11 @@ Name: sex, dtype: int8</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">chunk</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#"name" is name of table you're accessing in DB</span>
+    <span class="n">chunk</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#"name" is name of table </span>
     <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -891,13 +893,13 @@ Smith
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Actually-Doing-Stuff-With-Your-Database!">Actually Doing Stuff With Your Database!<a class="anchor-link" href="#Actually-Doing-Stuff-With-Your-Database!">¶</a></h1><h2 id="Query-Your-DB-with-execute">Query Your DB with execute<a class="anchor-link" href="#Query-Your-DB-with-execute">¶</a></h2><p>When you send a SQL query command via your cursor the results are returned as a generator which you can work with either directly or through some <code>cursor</code> methods. The <code>fetchone</code> method acts like <code>next()</code> to grab the next value, while the <code>fetchall</code> method pulls values from the generator until it is exhausted.</p>
+<h1 id="Actually-Doing-Stuff-With-Your-Database!">Actually Doing Stuff With Your Database!<a class="anchor-link" href="#Actually-Doing-Stuff-With-Your-Database!">¶</a></h1><h2 id="Query-Your-DB-with-execute">Query Your DB with execute<a class="anchor-link" href="#Query-Your-DB-with-execute">¶</a></h2><p>When you send a SQL query command via your cursor the returned results are stored in the <code>cursor</code> object itself and are iterable. The cursor's <code>fetchone</code> method acts like <code>next()</code> to grab the next value, while the <code>fetchall</code> method pulls values from the generator until it is exhausted.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT DISTINCT sex FROM data;"</span>  <span class="c1"># A SQL command to get unique values from the sex column </span>
@@ -908,9 +910,9 @@ Smith
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre><sqlite3.cursor at 0x215f04aa6c0></pre>
+<pre><sqlite3.cursor at 0x1adb2ffd110></pre>
 </div>
 </div>
 </div>
@@ -918,7 +920,7 @@ Smith
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>  <span class="c1"># Pop the first result of the query like `next()`</span>
@@ -928,7 +930,7 @@ Smith
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[18]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>(&apos;F&apos;,)</pre>
 </div>
@@ -938,7 +940,7 @@ Smith
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>  <span class="c1"># Pop the remaining results of the query</span>
@@ -948,7 +950,7 @@ Smith
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>[(&apos;M&apos;,), (None,)]</pre>
 </div>
@@ -958,7 +960,7 @@ Smith
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Execute returns a generator you can loop through.</span>
@@ -1311,17 +1313,6 @@ Smith
 <li><a href="http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html#creating-unique-indexes">http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html#creating-unique-indexes</a></li>
 </ul>
 <p>[Tutorial examples with <code>sqlite3</code> in Python <a href="http://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html">here</a>, <a href="http://pythoncentral.io/introduction-to-sqlite-in-python/">here</a>.]</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
-</pre></div>
-</div>
 </div>
 </div>
 </div>
