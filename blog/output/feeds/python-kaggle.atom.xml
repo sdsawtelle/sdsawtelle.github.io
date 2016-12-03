@@ -143,7 +143,7 @@
 &lt;li&gt;recall = 2/3&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Here's a visual example: we're being asked to recommend financial "products" to Bank users and we compare our recommendations to the products that a user actually added the following month (those are all the possible "relevant" ones).&lt;/p&gt;
-&lt;p&gt;&lt;img src="images/map/area_pic.png" width="400" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/post-mean-avg-precision/area_pic.png" width="400" /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -154,7 +154,7 @@
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Precision-and-Recall-at-Cutoff-k"&gt;Precision and Recall at Cutoff k&lt;a class="anchor-link" href="#Precision-and-Recall-at-Cutoff-k"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;So that's nice, but Precision and Recall don't seem to care about ordering. So instead let's talk about &lt;strong&gt;precision and recall at cutoff k&lt;/strong&gt;. Imagine taking your list of $N$ recommendations and considering only the first element, then only the first two, then only the first three, etc... these subsets can be indexed by $k$. &lt;strong&gt;Precision and Recall at cutoff k, $P(k)$ and $r(k)$, are simply the precision and recall calculated by considering only the subset of your recommendations from rank 1 through $k$&lt;/strong&gt;. Really it would be more intuitive to say "up to cutoff k" rather than "at".&lt;/p&gt;
 &lt;p&gt;Sticking with the bank example, here is what I mean:
-&lt;img src="images/map/subset_pic.png" width="800" /&gt;&lt;/p&gt;
+&lt;img src="images/post-mean-avg-precision/subset_pic.png" width="800" /&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;

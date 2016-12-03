@@ -244,15 +244,15 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">¶</a></h1><p>From Professor Ng's homework: *"...you will be using support vector machines
+<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">¶</a></h1><p>From Professor Ng's homework: <em>"...you will be using support vector machines
 (SVMs) with various example 2D datasets...you will be using support
-vector machines to build a spam classifier."**</p>
+vector machines to build a spam classifier."</em></p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [68]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read in all my data sets</span>
@@ -276,10 +276,11 @@ vector machines to build a spam classifier."**</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [75]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scale all my data, makes numerical loss-minimization easier</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
 <span class="n">scaler</span><span class="o">=</span><span class="n">StandardScaler</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
@@ -1019,7 +1020,7 @@ GIZhGIZhGAVsKDMMwzAMwzCMgv8HHcErSQ6bwCQAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>All these data live in $R^2$ and are labeled either 0 (blue) or 1 (red). We want to see what a Support Vector Machine can do to classify each of these rather different data sets. Notice the middle set has both a very complicated decision boundary <em>and</em> a large number of training points. We would expect to have issues with overfitting if we attempted to model this boundary with very few data points. Also notice the far left outlier in the first Data Set #1</p>
+<p>All these data live in $R^2$ and are labeled either 0 (blue) or 1 (red). We want to see what a Support Vector Machine can do to classify each of these rather different data sets. Notice the middle set has both a very complicated decision boundary - we would expect to have issues with overfitting if we attempted to model this boundary with very few data points but here we have quite a lot. Also notice the far left outlier in the first Data Set #1</p>
 </div>
 </div>
 </div>
@@ -1028,14 +1029,17 @@ GIZhGIZhGAVsKDMMwzAMwzCMgv8HHcErSQ6bwCQAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Quick-Review-of-SVMs">Quick Review of SVMs<a class="anchor-link" href="#Quick-Review-of-SVMs">¶</a></h1><p>Support Vector Machine is a supervised algorithm that permits new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional hyperspace where the labels are more readily separable. SVMs are "Large Margin Classifiers" meaning they fit decision boundaries which give the widest berth between the boundary and the nearest points of each class.</p>
-<h3 id="SVM-From-Logistic-Regression">SVM From Logistic Regression<a class="anchor-link" href="#SVM-From-Logistic-Regression">¶</a></h3><p>The simplest SVM can be constructed by modifying the logistic regression procedure as follows: the log loss cost function is replaced by the "Hinge Loss": a similar-shaped piecewise curve which is a flat line at 0 joined (at $z=\pm1$ for $y=1,0$ cost) to a straight line with a finite slope, and the hypothesis is replaced with a binary 0 or 1 output rather than a probability on $[0, 1]$. With these modifications we get the "Linear Kernel" SVM and naturally it behaves very similarly to logistic regression.</p>
-<h3 id="Kernels-for-New-Features">Kernels for New Features<a class="anchor-link" href="#Kernels-for-New-Features">¶</a></h3><p>The true power of SVMs is to permit new feature creation via similarity transforms while maintaing computational feasibility. <strong>A similarity transform of your input $x$ is a function that returns its "similarity" to some fixed "landmark" point, $l^{(i)}$, in feature space. The similarity transform can have lots of different functional forms which are called kernels.</strong> Here is an example with a Gaussian kernel, which has value 1 at the landmark and decays as you move away radially:</p>
+<h1 id="Quick-Review-of-SVMs">Quick Review of SVMs<a class="anchor-link" href="#Quick-Review-of-SVMs">¶</a></h1><p>Support Vector Machine is a supervised algorithm that involves new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional space where the label groups are more readily separable. SVMs are "Large Margin Classifiers" meaning they fit decision boundaries which give the widest berth between the boundary and the nearest points of each class.</p>
+<h3 id="SVM-From-Logistic-Regression">SVM From Logistic Regression<a class="anchor-link" href="#SVM-From-Logistic-Regression">¶</a></h3><p>The simplest SVM can be constructed by modifying the logistic regression procedure as follows: the log loss cost function is replaced by the "Hinge Loss": a similar-shaped piecewise curve which is a flat line at 0 joined (at $z=\pm1$ for $y=1,0$ cost) to a straight line with a finite slope, and the hypothesis is replaced with a binary 0 or 1 output rather than a probability on $[0, 1]$. With these modifications we get the "Linear Kernel" SVM and naturally it behaves very similarly to logistic regression. This graph from <a href="http://www.cs.cornell.edu/courses/cs4780/2015fa/web/lecturenotes/lecturenote10.html">Cornell lecture notes</a> compares Hinge and Logistic loss (as well as a few others) for the $y=1$ case.</p>
+<p><img src="images/hw-wk7/classificationlosses.png" width="400" /></p>
+<h3 id="Kernels-for-New-Features">Kernels for New Features<a class="anchor-link" href="#Kernels-for-New-Features">¶</a></h3><p>The true power of SVMs is to incorporate new feature creation via similarity transforms while maintaing computational feasibility. <strong>A similarity transform of your input $x$ is a function that returns its "similarity" to some fixed "landmark" point, $l^{(i)}$, in feature space. The similarity transform can have lots of different functional forms which are called kernels.</strong> Here is an example with a Gaussian kernel, which has value 1 at the landmark and decays as you move away radially:</p>
 \begin{align*}
 \textrm{new feature } \qquad f_1 = \textrm{similarity}(x, l^{(1)})\\
 \textrm{for example,} \qquad f_1 = exp(- \frac{ ||x - l^{(1)}||^2}{2\sigma^2}) = k_{gauss}(x, l^{(1)}).
 \end{align*}<p></p>
-<p>We can choose as many landmarks and thus construct as many of these new features as we like. The kernel maps our our input feaures, $x$, to our new transformed features, $f$. For any point close to the $j^{th}$ landmark, all values of $f_{i\neq j}$ will be near zero, while $f_j \approx 1$ and thus $z\approx f_j$. For this reason the decision boundary will look like a region that encompasses the landmarks whose corresponding weight $\theta_i$ is positive, tending to give $z>0$ and thus outputting the prediction $y=1$.</p>
+<p>This screen capture from Professor Ng's Coursera course slides gives a good illustration.</p>
+<p><img src="images/hw-wk7/pic20.png" width="500" /></p>
+<p>We can choose as many landmarks and thus construct as many of these new features as we like. The kernel maps our our input feaures, $x$, to our new transformed features, $f$, which each reflect $x$'s similarity to a specific landmark point. For any point close to the $j^{th}$ landmark, all values of $f_{i\neq j}$ will be near zero, while $f_j \approx 1$ and thus $z\approx \theta_j$. For this reason the decision boundary will be drawn to encompass landmarks whose corresponding weight $\theta_i$ is positive, tending to give $z>0$ and thus outputting the prediction $y=1$.</p>
 <h3 id="Full-Specification-of-an-SVM">Full Specification of an SVM<a class="anchor-link" href="#Full-Specification-of-an-SVM">¶</a></h3>\begin{align*}
 f^{(i)} = \textrm{sim}(x, l^{(i)})\\
 \\
@@ -1078,7 +1082,7 @@ J_\theta^{SVM} = C\sum_{i=1}^m \bigg[y^icost_1(\theta^Tf) + (1-y^i)cost_0(\theta
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Linear-Kernel-SVM">Linear Kernel SVM<a class="anchor-link" href="#Linear-Kernel-SVM">¶</a></h1><p>Linear kernel SVMs are appropriate in places where logistic regression would be appropriate. For Data Set #1, by eye it is already linearly separable in $x$-space so we do not need to rely on transforms (kernels) to broadcast the data into a higher dimensional space in order to make it separable - this means the linear kernel will do fine.</p>
 <p>Lets try <code>LinearSVC</code> with the standard <code>loss=hinge</code> I described above. A critical parameter for your SVM is, <code>C</code>, the weighting that the data term (not the regularization term) receives in the loss function. <strong>You can think of <code>C</code> as the inverse of regularization strength so it controls the bias/variance tradeoff of your SVM, and in particular it dictates how sensitive the decision boundary is to outliers.</strong></p>
-<p>As with most estimator classes in sklearn, you <code>fit</code> and then you can <code>predict</code>.</p>
+<p>As with most estimator classes in sklearn, you <code>fit</code> and then you can <code>predict</code>. I'll try both a low and high value for <code>C</code>.</p>
 </div>
 </div>
 </div>
@@ -1521,8 +1525,9 @@ QglEsg8hhBKIZB9CCCUQyT6EEEogkn0IIZRAJPsQQiiBP/RgxNxKLyX5AAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Gaussian-Kernel-SVM">Gaussian Kernel SVM<a class="anchor-link" href="#Gaussian-Kernel-SVM">¶</a></h1><p>For Data Set #2 it is clear that a linear decision boundary in $x$-space is not sufficient, so we will transform our data into a higher dimensional space in which it <em>is</em> linearly separable. The <code>kernel</code> kwarg specifies the particular transform, and since most kernels are themselves parameterized by some parameter $\gamma$, you need to also pass this with the <code>gamma</code> kwarg. The Guassian kernel here goes by the string <code>"rbf"</code>, and the <code>gamma="auto"</code> will give you a reasonable value of $1/n$ where $n$ is the number of features. Also note you can't specify the loss for Kernel SVC, it must be "Hinge", otherwise the mathematical/computational tricks that make the transforms feasible will break down.</p>
-<p>Just as with Linear Kernel SVM, the <code>C</code> kwarg controls the bias/variance tradeoff AKA the amount of underfitting/overfitting. Let's see the effect of small <code>C</code> and large <code>C</code>.</p>
+<p>Weighting the data term heavily in the loss has resulted in forcing the decision boundary to correctly incorporate the lone outlier, even though to by eye it is a less appropriate dividing line.</p>
+<h1 id="Gaussian-Kernel-SVM">Gaussian Kernel SVM<a class="anchor-link" href="#Gaussian-Kernel-SVM">¶</a></h1><p>For Data Set #2 it is clear that a linear decision boundary in $x$-space is not sufficient, so we will transform our data into a higher dimensional space in which it <em>is</em> linearly separable. The <code>kernel</code> kwarg specifies the particular transform, and since most kernels are themselves parameterized by some parameter $\gamma$, you need to also pass this with the <code>gamma</code> kwarg. The Guassian kernel here goes by the string <code>"rbf"</code>, and the <code>gamma="auto"</code> will give you a reasonable value of $1/n$ where $n$ is the number of features. Also note you can't specify the loss for Kernel SVC, it must be "Hinge", otherwise the tricks that make the transforms feasible will break down.</p>
+<p>Just as with Linear Kernel SVM, the <code>C</code> kwarg controls the bias/variance tradeoff AKA the amount of underfitting or overfitting. Let's see the effect of small <code>C</code> and large <code>C</code>.</p>
 </div>
 </div>
 </div>
@@ -2875,25 +2880,7 @@ BQWFOoJixBQUFBQUFBQU6gj/D9H/dh72PN6JAAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Optimizing-Meta-Parameters">Optimizing Meta-Parameters<a class="anchor-link" href="#Optimizing-Meta-Parameters">¶</a></h1><p>The first two data sets were idealized, so we were easily able to get a decision boundary that completely separated our classes without running any danger of overfitting. The third data set more closely resembles a real world set and gives us a chance to practice "model selection" or choosing the meta-parameters of our model to optimize the eternal bias-variance trade off.</p>
-<h2 id="Optimize-C-with-Validation-Curves">Optimize <code>C</code> with Validation Curves<a class="anchor-link" href="#Optimize-C-with-Validation-Curves">¶</a></h2><p>We can systematically explore the effect of <code>C</code> with the <code>validation_tool</code> which uses cross-validation to get the average model performance along a range of meta parameter values.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [477]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call validation curve with my data and my SVM estimator, ask it to vary parameter "C".</span>
-<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">validation_curve</span>
-
-<span class="c1"># Prep an estimator and the values for "C"</span>
-<span class="n">svm</span> <span class="o">=</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">)</span>
-<span class="n">c_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
-
-<span class="n">train_errs</span><span class="p">,</span> <span class="n">cv_errs</span> <span class="o">=</span> <span class="n">validation_curve</span><span class="p">(</span><span class="n">svm</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">X3</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y3</span><span class="p">,</span> <span class="n">param_name</span><span class="o">=</span><span class="s2">"C"</span><span class="p">,</span> <span class="n">param_range</span><span class="o">=</span><span class="n">c_vals</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>We can systematically explore the effect of a <em>single</em> meta-parameter (all others being fixed) with <code>validation_curve</code> which I've written about <a href="http://sdsawtelle.github.io/blog/output/week6-andrew-ng-machine-learning-with-python.html">here</a>. With multiple meta parameters, like <code>C</code> and <code>gamma</code> in this case, you'll need to search over a multi-dimensional parameter space or "grid", and <code>GridSearchCV</code> is just the tool!</p>
 </div>
 </div>
 </div>
@@ -2902,359 +2889,11 @@ BQWFOoJixBQUFBQUFBQU6gj/D9H/dh72PN6JAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Remember, validation_curve uses cross-validation (default is 3-fold) so each value of <code>C</code> gives you three different error calculations that you should average, in order to get a smoother average behavior of error as a function of <code>C</code>. What exactly is the "error" here? In <code>validation_curve</code> if you don't provide the <code>scoring</code> kwarg then it will check if you estimator has a scoring method defined. In this case <code>SVC</code> implements <code>score</code> as mean accuracy of classification.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [478]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Average the errors over the three runs from 3-fold cross-val</span>
-<span class="n">train_avg_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">cv_avg_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [481]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize the train and CV error for different `C` values</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_vals</span><span class="p">,</span> <span class="n">train_avg_err</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"training error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">c_vals</span><span class="p">,</span> <span class="n">cv_avg_err</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"cross-val error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"Train & CV Error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower center"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[481]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x2248aa7ff98></pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-">
-</img></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Choosing-C-and-Gamma-With-a-Grid-Search">Choosing <code>C</code> and <code>Gamma</code> With a Grid Search<a class="anchor-link" href="#Choosing-C-and-Gamma-With-a-Grid-Search">¶</a></h2><p>With multiple meta parameters, like <code>C</code> and <code>gamma</code> here, you'll need to search over a multi-dimensional parameter space or "grid", and <code>GridSearchCV</code> is just the tool! The most critical thing to pass to the grid search is the dictionary of parameters and their value ranges. Similar to <code>validation_curve</code>, it will use 3-fold cross validation to generate a score for the model at each point in meta-parameter space.</p>
+<h2 id="Choosing-C-and-Gamma-With-a-Grid-Search">Choosing <code>C</code> and <code>Gamma</code> With a Grid Search<a class="anchor-link" href="#Choosing-C-and-Gamma-With-a-Grid-Search">¶</a></h2><p>The most critical thing to pass to the grid search is the dictionary of parameters and their value ranges. Two things to keep in mind are:</p>
+<ol>
+<li><code>GridSearchCV</code> uses cross-validation (default is 3-fold) to score your model performance, so that each set of specific parameter values gives you three different error calculations that are averaged in order to get a smoother average behavior of error over the parameter space. </li>
+<li>What exactly is the "error" here? In <code>GridSearchCV</code> if you don't provide the <code>scoring</code> kwarg then it will check if your estimator has a scoring method defined. In this case <code>SVC</code> implements <code>score</code> as <em>mean accuracy of classification</em>.</li>
+</ol>
 </div>
 </div>
 </div>
@@ -3978,7 +3617,7 @@ m5mVgJO9mVkJONmbmZWAk72ZWQn8H/CEj/EUHrLeAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>This is quite good, almost what a human would draw. It doesn't get too caught up in the messiness at the rough boundary between the two classes, but it does give one macroscopic "wiggle" which seems very well justified to my eye.</p>
+<p>This is quite good, almost what a human would draw. It doesn't get too caught up in the messiness at the rough boundary between the two classes, but it does give one macroscopic "wiggle" which seems well justified to my eye.</p>
 </div>
 </div>
 </div>
@@ -3987,7 +3626,7 @@ m5mVgJO9mVkJONmbmZWAk72ZWQn8H/CEj/EUHrLeAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-Summary:">In Summary:<a class="anchor-link" href="#In-Summary:">¶</a></h1><p>SVM is a supervised algorithm that permits new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional hyperspace where the labels are more readily separable. SVM with a Linear Kernel behaves very much like to logistic regression, it is implemented in <code>LinearSVC</code> where you can specify you desired loss. SVM with more complicated kernels are implemented in <code>SVC</code> where you must use the "hinge" loss but you can specify the kernel. The most important meta-parameter of SVMs is the inverse regularization strength, <code>C</code> that impacts the bias/variance tradeoff: you can optimize this by plotting <code>validation_curve</code>. If you are using a kernel parameterized by $\gamma$ then you'll want to use <code>GridSearchCV</code> to optimize over the product space of <code>C</code> and $\gamma$.</p>
+<h1 id="In-Summary:">In Summary:<a class="anchor-link" href="#In-Summary:">¶</a></h1><p>SVM is a supervised algorithm that permits new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional hyperspace where the labels are more readily separable. SVM with a Linear Kernel behaves very much like to logistic regression, it is implemented in <code>LinearSVC</code> where you can specify you desired loss. SVM with more complicated kernels are implemented in <code>SVC</code> where you must use the "hinge" loss but you can specify the kernel. The most important meta-parameter of SVMs is the inverse regularization strength, <code>C</code> that impacts the bias/variance tradeoff: you can optimize this by plotting <code>validation_curve</code> but if you are using a kernel parameterized by $\gamma$ then you'll want to use <code>GridSearchCV</code> to optimize over the product space of <code>C</code> and $\gamma$.</p>
 </div>
 </div>
 </div>

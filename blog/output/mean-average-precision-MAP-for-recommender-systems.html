@@ -252,7 +252,7 @@
 <li>recall = 2/3</li>
 </ul>
 <p>Here's a visual example: we're being asked to recommend financial "products" to Bank users and we compare our recommendations to the products that a user actually added the following month (those are all the possible "relevant" ones).</p>
-<p><img src="images/map/area_pic.png" width="400" /></p>
+<p><img src="images/post-mean-avg-precision/area_pic.png" width="400" /></p>
 </div>
 </div>
 </div>
@@ -263,7 +263,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Precision-and-Recall-at-Cutoff-k">Precision and Recall at Cutoff k<a class="anchor-link" href="#Precision-and-Recall-at-Cutoff-k">¶</a></h2><p>So that's nice, but Precision and Recall don't seem to care about ordering. So instead let's talk about <strong>precision and recall at cutoff k</strong>. Imagine taking your list of $N$ recommendations and considering only the first element, then only the first two, then only the first three, etc... these subsets can be indexed by $k$. <strong>Precision and Recall at cutoff k, $P(k)$ and $r(k)$, are simply the precision and recall calculated by considering only the subset of your recommendations from rank 1 through $k$</strong>. Really it would be more intuitive to say "up to cutoff k" rather than "at".</p>
 <p>Sticking with the bank example, here is what I mean:
-<img src="images/map/subset_pic.png" width="800" /></p>
+<img src="images/post-mean-avg-precision/subset_pic.png" width="800" /></p>
 </div>
 </div>
 </div>

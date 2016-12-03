@@ -1,5 +1,974 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Evening Session</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/python.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-11-21T13:30:00-05:00</updated><entry><title>Classification with SVMs and Grid Search</title><link href="sdsawtelle.github.io/week7-andrew-ng-machine-learning-with-python.html" rel="alternate"></link><published>2016-11-21T13:30:00-05:00</published><updated>2016-11-21T13:30:00-05:00</updated><author><name>Sonya Sawtelle</name></author><id>tag:,2016-11-21:sdsawtelle.github.io/week7-andrew-ng-machine-learning-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Evening Session</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/python.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-12-01T13:30:00-05:00</updated><entry><title>Regular Expressions in Python</title><link href="sdsawtelle.github.io/regular-expressions-in-python.html" rel="alternate"></link><published>2016-12-01T13:30:00-05:00</published><updated>2016-12-01T13:30:00-05:00</updated><author><name>Sonya Sawtelle</name></author><id>tag:,2016-12-01:sdsawtelle.github.io/regular-expressions-in-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell&gt;div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area&gt;div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area&gt;div.highlight&gt;pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell&gt;div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="In-which-I-learn-how-to-cook-word-salad-with-a-side-of-alphabet-soup."&gt;In which I learn how to cook word salad with a side of alphabet soup.&lt;a class="anchor-link" href="#In-which-I-learn-how-to-cook-word-salad-with-a-side-of-alphabet-soup."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Here I'll outline what exactly a regex &lt;em&gt;is&lt;/em&gt;, the general anatomy of a regex and the specific python syntax for constructing them. I'm using the adorably tiny book &lt;a href="https://www.amazon.com/Regular-Expression-Pocket-Reference-Expressions/dp/0596514271"&gt;Regular Expression Pocket Reference&lt;/a&gt; as well as the &lt;a href="https://docs.python.org/3.5/library/re.html#module-re"&gt;official docs&lt;/a&gt; for the &lt;code&gt;re&lt;/code&gt; module.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Tools covered:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;constructing regex with proper syntax in python&lt;/li&gt;
+&lt;li&gt;searching, replacing and splitting by regexes using the &lt;code&gt;re&lt;/code&gt; module&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="General-Principles-of-Regexes"&gt;General Principles of Regexes&lt;a class="anchor-link" href="#General-Principles-of-Regexes"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;In his pocket reference Tony has done a great job condensing the essence of regex principles and syntax, so let me start by quoting him directly.&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;[Regexes] are a way to describe text through pattern matching... Regular expression syntax defines a language you use to describe text.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;In a regex the particular character pattern you are trying to match is described by some combination of normal characters, which mean exactly what they say (&lt;code&gt;a&lt;/code&gt; means the letter "a"), and metacharacters and metasequences, which have special meaning like the quantity or location of characters. Sadly the particular syntax of a regex is specific to each programming language.&lt;/p&gt;
+&lt;p&gt;You can picture a regex parser examining each character in the input string one-by-one sequentially, trying to fit it into the pattern described in your regex (a really neat discussion of the actual algorithmic behavior of regex engines is &lt;a href="http://stackoverflow.com/questions/3978438/dfa-vs-nfa-engines-what-is-the-difference-in-their-capabilities-and-limitations"&gt;here&lt;/a&gt;). Tony identifies two main principles of regex operation that help you predict their behavior:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;The leftmost match wins.&lt;/strong&gt; The parser will return you the first section of text it finds which completely matches your described pattern even if there might be another full match later on in the input string. &lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Most quantifiers are greedy&lt;/strong&gt;. If a part of your pattern describes an unspecified number of characters, the parser will keep matching input characters to it as long as possible. If the full pattern ultimately fails to be matched, only then will the parser try &lt;em&gt;backtracking&lt;/em&gt; and giving up characters to the next part of the regex.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Character-Sets-and-Encodings"&gt;Character Sets and Encodings&lt;a class="anchor-link" href="#Character-Sets-and-Encodings"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;"Characters" are not just standard printed symbols like letters, digits and punctation, but also things like newline and tab characters which create specific whitespace. There are even characters to control output "devices" in various ways, like an "enquire" character that requests a response from the device. &lt;strong&gt;A common division is between "printed" and "control" characters, the former being all visual symbols, not including whitespace.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The smallest element of computer memory is a bit, which has two states $\{0, 1\}$, so that with a single bit you can only encode two different characters, say &lt;em&gt;a&lt;/em&gt; and &lt;em&gt;b&lt;/em&gt;. With two bits you have four possible states, $\{00, 01, 10, 11\}$ and so you can encode four different characters. Eight bits is called a &lt;em&gt;byte&lt;/em&gt; and has 256 possible states.&lt;/p&gt;
+&lt;h2 id="Ascii"&gt;Ascii&lt;a class="anchor-link" href="#Ascii"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This is a standard encoding for a specific set of characters that uses 1 byte per character. It specifies an encoding for 128 different printed and control characters ("extended" ASCII encodes an additional 128 characters). The letters in ASCII are only english.&lt;/p&gt;
+&lt;h2 id="Unicode"&gt;Unicode&lt;a class="anchor-link" href="#Unicode"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This is a standard encoding that has a few variants like &lt;code&gt;utf-8&lt;/code&gt;. For the characters in the ASCII char set, Unicode uses all the same binary encodings as ASCII, but it also augments this set by permitting more than 1 byte to be used for encoding and thus more total characters to be encoded. Unicode includes, for instance, letters from non-english languages.&lt;/p&gt;
+&lt;p&gt;It's common to label and identify the specific characters of a char set not by our usual integers but instead in terms of base-8 (or base-16 for unicode) which is called "octal" (or "hexadecimal"). Note that this &lt;strong&gt;standard numbering gives a natural ordering to the characters, which is useful in defining "slices" of a char set in regexes&lt;/strong&gt;, like &lt;em&gt;"a through z"&lt;/em&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Anatomy-of-a-Regex"&gt;Anatomy of a Regex&lt;a class="anchor-link" href="#Anatomy-of-a-Regex"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;In his book Tony defines some really helpful categories of regex constructs that I'll repeat here with examples in Python regex syntax. Understanding the kinds of constructs that will show up should help us see the forest for the trees, so to speak.&lt;/p&gt;
+&lt;h2 id="Normal-vs.-Metacharacters"&gt;Normal vs. Metacharacters&lt;a class="anchor-link" href="#Normal-vs.-Metacharacters"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;First recall that within a regex there are normal characters, which mean exactly what they say (&lt;code&gt;a&lt;/code&gt; means the letter "a"), and metacharacters, which have special meaning in the regex. In python the special metacharacters are:&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;. ^ $ * + ? { } [ ] \ | ( )&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Denoting-Single-Characters"&gt;Denoting Single Characters&lt;a class="anchor-link" href="#Denoting-Single-Characters"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;There are several ways in which specific individual characters can be referred to within a regex.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Normal characters (not metacharacters) can just be written as-is like &lt;code&gt;a&lt;/code&gt; means the letter "a".&lt;/li&gt;
+&lt;li&gt;Some control characters have special shorthand like &lt;code&gt;\n&lt;/code&gt; for newline.&lt;/li&gt;
+&lt;li&gt;Characters can be denoted by escaped octal numbers like &lt;code&gt;\012&lt;/code&gt; for newline.&lt;/li&gt;
+&lt;li&gt;Characters can be denoted by escaped and lettered hexadecimal numbers like &lt;code&gt;\x0D&lt;/code&gt; for a two-digit and &lt;code&gt;\uFFFF&lt;/code&gt; for a four-digit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="Character-Classes"&gt;Character Classes&lt;a class="anchor-link" href="#Character-Classes"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Classes are specific subsets of characters and a regex engine will try to match a single character of the input string to a character from the set. There is a variety of syntax for specifying different sets, and inside a class you can use the dash &lt;code&gt;-&lt;/code&gt; to mean a slice.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;[ ]&lt;/code&gt; matches any of the included characters like &lt;code&gt;[a-z]&lt;/code&gt; means match any character in the set a through z (all the lowercase letters). &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;[^ ]&lt;/code&gt; matches the &lt;em&gt;complement&lt;/em&gt; of the specified characters.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.&lt;/code&gt; matches every character except the newline&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\d&lt;/code&gt;, &lt;code&gt;\w&lt;/code&gt;, and &lt;code&gt;\s&lt;/code&gt; match all digits, word characters (alphanumerics plus underscore) and space characters, respectively. Using the uppercase like &lt;code&gt;\D&lt;/code&gt; means their complement. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Inside the &lt;code&gt;[ ]&lt;/code&gt; subset definition all the metacharacters are stripped of their meaning and revert being regular characters, except that special classes will still be recognized. Thus &lt;code&gt;[\d$]&lt;/code&gt; means the set including all digits and the dollars sign character, and &lt;code&gt;[.]&lt;/code&gt; means match the actual period symbol (which is otherwise a metacharacter).&lt;/p&gt;
+&lt;h2 id="Anchors"&gt;Anchors&lt;a class="anchor-link" href="#Anchors"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Anchor are metacharacters and metasequences that match a specific &lt;em&gt;position&lt;/em&gt; in the input string rather than matching characters. They are also called "zero-width assertions" because they don't actually consume a character of the input string when they match.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;^&lt;/code&gt; matches the start of the input string&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;$&lt;/code&gt; matches the end of the input string&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;\b&lt;/code&gt; matches a "word boundary" which is a place where a word character (alphanumeric) is next to a non-word character (like punctuation). Using the uppercase &lt;code&gt;\B&lt;/code&gt; matches any place that's &lt;em&gt;not&lt;/em&gt; a word boundary. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Lookarounds are a different kind of zero-width assertion. They match &lt;em&gt;positions&lt;/em&gt; where a specified sub-pattern &lt;em&gt;would&lt;/em&gt; have matched, but they don't actually consume those characters that match the sub-pattern.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Lookahead matches locations where a subpattern is or is not matched in the &lt;strong&gt;subsequent&lt;/strong&gt; text. Like &lt;code&gt;foo(?=bar)&lt;/code&gt; matches all "foo"s followed by "bar"s, while &lt;code&gt;foo(?!bar)&lt;/code&gt; matches all "foo"s &lt;em&gt;not&lt;/em&gt; followed by "bar"s.&lt;/li&gt;
+&lt;li&gt;Lookbehind matches locations where a subpattern is or is not matched in the &lt;strong&gt;preceeding&lt;/strong&gt; text. LIke &lt;code&gt;(?&lt;=foo)bar&lt;/code&gt; matches all "bar"s preceeded by "foo"s, while &lt;code&gt;(?&amp;lt;!foo)&lt;/code&gt; bar matches all "bar"s &lt;em&gt;not&lt;/em&gt; preeeded by "foo"s.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Control-Statements"&gt;Control Statements&lt;a class="anchor-link" href="#Control-Statements"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;These are miscellaneous functionalities that are often handy.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;...|...&lt;/code&gt; tries the two specfied subpatterns in alteration like &lt;code&gt;a|b&lt;/code&gt; will first try to match "a" then if that fails try to match "b"&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;( )&lt;/code&gt; groups a subpattern so that the entire subpattern can be referrred to by a quantifier or alternator like &lt;code&gt;(a/d)|(b/d)&lt;/code&gt; will first try to match "a" followed by digit and if that fails try "b" followed by a digit. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that if you don't use grouping by &lt;code&gt;()&lt;/code&gt; wih the alernator &lt;code&gt;|&lt;/code&gt; then it tries to match &lt;em&gt;everything&lt;/em&gt; to the left of the pipe and then &lt;em&gt;everything&lt;/em&gt; to the right of the pipe.&lt;/p&gt;
+&lt;h2 id="Quantifiers"&gt;Quantifiers&lt;a class="anchor-link" href="#Quantifiers"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Quantifiers control how many times the parser tries to match an element, and can be placed after single characters, character classes in brackets and subpatterns in parentheses. &lt;strong&gt;Greedy quantifiers will match as many times as allowed while lazy quantifiers will match as few times as allowed.&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;*&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;?&lt;/code&gt;, means greedily match at least 0 times, at least 1 time, and 0 or 1 times, respectively &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{x,y}&lt;/code&gt; means greedily match at least x times but no more than y times like &lt;code&gt;a{3, 5}&lt;/code&gt; means match the character "a" as many times as possible subject to the constraint of at least 3 but not more than 5 times.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;{n}&lt;/code&gt; means match exactly n times&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Each greedy quantifier has a corresponding lazy quantifier whose syntax is identical just with an additional appended &lt;code&gt;?&lt;/code&gt;, so for example &lt;code&gt;a+?&lt;/code&gt; means match the character "a" as few times as possible subject to the constraint of at least one time.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="re-Module-for-Python-Regex"&gt;&lt;code&gt;re&lt;/code&gt; Module for Python Regex&lt;a class="anchor-link" href="#re-Module-for-Python-Regex"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The &lt;code&gt;re&lt;/code&gt; module in the python standard library is where all of Python's regex functionality lives, the &lt;a href="https://docs.python.org/3.5/library/re.html"&gt;official docs&lt;/a&gt; and this &lt;a href="https://docs.python.org/3.5/howto/regex.html#regex-howto"&gt;simpler HOW TO&lt;/a&gt; are both great resources.&lt;/p&gt;
+&lt;p&gt;In the &lt;code&gt;re&lt;/code&gt; module you create a regex object from a pattern string by using the &lt;code&gt;compile()&lt;/code&gt; function. The resulting object then has helper methods to do things like searching for matches or performing substitutions based on the pattern.&lt;/p&gt;
+&lt;p&gt;It's important to write your regex pattern strings as python raw strings (&lt;code&gt;r""&lt;/code&gt; rather than &lt;code&gt;""&lt;/code&gt;) to avoid some craziness when it comes to backslash escaping. I'll just refer to this excellent &lt;a href="http://stackoverflow.com/a/30164723"&gt;SO answer&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+
+&lt;span class="n"&gt;pattern_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;r"[bcf]at+y?"&lt;/span&gt;  &lt;span class="c1"&gt;# see below for why the r-prefix&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pattern_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;How will this regex match on "ba", "bat", "catty", "fattyy" or "faaty"? Let's break it down going from left to right through the regex pattern:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;insist on starting with a single "b", "c" or "f"&lt;/li&gt;
+&lt;li&gt;insist on a single "a"&lt;/li&gt;
+&lt;li&gt;insist on at least one "t", but as many as possible&lt;/li&gt;
+&lt;li&gt;insist on 0 or 1 "y"s, but as few as possible&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;So it won't match "ba" (no "t") or "faaty" (more than one "a"). From "bat" it returns "bat", from "catty" it returns "catt", and from "fattyy" it returns "fatty".&lt;/p&gt;
+&lt;h3 id="Look-for-a-match-with-search"&gt;Look for a match with &lt;code&gt;search&lt;/code&gt;&lt;a class="anchor-link" href="#Look-for-a-match-with-search"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This is how we actually use the regex pattern we compiled to check for matches against input strings. Remember, the regex will give us back the &lt;em&gt;leftmost&lt;/em&gt; match and then stop.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Search input string "ba" for a match to the regex - FAIL&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"ba"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[3]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;NoneType&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Search input string "bat" for a match to the regex - SUCCESS!&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"fattyy"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[4]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;_sre.SRE_Match&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Inspect-matches-as-match-objects"&gt;Inspect matches as &lt;code&gt;match&lt;/code&gt; objects&lt;a class="anchor-link" href="#Inspect-matches-as-match-objects"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Look at what text the resulting "match" contains&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[5]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;fatty&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [6]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# The start and stop positions of the match within the original input string&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;span&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;  &lt;span class="c1"&gt;# "fattyy[0:5] = "fatty"&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[6]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;(0, 5)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Get-text-from-subpattern-groups"&gt;Get text from subpattern groups&lt;a class="anchor-link" href="#Get-text-from-subpattern-groups"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You may think that &lt;code&gt;group&lt;/code&gt; is a weird name for a method that shows you the text that matched the pattern. Actually in regexes each subpattern group in parentheses, &lt;code&gt;( )&lt;/code&gt;, has it's match text internally captured and saved. If our regex has several subpattern groups defined in it then we can get all the resulting group strings with &lt;code&gt;groups&lt;/code&gt;, while the whole matched string we get from &lt;code&gt;group&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [122]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Compile and search a regex that has subpattern groups defined&lt;/span&gt;
+&lt;span class="n"&gt;regx_grp&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"(\w*)@(\w*)\.[\w]*"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# has two defined groups&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;regx_grp&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"coolemail@hotdomain.net"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="c1"&gt;# Get a tuple of the text for matched groups&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groups&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[122]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;(&amp;apos;coolemail&amp;apos;, &amp;apos;hotdomain&amp;apos;)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [123]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Get the full matched text&lt;/span&gt;
+&lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[123]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;coolemail@hotdomain.net&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Get-ALL-the-matches!"&gt;Get ALL the matches!&lt;a class="anchor-link" href="#Get-ALL-the-matches!"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The &lt;code&gt;finditer()&lt;/code&gt; method will return a generator that pops out a match object for each substring in the input string which matches the regex, while &lt;code&gt;findall()&lt;/code&gt; just returns a list of the string matches!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [7]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;result&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;finditer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"my fat cat was behaving in a very batty fashion."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [8]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;mtch&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;result&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;mtch&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;  &lt;span class="c1"&gt;# print the matched substring for each match object&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;fat
+cat
+batty
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [10]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;findall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"my fat cat was behaving in a very batty fashion."&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[10]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[&amp;apos;fat&amp;apos;, &amp;apos;cat&amp;apos;, &amp;apos;batty&amp;apos;]&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Replace-substrings-with-other-text"&gt;Replace substrings with other text&lt;a class="anchor-link" href="#Replace-substrings-with-other-text"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;You can replace occurrences of the pattern in the input string with new text of your choosing, and you can specify how many replacements will occur with kwarg &lt;code&gt;count&lt;/code&gt; (they will always happen leftmost-first).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [85]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"my fat cat was behaving in a very batty fashion."&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"**CENSORED**"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# Only do the first two replacements&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[85]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;my **CENSORED** **CENSORED** was behaving in a very batty fashion.&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;You can even pass it a function, to be run on each found match object, which will dictate the text that match is replaced by.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [86]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Define function which will uppercase the text of the match objects&lt;/span&gt;
+&lt;span class="n"&gt;replace_with&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;upper&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;replace_with&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[86]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;my FAT CAT was behaving in a very BATTY fashion.&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Split-strings-based-on-pattern-matches"&gt;Split strings based on pattern matches&lt;a class="anchor-link" href="#Split-strings-based-on-pattern-matches"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;At every occurrence of a match the matched text is removed from the input string and it is cleaved at that spot.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [119]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[119]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[&amp;apos;my &amp;apos;, &amp;apos; &amp;apos;, &amp;apos; was behaving in a very &amp;apos;, &amp;apos; fashion.&amp;apos;]&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Compile-readable-regexes-in-Verbose-mode"&gt;Compile readable regexes in Verbose mode&lt;a class="anchor-link" href="#Compile-readable-regexes-in-Verbose-mode"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Regexes suck to try to read, the syntax is just too compact and confusing. If you want to write a regex that allows you to use liberal whitespace and even include comments then you can send the &lt;code&gt;re.Verbose&lt;/code&gt; mode as an input to the compile function and using triple quotes to enclose your multi-line regex string.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [125]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"""&lt;/span&gt;
+&lt;span class="s2"&gt; [bcf]  # insist on starting with a single "b", "c" or "f"&lt;/span&gt;
+&lt;span class="s2"&gt; a      # insist on a single "a"&lt;/span&gt;
+&lt;span class="s2"&gt; t+     # insist on at least one "t", but as many as possible&lt;/span&gt;
+&lt;span class="s2"&gt; y?     # insist on 0 or 1 "y"s, but as many as possible&lt;/span&gt;
+&lt;span class="s2"&gt;"""&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;VERBOSE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Practice-Problems"&gt;Practice Problems&lt;a class="anchor-link" href="#Practice-Problems"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;h3 id="Email-headers-have-the-form-&amp;quot;From-hurst@missouri.co.jp--Fri-Aug-23-11:03:04-2002&amp;quot;.-Write-a-regex-that-only-matches-a-string-of-this-form,-and-has-saved-subpattern-groups-for-the-email-address-and-time.--(Of-course-for-such-a-rigid-format-str.split()-would-work-just-as-well.)"&gt;Email headers have the form &lt;em&gt;"From hurst@missouri.co.jp  Fri Aug 23 11:03:04 2002"&lt;/em&gt;. Write a regex that only matches a string of this form, and has saved subpattern groups for the email address and time.  (Of course for such a rigid format &lt;code&gt;str.split()&lt;/code&gt; would work just as well.)&lt;a class="anchor-link" href="#Email-headers-have-the-form-&amp;quot;From-hurst@missouri.co.jp--Fri-Aug-23-11:03:04-2002&amp;quot;.-Write-a-regex-that-only-matches-a-string-of-this-form,-and-has-saved-subpattern-groups-for-the-email-address-and-time.--(Of-course-for-such-a-rigid-format-str.split()-would-work-just-as-well.)"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [143]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"From hurst@missouri.co.jp Fri Aug 23 11:03:04 2002"&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"^From\s+(\S*)\s+\w+\s+\w+\s+\d+\s+([\d:]*)\s+\d&lt;/span&gt;&lt;span class="si"&gt;{4}&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groups&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[143]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;(&amp;apos;hurst@missouri.co.jp&amp;apos;, &amp;apos;11:03:04&amp;apos;)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Replace-any-sequence-of-whitespaces-of-any-length-with-a-single-space."&gt;Replace any sequence of whitespaces of any length with a single space.&lt;a class="anchor-link" href="#Replace-any-sequence-of-whitespaces-of-any-length-with-a-single-space."&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [201]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"This    is a  crazily  spaced      sentence."&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"\s+"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;" "&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[201]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;This is a crazily spaced sentence.&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="[From-diveintopython]-You&amp;#x27;re-working-with-addresses-and-you-need-to-replace-the-word-&amp;quot;road&amp;quot;-(could-be-any-case)-with-&amp;quot;Rd.&amp;quot;-but-only-when-it&amp;#x27;s-at-the-end-of-the-string-(address).-Hint:-you-can-compile-a-case-insensitive-regex."&gt;[From &lt;a href="http://www.diveintopython3.net/regular-expressions.html"&gt;diveintopython&lt;/a&gt;] You're working with addresses and you need to replace the word "road" (could be any case) with "Rd." but only when it's at the end of the string (address). Hint: you can compile a case-insensitive regex.&lt;a class="anchor-link" href="#[From-diveintopython]-You&amp;#x27;re-working-with-addresses-and-you-need-to-replace-the-word-&amp;quot;road&amp;quot;-(could-be-any-case)-with-&amp;quot;Rd.&amp;quot;-but-only-when-it&amp;#x27;s-at-the-end-of-the-string-(address).-Hint:-you-can-compile-a-case-insensitive-regex."&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [215]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"540 Hard Road Road"&lt;/span&gt;
+&lt;span class="n"&gt;inp_str2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"78 RIVER ROAD"&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"road$"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;IGNORECASE&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"Rd."&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[215]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;540 Hard Road Rd.&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [216]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"Rd."&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[216]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;78 RIVER Rd.&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="[From-diveintopython]-You-need-to-parse-phone-numbers-to-get-the-area-code,-local-code,-and-last-four-digits.-The-phone-numbers-could-come-in-any-of-the-following-forms:"&gt;[From &lt;a href="http://www.diveintopython3.net/regular-expressions.html"&gt;diveintopython&lt;/a&gt;] You need to parse phone numbers to get the area code, local code, and last four digits. The phone numbers could come in any of the following forms:&lt;a class="anchor-link" href="#[From-diveintopython]-You-need-to-parse-phone-numbers-to-get-the-area-code,-local-code,-and-last-four-digits.-The-phone-numbers-could-come-in-any-of-the-following-forms:"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;800-555-1212&lt;/li&gt;
+&lt;li&gt;800 555 1212&lt;/li&gt;
+&lt;li&gt;800.555.1212&lt;/li&gt;
+&lt;li&gt;(800) 555-1212&lt;/li&gt;
+&lt;li&gt;1-800-555-1212&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [224]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"800-555-1212"&lt;/span&gt;
+&lt;span class="n"&gt;inp_str2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"800.555.1212"&lt;/span&gt;
+&lt;span class="n"&gt;inp_str3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"(800) 555-1212"&lt;/span&gt;
+&lt;span class="n"&gt;inp_str4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"1-800-555-1212"&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r".*(\d&lt;/span&gt;&lt;span class="si"&gt;{3}&lt;/span&gt;&lt;span class="s2"&gt;)[^\w]{1,2}(\d&lt;/span&gt;&lt;span class="si"&gt;{3}&lt;/span&gt;&lt;span class="s2"&gt;)[^\w]{1,2}(\d&lt;/span&gt;&lt;span class="si"&gt;{4}&lt;/span&gt;&lt;span class="s2"&gt;)"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp_str3&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groups&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[224]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;(&amp;apos;800&amp;apos;, &amp;apos;555&amp;apos;, &amp;apos;1212&amp;apos;)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Censor-every-occurrence-of-a-number-in-a-medical-statement-like-&amp;quot;The-patient,-aged-62,-has-BP-measuring-130.6-over-25.&amp;quot;-Use-your-favorite-censorship-stand-in.-Careful-of-floats-with-decimal-points!"&gt;Censor every occurrence of a number in a medical statement like &lt;em&gt;"The patient, aged 62, has BP measuring 130.6 over 25."&lt;/em&gt; Use your favorite censorship stand-in. Careful of floats with decimal points!&lt;a class="anchor-link" href="#Censor-every-occurrence-of-a-number-in-a-medical-statement-like-&amp;quot;The-patient,-aged-62,-has-BP-measuring-130.6-over-25.&amp;quot;-Use-your-favorite-censorship-stand-in.-Careful-of-floats-with-decimal-points!"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [17]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"The patient, aged 62, has BP measuring 130.6 over 25."&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"\b\d+[.]*\d*\b"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"**CENSORED**"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[17]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;The patient, aged **CENSORED**, has BP measuring **CENSORED** over **CENSORED**.&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Now-instead-replace-every-occurrence-of-an-integer-with-its-binary-equivalent----your-regex-should-not-match-floats!-Hint:-bin()-gives-a-text-representation-of-the-binary-equivalent-of-a-base-10-integer."&gt;Now instead replace every occurrence of an &lt;em&gt;integer&lt;/em&gt; with its binary equivalent  - your regex should not match floats! Hint: &lt;code&gt;bin()&lt;/code&gt; gives a text representation of the binary equivalent of a base-10 integer.&lt;a class="anchor-link" href="#Now-instead-replace-every-occurrence-of-an-integer-with-its-binary-equivalent----your-regex-should-not-match-floats!-Hint:-bin()-gives-a-text-representation-of-the-binary-equivalent-of-a-base-10-integer."&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [19]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"The patient, aged 62, presented with blood pressure measuring 130.6 over 25."&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"\b(?&lt;!--\d[.])\d+(?![.]\d)\b"&lt;/span--&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;replace_with&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;txt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;group&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nb"&gt;bin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;txt&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sub&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;repl&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;replace_with&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[19]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;&amp;apos;The patient, aged 0b111110, presented with blood pressure measuring 130.6 over 0b11001.&amp;apos;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="[From-the-official-docs].-Find-and-print-all-adverbs-in-a-sentence---you-can-assume-they-will-all-end-with-&amp;quot;ly&amp;quot;.-Hint:-make-sure-your-code-can-handle-adverbs-immediately-followed-by-punctuation!"&gt;[From the official docs]. Find and print all adverbs in a sentence - you can assume they will all end with "ly". Hint: make sure your code can handle adverbs immediately followed by punctuation!&lt;a class="anchor-link" href="#[From-the-official-docs].-Find-and-print-all-adverbs-in-a-sentence---you-can-assume-they-will-all-end-with-&amp;quot;ly&amp;quot;.-Hint:-make-sure-your-code-can-handle-adverbs-immediately-followed-by-punctuation!"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [151]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"He was carefully disguised but captured quickly by police."&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"\b\w+ly\b"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;findall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[151]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[&amp;apos;carefully&amp;apos;, &amp;apos;quickly&amp;apos;]&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="[From-the-HOWTO].-Match-all-filenames-whose-extension-is-not-&amp;quot;.bat&amp;quot;-and-capture-the-filename-and-extension-as-two-subpattern-groups."&gt;[From the HOWTO]. Match all filenames whose extension is not &lt;em&gt;".bat"&lt;/em&gt; and capture the filename and extension as two subpattern groups.&lt;a class="anchor-link" href="#[From-the-HOWTO].-Match-all-filenames-whose-extension-is-not-&amp;quot;.bat&amp;quot;-and-capture-the-filename-and-extension-as-two-subpattern-groups."&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [168]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"myfile.bmp"&lt;/span&gt;
+&lt;span class="n"&gt;inp_str2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"myfile2.bat"&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"(.+)[.](?!bat)(.+)"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;# Use a negative look ahead&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp_str1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;groups&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[168]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;(&amp;apos;myfile&amp;apos;, &amp;apos;bmp&amp;apos;)&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [170]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp_str2&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[170]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;NoneType&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Split-up-a-sentence-by-every-occurrence-of-punctuation-in-it.-Hint:-punctuation-is-not-a-letter,-digit,-or-whitespace"&gt;Split up a sentence by every occurrence of punctuation in it. Hint: punctuation is not a letter, digit, or whitespace&lt;a class="anchor-link" href="#Split-up-a-sentence-by-every-occurrence-of-punctuation-in-it.-Hint:-punctuation-is-not-a-letter,-digit,-or-whitespace"&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [21]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"They say 'stop, in the name of love'. I quite agree!"&lt;/span&gt;
+
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"[^\w\d\s]+"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[21]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[&amp;apos;They say &amp;apos;, &amp;apos;stop&amp;apos;, &amp;apos; in the name of love&amp;apos;, &amp;apos; I quite agree&amp;apos;, &amp;apos;&amp;apos;]&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="Match-the-interior-content-of-all-the-html-tags-in-the-string."&gt;Match the interior content of all the html tags in the string.&lt;a class="anchor-link" href="#Match-the-interior-content-of-all-the-html-tags-in-the-string."&gt;¶&lt;/a&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [22]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"&amp;lt; img src=test.png&gt;this is a pic&lt;/img&gt; &amp;lt; div&gt;this is a div&lt;/div&gt;"&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compile&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;r"(?&lt;=&gt;)([^&lt;&gt;]*)(?=&lt;!--)"&lt;/span--&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# yeah this breaks for content with greater/less than&lt;/span&gt;
+&lt;span class="n"&gt;regx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;findall&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;inp_str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[22]:&lt;/div&gt;
+&lt;div class="output_text output_subarea output_execute_result"&gt;
+&lt;pre&gt;[&amp;apos;this is a pic&amp;apos;, &amp;apos;this is a div&amp;apos;]&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="More-Resources"&gt;More Resources&lt;a class="anchor-link" href="#More-Resources"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;A &lt;a href="http://www.regular-expressions.info/alternation.html"&gt;very thorough guide&lt;/a&gt; to regex constructs and syntax&lt;/li&gt;
+&lt;li&gt;An &lt;a href="http://www.diveintopython3.net/regular-expressions.html"&gt;intro with lots of great examples&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="re"></category><category term="regex"></category><category term="regular expressions"></category></entry><entry><title>Classification with SVMs and Grid Search</title><link href="sdsawtelle.github.io/week7-andrew-ng-machine-learning-with-python.html" rel="alternate"></link><published>2016-11-21T13:30:00-05:00</published><updated>2016-11-21T13:30:00-05:00</updated><author><name>Sonya Sawtelle</name></author><id>tag:,2016-11-21:sdsawtelle.github.io/week7-andrew-ng-machine-learning-with-python.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -134,15 +1103,15 @@
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Quick-Look-at-the-Data"&gt;Quick Look at the Data&lt;a class="anchor-link" href="#Quick-Look-at-the-Data"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;From Professor Ng's homework: *"...you will be using support vector machines
+&lt;h1 id="Quick-Look-at-the-Data"&gt;Quick Look at the Data&lt;a class="anchor-link" href="#Quick-Look-at-the-Data"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;From Professor Ng's homework: &lt;em&gt;"...you will be using support vector machines
 (SVMs) with various example 2D datasets...you will be using support
-vector machines to build a spam classifier."**&lt;/p&gt;
+vector machines to build a spam classifier."&lt;/em&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [68]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [4]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Read in all my data sets&lt;/span&gt;
@@ -166,10 +1135,11 @@ vector machines to build a spam classifier."**&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [75]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [5]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Scale all my data, makes numerical loss-minimization easier&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StandardScaler&lt;/span&gt;
 &lt;span class="n"&gt;scaler&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;StandardScaler&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
 &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;arange&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
@@ -909,7 +1879,7 @@ GIZhGIZhGAVsKDMMwzAMwzCMgv8HHcErSQ6bwCQAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;All these data live in $R^2$ and are labeled either 0 (blue) or 1 (red). We want to see what a Support Vector Machine can do to classify each of these rather different data sets. Notice the middle set has both a very complicated decision boundary &lt;em&gt;and&lt;/em&gt; a large number of training points. We would expect to have issues with overfitting if we attempted to model this boundary with very few data points. Also notice the far left outlier in the first Data Set #1&lt;/p&gt;
+&lt;p&gt;All these data live in $R^2$ and are labeled either 0 (blue) or 1 (red). We want to see what a Support Vector Machine can do to classify each of these rather different data sets. Notice the middle set has both a very complicated decision boundary - we would expect to have issues with overfitting if we attempted to model this boundary with very few data points but here we have quite a lot. Also notice the far left outlier in the first Data Set #1&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -918,14 +1888,17 @@ GIZhGIZhGAVsKDMMwzAMwzCMgv8HHcErSQ6bwCQAAAAASUVORK5CYII=
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Quick-Review-of-SVMs"&gt;Quick Review of SVMs&lt;a class="anchor-link" href="#Quick-Review-of-SVMs"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Support Vector Machine is a supervised algorithm that permits new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional hyperspace where the labels are more readily separable. SVMs are "Large Margin Classifiers" meaning they fit decision boundaries which give the widest berth between the boundary and the nearest points of each class.&lt;/p&gt;
-&lt;h3 id="SVM-From-Logistic-Regression"&gt;SVM From Logistic Regression&lt;a class="anchor-link" href="#SVM-From-Logistic-Regression"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The simplest SVM can be constructed by modifying the logistic regression procedure as follows: the log loss cost function is replaced by the "Hinge Loss": a similar-shaped piecewise curve which is a flat line at 0 joined (at $z=\pm1$ for $y=1,0$ cost) to a straight line with a finite slope, and the hypothesis is replaced with a binary 0 or 1 output rather than a probability on $[0, 1]$. With these modifications we get the "Linear Kernel" SVM and naturally it behaves very similarly to logistic regression.&lt;/p&gt;
-&lt;h3 id="Kernels-for-New-Features"&gt;Kernels for New Features&lt;a class="anchor-link" href="#Kernels-for-New-Features"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The true power of SVMs is to permit new feature creation via similarity transforms while maintaing computational feasibility. &lt;strong&gt;A similarity transform of your input $x$ is a function that returns its "similarity" to some fixed "landmark" point, $l^{(i)}$, in feature space. The similarity transform can have lots of different functional forms which are called kernels.&lt;/strong&gt; Here is an example with a Gaussian kernel, which has value 1 at the landmark and decays as you move away radially:&lt;/p&gt;
+&lt;h1 id="Quick-Review-of-SVMs"&gt;Quick Review of SVMs&lt;a class="anchor-link" href="#Quick-Review-of-SVMs"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Support Vector Machine is a supervised algorithm that involves new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional space where the label groups are more readily separable. SVMs are "Large Margin Classifiers" meaning they fit decision boundaries which give the widest berth between the boundary and the nearest points of each class.&lt;/p&gt;
+&lt;h3 id="SVM-From-Logistic-Regression"&gt;SVM From Logistic Regression&lt;a class="anchor-link" href="#SVM-From-Logistic-Regression"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The simplest SVM can be constructed by modifying the logistic regression procedure as follows: the log loss cost function is replaced by the "Hinge Loss": a similar-shaped piecewise curve which is a flat line at 0 joined (at $z=\pm1$ for $y=1,0$ cost) to a straight line with a finite slope, and the hypothesis is replaced with a binary 0 or 1 output rather than a probability on $[0, 1]$. With these modifications we get the "Linear Kernel" SVM and naturally it behaves very similarly to logistic regression. This graph from &lt;a href="http://www.cs.cornell.edu/courses/cs4780/2015fa/web/lecturenotes/lecturenote10.html"&gt;Cornell lecture notes&lt;/a&gt; compares Hinge and Logistic loss (as well as a few others) for the $y=1$ case.&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/hw-wk7/classificationlosses.png" width="400" /&gt;&lt;/p&gt;
+&lt;h3 id="Kernels-for-New-Features"&gt;Kernels for New Features&lt;a class="anchor-link" href="#Kernels-for-New-Features"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;The true power of SVMs is to incorporate new feature creation via similarity transforms while maintaing computational feasibility. &lt;strong&gt;A similarity transform of your input $x$ is a function that returns its "similarity" to some fixed "landmark" point, $l^{(i)}$, in feature space. The similarity transform can have lots of different functional forms which are called kernels.&lt;/strong&gt; Here is an example with a Gaussian kernel, which has value 1 at the landmark and decays as you move away radially:&lt;/p&gt;
 \begin{align*}
 \textrm{new feature } \qquad f_1 = \textrm{similarity}(x, l^{(1)})\\
 \textrm{for example,} \qquad f_1 = exp(- \frac{ ||x - l^{(1)}||^2}{2\sigma^2}) = k_{gauss}(x, l^{(1)}).
 \end{align*}&lt;p&gt;&lt;/p&gt;
-&lt;p&gt;We can choose as many landmarks and thus construct as many of these new features as we like. The kernel maps our our input feaures, $x$, to our new transformed features, $f$. For any point close to the $j^{th}$ landmark, all values of $f_{i\neq j}$ will be near zero, while $f_j \approx 1$ and thus $z\approx f_j$. For this reason the decision boundary will look like a region that encompasses the landmarks whose corresponding weight $\theta_i$ is positive, tending to give $z&gt;0$ and thus outputting the prediction $y=1$.&lt;/p&gt;
+&lt;p&gt;This screen capture from Professor Ng's Coursera course slides gives a good illustration.&lt;/p&gt;
+&lt;p&gt;&lt;img src="images/hw-wk7/pic20.png" width="500" /&gt;&lt;/p&gt;
+&lt;p&gt;We can choose as many landmarks and thus construct as many of these new features as we like. The kernel maps our our input feaures, $x$, to our new transformed features, $f$, which each reflect $x$'s similarity to a specific landmark point. For any point close to the $j^{th}$ landmark, all values of $f_{i\neq j}$ will be near zero, while $f_j \approx 1$ and thus $z\approx \theta_j$. For this reason the decision boundary will be drawn to encompass landmarks whose corresponding weight $\theta_i$ is positive, tending to give $z&gt;0$ and thus outputting the prediction $y=1$.&lt;/p&gt;
 &lt;h3 id="Full-Specification-of-an-SVM"&gt;Full Specification of an SVM&lt;a class="anchor-link" href="#Full-Specification-of-an-SVM"&gt;¶&lt;/a&gt;&lt;/h3&gt;\begin{align*}
 f^{(i)} = \textrm{sim}(x, l^{(i)})\\
 \\
@@ -968,7 +1941,7 @@ J_\theta^{SVM} = C\sum_{i=1}^m \bigg[y^icost_1(\theta^Tf) + (1-y^i)cost_0(\theta
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Linear-Kernel-SVM"&gt;Linear Kernel SVM&lt;a class="anchor-link" href="#Linear-Kernel-SVM"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Linear kernel SVMs are appropriate in places where logistic regression would be appropriate. For Data Set #1, by eye it is already linearly separable in $x$-space so we do not need to rely on transforms (kernels) to broadcast the data into a higher dimensional space in order to make it separable - this means the linear kernel will do fine.&lt;/p&gt;
 &lt;p&gt;Lets try &lt;code&gt;LinearSVC&lt;/code&gt; with the standard &lt;code&gt;loss=hinge&lt;/code&gt; I described above. A critical parameter for your SVM is, &lt;code&gt;C&lt;/code&gt;, the weighting that the data term (not the regularization term) receives in the loss function. &lt;strong&gt;You can think of &lt;code&gt;C&lt;/code&gt; as the inverse of regularization strength so it controls the bias/variance tradeoff of your SVM, and in particular it dictates how sensitive the decision boundary is to outliers.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;As with most estimator classes in sklearn, you &lt;code&gt;fit&lt;/code&gt; and then you can &lt;code&gt;predict&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;As with most estimator classes in sklearn, you &lt;code&gt;fit&lt;/code&gt; and then you can &lt;code&gt;predict&lt;/code&gt;. I'll try both a low and high value for &lt;code&gt;C&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1411,8 +2384,9 @@ QglEsg8hhBKIZB9CCCUQyT6EEEogkn0IIZRAJPsQQiiBP/RgxNxKLyX5AAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Gaussian-Kernel-SVM"&gt;Gaussian Kernel SVM&lt;a class="anchor-link" href="#Gaussian-Kernel-SVM"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;For Data Set #2 it is clear that a linear decision boundary in $x$-space is not sufficient, so we will transform our data into a higher dimensional space in which it &lt;em&gt;is&lt;/em&gt; linearly separable. The &lt;code&gt;kernel&lt;/code&gt; kwarg specifies the particular transform, and since most kernels are themselves parameterized by some parameter $\gamma$, you need to also pass this with the &lt;code&gt;gamma&lt;/code&gt; kwarg. The Guassian kernel here goes by the string &lt;code&gt;"rbf"&lt;/code&gt;, and the &lt;code&gt;gamma="auto"&lt;/code&gt; will give you a reasonable value of $1/n$ where $n$ is the number of features. Also note you can't specify the loss for Kernel SVC, it must be "Hinge", otherwise the mathematical/computational tricks that make the transforms feasible will break down.&lt;/p&gt;
-&lt;p&gt;Just as with Linear Kernel SVM, the &lt;code&gt;C&lt;/code&gt; kwarg controls the bias/variance tradeoff AKA the amount of underfitting/overfitting. Let's see the effect of small &lt;code&gt;C&lt;/code&gt; and large &lt;code&gt;C&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Weighting the data term heavily in the loss has resulted in forcing the decision boundary to correctly incorporate the lone outlier, even though to by eye it is a less appropriate dividing line.&lt;/p&gt;
+&lt;h1 id="Gaussian-Kernel-SVM"&gt;Gaussian Kernel SVM&lt;a class="anchor-link" href="#Gaussian-Kernel-SVM"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;For Data Set #2 it is clear that a linear decision boundary in $x$-space is not sufficient, so we will transform our data into a higher dimensional space in which it &lt;em&gt;is&lt;/em&gt; linearly separable. The &lt;code&gt;kernel&lt;/code&gt; kwarg specifies the particular transform, and since most kernels are themselves parameterized by some parameter $\gamma$, you need to also pass this with the &lt;code&gt;gamma&lt;/code&gt; kwarg. The Guassian kernel here goes by the string &lt;code&gt;"rbf"&lt;/code&gt;, and the &lt;code&gt;gamma="auto"&lt;/code&gt; will give you a reasonable value of $1/n$ where $n$ is the number of features. Also note you can't specify the loss for Kernel SVC, it must be "Hinge", otherwise the tricks that make the transforms feasible will break down.&lt;/p&gt;
+&lt;p&gt;Just as with Linear Kernel SVM, the &lt;code&gt;C&lt;/code&gt; kwarg controls the bias/variance tradeoff AKA the amount of underfitting or overfitting. Let's see the effect of small &lt;code&gt;C&lt;/code&gt; and large &lt;code&gt;C&lt;/code&gt;.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2765,25 +3739,7 @@ BQWFOoJixBQUFBQUFBQU6gj/D9H/dh72PN6JAAAAAElFTkSuQmCC
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h1 id="Optimizing-Meta-Parameters"&gt;Optimizing Meta-Parameters&lt;a class="anchor-link" href="#Optimizing-Meta-Parameters"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;The first two data sets were idealized, so we were easily able to get a decision boundary that completely separated our classes without running any danger of overfitting. The third data set more closely resembles a real world set and gives us a chance to practice "model selection" or choosing the meta-parameters of our model to optimize the eternal bias-variance trade off.&lt;/p&gt;
-&lt;h2 id="Optimize-C-with-Validation-Curves"&gt;Optimize &lt;code&gt;C&lt;/code&gt; with Validation Curves&lt;a class="anchor-link" href="#Optimize-C-with-Validation-Curves"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;We can systematically explore the effect of &lt;code&gt;C&lt;/code&gt; with the &lt;code&gt;validation_tool&lt;/code&gt; which uses cross-validation to get the average model performance along a range of meta parameter values.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [477]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Call validation curve with my data and my SVM estimator, ask it to vary parameter "C".&lt;/span&gt;
-&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.model_selection&lt;/span&gt; &lt;span class="k"&gt;import&lt;/span&gt; &lt;span class="n"&gt;validation_curve&lt;/span&gt;
-
-&lt;span class="c1"&gt;# Prep an estimator and the values for "C"&lt;/span&gt;
-&lt;span class="n"&gt;svm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;SVC&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kernel&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"rbf"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;gamma&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"auto"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;c_vals&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;logspace&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;2.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-&lt;span class="n"&gt;train_errs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cv_errs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;validation_curve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;svm&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;X3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;y3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;param_name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"C"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;param_range&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;c_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
+&lt;p&gt;We can systematically explore the effect of a &lt;em&gt;single&lt;/em&gt; meta-parameter (all others being fixed) with &lt;code&gt;validation_curve&lt;/code&gt; which I've written about &lt;a href="http://sdsawtelle.github.io/blog/output/week6-andrew-ng-machine-learning-with-python.html"&gt;here&lt;/a&gt;. With multiple meta parameters, like &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;gamma&lt;/code&gt; in this case, you'll need to search over a multi-dimensional parameter space or "grid", and &lt;code&gt;GridSearchCV&lt;/code&gt; is just the tool!&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -2792,359 +3748,11 @@ BQWFOoJixBQUFBQUFBQU6gj/D9H/dh72PN6JAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;Remember, validation_curve uses cross-validation (default is 3-fold) so each value of &lt;code&gt;C&lt;/code&gt; gives you three different error calculations that you should average, in order to get a smoother average behavior of error as a function of &lt;code&gt;C&lt;/code&gt;. What exactly is the "error" here? In &lt;code&gt;validation_curve&lt;/code&gt; if you don't provide the &lt;code&gt;scoring&lt;/code&gt; kwarg then it will check if you estimator has a scoring method defined. In this case &lt;code&gt;SVC&lt;/code&gt; implements &lt;code&gt;score&lt;/code&gt; as mean accuracy of classification.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [478]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Average the errors over the three runs from 3-fold cross-val&lt;/span&gt;
-&lt;span class="n"&gt;train_avg_err&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;train_errs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;cv_avg_err&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cv_errs&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;axis&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [481]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Visualize the train and CV error for different `C` values&lt;/span&gt;
-&lt;span class="n"&gt;fig&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ax&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;plt&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;subplots&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;train_avg_err&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"r"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"training error"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c_vals&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cv_avg_err&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"b"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"cross-val error"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;set_title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"Train &amp; CV Error"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="n"&gt;ax&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;"lower center"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_wrapper"&gt;
-&lt;div class="output"&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[481]:&lt;/div&gt;
-&lt;div class="output_text output_subarea output_execute_result"&gt;
-&lt;pre&gt;&lt;matplotlib.legend.legend at 0x2248aa7ff98&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div class="output_png output_subarea "&gt;
-&lt;img src="data:image/png;base64,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
-"&gt;
-&lt;/img&gt;&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Choosing-C-and-Gamma-With-a-Grid-Search"&gt;Choosing &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;Gamma&lt;/code&gt; With a Grid Search&lt;a class="anchor-link" href="#Choosing-C-and-Gamma-With-a-Grid-Search"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;With multiple meta parameters, like &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;gamma&lt;/code&gt; here, you'll need to search over a multi-dimensional parameter space or "grid", and &lt;code&gt;GridSearchCV&lt;/code&gt; is just the tool! The most critical thing to pass to the grid search is the dictionary of parameters and their value ranges. Similar to &lt;code&gt;validation_curve&lt;/code&gt;, it will use 3-fold cross validation to generate a score for the model at each point in meta-parameter space.&lt;/p&gt;
+&lt;h2 id="Choosing-C-and-Gamma-With-a-Grid-Search"&gt;Choosing &lt;code&gt;C&lt;/code&gt; and &lt;code&gt;Gamma&lt;/code&gt; With a Grid Search&lt;a class="anchor-link" href="#Choosing-C-and-Gamma-With-a-Grid-Search"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;The most critical thing to pass to the grid search is the dictionary of parameters and their value ranges. Two things to keep in mind are:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;GridSearchCV&lt;/code&gt; uses cross-validation (default is 3-fold) to score your model performance, so that each set of specific parameter values gives you three different error calculations that are averaged in order to get a smoother average behavior of error over the parameter space. &lt;/li&gt;
+&lt;li&gt;What exactly is the "error" here? In &lt;code&gt;GridSearchCV&lt;/code&gt; if you don't provide the &lt;code&gt;scoring&lt;/code&gt; kwarg then it will check if your estimator has a scoring method defined. In this case &lt;code&gt;SVC&lt;/code&gt; implements &lt;code&gt;score&lt;/code&gt; as &lt;em&gt;mean accuracy of classification&lt;/em&gt;.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3868,7 +4476,7 @@ m5mVgJO9mVkJONmbmZWAk72ZWQn8H/CEj/EUHrLeAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;This is quite good, almost what a human would draw. It doesn't get too caught up in the messiness at the rough boundary between the two classes, but it does give one macroscopic "wiggle" which seems very well justified to my eye.&lt;/p&gt;
+&lt;p&gt;This is quite good, almost what a human would draw. It doesn't get too caught up in the messiness at the rough boundary between the two classes, but it does give one macroscopic "wiggle" which seems well justified to my eye.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -3877,7 +4485,7 @@ m5mVgJO9mVkJONmbmZWAk72ZWQn8H/CEj/EUHrLeAAAAAElFTkSuQmCC
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="In-Summary:"&gt;In Summary:&lt;a class="anchor-link" href="#In-Summary:"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;SVM is a supervised algorithm that permits new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional hyperspace where the labels are more readily separable. SVM with a Linear Kernel behaves very much like to logistic regression, it is implemented in &lt;code&gt;LinearSVC&lt;/code&gt; where you can specify you desired loss. SVM with more complicated kernels are implemented in &lt;code&gt;SVC&lt;/code&gt; where you must use the "hinge" loss but you can specify the kernel. The most important meta-parameter of SVMs is the inverse regularization strength, &lt;code&gt;C&lt;/code&gt; that impacts the bias/variance tradeoff: you can optimize this by plotting &lt;code&gt;validation_curve&lt;/code&gt;. If you are using a kernel parameterized by $\gamma$ then you'll want to use &lt;code&gt;GridSearchCV&lt;/code&gt; to optimize over the product space of &lt;code&gt;C&lt;/code&gt; and $\gamma$.&lt;/p&gt;
+&lt;h1 id="In-Summary:"&gt;In Summary:&lt;a class="anchor-link" href="#In-Summary:"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;SVM is a supervised algorithm that permits new feature creation, via kernel functions on $x$, in a computationally feasible way. The creation of new features allows training points to be cast into a higher dimensional hyperspace where the labels are more readily separable. SVM with a Linear Kernel behaves very much like to logistic regression, it is implemented in &lt;code&gt;LinearSVC&lt;/code&gt; where you can specify you desired loss. SVM with more complicated kernels are implemented in &lt;code&gt;SVC&lt;/code&gt; where you must use the "hinge" loss but you can specify the kernel. The most important meta-parameter of SVMs is the inverse regularization strength, &lt;code&gt;C&lt;/code&gt; that impacts the bias/variance tradeoff: you can optimize this by plotting &lt;code&gt;validation_curve&lt;/code&gt; but if you are using a kernel parameterized by $\gamma$ then you'll want to use &lt;code&gt;GridSearchCV&lt;/code&gt; to optimize over the product space of &lt;code&gt;C&lt;/code&gt; and $\gamma$.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
