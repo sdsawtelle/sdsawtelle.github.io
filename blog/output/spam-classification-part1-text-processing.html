@@ -51,7 +51,7 @@
 
 	<meta property="og:type" content="article">
 	<meta property="article:author" content="">
-	<meta property="og:url" content="./spam-classification-text-processing.html">
+	<meta property="og:url" content="./spam-classification-part1-text-processing.html">
 	<meta property="og:title" content="Spam Part I: NLP with re, nltk and BeautifulSoup">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="./">
@@ -185,7 +185,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">In which the contents of numerous spam folders gradually erodes my faith in humanity.<a class="anchor-link" href="#In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">¶</a></h1><p>Week 7 of Andrew Ng's ML course on Coursera introduces the Support Vector Machine algorithm and challenges us to use it for classifying email as spam or ham. Here I use the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> to build an SVM spam email classifier in order to learn about the relevant python tools. Part I focuses on the preprocessing of individual emails while Part II focuses on the actual classifier.</p>
+<h1 id="In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">In which the contents of numerous spam folders gradually erodes my faith in humanity.<a class="anchor-link" href="#In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">¶</a></h1><p>Week 7 of Andrew Ng's ML course on Coursera introduces the Support Vector Machine algorithm and challenges us to use it for classifying email as spam or ham. Here I use the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> to build an SVM spam email classifier in order to learn about the relevant python tools. Part I focuses on the preprocessing of individual emails while <a href="http://sdsawtelle.github.io/blog/output/spam-classification-gridsearch-svm.html">Part II</a> focuses on the actual classifier.</p>
 <blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
 <li><code>re</code> for regular expressions to do Natural Language Processing (NLP)</li>
 <li><code>stopwords</code> text corpus for removing information-poor words in NLP</li>
@@ -263,7 +263,7 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">¶</a></h1><p>I'm going to pull a set of spam and "ham" (non-spam) emails from the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> data sets. This resource has also kindly ham separated emails into easy and hard ham. Each email is stored a a plain text file with the email header information and the email body including HTML markup if applicable.</p>
+<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">¶</a></h1><p>I'm going to pull a set of spam and "ham" (non-spam) emails from the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> data sets. Each email is stored a a plain text file with the email header information and the email body including HTML markup if applicable.</p>
 </div>
 </div>
 </div>
@@ -510,7 +510,7 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Some preliminary thoughts: The first line of every file is the most basic header info about the originating address and time the email was sent. There follows a section of keyword-value pairs in the form <em>keyword: value\n</em>. Finally, <strong>the body of each email is separated from the meta info by two newline characters <code>\n\n</code>.</strong> Note that some of the email bodies contain HTML.</p>
+<p>Some preliminary thoughts: The first line of every file is the most basic header info about the originating address and time the email was sent. There follows a section of keyword-value pairs in the form <code>keyword: value\n</code>. Finally, <strong>the body of each email is separated from the meta info by two newline characters <code>\n\n</code>.</strong> Note that some of the email bodies contain HTML.</p>
 </div>
 </div>
 </div>
@@ -519,13 +519,14 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Easy-Mode-with-Just-the-Email-Body">Easy Mode with Just the Email Body<a class="anchor-link" href="#Easy-Mode-with-Just-the-Email-Body">¶</a></h1><p>The first thing I'll try is just doing some NLP on only the email bodies, ignoring all the header info. First write a function that grabs only the body lines of a single email:</p>
+<h1 id="Easy-Mode:-Email-Body-as-a-Bag-of-Words">Easy Mode: Email Body as a Bag of Words<a class="anchor-link" href="#Easy-Mode:-Email-Body-as-a-Bag-of-Words">¶</a></h1><p>The first thing I'll try is just doing some NLP on only the email bodies, ignoring all the header info. Ultimately we need to represent each email in some numeric feature space in order to feed it into a classifier algorithm: this is where the <em>Bag of Words</em> model comes in. Each email is represented by a vector which quantifies the presence of specific vocab words in that email... that means we need to do some preprocessing.</p>
+<p>First write a function that grabs only the body lines of a single email:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
@@ -544,7 +545,7 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test it out </span>
@@ -556,7 +557,7 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [27]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>  <span class="c1"># This is the actual string we are going to be processing</span>
@@ -566,7 +567,7 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>"\nKlez: The Virus That Won&apos;t Die\n \nAlready the most prolific virus ever, Klez continues to wreak havoc.\n\nAndrew Brandt\n>>From the September 2002 issue of PC World magazine\nPosted Thursday, August 01, 2002\n\n\nThe Klez worm is approaching its seventh month of wriggling across \nthe Web, making it one of the most persistent viruses ever. And \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from PC to PC.\n\nAntivirus software makers Symantec and McAfee both report more than \n2000 new infections daily, with no sign of letup at press time. The \nBritish security firm MessageLabs estimates that 1 in every 300 \ne-mail messages holds a variation of the Klez virus, and says that \nKlez has already surpassed last summer&apos;s SirCam as the most prolific \nvirus ever.\n\nAnd some newer Klez variants aren&apos;t merely nuisances--they can carry \nother viruses in them that corrupt your data.\n\n...\n\nhttp://www.pcworld.com/news/article/0,aid,103259,00.asp\n_______________________________________________\nIrregulars mailing list\nIrregulars@tb.tf\nhttp://tb.tf/mailman/listinfo/irregulars\n\n"</pre>
 </div>
@@ -633,18 +634,20 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Preprocessing-Plan-of-Attack-(order-matters)">Preprocessing Plan of Attack (order matters)<a class="anchor-link" href="#Preprocessing-Plan-of-Attack-(order-matters)">¶</a></h1><p>The order of steps in text processing matters a lot if you are trying to extract other features alongside a simple "Bag of Words" or "Word Salad" model. For instance, if you want to count the number of question marks in the email text then you should probably do it <em>before</em> removing all punctuation, but <em>after</em> replacing all http addresses (which sometimes contain special characters). Here is a rough outline of all the steps we'll take to get from a messy, marked-up raw text to a delicious word salad:</p>
+<h1 id="Preprocessing-Plan-of-Attack-(order-matters)">Preprocessing Plan of Attack (order matters)<a class="anchor-link" href="#Preprocessing-Plan-of-Attack-(order-matters)">¶</a></h1><p>The order of steps in text processing matters a lot if you are trying to extract other features alongside a simple "Bag of Words" or "Word Salad" model. For instance, if you want to count the number of question marks in the email text then you should probably do it <em>before</em> removing all punctuation, but <em>after</em> replacing all http addresses (which sometimes contain special characters).</p>
+<p>Here is a rough outline of all the steps we'll take to get from a messy, marked-up raw text to a delicious word salad:</p>
 <ul>
 <li>Strip any HTML tags and leave only text content (also count HTML tags)</li>
+<li>Lowercase everything</li>
 <li>Strip all email and web addresses (also count them)</li>
-<li>Lowercase everything (also count uppercases)</li>
-<li>Strip all dollar signs and numbers(also count them)</li>
+<li>Strip all dollar signs and numbers (also count them)</li>
 <li>Strip away all other punctuation (also count exclamation and question marks)</li>
 <li>Standardize all white space to single space (also count newlines and blank lines)</li>
 <li>Count the total number of words in our word salad</li>
 <li>Strip away all useless "Stopwords" (like "a", "the", "at")</li>
 <li>Stem all the words down to their root to simplify</li>
 </ul>
+<p>Now, when I say <em>count</em> what I really mean is substitute each occurrence with some fixed string: like every web address gets replaced with <code>"httpaddr"</code>. That way when we ultimately convert each email to a vector of word counts, we'll get a feature that reflects the occurrence of the word "httpaddr".</p>
 </div>
 </div>
 </div>
@@ -653,13 +656,13 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Parsing-HTML">Parsing HTML<a class="anchor-link" href="#Parsing-HTML">¶</a></h2><p>Some of the email bodies contain HTML formatting - the amount of such formatting might be a helpful feature, but the tags themselves we want to strip away. There are also some symbols in HTML documents, like "<", that have a reserved shorthand notation since they are otherwise interpreted as markup by the browser. We could write regexes to do all of this HTML processing, but a lovely little package called <code>beatiful soup</code> has already done this and provided us with an HTML parser that returns a parsed object. The <code>get_text()</code> method lets us pull out everything <em>except</em> the markup from this parsed object. You should check out the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#get-text">official soup docs</a>.</p>
+<h2 id="Parsing-HTML">Parsing HTML<a class="anchor-link" href="#Parsing-HTML">¶</a></h2><p>Some of the email bodies contain HTML formatting - the amount of such formatting might be a helpful feature, but the tags themselves we want to strip away, along with some other HTML shorthand. Let's no reinvent the wheel though: a package called <code>beatiful soup</code> implements a great HTML parser. The parsed object can be interrogated in various ways as it contains all the information about the HTML structure of the original document. You should check out the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#get-text">official soup docs</a>.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parse the email body into HTML elements</span>
@@ -672,15 +675,38 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [30]:</div>
+<div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Count the number of HTML elements and specific link elements</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pull out only the non-markup tex</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+<span class="c1"># Count the number of HTML elements and specific link elements</span>
 <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
 <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
-
-<span class="c1"># Pull out only the non-markup of the body</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+<span class="c1"># Sub in special strings for "counting"</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s2">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s2">" linktag "</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lowercasing">Lowercasing<a class="anchor-link" href="#Lowercasing">¶</a></h2><p>We don't expect whether a word is capitalized or not to reflect some deep difference in tone or meaning, so we'll lowercase everything.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [25]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lowercase everything</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -697,317 +723,18 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [31]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace and count all URLs </span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all URLs with special strings</span>
 <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(http|https)://[^\s]*"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c1"># Replace and count all email addresses</span>
+<span class="c1"># Replace all email addresses with special strings</span>
 <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [32]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>"\nKlez: The Virus That Won&apos;t Die\n \nAlready the most prolific virus ever, Klez continues to wreak havoc.\n\nAndrew Brandt\n>>From the September 2002 issue of PC World magazine\nPosted Thursday, August 01, 2002\n\n\nThe Klez worm is approaching its seventh month of wriggling across \nthe Web, making it one of the most persistent viruses ever. And \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from PC to PC.\n\nAntivirus software makers Symantec and McAfee both report more than \n2000 new infections daily, with no sign of letup at press time. The \nBritish security firm MessageLabs estimates that 1 in every 300 \ne-mail messages holds a variation of the Klez virus, and says that \nKlez has already surpassed last summer&apos;s SirCam as the most prolific \nvirus ever.\n\nAnd some newer Klez variants aren&apos;t merely nuisances--they can carry \nother viruses in them that corrupt your data.\n\n...\n\n \n_______________________________________________\nIrregulars mailing list\n \n \n\n"</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lowercasing-and-Counting-Caps">Lowercasing and Counting Caps<a class="anchor-link" href="#Lowercasing-and-Counting-Caps">¶</a></h2><p>We don't expect whether a word is capitalized or not to reflect some deep difference in tone or meaning, but we <em>might</em> expect that an email with a bunch of capitalization reflects a certain tone, so we'll lowercase everything but still count the number of capitalized letters.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [33]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Count uppercases</span>
-<span class="n">nupper</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">charup</span> <span class="k">for</span> <span class="n">charup</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="k">if</span> <span class="n">charup</span> <span class="o">!=</span> <span class="n">char</span><span class="p">])</span>
-<span class="c1"># Lowercase everything</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-numbers,-dollar-signs,-and-punctuation">Finding numbers, dollar signs, and punctuation<a class="anchor-link" href="#Finding-numbers,-dollar-signs,-and-punctuation">¶</a></h2><p>We'd like to know the frequency of punctuation which carry certain tones, like exclamation marks, question marks, and dollar signs. Also the frequency of numbers appearing in the email might be a helpful feature. All of these frequencies should be normalized to the number of words in the email to measure the tone or intent of the email rather than its length, but we'll hold off on word-count until we're done with processing. After counting the things we care about, we'll remove all punctuation to get us closer to a pure bag of words.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [34]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Count and replace all numbers (integer and float)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[\d.]+\b"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">nnum</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-
-<span class="c1"># Count and replace all dollar signs</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[$]"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">ndollar</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-
-<span class="c1"># Count number of special punctuation</span>
-<span class="n">nexclaim</span><span class="p">,</span> <span class="n">nquest</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"!"</span><span class="p">),</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)</span>
-
-<span class="c1"># Remove all other punctuation (dashes replace with space)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[^\w\s_-]+"</span><span class="p">)</span>  
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[_-]+"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [35]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&apos;\nklez the virus that wont die\n \nalready the most prolific virus ever klez continues to wreak havoc\n\nandrew brandt\nfrom the september   issue of pc world magazine\nposted thursday august    \n\n\nthe klez worm is approaching its seventh month of wriggling across \nthe web making it one of the most persistent viruses ever and \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from pc to pc\n\nantivirus software makers symantec and mcafee both report more than \n  new infections daily with no sign of letup at press time the \nbritish security firm messagelabs estimates that   in every   \ne mail messages holds a variation of the klez virus and says that \nklez has already surpassed last summers sircam as the most prolific \nvirus ever\n\nand some newer klez variants arent merely nuisances they can carry \nother viruses in them that corrupt your data\n\n\n\n \n \nirregulars mailing list\n \n \n\n&apos;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Standardizing-White-Space-and-Total-Word-Count">Standardizing White Space and Total Word Count<a class="anchor-link" href="#Standardizing-White-Space-and-Total-Word-Count">¶</a></h2><p>Standardizing white space is an important step, as it makes tokenizing the email into words straightforward, but make sure to do it as a last step since lots of the substitutions we've done have created extra whitespace. Also the number of carriage returns (<code>\n</code> characters) and the number of blank lines (<code>\n\n</code>) might be predictive so we'll count those.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [36]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Count carriage returs and blank lines</span>
-<span class="n">nblanks</span><span class="p">,</span> <span class="n">nnewlines</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">),</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-
-<span class="c1"># Make all white space a single space</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-
-<span class="c1"># Remove any trailing or leading white space</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [37]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&apos;klez the virus that wont die already the most prolific virus ever klez continues to wreak havoc andrew brandt from the september issue of pc world magazine posted thursday august the klez worm is approaching its seventh month of wriggling across the web making it one of the most persistent viruses ever and experts warn that it may be a harbinger of new viruses that use a combination of pernicious approaches to go from pc to pc antivirus software makers symantec and mcafee both report more than new infections daily with no sign of letup at press time the british security firm messagelabs estimates that in every e mail messages holds a variation of the klez virus and says that klez has already surpassed last summers sircam as the most prolific virus ever and some newer klez variants arent merely nuisances they can carry other viruses in them that corrupt your data irregulars mailing list&apos;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>This is a true bag of words, so now we can get our word count to use in normalizing counts:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [38]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nwords</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">))</span>
-<span class="n">nwords</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>155</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Remove-Stop-Words-with-nltk">Remove Stop Words with <code>nltk</code><a class="anchor-link" href="#Remove-Stop-Words-with-nltk">¶</a></h2><p>Each email is going to have lots of words which are the "glue" of the english language but don't carry much semantic weight in determining the real topic or tone of an email. These are called <a href="https://en.wikipedia.org/wiki/Stop_words">Stop Words</a> and we will go ahead and strip them out from the start.</p>
-<p>The Natural Language Tool Kit module (<code>ntlk</code>) includes a crap ton of functionality for processing text and also access to some public "corpora" such as for stop words.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [39]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[nltk_data] Downloading package stopwords to
-[nltk_data]     C:\Users\Sonya\AppData\Roaming\nltk_data...
-[nltk_data]   Package stopwords is already up-to-date!
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt output_prompt">Out[39]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [40]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"english"</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>153</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [41]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[41]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[&apos;i&apos;, &apos;me&apos;, &apos;my&apos;, &apos;myself&apos;, &apos;we&apos;, &apos;our&apos;, &apos;ours&apos;, &apos;ourselves&apos;, &apos;you&apos;, &apos;your&apos;]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [42]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove all useless stopwords</span>
-<span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-<span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]</span>
-<span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keepwords</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [43]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&apos;klez virus wont die already prolific virus ever klez continues wreak havoc andrew brandt september issue pc world magazine posted thursday august klez worm approaching seventh month wriggling across web making one persistent viruses ever experts warn may harbinger new viruses use combination pernicious approaches go pc pc antivirus software makers symantec mcafee report new infections daily sign letup press time british security firm messagelabs estimates every e mail messages holds variation klez virus says klez already surpassed last summers sircam prolific virus ever newer klez variants arent merely nuisances carry viruses corrupt data irregulars mailing list&apos;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stemming-with-nltk">Stemming with <code>nltk</code><a class="anchor-link" href="#Stemming-with-nltk">¶</a></h2><p>This classifier is trying to determine the intent or tone of an email (spam vs. ham) by virtue of the specific words in that email, among other things. We don't expect that a slight variation on the same root word, like "battery" versus "batteries", carries much difference in intent or tone. Thus when we begin to represent our emails in the feature space of word content, we would do better to replace all the variants of each root with the root itself: this reduces the complexity of emails without really reducing the information about tone or intent. This process is called <strong>stemming</strong> and the <code>nltk</code> module has several options for out-of-the-box stemmers.</p>
 </div>
 </div>
 </div>
@@ -1016,10 +743,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
-<span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)</span>
-
-<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s2">"generously"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
 </pre></div>
 </div>
 </div>
@@ -1028,9 +752,18 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="output">
 <div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;generous&apos;</pre>
+<pre>&apos;\nklez  the virus that won t die\n \nalready the most prolific virus ever  klez continues to wreak havoc \n\nandrew brandt\n from the september  number  issue of pc world magazine\nposted thursday  august  number    number \n\n\nthe klez worm is approaching its seventh month of wriggling across \nthe web  making it one of the most persistent viruses ever  and \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from pc to pc \n\nantivirus software makers symantec and mcafee both report more than \n number  new infections daily  with no sign of letup at press time  the \nbritish security firm messagelabs estimates that  number  in every  number  \ne mail messages holds a variation of the klez virus  and says that \nklez has already surpassed last summer s sircam as the most prolific \nvirus ever \n\nand some newer klez variants aren t merely nuisances they can carry \nother viruses in them that corrupt your data \n\n \n\n httpaddr \n \nirregulars mailing list\n emailaddr \n httpaddr \n\n&apos;</pre>
 </div>
 </div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-numbers,-dollar-signs,-and-punctuation">Finding numbers, dollar signs, and punctuation<a class="anchor-link" href="#Finding-numbers,-dollar-signs,-and-punctuation">¶</a></h2><p>We'd like to know the frequency of numbers and any punctuation which carries a tones, like exclamation marks, question marks, and dollar signs. After replacing the things we care about, we'll remove all other punctuation to get us closer to a pure bag of words.</p>
 </div>
 </div>
 </div>
@@ -1039,10 +772,21 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stem all words</span>
-<span class="n">words</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-<span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
-<span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all numbers with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[\d.]+\b"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+<span class="c1"># Replace all $, ! and ? with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[$]"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[!]"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[?]"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+<span class="c1"># Remove all other punctuation (replace with white space)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1062,7 +806,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="output">
 <div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;klez virus wont die alreadi prolif virus ever klez continu wreak havoc andrew brandt septemb issu pc world magazin post thursday august klez worm approach seventh month wriggl across web make one persist virus ever expert warn may harbing new virus use combin pernici approach go pc pc antivirus softwar maker symantec mcafe report new infect daili sign letup press time british secur firm messagelab estim everi e mail messag hold variat klez virus say klez alreadi surpass last summer sircam prolif virus ever newer klez variant arent mere nuisanc carri virus corrupt data irregular mail list&apos;</pre>
+<pre>&apos;\nklez  the virus that won t die\n \nalready the most prolific virus ever  klez continues to wreak havoc \n\nandrew brandt\n from the september  number  issue of pc world magazine\nposted thursday  august  number    number \n\n\nthe klez worm is approaching its seventh month of wriggling across \nthe web  making it one of the most persistent viruses ever  and \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from pc to pc \n\nantivirus software makers symantec and mcafee both report more than \n number  new infections daily  with no sign of letup at press time  the \nbritish security firm messagelabs estimates that  number  in every  number  \ne mail messages holds a variation of the klez virus  and says that \nklez has already surpassed last summer s sircam as the most prolific \nvirus ever \n\nand some newer klez variants aren t merely nuisances they can carry \nother viruses in them that corrupt your data \n\n \n\n httpaddr \n \nirregulars mailing list\n emailaddr \n httpaddr \n\n&apos;</pre>
 </div>
 </div>
 </div>
@@ -1073,7 +817,7 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Encapsulate-Preprocessing-in-a-Function">Encapsulate Preprocessing in a Function<a class="anchor-link" href="#Encapsulate-Preprocessing-in-a-Function">¶</a></h1><p>All of the above steps can be combined to a function that spits out the final processed word salad with the other features of interest that we exracted along the way.</p>
+<h2 id="Standardizing-White-Space-and-Total-Word-Count">Standardizing White Space and Total Word Count<a class="anchor-link" href="#Standardizing-White-Space-and-Total-Word-Count">¶</a></h2><p>Standardizing white space is an important step, as it makes tokenizing the email into words straightforward. I do this as a last step since some of my preprocessing creates extra whitespace. The number of carriage returns (<code>\n</code>) and the number of blank lines (<code>\n\n</code>) might be predictive so we'll replace those with special strings.</p>
 </div>
 </div>
 </div>
@@ -1082,71 +826,18 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
-    <span class="sd">'''Produce a word salad and some useful features from email body.'''</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all newlines and blanklines with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n\n"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Parse HTML extract content only (but count tags)</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">'html.parser'</span><span class="p">)</span>
-    <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
-    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
-    
-    <span class="c1"># Replace and count all URLs </span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(http|https)://[^\s]*"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c1"># Make all white space a single space</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Replace and count all email addresses</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    
-    <span class="c1"># Count uppercases then lowercase everything</span>
-    <span class="n">nupper</span> <span class="o">=</span> <span class="nb">len</span><span class="p">([</span><span class="n">charup</span> <span class="k">for</span> <span class="n">charup</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="k">if</span> <span class="n">charup</span> <span class="o">!=</span> <span class="n">char</span><span class="p">])</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
-    
-    <span class="c1"># Count and replace all numbers (integer and float)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[\d.]+\b"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nnum</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-
-    <span class="c1"># Count and replace all dollar signs</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[$]"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">ndollar</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-
-    <span class="c1"># Count number of special punctuation</span>
-    <span class="n">nexclaim</span><span class="p">,</span> <span class="n">nquest</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"!"</span><span class="p">),</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)</span>
-
-    <span class="c1"># Remove all other punctuation (dashes replace with space)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[^\w\s_-]+"</span><span class="p">)</span>  
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[_-]+"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    
-    <span class="c1"># Count carriage returs and blank lines</span>
-    <span class="n">nblanks</span><span class="p">,</span> <span class="n">nnewlines</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"</span><span class="se">\n\n</span><span class="s2">"</span><span class="p">),</span> <span class="n">body</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-
-    <span class="c1"># Make all white space a single space</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-
-    <span class="c1"># Remove any trailing or leading white space</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-    
-    <span class="c1"># Get total word count</span>
-    <span class="n">nwords</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">))</span>
-    <span class="n">freqns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"email"</span><span class="p">:</span> <span class="n">nemails</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span> <span class="s2">"http"</span><span class="p">:</span><span class="n">nhttps</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span>
-              <span class="s2">"exclaim"</span><span class="p">:</span><span class="n">nexclaim</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span> <span class="s2">"quest"</span><span class="p">:</span><span class="n">nquest</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span> 
-              <span class="s2">"dollar"</span><span class="p">:</span><span class="n">ndollar</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span> 
-              <span class="s2">"blank"</span><span class="p">:</span><span class="n">nblanks</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span> <span class="s2">"newline"</span><span class="p">:</span><span class="n">nnewlines</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span> 
-              <span class="s2">"html"</span><span class="p">:</span><span class="n">nhtml</span><span class="o">/</span><span class="n">nwords</span><span class="p">,</span> <span class="s2">"link"</span><span class="p">:</span><span class="n">nlinks</span><span class="o">/</span><span class="n">nwords</span><span class="p">}</span>
- 
-    <span class="c1"># Remove all useless stopwords</span>
-    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]</span>
-
-    <span class="c1"># Stem all words</span>
-    <span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">keepwords</span><span class="p">]</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">freqns</span><span class="p">,</span> <span class="n">body</span>
+<span class="c1"># Remove any trailing or leading white space</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1157,10 +848,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Try out our functions</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">[</span><span class="mi">179</span><span class="p">])</span>
-<span class="n">freqns</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
-<span class="n">freqns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
 </pre></div>
 </div>
 </div>
@@ -1169,35 +857,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="output">
 <div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>{&apos;blank&apos;: 0.02877697841726619,
- &apos;dollar&apos;: 0.0,
- &apos;email&apos;: 0.007194244604316547,
- &apos;exclaim&apos;: 0.05755395683453238,
- &apos;html&apos;: 0.30935251798561153,
- &apos;http&apos;: 0.0,
- &apos;link&apos;: 0.014388489208633094,
- &apos;newline&apos;: 0.2158273381294964,
- &apos;quest&apos;: 0.0}</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [32]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&apos;hello seen nbc cbs cnn even oprah health discoveri actual revers age burn fat without diet exercis proven discoveri even report new england journal medicin forget age diet forev guarante reduc bodi fat build lean muscl without exercis enhac sexual perform remov wrinkl cellulit lower blood pressur improv cholesterol profil improv sleep vision memori restor hair color growth strengthen immun system increas energi cardiac output turn back bodi biolog time clock year month usag free inform get free month suppli hgh click receiv email subscrib opt america mail list remov relat maillist click&apos;</pre>
+<pre>&apos;newline klez the virus that won t die newline newline already the most prolific virus ever klez continues to wreak havoc newline newline andrew brandt newline from the september number issue of pc world magazine newline posted thursday august number number newline newline newline the klez worm is approaching its seventh month of wriggling across newline the web making it one of the most persistent viruses ever and newline experts warn that it may be a harbinger of new viruses that use a newline combination of pernicious approaches to go from pc to pc newline newline antivirus software makers symantec and mcafee both report more than newline number new infections daily with no sign of letup at press time the newline british security firm messagelabs estimates that number in every number newline e mail messages holds a variation of the klez virus and says that newline klez has already surpassed last summer s sircam as the most prolific newline virus ever newline newline and some newer klez variants aren t merely nuisances they can carry newline other viruses in them that corrupt your data newline newline newline newline httpaddr newline newline irregulars mailing list newline emailaddr newline httpaddr newline newline&apos;</pre>
 </div>
 </div>
 </div>
@@ -1208,7 +868,7 @@ http://tb.tf/mailman/listinfo/irregulars
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Building-a-Corpus-of-Processed-Emails">Building a Corpus of Processed Emails<a class="anchor-link" href="#Building-a-Corpus-of-Processed-Emails">¶</a></h1><p>Whatever algorithm we ultimately use for classification will require numeric feature vectors, so mapping each word salad to such a vector is the next main task. We'll start by building a corpus that is just a list of fully processed emails, and we'll build alongside it a dataframe of the other features of interest.</p>
+<p>This is a true bag of words, so now we can get our total word count to use in normalizing things like number of exclamation marks:</p>
 </div>
 </div>
 </div>
@@ -1217,20 +877,29 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emails</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Reserve in memory, faster than append</span>
-<span class="n">fnames</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">fpath</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">]</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"email"</span><span class="p">,</span> <span class="s2">"http"</span><span class="p">,</span> <span class="s2">"blank"</span><span class="p">,</span> <span class="s2">"dollar"</span><span class="p">,</span> 
-                             <span class="s2">"exclaim"</span><span class="p">,</span> <span class="s2">"html"</span><span class="p">,</span> <span class="s2">"link"</span><span class="p">,</span> <span class="s2">"newline"</span><span class="p">,</span> <span class="s2">"quest"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">fnames</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Ground truth vector</span>
-
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">):</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>  <span class="c1"># Extract only the email body text</span>
-    <span class="n">freqns</span><span class="p">,</span> <span class="n">body</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c1"># All preprocessing</span>
-    <span class="n">fname</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">fpath</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">emails</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">body</span>
-    <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">fname</span><span class="p">]</span> <span class="o">=</span> <span class="n">freqns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nwords</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">))</span>
+<span class="n">nwords</span>
 </pre></div>
 </div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>200</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Remove-Stop-Words-with-nltk">Remove Stop Words with <code>nltk</code><a class="anchor-link" href="#Remove-Stop-Words-with-nltk">¶</a></h2><p>Each email is going to have lots of common words which are the "glue" of the english language but don't carry much information. These are called <a href="https://en.wikipedia.org/wiki/Stop_words">Stop Words</a> and we will go ahead and strip them out from the start.</p>
+<p>The Natural Language Tool Kit module (<code>ntlk</code>) defines a ton of functionality for processing text, including a corpus of these so-called stop words.</p>
 </div>
 </div>
 </div>
@@ -1239,95 +908,26 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>email</th>
-<th>http</th>
-<th>blank</th>
-<th>dollar</th>
-<th>exclaim</th>
-<th>html</th>
-<th>link</th>
-<th>newline</th>
-<th>quest</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0001.ea7e79d3153e7469e7a9c3e0af6a357e</th>
-<td>0.00980392</td>
-<td>0.00490196</td>
-<td>0.0784314</td>
-<td>0.0147059</td>
-<td>0</td>
-<td>0.00490196</td>
-<td>0</td>
-<td>0.25</td>
-<td>0</td>
-</tr>
-<tr>
-<th>0002.b3120c4bcbf3101e661161ee7efcb8bf</th>
-<td>0.01</td>
-<td>0.02</td>
-<td>0.06</td>
-<td>0</td>
-<td>0.02</td>
-<td>0</td>
-<td>0</td>
-<td>0.27</td>
-<td>0.01</td>
-</tr>
-<tr>
-<th>0003.acfc5ad94bbd27118a0d8685d18c89dd</th>
-<td>0.00411523</td>
-<td>0.00823045</td>
-<td>0.0288066</td>
-<td>0</td>
-<td>0.00823045</td>
-<td>0</td>
-<td>0</td>
-<td>0.160494</td>
-<td>0</td>
-</tr>
-<tr>
-<th>0004.e8d5727378ddde5c3be181df593f1712</th>
-<td>0.00645161</td>
-<td>0.0129032</td>
-<td>0.0451613</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0.212903</td>
-<td>0</td>
-</tr>
-<tr>
-<th>0005.8c3b9e9c0f3f183ddaf7592a11b99957</th>
-<td>0.00483092</td>
-<td>0.00483092</td>
-<td>0.0483092</td>
-<td>0</td>
-<td>0.00483092</td>
-<td>0</td>
-<td>0</td>
-<td>0.198068</td>
-<td>0.00966184</td>
-</tr>
-</tbody>
-</table>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[nltk_data] Downloading package stopwords to
+[nltk_data]     C:\Users\Sonya\AppData\Roaming\nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre>
 </div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
 </div>
 </div>
 </div>
@@ -1338,7 +938,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emails</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"english"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1347,7 +947,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="output">
 <div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;date wed aug chris garrigu messag id cant reproduc error repeat like everi time without fail debug log pick happen pick exec pick inbox list lbrace lbrace subject ftp rbrace rbrace sequenc mercuri exec pick inbox list lbrace lbrace subject ftp rbrace rbrace sequenc mercuri ftoc pickmsg hit mark hit tkerror syntax error express int note run pick command hand delta pick inbox list lbrace lbrace subject ftp rbrace rbrace sequenc mercuri hit that hit come obvious version nmh im use delta pick version pick nmh compil fuchsia cs mu oz au sun mar ict relev part mh profil delta mhparam pick seq sel list sinc pick command work sequenc actual one that explicit command line search popup one come mh profil get creat kre ps still use version code form day ago havent abl reach cvs repositori today local rout issu think exmh worker mail list&apos;</pre>
+<pre>153</pre>
 </div>
 </div>
 </div>
@@ -1358,9 +958,264 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>[&apos;i&apos;, &apos;me&apos;, &apos;my&apos;, &apos;myself&apos;, &apos;we&apos;, &apos;our&apos;, &apos;ours&apos;, &apos;ourselves&apos;, &apos;you&apos;, &apos;your&apos;]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove all useless stopwords</span>
+<span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keepwords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [37]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;newline klez virus die newline newline already prolific virus ever klez continues wreak havoc newline newline andrew brandt newline september number issue pc world magazine newline posted thursday august number number newline newline newline klez worm approaching seventh month wriggling across newline web making one persistent viruses ever newline experts warn may harbinger new viruses use newline combination pernicious approaches go pc pc newline newline antivirus software makers symantec mcafee report newline number new infections daily sign letup press time newline british security firm messagelabs estimates number every number newline e mail messages holds variation klez virus says newline klez already surpassed last summer sircam prolific newline virus ever newline newline newer klez variants merely nuisances carry newline viruses corrupt data newline newline newline newline httpaddr newline newline irregulars mailing list newline emailaddr newline httpaddr newline newline&apos;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Stemming-with-nltk">Stemming with <code>nltk</code><a class="anchor-link" href="#Stemming-with-nltk">¶</a></h2><p>This classifier is trying to determine the intent or tone of an email (spam vs. ham) by virtue of the specific words in that email. But we don't expect that a variation on the same root word, like "battery" versus "batteries", carries much difference in intent or tone. <strong>In "stemming" we replace all the variants of each root with the root itself: this reduces the complexity of the email representation without really reducing the information.</strong> The <code>nltk</code> module has several options for out-of-the-box stemmers.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [38]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)</span>
+
+<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s2">"generously"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;generous&apos;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stem all words</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [40]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;newlin klez virus die newlin newlin alreadi prolif virus ever klez continu wreak havoc newlin newlin andrew brandt newlin septemb number issu pc world magazin newlin post thursday august number number newlin newlin newlin klez worm approach seventh month wriggl across newlin web make one persist virus ever newlin expert warn may harbing new virus use newlin combin pernici approach go pc pc newlin newlin antivirus softwar maker symantec mcafe report newlin number new infect daili sign letup press time newlin british secur firm messagelab estim number everi number newlin e mail messag hold variat klez virus say newlin klez alreadi surpass last summer sircam prolif newlin virus ever newlin newlin newer klez variant mere nuisanc carri newlin virus corrupt data newlin newlin newlin newlin httpaddr newlin newlin irregular mail list newlin emailaddr newlin httpaddr newlin newlin&apos;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Encapsulate-Preprocessing-in-a-Function">Encapsulate Preprocessing in a Function<a class="anchor-link" href="#Encapsulate-Preprocessing-in-a-Function">¶</a></h1><p>All of the above steps can into a function that spits out the final processed word salad.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [41]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
+    <span class="sd">'''Produce a word salad from email body.'''</span>    
+    <span class="c1"># Parse HTML extract content only (but count tags)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">'html.parser'</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+    
+    <span class="c1"># Pull out only the non-markup tex</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
+
+    <span class="c1"># Count the number of HTML elements and specific link elements</span>
+    <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
+    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
+    <span class="c1"># Sub in special strings for "counting"</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s2">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s2">" linktag "</span>
+    
+    <span class="c1"># lowercase everything</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    
+    <span class="c1"># Replace all URLs with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(http|https)://[^\s]*"</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="c1"># Replace all email addresses with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    
+    <span class="c1"># Replace all numbers with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[\d.]+\b"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="c1"># Replace all $, ! and ? with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[$]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[!]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[?]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="c1"># Remove all other punctuation (replace with white space)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    
+    <span class="c1"># Replace all newlines and blanklines with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n\n"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="c1"># Make all white space a single space</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+    <span class="c1"># Remove any trailing or leading white space</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+ 
+    <span class="c1"># Remove all useless stopwords</span>
+    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]</span>
+
+    <span class="c1"># Stem all words</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)</span>
+    <span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">keepwords</span><span class="p">]</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">body</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [42]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Try out our function</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">[</span><span class="mi">179</span><span class="p">])</span>
+<span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">processed</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;newlin newlin newlin hello emailaddr newlin newlin seen nbc cbs cnn even oprah exclammark health newlin discoveri actual revers age burn fat newlin without diet exercis exclammark proven discoveri even newlin report new england journal medicin newlin forget age diet forev exclammark guarante exclammark newlin newlin reduc bodi fat build lean muscl without exercis exclammark newlin enhac sexual perform newlin remov wrinkl cellulit newlin lower blood pressur improv cholesterol profil newlin improv sleep vision memori newlin restor hair color growth newlin strengthen immun system newlin increas energi cardiac output newlin turn back bodi biolog time clock number number year newlin number month usag exclammark exclammark exclammark newlin free inform get free newlin number month suppli hgh click newlin receiv email subscrib newlin opt america mail list newlin remov relat maillist newlin newlin click newlin newlin newlin htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag linktag linktag&apos;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Building-Our-Corpus-of--Emails">Building Our Corpus of  Emails<a class="anchor-link" href="#Building-Our-Corpus-of--Emails">¶</a></h1><p>Whatever algorithm we ultimately use for classification will require numeric feature vectors, so mapping each word salad to such a vector is the next main task. We'll start by building a corpus of the raw email bodies, that is just a list of email body strings, and we'll build alongside it a list of the processed email body strings for our own inspection. These lists can later be fed into algorithms for vectorization.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [43]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emails_raw</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Reserve in memory, faster than append</span>
+<span class="n">emails_processed</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Reserve in memory, faster than append</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Ground truth vector</span>
+
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">):</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>  <span class="c1"># Extract only the email body text</span>
+    <span class="n">emails_raw</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">body</span>
+    <span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c1"># All preprocessing</span>
+    <span class="n">emails_processed</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">processed</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [44]:</div>
+<div class="inner_cell">
+<div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pickle these objects for easier access later</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"easyham_and_spam_corpus_and_df_and_y.pickle"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
-    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">([</span><span class="n">emails</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">myfile</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"easyham_and_spam_corpus_raw_and_processed_and_y.pickle"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">([</span><span class="n">emails_raw</span><span class="p">,</span> <span class="n">emails_processed</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">myfile</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

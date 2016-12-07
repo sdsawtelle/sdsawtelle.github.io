@@ -1,5 +1,5 @@
 Title: Spam Part I: NLP with re, nltk and BeautifulSoup
-Slug: spam-classification-text-processing
+Slug: spam-classification-part1-text-processing
 Date: 2016-12-04 13:30
 Category: Python
 Tags: python, machine learning, nlp, regex, html, spam, classification
