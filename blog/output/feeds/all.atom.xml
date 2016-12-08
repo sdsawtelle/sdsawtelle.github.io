@@ -1,5 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Evening Session</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/all.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-12-07T13:30:00-05:00</updated><entry><title>Spam Part II: Classifying with a Vectorization and SVM Pipeline</title><link href="sdsawtelle.github.io/spam-classification-part2-vectorization-and-svm-pipeline.html" rel="alternate"></link><published>2016-12-07T13:30:00-05:00</published><updated>2016-12-07T13:30:00-05:00</updated><author><name>Sonya Sawtelle</name></author><id>tag:,2016-12-07:sdsawtelle.github.io/spam-classification-part2-vectorization-and-svm-pipeline.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Evening Session</title><link href="sdsawtelle.github.io/" rel="alternate"></link><link href="sdsawtelle.github.io/feeds/all.atom.xml" rel="self"></link><id>sdsawtelle.github.io/</id><updated>2016-12-08T13:30:00-05:00</updated><entry><title>The Simplest Markdown Resume Workflow</title><link href="sdsawtelle.github.io/simple-markdown-resume-with-pandoc-and-wkhtmltopdf.html" rel="alternate"></link><published>2016-12-08T13:30:00-05:00</published><updated>2016-12-08T13:30:00-05:00</updated><author><name>Sonya Sawtelle</name></author><id>tag:,2016-12-08:sdsawtelle.github.io/simple-markdown-resume-with-pandoc-and-wkhtmltopdf.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell&gt;div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area&gt;div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area&gt;div.highlight&gt;pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell&gt;div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="In-which-I-cast-off-the-shackles-of-messy-LaTex-templates-and-embrace-the-shackles-of-slightly-less-messy-CSS-templates."&gt;In which I cast off the shackles of messy LaTex templates and embrace the shackles of slightly less messy CSS templates.&lt;a class="anchor-link" href="#In-which-I-cast-off-the-shackles-of-messy-LaTex-templates-and-embrace-the-shackles-of-slightly-less-messy-CSS-templates."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Changing the content or styling of a resume or CV is a relatively common event that can be a frustrating, time-consuming hassle. This post outlines the simplest possible workflow where resume &lt;em&gt;content&lt;/em&gt; is maintained in a simple markdown file and generating &lt;code&gt;.html&lt;/code&gt;, &lt;code&gt;.pdf&lt;/code&gt; and &lt;code&gt;.docx&lt;/code&gt; output formats is automated with a few lines of code. Styling of the outputs requires maintaining one &lt;code&gt;.css&lt;/code&gt; and one reference Word doc and even if you aren't familiar with such things I can give you some basic steps for re-styling.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Still trying to decide if this is the workflow for you? Here are the original markdown files and the three output files for your persual&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://sdsawtelle.github.io/attachments/resume.md"&gt;Markdown&lt;/a&gt; . &lt;a href="https://sdsawtelle.github.io/resume.html"&gt;HTML&lt;/a&gt; . &lt;a href="images/post-markdown-resume/resume.pdf"&gt;PDF&lt;/a&gt; . &lt;a href="images/post-markdown-resume/resume.docx"&gt;Word Doc&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="The-Plan."&gt;The Plan.&lt;a class="anchor-link" href="#The-Plan."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;We'll need just two tools. &lt;code&gt;Pandoc&lt;/code&gt;: the swiss army knife of interconverting file formats, and &lt;code&gt;wkhtmtopdf&lt;/code&gt; the precision scalpel (?) of printing HTML to PDFs. Here is the simplest workflow:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Use pandoc to convert .md to .html, with styling via a .css file&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;wkhtmltopdf&lt;/code&gt; to print .html as .pdf&lt;/li&gt;
+&lt;li&gt;Use pandoc to convert .md to .docx with styling via a .docx reference file&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The pdf could alternatively be generated from the markdown using pandoc with a &lt;code&gt;LaTex&lt;/code&gt; engine and a &lt;code&gt;.tex&lt;/code&gt; template, but that would require a third &lt;code&gt;.tex&lt;/code&gt; template, so... no thank you.&lt;/p&gt;
+&lt;h1 id="The-Flow."&gt;The Flow.&lt;a class="anchor-link" href="#The-Flow."&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;h2 id="Install-Pandoc-and-wkhtmltopdf."&gt;Install Pandoc and wkhtmltopdf.&lt;a class="anchor-link" href="#Install-Pandoc-and-wkhtmltopdf."&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;If you don't already have these guys installed, then grab them. If you do have them installed, then update them. &lt;strong&gt;I had to manually add the &lt;code&gt;wkhtmltopdf&lt;/code&gt; executable location to PATH in order to make it play nice with Pandoc&lt;/strong&gt;. (I'm on Windows 10).&lt;/p&gt;
+&lt;h2 id="Create-a-directory-for-your-resume-workflow."&gt;Create a directory for your resume workflow.&lt;a class="anchor-link" href="#Create-a-directory-for-your-resume-workflow."&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;This is the place we'll keep our markdown file and our templates, you can get all of this by cloning the dummy repo I made for you:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sdsawtelle&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;Or you can just &lt;a href="images/post-markdown-resume/markdown_resume.7z"&gt;download the zip file&lt;/a&gt;. You should now have a starter markdown file, a starter CSS template and a starter docx reference file. Yeah, it's all the files from my &lt;em&gt;actual&lt;/em&gt; resume, because I didn't feel like editing it to make a fake one.&lt;/p&gt;
+&lt;h2 id="Create-the-HTML-output."&gt;Create the HTML output.&lt;a class="anchor-link" href="#Create-the-HTML-output."&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Open your command line and change to your new resume directory and execute:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;pandoc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;stylesheet&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;css&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;The &lt;code&gt;-o&lt;/code&gt; switch specifies the output file name, the &lt;code&gt;-c&lt;/code&gt; switch specifies the css file to use for html creation and the input to the command, &lt;code&gt;resume.md&lt;/code&gt; is at the very end. Props to the guy who &lt;a href="https://gist.github.com/dashed/6714393"&gt;originally wrote this CSS sheet&lt;/a&gt; (I've modified it only slightly). You can inspect the resulting HTML file in your browser. If you're like me, you are immediately itching to restyle it. If you aren't familiar with CSS don't worry but &lt;em&gt;do&lt;/em&gt; read this next section.&lt;/p&gt;
+&lt;h3 id="Restyling-the-HTML-output-(for-those-unfamiliar-with-CSS)"&gt;Restyling the HTML output (&lt;em&gt;for those unfamiliar with CSS&lt;/em&gt;)&lt;a class="anchor-link" href="#Restyling-the-HTML-output-(for-those-unfamiliar-with-CSS)"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;What pandoc has done is parse your markdown file and map the elements of each type, like heading 1, heading 2, list etc. to corresponding element classes in the HTML document. The CSS file is going to specify display styles for each such element class.&lt;/p&gt;
+&lt;p&gt;The first thing to do is open the HTML file in your browser, and figure out how to "inspect elements" with your browser (just do some googling). This will open a complicated looking little window for you, and by mousing over various places on the web page you will be able to view their CSS styling. Try inspecting one the pink section header "Education" - you should see some styling that looks like:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;h2 {
+    font-size: 24px;
+    border-bottom: 1px solid #ccc;
+    color: #f39;
+}&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;This says, for example, that elements of the &lt;code&gt;h2&lt;/code&gt; class in the HTML (heading 2 elements in the markdown) should have hexadecimal color &lt;code&gt;ff3399&lt;/code&gt; which is pink! If you open the CSS file and use CTRL+f judiciously, you should be able to find where this occurrs in the document. Now try changing it to a different color, saving the changes to &lt;code&gt;.css&lt;/code&gt; file, re-running the above pandoc command and refreshing the browser on your HTML file.&lt;/p&gt;
+&lt;p&gt;You can use this same approach to change other aspects of styling: inspect an element in your browser to see it's HTML class and styling, then open the CSS file and find the corresponding text and make your changes.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Create-the-PDF-output."&gt;Create the PDF output.&lt;a class="anchor-link" href="#Create-the-PDF-output."&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In your command line execute:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;wkhtmltopdf&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pdf&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;All our styling was already for the HTML file, woohoo! In theory you could also do &lt;code&gt;pandoc -o resume.pdf -t html5 resume.html&lt;/code&gt; which would cause pandoc to call the &lt;code&gt;wkhtmltopdf&lt;/code&gt; engine for the job, but I found that somehow &lt;code&gt;wkhtmltopdf&lt;/code&gt; failed to resolve links in the HTML file (like the link to the .css file) unless I called it explicitly from the command line.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h3 id="A-word-on-fonts-in-wkhtmltopdf"&gt;A word on fonts in wkhtmltopdf&lt;a class="anchor-link" href="#A-word-on-fonts-in-wkhtmltopdf"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;This tool has a hard time respecting fonts, I've found.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h2 id="Create-the-Word-doc-output"&gt;Create the Word doc output&lt;a class="anchor-link" href="#Create-the-Word-doc-output"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;In your command line execute:&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing code_cell rendered"&gt;
+&lt;div class="input"&gt;
+&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="input_area"&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;pandoc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;docx&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;reference&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;docx&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;docx&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;reference&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;docx&lt;/span&gt; &lt;span class="n"&gt;resume&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;p&gt;The &lt;code&gt;--reference-docx&lt;/code&gt; switch specifies a sort of "template" for styling the Word document. This template is itself a Word doc, so you can open it up in Word and start re-styling!&lt;/p&gt;
+&lt;h3 id="Restyling-the-docx-output"&gt;Restyling the docx output&lt;a class="anchor-link" href="#Restyling-the-docx-output"&gt;¶&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;Just like it did with the HTML conversion, Pandoc has parsed your markdown file and mapped the elements of each type, like heading 1, heading 2, list etc. to corresponding element classes in the Word document. Open &lt;code&gt;resume-docx-reference.docx&lt;/code&gt; in Word. Highlight the large name at the top of the document and then go to the &lt;code&gt;Home&lt;/code&gt; tab and find the &lt;code&gt;Styles&lt;/code&gt; section. You should see that a style called "Title" is selected - that means the text you selected is of the "Title" class. Right click on this style in the ribbon and click &lt;code&gt;Modify&lt;/code&gt; to make all sorts of changes. Certain other changes to this reference doc will also be reflected in your output &lt;code&gt;.docx&lt;/code&gt;, such as margin size.&lt;/p&gt;
+&lt;p&gt;When you're starting from a fresh markdown file a good approach is to let pandoc make a first pass &lt;code&gt;.docx&lt;/code&gt; without specifying a reference, open the resulting document and modify styles as desired, then use it as the reference for a final make.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Wrapping-the-Workflow-in-Shell-or-Python"&gt;Wrapping the Workflow in Shell or Python&lt;a class="anchor-link" href="#Wrapping-the-Workflow-in-Shell-or-Python"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Go ahead and combine the three commands in some kind of wrapper for ultimate easy-mode. You can also add some extra functionality in your script. For instance any time I update the resume output formats I'd like to copy the HTML file over to the directory where my blog lives so that I'm always serving the updated one.&lt;/p&gt;
+&lt;p&gt;I &lt;em&gt;adore&lt;/em&gt; python, and I hang out in IPython a lot, and I'm on Windows, so even though this is really a job for a shell script I've got a python script instead.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="python"></category><category term="pandoc"></category><category term="wkhtmltopdf"></category><category term="resume"></category><category term="markdown"></category></entry><entry><title>Spam Part II: Classifying with a Vectorization and SVM Pipeline</title><link href="sdsawtelle.github.io/spam-classification-part2-vectorization-and-svm-pipeline.html" rel="alternate"></link><published>2016-12-07T13:30:00-05:00</published><updated>2016-12-07T13:30:00-05:00</updated><author><name>Sonya Sawtelle</name></author><id>tag:,2016-12-07:sdsawtelle.github.io/spam-classification-part2-vectorization-and-svm-pipeline.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -30059,10 +30321,9 @@ While this is a useful Bash alias:
 &lt;/ul&gt;
 &lt;p&gt;So this Python project consists of pulling in a complete word list, using it to selectively create the above subsets, writing the individual subsets to file, and then using the cheat sheet to destroy my husband at Scrabble. To skip ahead a bit, here are the outputs that you might be interested in:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;A text file of the &lt;a href="images/post-scrabble-wordlists/OWL3_Dictionary.txt"&gt;full OWL3 word list&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;A text file of the &lt;a href="images/post-scrabble-wordlists/OWL3_Dictionary.7z"&gt;full OWL3 word list&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;A set of &lt;a href="images/post-scrabble-wordlists/OWL3_wordlists.7z"&gt;text files for the above word lists&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;PDF of the final &lt;a href="images/post-scrabble-wordlists/OWL3_Cheat_Sheet1_lists.pdf"&gt;OWL3 Cheat Sheet #1&lt;/a&gt; (J, Q, X, Z, 2-to-make-3s, vowel dumps)&lt;/li&gt;
-&lt;li&gt;PDF of the final &lt;a href="images/post-scrabble-wordlists/OWL3_Cheat_Sheet2_3sto4s.pdf"&gt;OWL3 Cheat Sheet #2&lt;/a&gt; (3-to-make4s)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PDF LINKS IN PROGRESS, NEED TO COMPRESS SIZE&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;a name="myfootnote1"&gt;1&lt;/a&gt;: &lt;em&gt;But not really because he's better than I am. My strength is spending an inordinate amount of time looking for bingos on my rack and asking if we can "start over" when I don't find one.&lt;/em&gt;&lt;/p&gt;
 &lt;h1 id="Creating-the-Word-Lists-in-Python"&gt;Creating the Word Lists in Python&lt;a class="anchor-link" href="#Creating-the-Word-Lists-in-Python"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;Disclaimer: This is newbie python. As in, it is actually the first thing I did while learning Python! You can tell because I included comments for myself like &lt;em&gt;&lt;code&gt;# The "in" operator is implemented for strings&lt;/code&gt;.&lt;/em&gt;  Lol.&lt;/p&gt;
