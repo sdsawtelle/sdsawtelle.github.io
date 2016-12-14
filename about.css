@@ -14,13 +14,13 @@ section.main {
   background-color: white; }
 
 section.subsection {
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 20%;
+  margin-right: 20%;
   padding-top: 2em; }
 
 section.overview {
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 20%;
+  margin-right: 20%;
   margin-bottom: -3em;
   padding-top: 4em;
   padding-bottom: 1.2em; }
@@ -181,7 +181,7 @@ img.thumbnailstrip {
   margin-top: 1em; }
 
 img.code {
-  max-width: 20%;
+  max-width: 30%;
   float: right;
   margin: 1rem;
   margin-right: 0px;
@@ -239,7 +239,7 @@ ul.contact li {
   padding-bottom: 0px; }
 
 li.nameplate {
-  font-size: 40px;
+  font-size: 50px;
   color: white; }
 
 a.contact:link {
