@@ -1,0 +1,1900 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Evening Session</title>
+
+            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/github" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="python" />
+        <meta name="tags" contents="machine learning" />
+        <meta name="tags" contents="requests" />
+        <meta name="tags" contents="API" />
+        <meta name="tags" contents="scraping" />
+        <meta name="tags" contents="recommender" />
+        <meta name="tags" contents="boardgamegeek" />
+
+
+			<meta property="og:locale" content="en">
+		<meta property="og:site_name" content="Evening Session">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./boardgamegeek-data-scraping.html">
+	<meta property="og:title" content="Boardgame Data with Scraping and API Requests in Python">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2017-01-10 13:30:00-05:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://sdsawtelle.github.io">SonyaSawtelle</a>
+				<a class="navbar-brand" href="https://sdsawtelle.github.io/blog/output/index.html">All Posts</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('./theme/images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Boardgame Data with Scraping and API Requests in Python</h1>
+                        <span class="meta">Posted by
+                                <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
+                             on Tue 10 January 2017
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">In which I am continually distracted from scraping board game info by the board games themselves.<a class="anchor-link" href="#In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">¶</a></h1><p><a href="https://boardgamegeek.com/">Boardgamegeek.com</a> (BGG) is an online community for board game enthusiasts that provides social network features as well as a huge database of board games with ratings, comments, statistics, and other features of each game. Now, I quite like board games, especially the more complex Euro-style games (like Settlers of Catan and Ticket to Ride). But what I <em>really</em> like is a gigantic steaming pile of data like this site. BGG also has a (recently improved) API so we can mostly avoid the heartache of trying to parse HTML from a page in the wild.</p>
+<p>Once I have all this data I'm going to fill a pool with it and swim around Scrooge McDuck style. Or maybe I'll analyze it. Ultimately I'm going to try my hand at a recommender system both for games and for finding friends on the site (known as GeekBuddies). I want to do some basic exploratory analysis too though. Don't you want to know if board games are getting easier or harder over the last few years? How the popularity of different game categories has changed over time? What people actually do when presented with 10-star rating system... is the average rating a 5???</p>
+<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
+<li><code>requests</code> package for retrieving HTML pages and using APIs</li>
+<li><code>bs4</code> package for parsing HTML and XML documents</li>
+<li><code>sqlite3</code> for interacting with local SQLite databases via python</li>
+<li><code>df.to_sql()</code> and <code>df.from_sql()</code> for seamlessly moving data between a DB and pandas DF</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">scipy.io</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> 
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
+<span class="kn">import</span> <span class="nn">timeit</span>
+
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-Anatomy-of-Scraping-and-API-Calls">The Anatomy of Scraping and API Calls<a class="anchor-link" href="#The-Anatomy-of-Scraping-and-API-Calls">¶</a></h3><p>Using <code>requests</code> with <code>BeatifulSoup</code> is almost too easy. You send the server a single URL and it sends you back a response - you'll get HTML if your URL was just a normal page on the site, and you'll get XML back if instead your URL reflects the API format. (I'm just talking about the BGG API here - the documentation for which is <a href="https://boardgamegeek.com/wiki/page/BGG_XML_API#">here (version 1)</a> and <a href="https://boardgamegeek.com/wiki/page/BGG_XML_API2#toc11">here (version 2)</a>). Then you simply parse the response text with <code>BeatifulSoup</code> using the appropriate parser. Here is the basic anatomy of what we'll be doing (this example is an API call, returning XML):</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [2]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/user?name=Zazz&top;=1"</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>  <span class="c1"># Use the xml parser for API responses and the html_parser for scraping</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c1"># 404 not found and the like. Hopefully 200!</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>200
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Scraping-to-Get-Game-IDs">Scraping to Get Game IDs<a class="anchor-link" href="#Scraping-to-Get-Game-IDs">¶</a></h1><p>In an ideal world I'd have access to a list of all game IDs and a list of user names, and I could just start making API requests. This is not an ideal world, so instead I'm going to scrape the "Browse" section of BGG to acquire a list of game IDs.</p>
+<p>The <code>requests</code> package can be used in conjuntion with <code>bs4</code> to do some pretty powerful web scraping stuff. Here I'm going to request the HTLM for each page in the pages of results for browsing all boardgames. This actually works quite well as I can specify that I want to browse a list sorted by number of ratings, in descending order, and in this way I can cut off the scraping when I reach whatever ratings sparsity I want (maybe somewhere around 100 ratings per game?). I'm starting the scrape from <a href="https://boardgamegeek.com/browse/boardgame/page/1?sort=numvoters&amp;sortdir=desc">this page</a>. Remember to code in a short time delay (one or two seconds) between server requests, otherwise you might get your IP blacklisted, you hacker! For now the only info I'll pull is the game ID (an integer), the game name, the number of ratings, and the URL for a thumbnail pic of the game.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize a DF to hold all our scraped game info</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">,</span> <span class="s2">"pic_url"</span><span class="p">])</span>
+<span class="n">min_nrate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e5</span>
+<span class="n">npage</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1"># Scrap successful pages in the results until we get down to games with < 1000 ratings each</span>
+<span class="k">while</span> <span class="n">min_nrate</span> <span class="o">></span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="c1"># Get full HTML for a specific page in the full listing of boardgames sorted by </span>
+    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://boardgamegeek.com/browse/boardgame/page/</span><span class="si">%i</span><span class="s2">?sort=numvoters&sortdir;=desc"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"html.parser"</span><span class="p">)</span>    
+    
+    <span class="c1"># Get rows for the table listing all the games on this page</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"tr"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="s2">"row_"</span><span class="p">})</span>  <span class="c1"># Get list of all the rows (tags) in the list of games on this page</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">,</span> <span class="s2">"pic_url"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)))</span>  <span class="c1"># DF to hold this pages results</span>
+    
+    <span class="c1"># Loop through each row and pull out the info for that game</span>
+    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
+        <span class="c1"># Row may or may not start with a "boardgame rank" link, if YES then strip it</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">"name"</span> <span class="ow">in</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="k">del</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">gamelink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Get the relative URL for the specific game</span>
+        <span class="n">gameid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gamelink</span><span class="p">[</span><span class="s2">"href"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Get the game ID by parsing the relative URL</span>
+        <span class="n">gamename</span> <span class="o">=</span> <span class="n">gamelink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the actual name of the game as the link contents</span>
+        <span class="n">imlink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the URL for the game thumbnail</span>
+        <span class="n">thumbnail</span> <span class="o">=</span> <span class="n">imlink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"src"</span><span class="p">]</span>
+
+        <span class="n">ratings_str</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="s2">"collection_bggrating"</span><span class="p">})[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">nratings</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ratings_str</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gameid</span><span class="p">,</span> <span class="n">gamename</span><span class="p">,</span> <span class="n">nratings</span><span class="p">,</span> <span class="n">thumbnail</span><span class="p">]</span>
+
+    <span class="c1"># Concatenate the results of this page to the master dataframe</span>
+    <span class="n">min_nrate</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># The smallest number of ratings of any game on the page</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Page </span><span class="si">%i</span><span class="s2"> scraped, minimum number of ratings was </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,</span> <span class="n">min_nrate</span><span class="p">))</span>
+    <span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_all</span><span class="p">,</span> <span class="n">df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">npage</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Keep the BGG server happy.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Page 1 scraped, minimum number of ratings was 12941
+Page 2 scraped, minimum number of ratings was 8615
+Page 3 scraped, minimum number of ratings was 6191
+Page 4 scraped, minimum number of ratings was 4761
+Page 5 scraped, minimum number of ratings was 3873
+Page 6 scraped, minimum number of ratings was 3294
+Page 7 scraped, minimum number of ratings was 2828
+Page 8 scraped, minimum number of ratings was 2452
+Page 9 scraped, minimum number of ratings was 2197
+Page 10 scraped, minimum number of ratings was 1973
+Page 11 scraped, minimum number of ratings was 1757
+Page 12 scraped, minimum number of ratings was 1619
+Page 13 scraped, minimum number of ratings was 1456
+Page 14 scraped, minimum number of ratings was 1336
+Page 15 scraped, minimum number of ratings was 1247
+Page 16 scraped, minimum number of ratings was 1163
+Page 17 scraped, minimum number of ratings was 1093
+Page 18 scraped, minimum number of ratings was 1013
+Page 19 scraped, minimum number of ratings was 951
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [4]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Reset the index since we concatenated a bunch of DFs with the same index into one DF</span>
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Write the DF to .csv for future use</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"bgg_gamelist.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>nrate</th>
+<th>pic_url</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>13</td>
+<td>Catan</td>
+<td>64574</td>
+<td>//cf.geekdo-images.com/images/pic2419375_mt.jpg</td>
+</tr>
+<tr>
+<th>1</th>
+<td>822</td>
+<td>Carcassonne</td>
+<td>63809</td>
+<td>//cf.geekdo-images.com/images/pic2337577_mt.jpg</td>
+</tr>
+<tr>
+<th>2</th>
+<td>30549</td>
+<td>Pandemic</td>
+<td>58328</td>
+<td>//cf.geekdo-images.com/images/pic1534148_mt.jpg</td>
+</tr>
+<tr>
+<th>3</th>
+<td>36218</td>
+<td>Dominion</td>
+<td>53488</td>
+<td>//cf.geekdo-images.com/images/pic394356_mt.jpg</td>
+</tr>
+<tr>
+<th>4</th>
+<td>68448</td>
+<td>7 Wonders</td>
+<td>48593</td>
+<td>//cf.geekdo-images.com/images/pic860217_mt.jpg</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [5]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Number of games with > 1000 ratings is approximately </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Total number of ratings from all these games is </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Number of games with > 1000 ratings is approximately 1900
+Total number of ratings from all these games is 7544367
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lets get a sense of how common different amounts of ratings are by histogramming.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [6]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"LOG(# Ratings)"</span><span class="p">,</span> <span class="s2">"Count"</span><span class="p">,</span> <span class="s2">"Distribution of LOG(# Ratings)"</span><span class="p">)</span>
+<span class="n">__</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+303ANq0EEBHPRsTLPRTZvbB8ZX6+Dqjt87665wcjonbNuSvy8zLAzq3EZWZmA6eZ5LMGMLPJ+mYB
+q/c9nIbWLyzPBIiIAGbndeML5YLFY+0qLI/HzMwGhWaSzwvAmk3WNwZY4rpvA6SZa+77uvxmZoNQ
+M1Ot7yZNCPheE2V3ZdFtFtplemF5LNCldBeyMXndY4Vyb8xliuWpK7eYSZMmvb7c0dFBR0dH/6K1
+NvHN5swGi87OTjo7O9taZzPJ50rge5I+0NPVC/K9fnYFvtTHWLr7pLkBOCEv7wucAewJLE/qZru+
+UG4XYFNJW0bEXSyamPAqcGOjyovJxwYT32zObLAofjGfPHlyW+psptvtLOAh4FJJJ0qaUNwoaYKk
+E4BLgQdy+aZJ2kfSQ8CdtVXAEZIelHRhRNwBXJK3nSbpHuBy0ifTlEJCPAt4MO//F0n3AUfmct+O
+iFmtxGVmZgOn15ZPRLwkaQ/gWuBrpGnLz5PGglYhTZMWcD+wZy8z1xoZzaLL9NS+6q6WH7WusoNI
+ie1AYCPSxIbLSHdTrcU5V9KOwEnAHsAE4D7gzIg4vcWYzMxsADV1eZ2IeEjS1sAhpK6sNwPjgOeB
+P5CmNP80Il5qNYCIOJ90E7qeyrwGTM6Pnsp1AQe3GoOZmZWr6Wu75RbN6flhZmbWZ63eTM7MzKzf
+nHzMzKx0Tj5mZlY6Jx8botJJqN09xo2bUHWAZtaDPt1Mzqx6PgnVbChzy8fMzErn5GNmZqVz8rFh
+ymNCZoOZx3xsmPKYkNlg5paPmZmVzsnHzMxK5+RjZmalc/IxM7PSOfmYmVnpnHzMzKx0Tj42Qvk8
+ILMq+TwfG6F8HpBZldzyMTOz0jn5mJlZ6Zx8zMysdE4+ZmZWOicfMzMrnZOPmZmVzsnHzMxK5+Rj
+Zmalc/IxM7PSOfmYmVnpnHzMzKx0Tj5mZlY6Jx8zMyudk4+ZmZXOycfMzErn5GPWonHjJvhGdGb9
+NCSSj6TjJC1s8FggaVQus3QuN1XSfEnTJZ0iaeWq47fhpavrUdKN6Bo/0nYz68lQu5PpLGBq4XXt
+Px7gXGB/YAHwILARcASwFfCeEmM0M7NeDImWT8F1EbFD4fGuiAhJ25ASTwBfiIg3AfvlfSZK2ruy
+iG2IWq7bbjUz67+hlnz2kzRP0pOSrpW0dV6/e6HMlfn5OuDlvPy+0iK0YWI+3XetmVl/DaXk8xrw
+FPAIsDbwfuBPOQGtXyg3EyAiApid140vMU4zM+vFUBnzuQj4QUQ8ByBpV+A3wHLAYaRxnkZ67SOZ
+NGnS68sdHR10dHT0M1Qzs+Gls7OTzs7Ottap1EAYeiTNAtYAfgvcDJxI6hNZNyK6lDrn55IS1E8i
+4tC6/QNgqB7/7bffzs47f5o5c27vpsRFwAH03E2kCrdX+d793d77vkP178qsN7Vxz4jo1wDokOh2
+k/RFSesUXu8KjMkvp5FaQTX75uc9geXz8g0DHaPZIt1PVvB5QGbJkEg+pCnTj0uaJuluUjIJUsvm
+lIi4A7gklz1N0j3A5bnMlIj4ZRVB20jV02QFnwdkBkMn+ZwI/I40RrUhqbXzM+CtEXF/LnMgcDzw
+KOkcn1nAacB/lB2smZn1bEhMOIiInwI/7aXMAmByfpiZ2SA2VFo+ZmY2jDj5mJlZ6Zx8zMysdE4+
+ZmZWOicfMzMrnZOPWen6dxJqbzezW2qplXySqw16Q2KqtdnwUjsJtbGurp6vWrLoZnaNLVzY8+V/
+eqvfrAxOPmaDznK+b5ANe04+ZoNOzy2jJi7WbjboeczHzMxK5+RjZmalc/IxM7PSOfmYmVnpnHzM
+zKx0Tj5mZlY6Jx8ze11vV0/w1RGsXXyej5m9rrerJ/jqCNYubvmYmVnp3PIxG3F8+R6rnpOP2YjT
+0+V7nJSsHO52MzOz0jn5mJlZ6Zx8zKxtPFXbmuUxHzNrG0/Vtma55WNmZqVz8jEzs9I5+ZiZWemc
+fMzMrHROPmZmVjonHzMzK52Tj5m1YLkez+PpL58nNHL4PB8za0FP14WD/l4bzucJjRxu+ZiZWemG
+XfKR9BFJt0uaJ+lpSZdJ2rjquMwMBrrbzoaOYZV8JH0SuBjYGniSdHz7ArdIGltlbGYGi7rtunv0
+nceLhpZhk3wkLQOcRPoLvjwiNgHeBLwAjAW+XmF4NiA6qw5ggHVWHcAA62xrbYvGixo/0vbutTN5
+dXZ29vEoRo5hk3yA7YA18/KVABHxFPBn0ijo+yqKywZMZ9UBDLDOqgMYYJ192Kf7brv+amfy2mmn
+ndzy6sVwSj7rF5ZnFpa78vP4EmMxswHRU7ddbwZ2vGnx5HXcEvH1lrxGGkX0r591sJD0YeAS0m96
+l4i4Ka+/ENgfeDkiViyUHx4HbmZWgYjoV8YeTi2f6YXlsQ2WHysxFjMz68FwOsn0NuBpYA3SDLdf
+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
+">
+</img></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Using-API-to-Get-Ratings-for-Games">Using API to Get Ratings for Games<a class="anchor-link" href="#Using-API-to-Get-Ratings-for-Games">¶</a></h1><p>Now that we have the integer game IDs, the specific ratings information for any game can be had, in XML form, directly from the API. This XML response is a lot cleaner and easier to parse than the HTML we had to scrape to get our list of game IDs. Each rating lives in it's own simple <code>comment</code> type div.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Getting the ratings of specific board game (each is in a "comment" div)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=213578&ratingcomments;=1"</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
+<span class="n">comments</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>[<comment rating="10" username="naruko" value="" />,
+ <comment rating="10" username="JavierKensei" value="" />,
+ <comment rating="10" username="Grizzlylizard" value="" />,
+ <comment rating="10" username="Globulor" value="This kickstarter rocks!!!!!" />,
+ <comment rating="10" username="Yue99" value="Very good project, awesome minis!" />,
+ <comment rating="10" username="Nargash" value="This game is now in kickstarter and will be so amayzing !!!!  Come and plede with all community help us to improve all we can have and reach in SG." />,
+ <comment rating="10" username="Wimmoes" value="" />,
+ <comment rating="9" username="Tefen" value="" />,
+ <comment rating="8" username="Boost3r" value="" />,
+ <comment rating="1" username="cadwal" value="Kickstarter exclusive miniatures make it impossible to complete the collection after release." />]</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [8]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"username"</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>&apos;naruko&apos;</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Paged-API-Calls">Paged API Calls<a class="anchor-link" href="#Paged-API-Calls">¶</a></h3><p>With the BGG API ratings retrieval is paged, meaning when you send the URL requesting ratings for a particular item, you get back only a chunk of 100 ratings at a time. The chunk you get is controlled by the <code>page</code> parameter of the request so you should make a loop which keeps sending request, incrementing page each time, until the result is empty (you incremented past the last page of stuff). Remember that an empty list will evaluate to boolean <code>False</code> so we can use that to control our loop.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Start-Small:-Get-A-Toy-Data-Set">Start Small: Get A Toy Data Set<a class="anchor-link" href="#Start-Small:-Get-A-Toy-Data-Set">¶</a></h1><p>Ultimately I am going to want to pull ratings from all games with any significant number of ratings (like 50 or more). That is going to end up being  shit ton of games and ratings. More than my laptop can handle. So lets first get a toy data set to play with, so we can do all our troubleshooting and development with dataframe that won't melt my harddrive.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [10]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Dropping the 20 most-rated games would give a total number of ratings of </span><span class="si">%i</span><span class="s2">"</span> 
+      <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">500</span><span class="p">:,</span> <span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Dropping the 20 most-rated games would give a total number of ratings of 2575838
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [11]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Thresholding at 2000 ratings gives </span><span class="si">%i</span><span class="s2"> games and </span><span class="si">%i</span><span class="s2"> total ratings"</span>
+     <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> 
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Thresholding at 2000 ratings gives 915 games and 1243235 total ratings
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [46]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Restrict the data set to fewer games that have fewer ratings (our toy data set!)</span>
+<span class="n">df_toy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I think I'll stick with the 2000 ratings or fewer threshold. Since we stopped scraping board games at 1000 ratings this is kind of a small range - only games with between 1000 and 2000 ratings! That's OK, it's just a toy set for now. Since we are going to grab about 1.2 million ratings in total, if we do it just in batches of 100, with a delay of 2 seconds per API ping, this would take an unacceptably long time.</p>
+<h3 id="Getting-Ratings-for-Multiple-Games-at-Once">Getting Ratings for Multiple Games at Once<a class="anchor-link" href="#Getting-Ratings-for-Multiple-Games-at-Once">¶</a></h3><p>Instead of going game-by-game, each API call I make will request the $n^{th}$ page of ratings for multiple games at once - I can do this just by providing a list of integer game IDs in the <code>id=</code> parameter of the URL. I'll set up a vector that initializes to the number of <em>full</em> (meaning has 100 comments) pages for each game ID, and then after each API call I'll decrement every element by one. Each call will include in its <code>id=</code> list only game ids who still have $npages > 0$. Even when we provide a list of IDs the response comments don't have any attribute indicating which game they belong to (why???), but they will be ordered according to the <code>id</code> list. That's why I will only be pulling <em>full</em> pages of ratings - that allows me to know that the first 100 comments map to the first game ID that I provided etc. At the end we can run through game-by-game and grab the last partial page of ratings for each game. And finally, to complicate things even further, we can't provide a list of all the game ids at once because the response will be too big, so we'll have to do the above procedure on just one chunk of the games at a time.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [47]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare a "# of FULL pages of ratings" column to track # API calls needed</span>
+<span class="n">df_toy</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Round DOWN to nearest 100</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>id</th>
+<th>name</th>
+<th>nrate</th>
+<th>pic_url</th>
+<th>nfullpages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>1672</th>
+<td>31638</td>
+<td>Memoir '44: Air Pack</td>
+<td>1112</td>
+<td>//cf.geekdo-images.com/images/pic244022_mt.jpg</td>
+<td>11</td>
+</tr>
+<tr>
+<th>1524</th>
+<td>310</td>
+<td>Wizard's Quest</td>
+<td>1225</td>
+<td>//cf.geekdo-images.com/images/pic157002_mt.jpg</td>
+<td>12</td>
+</tr>
+<tr>
+<th>1044</th>
+<td>156776</td>
+<td>Warhammer 40,000: Conquest</td>
+<td>1891</td>
+<td>//cf.geekdo-images.com/images/pic2079275_mt.jpg</td>
+<td>18</td>
+</tr>
+<tr>
+<th>1003</th>
+<td>115098</td>
+<td>Quarriors! Quarmageddon</td>
+<td>1964</td>
+<td>//cf.geekdo-images.com/images/pic1178902_mt.jpg</td>
+<td>19</td>
+</tr>
+<tr>
+<th>1607</th>
+<td>87890</td>
+<td>Prêt-à-Porter</td>
+<td>1158</td>
+<td>//cf.geekdo-images.com/images/pic1055299_mt.jpg</td>
+<td>11</td>
+</tr>
+<tr>
+<th>988</th>
+<td>128667</td>
+<td>Samurai Sword</td>
+<td>1994</td>
+<td>//cf.geekdo-images.com/images/pic1411222_mt.jpg</td>
+<td>19</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Writing-Results-to-a-SQLite-Database">Writing Results to a SQLite Database<a class="anchor-link" href="#Writing-Results-to-a-SQLite-Database">¶</a></h3><p>Eventually this is going to be a big data set - a lot more than 1000 games a lot more than 1.2 million ratings. So let's set up the infrastructure of a local database right from the start. Every time I finish grabbing full pages of ratings from a chunk of games I'll push the resulting dataframe into this database.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the database and make a cursor to talk to it.</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [48]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#############################################################</span>
+<span class="c1"># Gathering all ratings from all games in toy data set</span>
+<span class="c1">#############################################################</span>
+<span class="c1"># Get ratings page-by-page for all games, but do it in chunks of 250 games</span>
+<span class="k">for</span> <span class="n">nm</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">))</span><span class="o">//</span><span class="mi">150</span><span class="p">):</span>
+    <span class="c1"># Initialize a DF to hold all the responses for this chunk of games</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">,</span> <span class="s2">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">+</span><span class="mi">100000</span><span class="p">))</span>
+
+    <span class="c1"># Initialize indices for writing to the ratings dataframe</span>
+    <span class="n">dfidx_start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">dfidx</span> <span class="o">=</span> <span class="mi">0</span>
+    
+    <span class="c1"># For this group of games, make calls until all FULL pages of every game have been pulled</span>
+    <span class="n">pagenum</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">])</span> <span class="o">></span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="c1"># Get a restricted DF with only still-active games (have ratings pages left)</span>
+        <span class="n">active_games</span> <span class="o">=</span> <span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Set the next chunk of the DF "gameid" column using the list of game IDs</span>
+        <span class="n">id_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span>
+            <span class="n">id_list</span> <span class="o">+=</span> <span class="p">[</span><span class="n">game</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
+        <span class="n">dfidx_end</span> <span class="o">=</span> <span class="n">dfidx_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
+
+        <span class="c1"># Make the request with the list of all game IDs that have ratings left</span>
+        <span class="n">id_strs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span> <span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span>
+        <span class="n">gameids</span> <span class="o">=</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">id_strs</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%s</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+        <span class="k">while</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%s</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>        
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
+        <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
+<span class="c1">#         print("Response status was %i - number of ratings retrieved was %i" % (r.status_code, len(comments)))</span>
+
+        <span class="c1"># Parse the response and assign it into the dataframe</span>
+        <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+        <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">comm</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+            <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span>
+            <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">])</span>
+            <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
+
+        
+        <span class="n">grp</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c1"># Decrement the number of FULL pages of each game id</span>
+        <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>     
+        <span class="n">pagenum</span> <span class="o">+=</span> <span class="mi">1</span>  
+    
+    <span class="c1"># Strip off the empty rows</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
+    <span class="c1"># Write this batch of all FULL pages of ratings for this chunk of games to the DB</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Processed ratings for batch #</span><span class="si">%i</span><span class="s2"> of games."</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>C:\Users\Sonya\Anaconda3\lib\site-packages\ipykernel\__main__.py:52: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Processed ratings for batch #0 of games.
+Processed ratings for batch #1 of games.
+Server Error! Response Code 504. Retrying...
+Processed ratings for batch #2 of games.
+Processed ratings for batch #3 of games.
+Server Error! Response Code 504. Retrying...
+Processed ratings for batch #4 of games.
+Processed ratings for batch #5 of games.
+Processed ratings for batch #6 of games.
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So that pulled all the full pages of ratings for all the games in our toy set. The final step is to pull the last partial page of ratings for every game individually. Keep in mind that we no longer know how many comment we'll receive from each response - this is why we need to request each game individually.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#############################################################</span>
+<span class="c1"># Request the final partial page of ratings for each game</span>
+<span class="c1">#############################################################</span>
+<span class="c1"># Restore the correct number of FULL pages</span>
+<span class="n">df_toy</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Round DOWN to nearest 100, then divide by 100</span>
+
+<span class="c1"># Initialize a DF to hold all the responses over all the chunks of games</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">,</span> <span class="s2">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+
+<span class="c1"># Initialize indices for writing to the ratings dataframe</span>
+<span class="n">dfidx_start</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">dfidx</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="c1"># Loop through game-by-game and request the final page of ratings for each game</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># Get the game ID and the last page number to request</span>
+    <span class="n">pagenum</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">gameid</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span>
+    
+    <span class="c1"># Make the request for just the last page of ratings of this game</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+    <span class="k">while</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
+<span class="c1">#         print("Response status was %i - length of comments is %i" % (r.status_code, len(comments)))</span>
+
+    <span class="c1"># Set the next chunk of the DF "gameids" column with this gameid</span>
+    <span class="n">id_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">gameid</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
+    <span class="n">dfidx_end</span> <span class="o">=</span> <span class="n">dfidx_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
+
+    <span class="c1"># Parse the response and assign it into the dataframe</span>
+    <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
+    <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">comm</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
+        <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span>
+        <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">])</span>
+        <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
+
+    <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>   <span class="c1"># Increment the starting index for next round        </span>
+
+    <span class="k">if</span> <span class="n">idx</span><span class="o">%</span><span class="k">100</span> == 0:
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"Finished with a chunk of 100 games."</span><span class="p">)</span>
+        
+<span class="c1"># Strip off the empty rows</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
+
+<span class="c1"># Write this final batch of all partial pages of ratings for this chunk of games to the DB</span>
+<span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [62]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save our changes and close the connection</span>
+<span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Inspecting-the-Ratings-Data">Inspecting the Ratings Data<a class="anchor-link" href="#Inspecting-the-Ratings-Data">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>That's it! Now all the ratings from our toy data set (board games with between 1k and 2k ratings) are stored in our database. Let's open the connection to the DB back up and read it all out into a pandas DF (since it's just the toy set, we can handle it).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [63]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data"</span> <span class="o">+</span> <span class="s2">";"</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
+<span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[63]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>gameid</th>
+<th>username</th>
+<th>rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>133545</th>
+<td>183880</td>
+<td>cjs65</td>
+<td>7.0</td>
+</tr>
+<tr>
+<th>1153233</th>
+<td>171905</td>
+<td>soccastar001</td>
+<td>8.0</td>
+</tr>
+<tr>
+<th>754653</th>
+<td>41569</td>
+<td>CorinnaS</td>
+<td>7.0</td>
+</tr>
+<tr>
+<th>1022434</th>
+<td>154182</td>
+<td>aeroflynn</td>
+<td>6.0</td>
+</tr>
+<tr>
+<th>310315</th>
+<td>98315</td>
+<td>Clockpunk</td>
+<td>8.0</td>
+</tr>
+<tr>
+<th>1152731</th>
+<td>6738</td>
+<td>edwardchow</td>
+<td>5.5</td>
+</tr>
+<tr>
+<th>251262</th>
+<td>62220</td>
+<td>liuyun0918</td>
+<td>4.0</td>
+</tr>
+<tr>
+<th>1060709</th>
+<td>20055</td>
+<td>Marechallannes</td>
+<td>9.0</td>
+</tr>
+<tr>
+<th>449232</th>
+<td>31920</td>
+<td>rmjordan</td>
+<td>5.0</td>
+</tr>
+<tr>
+<th>1046964</th>
+<td>2535</td>
+<td>Hugh_G_Rection</td>
+<td>8.5</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Sanity-Check---Do-Our-Ratings-Distributions-Agree-with-Server-Stats?">Sanity Check - Do Our Ratings Distributions Agree with Server Stats?<a class="anchor-link" href="#Sanity-Check---Do-Our-Ratings-Distributions-Agree-with-Server-Stats?">¶</a></h3><p>Here's a good sanity check, let's make sure our distribution of ratings for a few games looks like the BGG distribution of ratings on the pages for those games.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [106]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">999</span><span class="p">)):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="p">[</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">]</span>
+    <span class="n">nm</span> <span class="o">=</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">__</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> (</span><span class="si">%i</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">game</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Our Data: Mean = </span><span class="si">%.2f</span><span class="s2">. StdDev = </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+    
+    <span class="c1"># Request actual stats from the server to compare with scraped data</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&stats;=1"</span> <span class="o">%</span> <span class="p">(</span><span class="n">game</span><span class="p">,))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s2">"stddev"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"value"</span><span class="p">])</span>
+    <span class="n">mn</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s2">"average"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"value"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Server Stats: Mean = </span><span class="si">%.2f</span><span class="s2">. StdDev = </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">mn</span><span class="p">,</span><span class="n">std</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&apos;Star Realms: Crisis – Heroes&apos;] Our Data: Mean = 7.04. StdDev = 1.42
+[&apos;Star Realms: Crisis – Heroes&apos;] Server Stats: Mean = 7.03. StdDev = 1.41
+["War of the Ring Collector&apos;s Edition"] Our Data: Mean = 8.63. StdDev = 2.20
+["War of the Ring Collector&apos;s Edition"] Server Stats: Mean = 8.62. StdDev = 2.21
+[&apos;Quelf&apos;] Our Data: Mean = 5.44. StdDev = 2.02
+[&apos;Quelf&apos;] Server Stats: Mean = 5.44. StdDev = 2.02
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7sAAAEOCAYAAABIAgAZAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xu8XFV99/HPFwi3ACKXGKJAuJS7RlQQIchRH5CrFUPb
+FBArlEqtt4ptBVTCrdDapyptFZoHkIsgV/GKaJEjIqAIFERQIIQkQDgkIUIgJATye/5Ya3J2JjNn
+5pzZcy4z3/frNa/Zsy9rrz2z92/22mvttRURmJmZmZmZmXWStUY6A2ZmZmZmZmZlc2HXzMzMzMzM
+Oo4Lu2ZmZmZmZtZxXNg1MzMzMzOzjuPCrpmZmZmZmXUcF3bNzMzMzMys43R0YVfSSklLJJ010nlp
+N0nb5u0d9b+ppKMl/biJ+b4h6bThyNNYIen4vE+vlLT9APP9s6RPDWfeyibpE5LOG+l8DIexGqsk
+HSlprqQXJE1pYv4DJM0bprxtnfOl4VjfYBSPX0mXSDpzpPM0HKr/pyT9SNKHB5i/rf8Bkm6R9LKk
+2waYZ11Jv5P0hnblowzdFC/NzAZj1BeMWhTAWyLii7Dqj3Z2ZaKkqZJ+KemPkhZK+oWkt+dpH5H0
+izIzk0/0XssnYM9LeljSX5W4ihF5aLKk90v6ed6uPkm3Sjqi3vwRcWVEHNwo3Yj424g4p9zcJvUu
+DozGE8/8fb4bICIujoiNGeC3lrQF8GHgwvx5nKRrJc3O2/zuGsu8Lf+GSyTNl/TJqumflvS4pBfz
+id+OefwpeZkX8muppFclbZanryvp4ry/Py3p76vSfa+ke/L0xySdWJg8Ezgmb0+nqxur8u+2jaR9
+qgtvkmbWGPffkr4+TPn+MvDxiNgkIu6vnljnokwpcSrH6Ffz9v9R0n2SDlu1koh5OV9tiYuS9pb0
+Q0mL8//HXYOI56XmqYz/q5zGJUNY7ol83L9QiAXnD7DIqm2PiEMj4vLC+lfbhrL+A3LaF1efA0TE
++4CTGiz+N8DPI6KvkF7deJnX8TNJL0l6SNL7CtMmSvqupKfysbFNVT4vkbS86rtUnra5pNvzvrZY
+6dxl38Li3RQvrQGN8AVUSadLurzwue6FUUkz8rnFa9XnZFXzXSnpA+3Md6skvVnSL0c6H7a6Ti/s
+Kr+KAkDSxsD3ga8BrwfeCJwBLC8sO+QTEklr15n0VD4Bex3wWWCmpD8Z6npGmqSjgGuAbwJvjIg3
+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
+SX72pJmZmVmJGhZ2JY0DziUVVK+LiB2B3YAlpC7lTx1g8ctI93fsPUD6ewLH5PQ/FRG7kU7+AA6Q
+9MEmtsPMbFi0GBMvAnaMiJ0jYlfgc3n8eODI9uXazMzMrPs0U7O7F7BFHr4BICLmA3eRGrgfXG/B
+iFgcEcsapH9IYfiG/P5DoLJc3fTNzEZAKzHx7IiYXRj108Lw8pLzaWZmZtbVminsbl0YfrYwXOmt
+r9Wmd2ukH+mu7oUlpW9mVqYyY+LJ+X0hcG0rmTIzMzOz1a3TwrLt7gWwYfozZsxYNdzT00NPT08b
+s2Nmo01vby+9vb0jnY2KpmNibgp9EenRH88DH4yIRfXmd6wz626jLNaZmY0ZDR89JGlf4HbS/WlH
+R8TVefzNwIHAIxGxS4M0xpPuZwvgjIg4szDtVODsPG1SfpC5SB24rAfMjIiTqtJzF/Udzt3nt5Ze
+Nx4bw/U4jlZjoqTNgRuB/YCngMMi4oE68zrWmdXhRw/50UO2Op87jZb0xkYsGQuG69FDd9Pfm/K0
+vOJJwD6kveKmPO4WSQ9LOqdWXgdI/8eF4Wn5/XBg/RrTzcxG2pBjoqRdgV+TCrr3Ae+sV9A16zQT
+J05GUmkvMzOzRhrW7AJIOhG4gFRonQ1sTupl+VlgSq6NnU26V+3SiDg+L3ck8OWczPb5fTHwHPCr
+iDg2z/ctYDrpRPERYAdSE+vbIuI9NfLjK4AdzlcnW0uvG4+N4aztaCEm/h7YKSfzIKkFS8XMiLi4
+aj2OddYxRndcT+mNhWPNNbudY+LEyfT1zSk51dF6jI3+4981u6NPGfGuqXt2I2KmpBdJj8nYldRT
+8vXAKRHRVz17YXgTYLuq8Zvm19zCfMeRCrnHkQrFC0idtXyx6S0xMxsmLcTEdQufd6+a76Z25NXM
+zEanVNAtu8BmZkVN1eyONt16BbCbjO4agNGct5ReNx4bru0wG91Gd1xP6Y2FY82xrnOMhWOim86d
+XLM7+gzXPbtmZmZmZmZmY4oLu2ZmZmZmZtZxXNg1MzMzMzOzjuPCrpmZmZmZmXUcF3bNzMzMzMys
+47iwa6WYOHEykkp7mZmZmZmZtaKp5+yaNeJnxZmZmZmZ2Wjiml0zMzMzMzPrOC7smpmZmZmZWcdx
+YdfMzMzMzMw6jgu7ZmZmZmZm1nFc2DUzMzMzM7OO48KumZmZmZmZdRwXds3MzMzMGpg4cTKSSnuZ
+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
+uKHuGnvU/F3gmK73l3X9ES+tu75Jal6cQ/tB0qMBmhyKP8vL83lgcddwAfvVXV+Pesf+Sd6d38/v
+Wn9vrLGut5FayHzTJCFzYtfwr+ZhZ3YNO6th9b4d+Cbwlvx+Hul+srFxl9S9LvTxGVuVd8660mt1
+1hVTl7OuYZ2zrpKanXXl1dvIrMu1tCbvqsi6tlzGfBIw9lX1KoCIeBF4mLQRnF5TXZOKiGsjYkPX
+oD909e+qup7pSNoLuA14HTiXtAI12TmkRjOeBVbmS0ieAL4SETvrLa2nB/LrZyQ9DqwDDgT+BFxX
+V1ERsW2a5XVGV/+q/HoX6QwgVLztTVdvRIxExI8i4pX8fhRY3TVK47a9HlqVd8660jnrCuCsayRn
+XYmcdaVrZNZBu/Kuiqzr5zm7TXBUV//mrv6xFgMXVVjLbF2eX7cAd9RZyCSWk/7xnBsRz0nNfeSd
+pMNIl7sEcAppnRgBjgV+KmleRNxYY4m9XJxfv0SqE9JlG2tJzy1sqj22vYgISVuAI2n4tpfvPRlb
+9vdHxJN11tOntueds64gzrpKOeuq56wr13KcdWVqa9ZBi/NuNlnXlm92J9PcLTeTNF/SCuB80uUN
+Z0VEozYCSR8CvgXcGhG/qruePnSfpNlCeqzBe4CHSOvE1+ooahqXkQLxYdIlGe8j3Zt0MXBDjXXN
+Vhu2vSNJZ16PJ937s6zeigbW6GXurCuFs65+jd7uwFlXNWddKZx1zdD0bW9WWdeWg92NXf0LevQ/
+X2EtfZN0CHAf6Zl0LwCnRsRD9VbV0/HAXsA5kl6V9CrjZ3XOzsMOrK+8PbxEOnsG8HRE7MiXNTyS
+hx1dS1WTkLQ/6XmDAdwZEVsiYh1wfx7ltNqKm94e257S6eFD8rCmbnsfBP4MLAH+CJwSEZunnqox
+Wpd3zrrSOOuq46yrnrOuPM66ErU866CFeTdI1rXlYHcN45cELAWQdARwMmlFu7umuiYl6VjSH+Vj
+pIevfzQi1tZb1ZQC2Bc4IHdj5gH706CzPRHxOtAh1fTe3Pz7PNIN95BaSmySAxg/a3kSgKR9gA/k
+Yf+po6gJJvv73tPVvzS/nklqTGDiz6s06foo6WzSmb+FpPuVTouIl6sqrACtyjtnXXmcdaVw1jWH
+s65czrrytCHroF15V17WVdXa1qAdcBHjTU2vB17O/ZuAhXXX16PeJxlvgnwt6VKMse6Cuuvro/6x
+JtSb2mrfh4H/5nViE6lBg1pazeyz3k7X+vsM6YzwWL2X11jX2bmeseb+R0k7H+uAW/I4t+U6Xyc1
+T78rv1/dtHpJLXmODX9twnb3EHBC3etCn5+zNXnnrCu9PmddMXU56xrYOesqrd9ZV2y9jcy6XFtr
+8q6KrGtLA1VExE2StgPfIN0IvpPU9PS3I2JTrcX1tg/prBrA+yf8rFFnK6cQjH+GRomIv0g6FbiW
+dBZ4b1LrbNdExANTTlyPzwFXkDbqd5Au11lDap7+5hrrOgg4JveP/a3fmruxy1jOB54GziPdR/MS
+qTGO71VX5humq7d7u5sHfKRr2sjTN17L8s5ZVyJnXWGcdQ3krKucs644Tc06aFfelZ51ykfVZmZm
+ZmZmZkOjLffsmpmZmZmZmfXNB7tmZmZmZmY2dHywa2ZmZmZmZkPHB7tmZmZmZmY2dHywa2ZmZmZm
+ZkPHB7tmZmZmZmY2dHywa2ZmZmZmZkPHB7tmZmZmZmY2dHywa2ZmZmZmZkPn/+ERQzGLoOINAAAA
+AElFTkSuQmCC
+">
+</img></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I am confident now that we didn't do anything wildly wrong when gathering the ratings data!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Restricting-to-Users-with-&gt;-10-Ratings">Restricting to Users with > 10 Ratings<a class="anchor-link" href="#Restricting-to-Users-with-&gt;-10-Ratings">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To build our recommender system let's start by only keeping users who rated at least 10 of these games.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [115]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A nifty and somewhat fault-tolerant way of constructing long SQL queries</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
+    <span class="s2">"SELECT username"</span><span class="p">,</span>
+    <span class="s2">"FROM (SELECT username, count(*) as freqn FROM data GROUP BY username)"</span><span class="p">,</span>
+    <span class="s2">"AS tbl WHERE freqn > 10"</span><span class="p">,</span>
+<span class="p">))</span>
+
+<span class="n">users</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
+<span class="n">users</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[115]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>username</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>23795</th>
+<td>pedro_pete</td>
+</tr>
+<tr>
+<th>5630</th>
+<td>JawnMan</td>
+</tr>
+<tr>
+<th>19136</th>
+<td>hurkle</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [120]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s2">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">str_matching</span> <span class="o">=</span> <span class="s2">"("</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span>  <span class="c1"># Construct the string of SQL language</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s2">";"</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
+<span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt output_prompt">Out[120]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>gameid</th>
+<th>username</th>
+<th>rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>458023</th>
+<td>1822</td>
+<td>tmarozas</td>
+<td>7.5</td>
+</tr>
+<tr>
+<th>911991</th>
+<td>152</td>
+<td>DangerMouse</td>
+<td>5.0</td>
+</tr>
+<tr>
+<th>826663</th>
+<td>392</td>
+<td>spindisc</td>
+<td>7.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is starting to look good as the raw data for a simple recommender system! Let's do one last calculation on the sparsity of this ratings data. If every user in our toy set rated every movie in our toy data we'd have a sparsity of 100%. Instead we have:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [123]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">actual_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Sparsity of Ratings Data is </span><span class="si">%.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">actual_n_ratings</span><span class="o">/</span><span class="n">max_n_ratings</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Sparsity of Ratings Data is 3.62%
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Note-on-Requesting-Collections-----Request-gets-Queued">Note on Requesting Collections  -  Request gets Queued<a class="anchor-link" href="#Note-on-Requesting-Collections-----Request-gets-Queued">¶</a></h3><p>I haven't tried to query and collections info with the API, but I just wanted to includ this note for future work. See <a href="https://boardgamegeek.com/thread/1188687/export-collections-has-been-updated-xmlapi-develop">forum post</a>. You just keep re-running the query until you don't get a "Your request has been queued" response.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r3</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/collection?username=odo_ital&rated;=1"</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+<span class="n">r3</span><span class="o">.</span><span class="n">text</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
