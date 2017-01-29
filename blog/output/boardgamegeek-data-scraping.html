@@ -52,7 +52,7 @@
 	<meta property="og:type" content="article">
 	<meta property="article:author" content="">
 	<meta property="og:url" content="./boardgamegeek-data-scraping.html">
-	<meta property="og:title" content="Boardgame Data with Scraping and API Requests in Python">
+	<meta property="og:title" content="Building a boardgamegeek.com Data Set with Scraping and APIs in Python">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="./">
 	<meta property="article:published_time" content="2017-01-10 13:30:00-05:00">
@@ -92,7 +92,7 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="post-heading">
-                        <h1>Boardgame Data with Scraping and API Requests in Python</h1>
+                        <h1>Building a boardgamegeek.com Data Set with Scraping and APIs in Python</h1>
                         <span class="meta">Posted by
                                 <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
                              on Tue 10 January 2017
@@ -185,8 +185,11 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">In which I am continually distracted from scraping board game info by the board games themselves.<a class="anchor-link" href="#In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">¶</a></h1><p><a href="https://boardgamegeek.com/">Boardgamegeek.com</a> (BGG) is an online community for board game enthusiasts that provides social network features as well as a huge database of board games with ratings, comments, statistics, and other features of each game. Now, I quite like board games, especially the more complex Euro-style games (like Settlers of Catan and Ticket to Ride). But what I <em>really</em> like is a gigantic steaming pile of data like this site. BGG also has a (recently improved) API so we can mostly avoid the heartache of trying to parse HTML from a page in the wild.</p>
-<p>Once I have all this data I'm going to fill a pool with it and swim around Scrooge McDuck style. Or maybe I'll analyze it. Ultimately I'm going to try my hand at a recommender system both for games and for finding friends on the site (known as GeekBuddies). I want to do some basic exploratory analysis too though. Don't you want to know if board games are getting easier or harder over the last few years? How the popularity of different game categories has changed over time? What people actually do when presented with 10-star rating system... is the average rating a 5???</p>
+<h1 id="In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">In which I am continually distracted from scraping board game info by the board games themselves.<a class="anchor-link" href="#In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">¶</a></h1><p><em>This is part 1 of a series of posts about a recommender system deployed as a web app. In [part 2] I build out the actual recommender algorithm from my scraped data. In [part 3] I talk about actually implementing the app using the <code>web2py</code> framework and the <code>d3.js</code> library.</em></p>
+<p><a href="https://boardgamegeek.com/">Boardgamegeek.com</a> (BGG) is an online community for board game enthusiasts that provides social network features as well as a huge database of board games with ratings, comments, statistics, and other features of each game. Now, I quite like board games, especially the more complex Euro-style games (like Settlers of Catan and Ticket to Ride). But what I <em>really</em> like is a gigantic steaming pile of data like this site. BGG also has a (recently improved) API so we can mostly avoid the heartache of trying to parse HTML from a page in the wild.</p>
+<p>So what would I do with all this data, besides fill a pool with it and swim around Scrooge McDuck style? My idea was to make a recommender system tool for helping people find more "GeekBuddies" on the site: you input your user name and get a visualization of your GeekBuddy social graph out to two-degrees of separation (friends-of-friends) where 2nd-degree connections are colored according to some metric of similarity with the user. I was picturing something very fancy like this:
+<img src="https://maxdemarzidotcom.files.wordpress.com/2012/02/network.png?w=580&amp;h=478" width="250"></image></img></p>
+<p>The first step seemed to be actually, you know, getting the data, and that is what this post is about!</p>
 <blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
 <li><code>requests</code> package for retrieving HTML pages and using APIs</li>
 <li><code>bs4</code> package for parsing HTML and XML documents</li>
@@ -253,12 +256,36 @@
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sometimes a server will spazz out and flub your request or sometimes your connection will blink out in the middle of reading a response, so it's good to wrap <code>requests.get()</code> in something a little more fault tolerant:</p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">text</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
+    <span class="c1"># Sleep to make sure you are not pinging the server to frequently</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+    <span class="c1"># Keep trying requests until status-code is 200</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="k">while</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">status_code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+            <span class="k">if</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">"Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"An exception has occurred, probably a momentory loss of connection. Waiting three seconds..."</span><span class="p">)</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
 </pre></div>
 </div>
 </div>
@@ -276,7 +303,7 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize a DF to hold all our scraped game info</span>
@@ -287,8 +314,8 @@
 <span class="c1"># Scrap successful pages in the results until we get down to games with < 1000 ratings each</span>
 <span class="k">while</span> <span class="n">min_nrate</span> <span class="o">></span> <span class="mi">1000</span><span class="p">:</span>
     <span class="c1"># Get full HTML for a specific page in the full listing of boardgames sorted by </span>
-    <span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"https://boardgamegeek.com/browse/boardgame/page/</span><span class="si">%i</span><span class="s2">?sort=numvoters&sortdir;=desc"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,))</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"html.parser"</span><span class="p">)</span>    
+    <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">"https://boardgamegeek.com/browse/boardgame/page/</span><span class="si">%i</span><span class="s2">?sort=numvoters&sortdir;=desc"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"html.parser"</span><span class="p">)</span>    
     
     <span class="c1"># Get rows for the table listing all the games on this page</span>
     <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"tr"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="s2">"row_"</span><span class="p">})</span>  <span class="c1"># Get list of all the rows (tags) in the list of games on this page</span>
@@ -325,25 +352,25 @@
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Page 1 scraped, minimum number of ratings was 12941
-Page 2 scraped, minimum number of ratings was 8615
-Page 3 scraped, minimum number of ratings was 6191
-Page 4 scraped, minimum number of ratings was 4761
-Page 5 scraped, minimum number of ratings was 3873
-Page 6 scraped, minimum number of ratings was 3294
-Page 7 scraped, minimum number of ratings was 2828
-Page 8 scraped, minimum number of ratings was 2452
-Page 9 scraped, minimum number of ratings was 2197
-Page 10 scraped, minimum number of ratings was 1973
-Page 11 scraped, minimum number of ratings was 1757
-Page 12 scraped, minimum number of ratings was 1619
-Page 13 scraped, minimum number of ratings was 1456
-Page 14 scraped, minimum number of ratings was 1336
-Page 15 scraped, minimum number of ratings was 1247
-Page 16 scraped, minimum number of ratings was 1163
-Page 17 scraped, minimum number of ratings was 1093
-Page 18 scraped, minimum number of ratings was 1013
-Page 19 scraped, minimum number of ratings was 951
+<pre>Page 1 scraped, minimum number of ratings was 13045
+Page 2 scraped, minimum number of ratings was 8634
+Page 3 scraped, minimum number of ratings was 6259
+Page 4 scraped, minimum number of ratings was 4780
+Page 5 scraped, minimum number of ratings was 3898
+Page 6 scraped, minimum number of ratings was 3323
+Page 7 scraped, minimum number of ratings was 2843
+Page 8 scraped, minimum number of ratings was 2481
+Page 9 scraped, minimum number of ratings was 2207
+Page 10 scraped, minimum number of ratings was 1984
+Page 11 scraped, minimum number of ratings was 1771
+Page 12 scraped, minimum number of ratings was 1624
+Page 13 scraped, minimum number of ratings was 1460
+Page 14 scraped, minimum number of ratings was 1342
+Page 15 scraped, minimum number of ratings was 1256
+Page 16 scraped, minimum number of ratings was 1171
+Page 17 scraped, minimum number of ratings was 1099
+Page 18 scraped, minimum number of ratings was 1021
+Page 19 scraped, minimum number of ratings was 956
 </pre>
 </div>
 </div>
@@ -352,7 +379,7 @@ Page 19 scraped, minimum number of ratings was 951
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -367,7 +394,7 @@ Page 19 scraped, minimum number of ratings was 951
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -385,35 +412,35 @@ Page 19 scraped, minimum number of ratings was 951
 <th>0</th>
 <td>13</td>
 <td>Catan</td>
-<td>64574</td>
+<td>64963</td>
 <td>//cf.geekdo-images.com/images/pic2419375_mt.jpg</td>
 </tr>
 <tr>
 <th>1</th>
 <td>822</td>
 <td>Carcassonne</td>
-<td>63809</td>
+<td>64197</td>
 <td>//cf.geekdo-images.com/images/pic2337577_mt.jpg</td>
 </tr>
 <tr>
 <th>2</th>
 <td>30549</td>
 <td>Pandemic</td>
-<td>58328</td>
+<td>58807</td>
 <td>//cf.geekdo-images.com/images/pic1534148_mt.jpg</td>
 </tr>
 <tr>
 <th>3</th>
 <td>36218</td>
 <td>Dominion</td>
-<td>53488</td>
+<td>53785</td>
 <td>//cf.geekdo-images.com/images/pic394356_mt.jpg</td>
 </tr>
 <tr>
 <th>4</th>
 <td>68448</td>
 <td>7 Wonders</td>
-<td>48593</td>
+<td>48945</td>
 <td>//cf.geekdo-images.com/images/pic860217_mt.jpg</td>
 </tr>
 </tbody>
@@ -426,7 +453,7 @@ Page 19 scraped, minimum number of ratings was 951
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Number of games with > 1000 ratings is approximately </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),))</span>
@@ -440,7 +467,7 @@ Page 19 scraped, minimum number of ratings was 951
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Number of games with > 1000 ratings is approximately 1900
-Total number of ratings from all these games is 7544367
+Total number of ratings from all these games is 7593766
 </pre>
 </div>
 </div>
@@ -458,13 +485,13 @@ Total number of ratings from all these games is 7544367
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"LOG(# Ratings)"</span><span class="p">,</span> <span class="s2">"Count"</span><span class="p">,</span> <span class="s2">"Distribution of LOG(# Ratings)"</span><span class="p">)</span>
-<span class="n">__</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">__</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -473,196 +500,192 @@ Total number of ratings from all these games is 7544367
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-303ANq0EEBHPRsTLPRTZvbB8ZX6+Dqjt87665wcjonbNuSvy8zLAzq3EZWZmA6eZ5LMGMLPJ+mYB
-q/c9nIbWLyzPBIiIAGbndeML5YLFY+0qLI/HzMwGhWaSzwvAmk3WNwZY4rpvA6SZa+77uvxmZoNQ
-M1Ot7yZNCPheE2V3ZdFtFtplemF5LNCldBeyMXndY4Vyb8xliuWpK7eYSZMmvb7c0dFBR0dH/6K1
-NvHN5swGi87OTjo7O9taZzPJ50rge5I+0NPVC/K9fnYFvtTHWLr7pLkBOCEv7wucAewJLE/qZru+
-UG4XYFNJW0bEXSyamPAqcGOjyovJxwYT32zObLAofjGfPHlyW+psptvtLOAh4FJJJ0qaUNwoaYKk
-E4BLgQdy+aZJ2kfSQ8CdtVXAEZIelHRhRNwBXJK3nSbpHuBy0ifTlEJCPAt4MO//F0n3AUfmct+O
-iFmtxGVmZgOn15ZPRLwkaQ/gWuBrpGnLz5PGglYhTZMWcD+wZy8z1xoZzaLL9NS+6q6WH7WusoNI
-ie1AYCPSxIbLSHdTrcU5V9KOwEnAHsAE4D7gzIg4vcWYzMxsADV1eZ2IeEjS1sAhpK6sNwPjgOeB
-P5CmNP80Il5qNYCIOJ90E7qeyrwGTM6Pnsp1AQe3GoOZmZWr6Wu75RbN6flhZmbWZ63eTM7MzKzf
-nHzMzKx0Tj5mZlY6Jx8botJJqN09xo2bUHWAZtaDPt1Mzqx6PgnVbChzy8fMzErn5GNmZqVz8rFh
-ymNCZoOZx3xsmPKYkNlg5paPmZmVzsnHzMxK5+RjZmalc/IxM7PSOfmYmVnpnHzMzKx0Tj42Qvk8
-ILMq+TwfG6F8HpBZldzyMTOz0jn5mJlZ6Zx8zMysdE4+ZmZWOicfMzMrnZOPmZmVzsnHzMxK5+Rj
-Zmalc/IxM7PSOfmYmVnpnHzMzKx0Tj5mZlY6Jx8zMyudk4+ZmZXOycfMzErn5GPWonHjJvhGdGb9
-NCSSj6TjJC1s8FggaVQus3QuN1XSfEnTJZ0iaeWq47fhpavrUdKN6Bo/0nYz68lQu5PpLGBq4XXt
-Px7gXGB/YAHwILARcASwFfCeEmM0M7NeDImWT8F1EbFD4fGuiAhJ25ASTwBfiIg3AfvlfSZK2ruy
-iG2IWq7bbjUz67+hlnz2kzRP0pOSrpW0dV6/e6HMlfn5OuDlvPy+0iK0YWI+3XetmVl/DaXk8xrw
-FPAIsDbwfuBPOQGtXyg3EyAiApid140vMU4zM+vFUBnzuQj4QUQ8ByBpV+A3wHLAYaRxnkZ67SOZ
-NGnS68sdHR10dHT0M1Qzs+Gls7OTzs7Ottap1EAYeiTNAtYAfgvcDJxI6hNZNyK6lDrn55IS1E8i
-4tC6/QNgqB7/7bffzs47f5o5c27vpsRFwAH03E2kCrdX+d793d77vkP178qsN7Vxz4jo1wDokOh2
-k/RFSesUXu8KjMkvp5FaQTX75uc9geXz8g0DHaPZIt1PVvB5QGbJkEg+pCnTj0uaJuluUjIJUsvm
-lIi4A7gklz1N0j3A5bnMlIj4ZRVB20jV02QFnwdkBkMn+ZwI/I40RrUhqbXzM+CtEXF/LnMgcDzw
-KOkcn1nAacB/lB2smZn1bEhMOIiInwI/7aXMAmByfpiZ2SA2VFo+ZmY2jDj5mJlZ6Zx8zMysdE4+
-ZmZWOicfMzMrnZOPWen6dxJqbzezW2qplXySqw16Q2KqtdnwUjsJtbGurp6vWrLoZnaNLVzY8+V/
-eqvfrAxOPmaDznK+b5ANe04+ZoNOzy2jJi7WbjboeczHzMxK5+RjZmalc/IxM7PSOfmYmVnpnHzM
-zKx0Tj5mZlY6Jx8ze11vV0/w1RGsXXyej5m9rrerJ/jqCNYubvmYmVnp3PIxG3F8+R6rnpOP2YjT
-0+V7nJSsHO52MzOz0jn5mJlZ6Zx8zKxtPFXbmuUxHzNrG0/Vtma55WNmZqVz8jEzs9I5+ZiZWemc
-fMzMrHROPmZmVjonHzMzK52Tj5m1YLkez+PpL58nNHL4PB8za0FP14WD/l4bzucJjRxu+ZiZWemG
-XfKR9BFJt0uaJ+lpSZdJ2rjquMwMBrrbzoaOYZV8JH0SuBjYGniSdHz7ArdIGltlbGYGi7rtunv0
-nceLhpZhk3wkLQOcRPoLvjwiNgHeBLwAjAW+XmF4NiA6qw5ggHVWHcAA62xrbYvGixo/0vbutTN5
-dXZ29vEoRo5hk3yA7YA18/KVABHxFPBn0ijo+yqKywZMZ9UBDLDOqgMYYJ192Kf7brv+amfy2mmn
-ndzy6sVwSj7rF5ZnFpa78vP4EmMxswHRU7ddbwZ2vGnx5HXcEvH1lrxGGkX0r591sJD0YeAS0m96
-l4i4Ka+/ENgfeDkiViyUHx4HbmZWgYjoV8YeTi2f6YXlsQ2WHysxFjMz68FwOsn0NuBpYA3SDLdf
-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
+<img src="data:image/png;base64,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
 ">
 </img></div>
 </div>
@@ -680,11 +703,11 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Getting the ratings of specific board game (each is in a "comment" div)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=213578&ratingcomments;=1"</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=213578&ratingcomments;=1"</span><span class="p">)</span>
 <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
 <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
 <span class="n">comments</span>
@@ -694,7 +717,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>[<comment rating="10" username="naruko" value="" />,
  <comment rating="10" username="JavierKensei" value="" />,
@@ -713,7 +736,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"username"</span><span class="p">]</span>
@@ -723,7 +746,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre>&apos;naruko&apos;</pre>
 </div>
@@ -764,7 +787,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Dropping the 20 most-rated games would give a total number of ratings of 2575838
+<pre>Dropping the 20 most-rated games would give a total number of ratings of 2592934
 </pre>
 </div>
 </div>
@@ -787,7 +810,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Thresholding at 2000 ratings gives 915 games and 1243235 total ratings
+<pre>Thresholding at 2000 ratings gives 911 games and 1242793 total ratings
 </pre>
 </div>
 </div>
@@ -796,7 +819,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [46]:</div>
+<div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Restrict the data set to fewer games that have fewer ratings (our toy data set!)</span>
@@ -818,18 +841,19 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [47]:</div>
+<div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare a "# of FULL pages of ratings" column to track # API calls needed</span>
 <span class="n">df_toy</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Round DOWN to nearest 100</span>
+<span class="n">df_toy</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
@@ -845,52 +869,44 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </thead>
 <tbody>
 <tr>
-<th>1672</th>
-<td>31638</td>
-<td>Memoir '44: Air Pack</td>
-<td>1112</td>
-<td>//cf.geekdo-images.com/images/pic244022_mt.jpg</td>
-<td>11</td>
+<th>162</th>
+<td>438</td>
+<td>Scotland Yard</td>
+<td>9996</td>
+<td>//cf.geekdo-images.com/images/pic172295_mt.jpg</td>
+<td>99</td>
 </tr>
 <tr>
-<th>1524</th>
-<td>310</td>
-<td>Wizard's Quest</td>
-<td>1225</td>
-<td>//cf.geekdo-images.com/images/pic157002_mt.jpg</td>
-<td>12</td>
+<th>163</th>
+<td>164153</td>
+<td>Star Wars: Imperial Assault</td>
+<td>9986</td>
+<td>//cf.geekdo-images.com/images/pic2247647_mt.jpg</td>
+<td>99</td>
 </tr>
 <tr>
-<th>1044</th>
-<td>156776</td>
-<td>Warhammer 40,000: Conquest</td>
-<td>1891</td>
-<td>//cf.geekdo-images.com/images/pic2079275_mt.jpg</td>
-<td>18</td>
+<th>164</th>
+<td>66690</td>
+<td>Dominion: Prosperity</td>
+<td>9965</td>
+<td>//cf.geekdo-images.com/images/pic1747320_mt.jpg</td>
+<td>99</td>
 </tr>
 <tr>
-<th>1003</th>
-<td>115098</td>
-<td>Quarriors! Quarmageddon</td>
-<td>1964</td>
-<td>//cf.geekdo-images.com/images/pic1178902_mt.jpg</td>
-<td>19</td>
+<th>165</th>
+<td>25669</td>
+<td>Qwirkle</td>
+<td>9865</td>
+<td>//cf.geekdo-images.com/images/pic309353_mt.jpg</td>
+<td>98</td>
 </tr>
 <tr>
-<th>1607</th>
-<td>87890</td>
-<td>Prêt-à-Porter</td>
-<td>1158</td>
-<td>//cf.geekdo-images.com/images/pic1055299_mt.jpg</td>
-<td>11</td>
-</tr>
-<tr>
-<th>988</th>
-<td>128667</td>
-<td>Samurai Sword</td>
-<td>1994</td>
-<td>//cf.geekdo-images.com/images/pic1411222_mt.jpg</td>
-<td>19</td>
+<th>166</th>
+<td>37380</td>
+<td>Roll Through the Ages: The Bronze Age</td>
+<td>9824</td>
+<td>//cf.geekdo-images.com/images/pic986758_mt.jpg</td>
+<td>98</td>
 </tr>
 </tbody>
 </table>
@@ -911,12 +927,12 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [50]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the database and make a cursor to talk to it.</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_toy.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
 <span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
 </pre></div>
 </div>
@@ -925,7 +941,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [48]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#############################################################</span>
@@ -957,11 +973,11 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
         <span class="n">id_strs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span> <span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span>
         <span class="n">gameids</span> <span class="o">=</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">id_strs</span><span class="p">)</span>
         <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%s</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
-        <span class="k">while</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-            <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%s</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>        
+        <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%s</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+<span class="c1">#         while r.status_code != 200:</span>
+<span class="c1">#             sleep(2)  # Keep the server happy</span>
+<span class="c1">#             print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
+<span class="c1">#             r = requests.get("http://www.boardgamegeek.com/xmlapi2/thing?id=%s&ratingcomments;=1&page;=%i" % (gameids, pagenum))        </span>
         <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
         <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
 <span class="c1">#         print("Response status was %i - number of ratings retrieved was %i" % (r.status_code, len(comments)))</span>
@@ -981,6 +997,7 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
         <span class="n">grp</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c1"># Decrement the number of FULL pages of each game id</span>
         <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>     
         <span class="n">pagenum</span> <span class="o">+=</span> <span class="mi">1</span>  
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"pagenum updated to </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">pagenum</span><span class="p">,))</span>
     
     <span class="c1"># Strip off the empty rows</span>
     <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
@@ -988,34 +1005,6 @@ zMfMzErn5GNmZqVz8jEzs9I5+ZiZWemcfMzMrHROPmZmVrr/D1T0A9I/PYhGAAAAAElFTkSuQmCC
     <span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
     <span class="nb">print</span><span class="p">(</span><span class="s2">"Processed ratings for batch #</span><span class="si">%i</span><span class="s2"> of games."</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">))</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>C:\Users\Sonya\Anaconda3\lib\site-packages\ipykernel\__main__.py:52: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame.
-Try using .loc[row_indexer,col_indexer] = value instead
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-</pre>
-</div>
-</div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Processed ratings for batch #0 of games.
-Processed ratings for batch #1 of games.
-Server Error! Response Code 504. Retrying...
-Processed ratings for batch #2 of games.
-Processed ratings for batch #3 of games.
-Server Error! Response Code 504. Retrying...
-Processed ratings for batch #4 of games.
-Processed ratings for batch #5 of games.
-Processed ratings for batch #6 of games.
-</pre>
-</div>
 </div>
 </div>
 </div>
@@ -1097,7 +1086,7 @@ Processed ratings for batch #6 of games.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [62]:</div>
+<div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save our changes and close the connection</span>
@@ -1702,14 +1691,25 @@ AElFTkSuQmCC
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [120]:</div>
+<div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s2">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
 <span class="n">str_matching</span> <span class="o">=</span> <span class="s2">"("</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span>  <span class="c1"># Construct the string of SQL language</span>
 <span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s2">";"</span>
 <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
-<span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [120]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

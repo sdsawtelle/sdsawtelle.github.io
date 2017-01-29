@@ -32,7 +32,7 @@ Experience
 
 Skills
 ------
-**Programming:** Python, MATLAB, SQL, R, git, HTML/CSS
+**Programming:** Python, MATLAB, C++, SQL, R, git, HTML/CSS
 
 **Python SciPy Tools:** Pandas, Numpy, Matplotlib, Scikit-learn
 
@@ -47,3 +47,7 @@ Projects
 **[*Evening Sessions: Explorations in Data Science and Python* Blog](http://sdsawtelle.github.io/blog/output/index.html)** (2015-present)
 
 - Authored a series of articles covering a wide variety of topics and tools related to pure Python programming, data science and statistics.  
+
+**[GeekBuddy Social Graph and Buddy Finder](http://sdsawtelle.pythonanywhere.com)** (2017)
+
+- A web app that displays the social graph for a user in the www.boardgamegeek.com (BGG) community and color nodes by correlation to the user using boardgame ratings data.
