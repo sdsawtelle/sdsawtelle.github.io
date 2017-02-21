@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Evening Session</title>
+
+            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/github" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="python" />
+        <meta name="tags" contents="pythonanywhere" />
+        <meta name="tags" contents="web2py" />
+        <meta name="tags" contents="web apps" />
+
+
+			<meta property="og:locale" content="en">
+		<meta property="og:site_name" content="Evening Session">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./simple-web-app-web2py-pythonanywhere.html">
+	<meta property="og:title" content="Simple App Workflow with Web2py + Pythonanywhere + Github">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2017-02-15 13:30:00-05:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://sdsawtelle.github.io">SonyaSawtelle</a>
+				<a class="navbar-brand" href="https://sdsawtelle.github.io/blog/output/index.html">All Posts</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('./theme/images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Simple App Workflow with Web2py + Pythonanywhere + Github</h1>
+                        <span class="meta">Posted by
+                                <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
+                             on Wed 15 February 2017
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="In-which-the-simplest-possible-web-app-workflow-proves-almost-but-not-quite-too-challenging.">In which the simplest possible web app workflow proves almost-but-not-quite too challenging.<a class="anchor-link" href="#In-which-the-simplest-possible-web-app-workflow-proves-almost-but-not-quite-too-challenging.">¶</a></h1><p><em>This is part 3 of a series of posts about a recommender system deployed as a web app. In <a href="">part 1</a> I scrape and fetch all the data that my app will rely on. In <a href="">part 2</a> I build out the actual recommender algorithm from my scraped data.</em></p>
+<p><a href="https://boardgamegeek.com/">Boardgamegeek.com</a> (BGG) is an online community for board game enthusiasts that provides social network features as well as a huge database of board games with ratings, comments, statistics, and other features of each game. Previously I wrote some code to <a href="">collect data on user ratings</a> of games in the BGG database, and then <a href="">more code</a> to take those ratings and calculate similarities between users in order to recommend new "buddies". The next step was to take all that code and deploy it as a web app!</p>
+<p>The problem was that I had literally zero experience with web apps or interactive visualizations, and only noob-level experience with HTML and CSS. But it turns out the <code>web2py</code> web app framework and the kick ass javascript library <a href="https://d3js.org/">D3.js</a> were more than a match for my staggering ignorance. This post summarizes the simple setup and workflow to build this thing and take it live.</p>
+<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
+<li><code>web2py</code> pure-python framework for developing web applications</li>
+<li><code>pythonanywhere</code> web hosting service that integrates tightly with <code>web2py</code></li>
+<li><code>virtualenv</code> and <code>conda</code> environments</li>
+<li>using <code>git</code> to deploy from your machine to pythonanywhere servers</li>
+</ul>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="What-is-a-Web-App?-(in-approximately-30-seconds)">What is a Web App? (in approximately 30 seconds)<a class="anchor-link" href="#What-is-a-Web-App?-(in-approximately-30-seconds)">¶</a></h1><p><a href="https://www.youtube.com/watch?v=_cZC67wXUTs">The internet is a series of tubes.</a> Wait that's not it. The internet is the huge set of networked computers and a connection on the internet takes place between a "client" computer that wants some file or information (like you, wanting to view a web page), and a "server" computer that has it.</p>
+<p>Every computer on the internet is addressed by a unique IP number, and domain names, like "www.wikipedia.com", just map IP addresses to a more human-readable format. When you point your browser to a URL your computer sends out a packet of information containing that URL to your <em>Internet Service Provider</em> (ISP). Your ISP wants to route this packet to the physical computer associated with the domain name in the URL. To do this is has to check with the <em>Domain Name Service</em> (DNS) which maintains a catalogue of which domain names are associated with which physical IP addresses. When your packet arrives safely at the correct server, the server looks at the other parts of the URL (tacked on to the domain name) in order to figure out what it's supposed to send back to you. Anyone can rent available domain names from companies who manage them (<em>domain registrars</em>), and then let the DNS know what physical server (IP addres) should be associated with that domain for routing.</p>
+<p><strong>You can think of a web app as a controlling script for a server, which tells it what to do and how to reply, when it receives various URLs.</strong> So according to the above, to deploy a web app you need:</p>
+<ol>
+<li>A server that has instructions for sending back various stuff depending on what URL it receives</li>
+<li>A domain name that you legally rented, and which you have told the DNS to associate with the above server</li>
+</ol>
+<p>Now for some terminology: a <em>web framework</em> is some software that makes it easier for you to tell a server how it should behave upon receiving different URLs, and to set up all the necessary files for having the server do various things. A <em>web hosting service</em> is a company that owns a bunch of servers and will let you put your instructions on one of them. You can buy your own domain and associate it with this company's server, or often the company will provide a domain if you want. <strong>If you are a python user then the simplest solution to deploying a web app is the combo <code>web2py</code> framework + <code>pythonanywhere</code> host.</strong> Read on...</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Get-Web2py-Running">Get Web2py Running<a class="anchor-link" href="#Get-Web2py-Running">¶</a></h1><p>You have the option of either downloading a bundle for your operating system that includes a <code>web2py.exe</code> executable <a href="http://www.web2py.com/init/default/download">here</a>, or pulling the source directly from git which will instead include <code>web2py.py</code>. <strong>If you use the executable bundle it will include it's own python interpreter and will not have access to your local installation of python, including installed packages!</strong> That means, when using the executable, to import a python module in any of your web app files you will need to first copy that package folder from wherever it lives in your filesystem into /web2py/site-packages. Since this was kind of a deal breaker for me we're going the github route. (For the clone make sure to use the <code>--recursive</code> switch to also grab all the submodule dependencies.)</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">web2py</span><span class="o">/</span><span class="n">web2py</span><span class="o">.</span><span class="n">git</span> <span class="o">--</span><span class="n">recursive</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In the folder you just cloned you should see a <code>web2py.py</code> python file. <code>web2py</code> doesn't need to install anything on your computer, instead you just run <code>web2py.py</code> to start running a server locally on your computer so that you can build and test your app without having to actually deploy it. Each time you run this module you have to give it a password - just use whatever you feel like.  From command line do</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">web2py</span>
+<span class="n">python</span> <span class="n">web2py</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8000</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">"password"</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now whenever you point your browser to the "domain" <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a> your browser will be communicating with this local server! Check it out - by default it is serving out the "welcome" example that game with the git repo.</p>
+<p>You can make a new app just by making a new folder in <code>/web2py/applications/</code>. <strong>Name your app folder "init" so that <code>web2py</code> will serve it out by default instead of the "welcome" example.</strong> The details of what should go in this folder can be had from the web2py documentation, but a good place to start is just copying the contents of their example app <code>/applications/welcome</code>. <em>Side note, apparently the name of your web app folder can't have dashes in it?</em> Now try pointing your browser to <code>http://localhost:8000/init/default/index</code>. You can go find this specifc <code>index.html</code> page in the "Views" folder of your app: <code>/applications/init/views/default/index.html</code> - try making some changes to it and refreshing the page!</p>
+<p>The code that tells the server what HTML file it should return when a URL is visited is located in the "Controllers" folder of your app at <code>/applications/init/controllers/default.py</code>. You can open this up in your favorite text editor or python IDE. Exactly how this script defines the mapping between the URL received by the server and the resource it should send back can be had at the <code>web2py</code> documentation.</p>
+<p>You can actually edit all your web app files in web2py's nice browser interface, which also has a quick button for creating a new app. Just point your browser to <a href="http://localhost:8000/admin/default/index">http://localhost:8000/admin/default/index</a> and log in using the password you chose when you started your local server.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Sidenote that I don't really understand: sometimes after making changes to controller python files you will need to recompile the app for those changes to take effect:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">gluon.compileapp</span>
+<span class="n">gluon</span><span class="o">.</span><span class="n">compileapp</span><span class="o">.</span><span class="n">remove_compiled_application</span><span class="p">(</span><span class="s2">"applications/my_new_app"</span><span class="p">)</span>
+<span class="n">gluon</span><span class="o">.</span><span class="n">compileapp</span><span class="o">.</span><span class="n">compile_application</span><span class="p">(</span><span class="s2">"applications/my_new_app"</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Git-Tracking-Details">Git Tracking Details<a class="anchor-link" href="#Git-Tracking-Details">¶</a></h3><p>Remember how your web2py came from a cloned git repo? Probably you want to maintain that link so that you can easily pull new versions when they update web2py. On the other hand, you probably want your app folders that live in /web2py/applications to exist as their own git repos so that you can easily push them to github, then pull them down on the server where they will be hosted. There is a git tool called <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">submodules</a> for dealing with situations of independently tracking a repo that lives inside a larger git repo but its probably not necessary here since you'll never be <em>pushing</em> the web2py stuff back to github. From this <a href="https://groups.google.com/forum/#!topic/web2py/34AHJtaaB_s">google groups discussion</a> you will probably be fine ignoring the fact that your apps live inside a larger repo. So go ahead and create a new repo on your github and then:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">applications</span><span class="o">/</span><span class="n">init</span>
+<span class="n">git</span> <span class="n">init</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="o"><</span><span class="n">https</span> <span class="n">to</span> <span class="n">your</span> <span class="n">github</span> <span class="n">repo</span><span class="o">></span>
+<span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>One thing that you should do here is add a <code>.gitignore</code> to this folder that will prevent tracking some run-time generated stuff (see <a href="https://groups.google.com/forum/#!topic/web2py/RMRiK9XlHz4">here</a>). Try something like the following template:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">*.</span><span class="n">pyc</span> 
+<span class="n">cache</span><span class="o">/</span> 
+<span class="n">databases</span><span class="o">/</span>
+<span class="n">errors</span><span class="o">/</span> 
+<span class="n">sessions</span><span class="o">/</span>  
+<span class="n">private</span><span class="o">/</span>
+<span class="n">uploads</span><span class="o">/</span>
+<span class="o">.</span><span class="n">hg</span><span class="o">/</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Make-a-Python-2.7-Environment-for-Web2py">Make a Python 2.7 Environment for Web2py<a class="anchor-link" href="#Make-a-Python-2.7-Environment-for-Web2py">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A virtual environment is a fancy name for a folder holding specific versions of python and packages. When you work on a project it's nice to have all of it's dependencies frozen in time so that you can always recreate it on another machine, and so that it won't break the first time something upates :) The standard way of managing virtual environments in Python is with the package manager <code>pip</code> and a 3rd party tool <code>virtualenv</code> (in Python 3 there is built-in support). You make a virtual environment by indicating which version of python should be copied into your new directory (or specify the path from which to grab python) like <code>virtualenv -p /path/to/python /path/to/new/virtualenv</code> (it will also install the pip package into the environment by default). After this you can enter the virtual environment by running the activate script inside the environment like <code>source /path/to/new/virtualenv/bin/activate</code>. Inside the environment you then use <code>pip</code> like normal to add packages, but they will be installed into your new virtual environment directory. Being inside a virtual environment is just like telling your OS that your python executable and your PATH (where it looks for modules) have moved to the new virtual environment directory. To leave a virtual environment you just <code>deactivate myenv</code> at command line. Finally, the super popular 3rd party tool <code>virtualenvwrapper</code> provides, unsurprisingly, a wrapper around <code>virtualenv</code> for some easier syntax.</p>
+<h3 id="Conda-Environments-Instead-of-Virtualenv">Conda Environments Instead of Virtualenv<a class="anchor-link" href="#Conda-Environments-Instead-of-Virtualenv">¶</a></h3><p>Conda, the package management solution that ships with the Anaconda distribution of Python has it's own approach for virtual environments that doesn't use <code>virtualenv</code> tool. To make a conda environment with Python 2.7 and all the standard Anaconda packages with it you do <code>conda create -n myapp python=2.7 anaconda</code> (notice the <code>anaconda</code> at the end). To make a bare virtual environment just with Python 2.7 just do <code>conda create -n myapp python=2.7</code>. Conda by default puts your virtual environment folders inside <code>/Anaconda3/envs</code>.</p>
+<p>Since <code>web2py</code> doesn't support Python 3, we need to make a Python 2.7 virtual environment to work in. First move to the folder for your app ("myapp") inside <code>web2py/applications/init</code>. Create and then enter a new virtual environment for the app with</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">myenv</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span>
+<span class="n">actvate</span> <span class="n">myenv</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now start installing the packages you need with conda! When you're done it's nice to freeze all the package dependencies of the environment into a text "spec-file." which can be used by conda to recreate the environment exactly - do this by echoing the output of <code>conda list</code> into a file. For people using <code>virtualenv</code> the corresponding convention is to make a "requirements.txt" file which you can do with the output of the pip command <code>pip freeze</code> inside our environment. <strong>Note that inside your virtual environment conda will install the most appropriate version of each package based on the version of python your enivronment is running.</strong> For instance, if your new app just needs Beautiful Soup do</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">beautiful</span><span class="o">-</span><span class="n">soup</span>
+<span class="n">conda</span> <span class="nb">list</span> <span class="o">--</span><span class="n">explicit</span> <span class="o">></span> <span class="n">spec</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">pip</span> <span class="n">freeze</span> <span class="o">></span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">deactivate</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So whenever you want to run web2py and work on your app just make sure you first activate the virtual environment for it.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Resources-on-Environments">Resources on Environments<a class="anchor-link" href="#Resources-on-Environments">¶</a></h3><ul>
+<li>A guide to <a href="http://docs.python-guide.org/en/latest/dev/virtualenvs/">virtualenv with pip in python 2.7</a></li>
+<li>A <a href="https://www.caktusgroup.com/blog/2016/11/03/managing-multiple-python-projects-virtual-environments/">general overview of virtual environments in python</a></li>
+<li><a href="https://conda.io/docs/using/envs.html#create-an-environment">Documentation on conda environments</a></li>
+<li>Short <a href="http://stackoverflow.com/questions/34398676/does-conda-replace-the-need-for-virtualenv">stackoverflow answer</a> and a <a href="https://www.continuum.io/blog/developer-blog/python-packages-and-environments-conda">longer official article</a> about how conda environments are different (better) than virtualenv.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hosting-Your-App-on-PythonAnywhere">Hosting Your App on PythonAnywhere<a class="anchor-link" href="#Hosting-Your-App-on-PythonAnywhere">¶</a></h1><p>Create a (free!) pythonanywhere account, log in to your account and find the "Web" tab. Follow the steps to create a new app with their wizard, choosing the <code>web2py</code> option which will cause a fresh download of the <code>web2py</code> source into your home directory on the pythonanywhere servers. Once your app has been created it will have its own page in the "Web" tab - make sure the python version here is set to 2.7. Go to the "consoles" tab and start a bash console (this is a shell that is actually running on the pythonanywhere servers, and you're being given a browser interface to it... cool!). Navigate into the <code>web2py</code> folder that was just created, it should look super familiar since you just pulled the exact same thing onto your own PC from git! Of course your web app isn't there yet, so we need to do:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">web2py</span><span class="o">/</span><span class="n">applications</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="o"><</span><span class="n">https</span> <span class="n">to</span> <span class="n">your</span> <span class="n">github</span> <span class="n">repo</span><span class="o">></span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now if you go to yourname.pythonanywhere.com it should server out your app by default! If you are running into issues with some of the modules that your app uses then you can recreate your virtual environment on the pythonanywhere server and then on the page for your app in the "Web" tab you can specify the location of this virtual environment that should be used for the app. See the <a href="https://help.pythonanywhere.com/pages/Virtualenvs/">documentation for using virtual environments on pythonanywhere</a>.</p>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>

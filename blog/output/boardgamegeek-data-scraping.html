@@ -223,6 +223,45 @@
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a
+[1, 2]
+[1, 2, 1, 2]
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [3]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">req</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+    <span class="sd">"""Make fault tolerant BGG server requests."""</span>
+    <span class="c1"># Sleep to make sure you are not pinging the server to frequently</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+    <span class="c1"># Keep trying requests until status-code is 200</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>
+    <span class="k">while</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="n">status_code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
+            <span class="c1"># if status_code != 200:</span>
+                <span class="c1"># print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="c1"># print("An exception has occurred, probably a momentory loss of connection. Waiting three seconds...")</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">r</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -270,21 +309,19 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mf">1.5</span><span class="p">):</span>
-    <span class="c1"># Sleep to make sure you are not pinging the server to frequently</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
-    <span class="c1"># Keep trying requests until status-code is 200</span>
-    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">'''A wrapper to make robust https requests.'''</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># Want to get a status-code of 200</span>
     <span class="k">while</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>  <span class="c1"># Don't ping the server too often</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="n">status_code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
             <span class="k">if</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">"Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"An exception has occurred, probably a momentory loss of connection. Waiting three seconds..."</span><span class="p">)</span>
-            <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"An exception has occurred, probably a momentory loss of connection. Waiting one seconds..."</span><span class="p">)</span>
+            <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">r</span>
 </pre></div>
 </div>
