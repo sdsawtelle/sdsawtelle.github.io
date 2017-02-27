@@ -22,6 +22,10 @@ Education
 
 Experience
 ---------
+**Freelance Data Scientist, Upwork** (2017-present)
+
+- Worked on a variety of data analysis, visualization and machine learning projects.
+
 **Independent Researcher, Yale University** (2012-present, New Haven CT)
 
 - Data analysis and simulation in Python and MATLAB, and instrument control in C++. Designed and executed experiments across four projects and managed several undegraduate students.
@@ -32,7 +36,7 @@ Experience
 
 Skills
 ------
-**Programming:** Python, MATLAB, C++, SQL, R, git, HTML/CSS
+**Programming:** Python, SQL, MATLAB, C++, R, git, HTML/CSS, d3.js
 
 **Python SciPy Tools:** Pandas, Numpy, Matplotlib, Scikit-learn
 
@@ -50,4 +54,4 @@ Projects
 
 **[GeekBuddy Social Graph and Buddy Finder](http://sdsawtelle.pythonanywhere.com)** (2017)
 
-- A web app that displays the social graph for a user in the www.boardgamegeek.com (BGG) community and color nodes by correlation to the user using boardgame ratings data.
+- Built a web app that displays the social graph for a user in the www.boardgamegeek.com community and colors nodes by correlation to the user with boardgame ratings data.
