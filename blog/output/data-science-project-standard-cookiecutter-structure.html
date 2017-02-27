@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+            <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Evening Session</title>
+
+            <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="./theme/css/clean-blog.min.css" rel="stylesheet">
+
+        <!-- Code highlight color scheme -->
+            <link href="./theme/css/code_blocks/github" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+
+
+
+        <meta name="tags" contents="python" />
+        <meta name="tags" contents="packages" />
+        <meta name="tags" contents="cookiecutter" />
+        <meta name="tags" contents="virtual environments" />
+
+
+			<meta property="og:locale" content="en">
+		<meta property="og:site_name" content="Evening Session">
+
+	<meta property="og:type" content="article">
+	<meta property="article:author" content="">
+	<meta property="og:url" content="./data-science-project-standard-cookiecutter-structure.html">
+	<meta property="og:title" content="Treat Your Data Science Projects Like Open Source Packages">
+	<meta property="og:description" content="">
+	<meta property="og:image" content="./">
+	<meta property="article:published_time" content="2017-02-17 13:30:00-05:00">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://sdsawtelle.github.io">SonyaSawtelle</a>
+				<a class="navbar-brand" href="https://sdsawtelle.github.io/blog/output/index.html">All Posts</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+        <header class="intro-header" style="background-image: url('./theme/images/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>Treat Your Data Science Projects Like Open Source Packages</h1>
+                        <span class="meta">Posted by
+                                <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
+                             on Fri 17 February 2017
+                        </span>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+    <!-- Post Content -->
+    <article>
+        <style type="text/css">/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="In-which-I-play-with-cookie-cutters-and-subsequently-crave-actual-cookies.">In which I play with cookie cutters and subsequently crave actual cookies.<a class="anchor-link" href="#In-which-I-play-with-cookie-cutters-and-subsequently-crave-actual-cookies.">¶</a></h1><p>I recently started freelance data sciencing on <a href="upwork.com">Upwork</a>, which is awesome! My second contract there involved writing some Python for a client who wanted to be able to execute various analyses and visualizations from his data on securities trading. Since I was essentially responsible for delivering a piece of software to this dude, I spent a little bit of time reading on how to structure a project like this. What I discovered was a pretty solid concensus on how all publicly distributed python packages (modules) should be structured.</p>
+<p>So I conformed the client's code to this standard python package structure and documented the hell out of it. Then something amazing happened... I felt like I had actually created a persistent, useful tool and code base for myself and this guy, rather than a collection of haphazard scripts with a workflow that nobody would be able to easily reproduce one month hence. So here is the revolutionary idea, <strong>treat your data science projects like distributed python packages - structure them a standard way and document the crap out of them.</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Structuring-a-Python-Project">Structuring a Python Project<a class="anchor-link" href="#Structuring-a-Python-Project">¶</a></h1><p>So how <em>does</em> the standard layout for a publicly distributed python package look? The simplest version looks like this:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [59]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /F /A
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Folder PATH listing for volume OS
+Volume serial number is 00000085 16EB:8E0B
+C:.
+|   coolprojectname.yml
+|   LICENSE.txt
+|   README.md
+|   requirements.txt
+|   
++---coolprojectname
+|   \---test
+\---docs
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you can see, your project directory should have a handful of top level files like <code>README.md</code>, <code>LICENSE</code>, and <code>requirements.txt</code>. Then it should have at minimum the following three folders:</p>
+<ul>
+<li><code>docs</code> to store documentation</li>
+<li><code>coolprojectname</code> to store your actual python package (the name of this folder is the name of the package)</li>
+<li><code>coolprojectname/test</code> to store scripts to run tests on your package code</li>
+</ul>
+<p>The file(s) at the top level that lets anyone exactly duplicate the virtual environment needed for the project to run are a <code>requirements.txt</code> file (used by <code>pip</code> to recreate an environment) and a <code>.yml</code> file (used by <code>conda</code> to recreate an environment). (If that was confusing to you then you should read the section below on environments.)</p>
+<h3 id="Project-Structure-Resources">Project Structure Resources<a class="anchor-link" href="#Project-Structure-Resources">¶</a></h3><ul>
+<li><a href="https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Jeff Knupp's take on project structure</a></li>
+<li><a href="http://docs.python-guide.org/en/latest/writing/structure/">The Hitchhiker's Guide's take on project structure</a></li>
+<li><a href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science docs</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Structuring-a-Python-Data-Science-Project">Structuring a Python Data Science Project<a class="anchor-link" href="#Structuring-a-Python-Data-Science-Project">¶</a></h1><p>Turns out some really smart people have thought a lot about this task of standardized project structure. The <a href="https://github.com/audreyr/cookiecutter">cookiecutter tool</a> is a command line tool that instantiates all the standard folders and files for a new python project. It turns out there is an awesome <a href="https://github.com/drivendata/cookiecutter-data-science">fork of this project, cookiecutter-data-science,</a> that is specific to data science! The <a href="https://drivendata.github.io/cookiecutter-data-science/">official cookiecutter-data-science docs</a> are actually excellent (and short) so I recommend you read them cover-to-cover.</p>
+<p>Make sure you have <code>git.exe</code> in your path (if, like me, you've just been using the Git Bash command line utility then you probably don't have it in path yet). Now, from system shell do:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">cookiecutter</span>
+<span class="n">cookiecutter</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">drivendata</span><span class="o">/</span><span class="n">cookiecutter</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">science</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You'll be prompted to input various things like the project name (directory name) and the repo name (the name of the github repo). After that you're new directory awaits, chock full of useful standardized stuff.</p>
+<p>There is a <code>.gitignore</code> which excludes the data by default (since those are usually very big files).</p>
+<p>There is also a <code>tox.ini</code> file. From the official docs: "Tox is a generic virtualenv management and test command line tool you can use for checking your package installs correctly with different Python versions and interpreters, running your tests in each of the environments and configuring your test tool of choice." I definitely have no experience with <code>tox</code> and since I feel like this adds an unnecessary complication I'm not going to be using it.</p>
+<p>The <code>docs</code> folder is actually a <code>sphinx</code> project, so that the documentation can be auto-generated. <code>sphinx</code> is a tool that parses your project code to auto-generate documentation based on your docstrings!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Use-an-Environment,-I-Beg-You">Use an Environment, I Beg You<a class="anchor-link" href="#Use-an-Environment,-I-Beg-You">¶</a></h1><p>Please, for the love of god, use a virtual environment for any substantial project involving code you might ever want to reuse. I can reassure you that although they sound super technical they are actually <em>dead simple</em> to use. A virtual environment is like a self-contained, preserved, install of a specific version of python and packages. It let's you completely reproduce the working environment for your code at any time - you'll never again break ALL the things by updating!</p>
+<p>In a more boring and realistic sense, <strong>a virtual environment is just an isolated folder holding specific versions of python and packages.</strong> You make a virtual environment by indicating which version of python should be copied into your new directory (or specify the path from which to grab python) and it will also install the pip package into the environment by default. After this you can enter the virtual environment and use <code>pip</code> (or <code>conda</code>) like normal to add packages, <em>but they will be installed into your new virtual environment directory.</em> <strong>Being inside a virtual environment is just like telling your OS that your python executable and your PATH (where it looks for modules) have moved to the new virtual environment directory.</strong></p>
+<p>The standard way of managing virtual environments in Python is with the package manager <code>pip</code> and a 3rd party tool <code>virtualenv</code> (in Python 3 there is built-in support and you use <code>pyenv</code> instead of <code>virtualenv</code>). But Conda, the package management solution that ships with the Anaconda distribution of Python has it's own (better) approach for virtual environments.</p>
+<p>Here is a teaser to how simple conda environments are to use:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">coolprojectname</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span>  <span class="c1"># Create a new env with only a fresh install of python 2.7 (no packages)</span>
+<span class="n">activate</span> <span class="n">coolprojectname</span>  <span class="c1"># Enter the env</span>
+<span class="n">conda</span> <span class="n">install</span> <span class="n">pandas</span>  <span class="c1"># Install pandas, best module ever, into your new env</span>
+
+<span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">></span> <span class="n">coolprojectname</span><span class="o">.</span><span class="n">yml</span>  <span class="c1"># A file that conda can use to recreate the env</span>
+<span class="n">pip</span> <span class="n">freeze</span> <span class="o">></span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>  <span class="c1"># A file that pip can use to recreate the env</span>
+<span class="n">deactivate</span>  <span class="c1"># So long for now!</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Conda by default puts your virtual environment folders inside <code>/Anaconda3/envs</code>, so you should be able to go see a new folder there called <code>coolprojectname</code>. To make a conda environment with Python 2.7 <em>and</em> all the standard Anaconda packages with it you do <code>conda create -n myapp python=2.7 anaconda</code> (notice the <code>anaconda</code> at the end).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Virtual-Environment-Resources">Virtual Environment Resources<a class="anchor-link" href="#Virtual-Environment-Resources">¶</a></h3><ul>
+<li><a href="https://realpython.com/blog/python/python-virtual-environments-a-primer/">Primer on virtual environments by RealPython</a></li>
+<li><a href="https://conda.io/docs/using/envs.html#id1">Official conda docs on managing environments.</a></li>
+<li><a href="https://www.caktusgroup.com/blog/2016/11/03/managing-multiple-python-projects-virtual-environments/">General overview of virtual environments in python</a></li>
+<li>Short <a href="http://stackoverflow.com/questions/34398676/does-conda-replace-the-need-for-virtualenv">stackoverflow answer</a> and a <a href="https://www.continuum.io/blog/developer-blog/python-packages-and-environments-conda">longer official article</a> about how conda environments are different (better) than virtualenv.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Documenting-the-Code">Documenting the Code<a class="anchor-link" href="#Documenting-the-Code">¶</a></h1><p>In my opinion there are four essential pieces to this. Starting from highest-level and zooming into the detailed they are:</p>
+<ol>
+<li>A detailed README with the standard sections.</li>
+<li>Good, long docstrings at each <code>.py</code> file.</li>
+<li>Good, long, RST-style docstrings at the top of each function (basic helper functions can have the single-line docstring)</li>
+<li>Good, short, "block" and "inline" comments throught the code</li>
+</ol>
+<p>The <code>README.md</code> is the most critical file in my opinion - the one that everyone looks for when faced with a new unknown repo. It should start with a description of the project and a link to additional documentation (for example hosted at readthedocs). It should also include a "Quickstart" section on how to install and start using the project). If the project has non-python dependencies these should also be stated in the README.</p>
+<p>The definitive source on commenting and docstrings is the <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style guide</a> and the <a href="https://www.python.org/dev/peps/pep-0257/">PEP257 semantics guide</a> which tells you what a docstring should say and how it should say it (but is markup-syntax-agnostic). If you haven't already, go read at least the <a href="https://www.python.org/dev/peps/pep-0008/#comments">sections on commenting</a>. Here is an example of the kind of commenting you aim for:</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_averages</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">startdate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stopdate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trailing</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
+    <span class="sd">"""</span>
+<span class="sd">    Compute and plot a moving average of the daily sum of MKT_VAL and CURR_FACE together with their daily totals. </span>
+<span class="sd">    Do this for all transactions and also by ABS_TYPE groups. Return the matplotlib ax object of the plot.</span>
+<span class="sd">    </span>
+<span class="sd">    :param df: the pandas dataframe holding the data, indexed by timestamp</span>
+<span class="sd">    :param startdate: first date of the range of interest (inclusive). Expects format mo/day/year</span>
+<span class="sd">    :param stopdate: last date of the range of interest (inclusive). Expects format mo/day/year</span>
+<span class="sd">    :param trailing: the size of the window for the moving average</span>
+<span class="sd">    :return: axes object for the plot</span>
+<span class="sd">    """</span>
+    
+    <span class="c1"># Block comment, applies to the lines of code right below it.</span>
+    <span class="k">pass</span>
+    <span class="k">pass</span>  <span class="c1"># Inline comment. Use sparingly.</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>I use the excellent PyCharm IDE, and after upgrading to the most recent version (2017.1) the default behavior is that after you begin a docstring with the """ and then press enter, it auto-generates a template for all the "param:" and "return:" lines based on the function signaure!</p>
+<p>A <em>big</em> driver of why you should use a specific docstring convention is that some great tools exist for auto-generating documentation of your project based on parsing the module and function docstrings!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Documenting-and-Commenting-Resources:">Documenting and Commenting Resources:<a class="anchor-link" href="#Documenting-and-Commenting-Resources:">¶</a></h3><ul>
+<li><a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style guide</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-0257/">PEP257 semantics guide for docstrings</a></li>
+<li><a href="https://www.jetbrains.com/help/pycharm/2016.3/documenting-source-code-in-pycharm.html">Pycharm docs on documenting source code</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="The-Final-Workflow">The Final Workflow<a class="anchor-link" href="#The-Final-Workflow">¶</a></h1><p>Move to where you want your project to be and create the cookiecutter template and provide the name etc. when prompted.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cookiecutter</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">drivendata</span><span class="o">/</span><span class="n">cookiecutter</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">science</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Create a virtual environment for your project which has the <em>same name as your project</em> and freeze the requirements. You probably have a core set of package dependencies so you could instead make this environment once and name it something like <code>scipybase</code> and then clone it. This has the disadvantage that if you want to always be using the most current version of packages then you have to update them in the new cloned environment. Note that if you like using <code>ipython</code> as your development shell then you need to install it here! It also helps to just go ahead and install <code>sphinx</code> so that you can generate your docs without leaving the environment.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">myrpoject</span> <span class="o">--</span><span class="n">clone</span> <span class="n">scipybase</span>
+<span class="n">activate</span> <span class="n">coolprojectname</span>  <span class="c1"># Enter the env</span>
+<span class="n">conda</span> <span class="n">update</span> <span class="o">--</span><span class="nb">all</span>
+<span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">></span> <span class="n">coolprojectname</span><span class="o">.</span><span class="n">yml</span>  <span class="c1"># A file that conda can use to recreate the env</span>
+<span class="n">pip</span> <span class="n">freeze</span> <span class="o">></span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>  <span class="c1"># A file that pip can use to recreate the env</span>
+<span class="n">deactivate</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Initialize the project directory as a local repo, and link it to a github repo. You can actually do this from your local command line (below, replace USER with your username and REPO with the name you want for the repo).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">u</span> <span class="s1">'USER'</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">repos</span> <span class="o">-</span><span class="n">d</span> <span class="s1">'{"name":"REPO"}'</span>  <span class="c1"># Replace USER and REPO!</span>
+<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">USER</span><span class="o">/</span><span class="n">REPO</span><span class="o">.</span><span class="n">git</span>
+<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you use a heavyweight IDE like I do (PyCharm) then go ahead and initialize a PyCharm project (or whatever <em>your</em> IDE calls them) from the top level of your cookiecutter project. It's going to add it's own control files here, but if they are hidden files (start with ".") then they'll be gitignored by default (otherwise consider adding them to <code>.gitignore</code>).</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now you can actually proceed with the important stuff! Data science workflows are notoriously hard to pigeonhole, but if you want to see people try to describe it just <a href="https://www.google.com/search?q=data+science+workflow&amp;espv=2&amp;biw=1242&amp;bih=580&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwiH1aj84LDSAhWsy4MKHT1bAeoQ_AUIBigB">search google images for "data science workflow"</a></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Finally, in refactoring jupyter notebooks to src code scripts you might find the following command helpful</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ipython</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">script</span> <span class="n">NOTEBOOKNAME</span><span class="o">.</span><span class="n">ipynb</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>My plan right now is to use this workflow and template for my next freelance project or kaggle competition (whichever comes first). At that point I'll update this post with tips and challenges.</p>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+
+    </article>
+
+    <hr>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Blog powered by <a href="http://getpelican.com">Pelican</a>,
+                which takes great advantage of <a href="http://python.org">Python</a>.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="./theme/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="./theme/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="./theme/js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
