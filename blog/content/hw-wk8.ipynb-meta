@@ -4,4 +4,4 @@ Date: 2016-12-29 13:30
 Category: Python
 Tags: python, machine learning, sklearn, pca, principle component analysis, k-means, linear discriminant analysis, unsupervised algorithms
 Author: Sonya Sawtelle
-Summary: In which I brazenly defy Professor Ng and do his unsupervised algorithms assignment in Python instead of Matlab.
+Summary: In which I implement K-Means and Principal Component Analysis on a sample data set from Andrew Ng's Machine Learning Course.
