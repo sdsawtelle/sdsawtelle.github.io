@@ -182,8 +182,8 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-play-with-cookie-cutters-and-subsequently-crave-actual-cookies.">In which I play with cookie cutters and subsequently crave actual cookies.<a class="anchor-link" href="#In-which-I-play-with-cookie-cutters-and-subsequently-crave-actual-cookies.">¶</a></h1><p>I recently started freelance data sciencing on <a href="upwork.com">Upwork</a>, which is awesome! My second contract there involved writing some Python for a client who wanted to be able to execute various analyses and visualizations from his data on securities trading. Since I was essentially responsible for delivering a piece of software to this dude, I spent a little bit of time reading on how to structure a project like this. What I discovered was a pretty solid concensus on how all publicly distributed python packages (modules) should be structured.</p>
-<p>So I conformed the client's code to this standard python package structure and documented the hell out of it. Then something amazing happened... I felt like I had actually created a persistent, useful tool and code base for myself and this guy, rather than a collection of haphazard scripts with a workflow that nobody would be able to easily reproduce one month hence. So here is the revolutionary idea, <strong>treat your data science projects like distributed python packages - structure them a standard way and document the crap out of them.</strong></p>
+<h1 id="In-which-I-get-to-play-with-cookie-cutters.">In which I get to play with cookie cutters.<a class="anchor-link" href="#In-which-I-get-to-play-with-cookie-cutters.">¶</a></h1><p>I recently started freelance data sciencing on <a href="upwork.com">Upwork</a>, which is awesome! My second contract there involved writing some Python for a client who wanted to be able to execute various analyses and visualizations from his data on securities trading. Since I was essentially responsible for delivering a piece of software to this dude, I spent a little bit of time reading on how to structure a project like this. What I discovered was a pretty solid concensus on how all publicly distributed python packages (modules) should be structured.</p>
+<p>So I conformed the client's code to this standard python package structure and documented the hell out of it. Then something amazing happened... I felt like I had actually created a persistent, useful tool and code base for myself and this guy, rather than a collection of haphazard scripts with a workflow that nobody would be able to easily reproduce one month hence. So here is the revolutionary idea, <strong>treat your data science projects like python packages - structure them the same, standard way each time and document the crap out of them.</strong></p>
 </div>
 </div>
 </div>
@@ -192,16 +192,17 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Structuring-a-Python-Project">Structuring a Python Project<a class="anchor-link" href="#Structuring-a-Python-Project">¶</a></h1><p>So how <em>does</em> the standard layout for a publicly distributed python package look? The simplest version looks like this:</p>
+<h1 id="Structuring-the-Project">Structuring the Project<a class="anchor-link" href="#Structuring-the-Project">¶</a></h1><p>So how <em>does</em> the standard layout for a publicly distributed python package look? The simplest version looks like this:</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [59]:</div>
+<div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>tree /F /A
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">captcha</span> <span class="o">=</span> <span class="o">!</span>tree /F
+<span class="nb">print</span> <span class="nb">repr</span><span class="p">(</span><span class="n">captcha</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">'unicode_escape'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -209,18 +210,12 @@
 <div class="output_wrapper">
 <div class="output">
 <div class="output_area"><div class="prompt"></div>
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Folder PATH listing for volume OS
-Volume serial number is 00000085 16EB:8E0B
-C:.
-|   coolprojectname.yml
-|   LICENSE.txt
-|   README.md
-|   requirements.txt
-|   
-+---coolprojectname
-|   \---test
-\---docs
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansicyan">  File </span><span class="ansigreen">"<ipython-input-12-f990d58a5ad4>"</span><span class="ansicyan">, line </span><span class="ansigreen">2</span>
+<span class="ansired">    print repr(captcha).decode(&apos;unicode_escape&apos;)</span>
+             ^
+<span class="ansired">SyntaxError</span><span class="ansired">:</span> invalid syntax
 </pre>
 </div>
 </div>
@@ -232,17 +227,17 @@ C:.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As you can see, your project directory should have a handful of top level files like <code>README.md</code>, <code>LICENSE</code>, and <code>requirements.txt</code>. Then it should have at minimum the following three folders:</p>
+<p>Your project directory should have a handful of top level files like <code>README.md</code>, <code>setup.py</code>, and <code>requirements.txt</code>. Then it should have at minimum the following three folders:</p>
 <ul>
 <li><code>docs</code> to store documentation</li>
-<li><code>coolprojectname</code> to store your actual python package (the name of this folder is the name of the package)</li>
-<li><code>coolprojectname/test</code> to store scripts to run tests on your package code</li>
+<li><code>myproject</code> to store your actual python package (the name of this folder is the name of the package)</li>
+<li><code>myproject/test</code> to store scripts to run tests on your package</li>
 </ul>
-<p>The file(s) at the top level that lets anyone exactly duplicate the virtual environment needed for the project to run are a <code>requirements.txt</code> file (used by <code>pip</code> to recreate an environment) and a <code>.yml</code> file (used by <code>conda</code> to recreate an environment). (If that was confusing to you then you should read the section below on environments.)</p>
+<p>Your standard project structure should have a file(s) at the top level that lets anyone exactly duplicate the virtual environment needed for the project to run. Since I use <code>conda</code> to manage my python packages I include both a <code>requirements.txt</code> file (used by <code>pip</code> to recreate an environment) and a <code>.yml</code> file (used by <code>conda</code> to recreate an environment). If that was confusing to you then you should read the next section.</p>
 <h3 id="Project-Structure-Resources">Project Structure Resources<a class="anchor-link" href="#Project-Structure-Resources">¶</a></h3><ul>
 <li><a href="https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Jeff Knupp's take on project structure</a></li>
 <li><a href="http://docs.python-guide.org/en/latest/writing/structure/">The Hitchhiker's Guide's take on project structure</a></li>
-<li><a href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science docs</a></li>
+<li><a href="https://drivendata.github.io/cookiecutter-data-science/">Cookie cutter data science docs</a></li>
 </ul>
 </div>
 </div>
@@ -252,42 +247,7 @@ C:.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Structuring-a-Python-Data-Science-Project">Structuring a Python Data Science Project<a class="anchor-link" href="#Structuring-a-Python-Data-Science-Project">¶</a></h1><p>Turns out some really smart people have thought a lot about this task of standardized project structure. The <a href="https://github.com/audreyr/cookiecutter">cookiecutter tool</a> is a command line tool that instantiates all the standard folders and files for a new python project. It turns out there is an awesome <a href="https://github.com/drivendata/cookiecutter-data-science">fork of this project, cookiecutter-data-science,</a> that is specific to data science! The <a href="https://drivendata.github.io/cookiecutter-data-science/">official cookiecutter-data-science docs</a> are actually excellent (and short) so I recommend you read them cover-to-cover.</p>
-<p>Make sure you have <code>git.exe</code> in your path (if, like me, you've just been using the Git Bash command line utility then you probably don't have it in path yet). Now, from system shell do:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">config</span> <span class="o">--</span><span class="n">add</span> <span class="n">channels</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="n">cookiecutter</span>
-<span class="n">cookiecutter</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">drivendata</span><span class="o">/</span><span class="n">cookiecutter</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">science</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>You'll be prompted to input various things like the project name (directory name) and the repo name (the name of the github repo). After that you're new directory awaits, chock full of useful standardized stuff.</p>
-<p>There is a <code>.gitignore</code> which excludes the data by default (since those are usually very big files).</p>
-<p>There is also a <code>tox.ini</code> file. From the official docs: "Tox is a generic virtualenv management and test command line tool you can use for checking your package installs correctly with different Python versions and interpreters, running your tests in each of the environments and configuring your test tool of choice." I definitely have no experience with <code>tox</code> and since I feel like this adds an unnecessary complication I'm not going to be using it.</p>
-<p>The <code>docs</code> folder is actually a <code>sphinx</code> project, so that the documentation can be auto-generated. <code>sphinx</code> is a tool that parses your project code to auto-generate documentation based on your docstrings!</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-an-Environment,-I-Beg-You">Use an Environment, I Beg You<a class="anchor-link" href="#Use-an-Environment,-I-Beg-You">¶</a></h1><p>Please, for the love of god, use a virtual environment for any substantial project involving code you might ever want to reuse. I can reassure you that although they sound super technical they are actually <em>dead simple</em> to use. A virtual environment is like a self-contained, preserved, install of a specific version of python and packages. It let's you completely reproduce the working environment for your code at any time - you'll never again break ALL the things by updating!</p>
+<h1 id="Use-an-Environment,-I-Beg-You">Use an Environment, I Beg You<a class="anchor-link" href="#Use-an-Environment,-I-Beg-You">¶</a></h1><p>Please, for the love of god, use a virtual environment for any substantial project involving code you might ever want to reuse. I can reassure you that although they sound crazy technical they are actually <em>dead simple</em> to use. A virtual environment is like a self-contained, preserved, install of a specific version of python and packages. It let's you completely reproduce the working environment for your code at any time - you'll never again break ALL the things by updating!</p>
 <p>In a more boring and realistic sense, <strong>a virtual environment is just an isolated folder holding specific versions of python and packages.</strong> You make a virtual environment by indicating which version of python should be copied into your new directory (or specify the path from which to grab python) and it will also install the pip package into the environment by default. After this you can enter the virtual environment and use <code>pip</code> (or <code>conda</code>) like normal to add packages, <em>but they will be installed into your new virtual environment directory.</em> <strong>Being inside a virtual environment is just like telling your OS that your python executable and your PATH (where it looks for modules) have moved to the new virtual environment directory.</strong></p>
 <p>The standard way of managing virtual environments in Python is with the package manager <code>pip</code> and a 3rd party tool <code>virtualenv</code> (in Python 3 there is built-in support and you use <code>pyenv</code> instead of <code>virtualenv</code>). But Conda, the package management solution that ships with the Anaconda distribution of Python has it's own (better) approach for virtual environments.</p>
 <p>Here is a teaser to how simple conda environments are to use:</p>
@@ -299,8 +259,8 @@ C:.
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">coolprojectname</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span>  <span class="c1"># Create a new env with only a fresh install of python 2.7 (no packages)</span>
-<span class="n">activate</span> <span class="n">coolprojectname</span>  <span class="c1"># Enter the env</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">coolprojectname</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span>  <span class="c1"># Create a new env with only a fresh install of python 2.7 (no packages)</span>
+<span class="n">actvate</span> <span class="n">coolprojectname</span>  <span class="c1"># Enter the env</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="n">pandas</span>  <span class="c1"># Install pandas, best module ever, into your new env</span>
 
 <span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">></span> <span class="n">coolprojectname</span><span class="o">.</span><span class="n">yml</span>  <span class="c1"># A file that conda can use to recreate the env</span>
@@ -325,7 +285,8 @@ C:.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Virtual-Environment-Resources">Virtual Environment Resources<a class="anchor-link" href="#Virtual-Environment-Resources">¶</a></h3><ul>
+<h3 id="Virtual-Environment-Resources">Virtual Environment Resources<a class="anchor-link" href="#Virtual-Environment-Resources">¶</a></h3><p>There are about one billion indroductions to virtual environments, so I'll just leave it at that and point you towards some of them. Go read:</p>
+<ul>
 <li><a href="https://realpython.com/blog/python/python-virtual-environments-a-primer/">Primer on virtual environments by RealPython</a></li>
 <li><a href="https://conda.io/docs/using/envs.html#id1">Official conda docs on managing environments.</a></li>
 <li><a href="https://www.caktusgroup.com/blog/2016/11/03/managing-multiple-python-projects-virtual-environments/">General overview of virtual environments in python</a></li>
@@ -344,36 +305,10 @@ C:.
 <li>A detailed README with the standard sections.</li>
 <li>Good, long docstrings at each <code>.py</code> file.</li>
 <li>Good, long, RST-style docstrings at the top of each function (basic helper functions can have the single-line docstring)</li>
-<li>Good, short, "block" and "inline" comments throught the code</li>
+<li>Good, short, inline comments throught the code</li>
 </ol>
 <p>The <code>README.md</code> is the most critical file in my opinion - the one that everyone looks for when faced with a new unknown repo. It should start with a description of the project and a link to additional documentation (for example hosted at readthedocs). It should also include a "Quickstart" section on how to install and start using the project). If the project has non-python dependencies these should also be stated in the README.</p>
-<p>The definitive source on commenting and docstrings is the <a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style guide</a> and the <a href="https://www.python.org/dev/peps/pep-0257/">PEP257 semantics guide</a> which tells you what a docstring should say and how it should say it (but is markup-syntax-agnostic). If you haven't already, go read at least the <a href="https://www.python.org/dev/peps/pep-0008/#comments">sections on commenting</a>. Here is an example of the kind of commenting you aim for:</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [1]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">plot_averages</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">startdate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stopdate</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">trailing</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
-    <span class="sd">"""</span>
-<span class="sd">    Compute and plot a moving average of the daily sum of MKT_VAL and CURR_FACE together with their daily totals. </span>
-<span class="sd">    Do this for all transactions and also by ABS_TYPE groups. Return the matplotlib ax object of the plot.</span>
-<span class="sd">    </span>
-<span class="sd">    :param df: the pandas dataframe holding the data, indexed by timestamp</span>
-<span class="sd">    :param startdate: first date of the range of interest (inclusive). Expects format mo/day/year</span>
-<span class="sd">    :param stopdate: last date of the range of interest (inclusive). Expects format mo/day/year</span>
-<span class="sd">    :param trailing: the size of the window for the moving average</span>
-<span class="sd">    :return: axes object for the plot</span>
-<span class="sd">    """</span>
-    
-    <span class="c1"># Block comment, applies to the lines of code right below it.</span>
-    <span class="k">pass</span>
-    <span class="k">pass</span>  <span class="c1"># Inline comment. Use sparingly.</span>
-    <span class="k">pass</span>
-</pre></div>
-</div>
+<p>The definitive source on commenting and docstrings is the <code>PEP8</code> style guide.</p>
 </div>
 </div>
 </div>
@@ -382,21 +317,15 @@ C:.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>I use the excellent PyCharm IDE, and after upgrading to the most recent version (2017.1) the default behavior is that after you begin a docstring with the """ and then press enter, it auto-generates a template for all the "param:" and "return:" lines based on the function signaure!</p>
-<p>A <em>big</em> driver of why you should use a specific docstring convention is that some great tools exist for auto-generating documentation of your project based on parsing the module and function docstrings!</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Documenting-and-Commenting-Resources:">Documenting and Commenting Resources:<a class="anchor-link" href="#Documenting-and-Commenting-Resources:">¶</a></h3><ul>
-<li><a href="https://www.python.org/dev/peps/pep-0008/">PEP8 style guide</a></li>
-<li><a href="https://www.python.org/dev/peps/pep-0257/">PEP257 semantics guide for docstrings</a></li>
-<li><a href="https://www.jetbrains.com/help/pycharm/2016.3/documenting-source-code-in-pycharm.html">Pycharm docs on documenting source code</a></li>
+<h1 id="Notes-from-Jeff-Knupp&#x27;s-Writeup">Notes from Jeff Knupp's Writeup<a class="anchor-link" href="#Notes-from-Jeff-Knupp&#x27;s-Writeup">¶</a></h1><p><a href="https://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">source</a></p>
+<h2 id="Directory-Layout">Directory Layout<a class="anchor-link" href="#Directory-Layout">¶</a></h2><p>Your project directory should have a handful of top level files like <code>README.md</code>, <code>setup.py</code>, and <code>requirements.txt</code>. Then it should have at minimum the following three folders:</p>
+<ul>
+<li><code>docs</code> to store documentation</li>
+<li><code>myproject</code> to store your actual python package (the name of this folder is the name of the package)</li>
+<li><code>myproject/test</code> to store scripts to run tests on your package</li>
 </ul>
+<p>The <code>setup.py</code> file is used (by the <code>disutils</code> or <code>setuptools</code> packages) for the installation of your package, so it contains information like versioning, requirements etc.</p>
+<p>The <code>README.md</code> is the most critical file. It should start with a description of the project and a link to additional documentation (for example hosted at readthedocs). It should also include a "Quickstart" section on how to install and start using the project). If the project has non-python dependencies these should also be stated in the README.</p>
 </div>
 </div>
 </div>
@@ -405,7 +334,27 @@ C:.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-Final-Workflow">The Final Workflow<a class="anchor-link" href="#The-Final-Workflow">¶</a></h1><p>Move to where you want your project to be and create the cookiecutter template and provide the name etc. when prompted.</p>
+<p>|- LICENSE
+|- README.md
+|- TODO.md
+|- docs
+|   |-- conf.py
+|   |-- generated
+|   |-- index.rst
+|   |-- installation.rst
+|   |-- modules.rst
+|   |-- quickstart.rst
+|   |-- sandman.rst
+|- requirements.txt
+|- sandman
+|   |-- <strong>init</strong>.py
+|   |-- exception.py
+|   |-- model.py
+|   |-- sandman.py
+|   |-- test
+|       |-- models.py
+|       |-- test_sandman.py
+|- setup.py</p>
 </div>
 </div>
 </div>
@@ -414,7 +363,7 @@ C:.
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cookiecutter</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">drivendata</span><span class="o">/</span><span class="n">cookiecutter</span><span class="o">-</span><span class="n">data</span><span class="o">-</span><span class="n">science</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
@@ -425,7 +374,9 @@ C:.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Create a virtual environment for your project which has the <em>same name as your project</em> and freeze the requirements. You probably have a core set of package dependencies so you could instead make this environment once and name it something like <code>scipybase</code> and then clone it. This has the disadvantage that if you want to always be using the most current version of packages then you have to update them in the new cloned environment. Note that if you like using <code>ipython</code> as your development shell then you need to install it here! It also helps to just go ahead and install <code>sphinx</code> so that you can generate your docs without leaving the environment.</p>
+<h1 id="Notes-from-Hitchhiker&#x27;s-Guide">Notes from Hitchhiker's Guide<a class="anchor-link" href="#Notes-from-Hitchhiker&#x27;s-Guide">¶</a></h1><p><a href="http://docs.python-guide.org/en/latest/writing/structure/">source</a></p>
+<p>The goal is write clean code whose logic and dependencies are clear, and organize the files and folders of your project sensibly.</p>
+<p>The organization of the code is constrained by Python's module and import systems.</p>
 </div>
 </div>
 </div>
@@ -434,83 +385,9 @@ C:.
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span> <span class="n">myrpoject</span> <span class="o">--</span><span class="n">clone</span> <span class="n">scipybase</span>
-<span class="n">activate</span> <span class="n">coolprojectname</span>  <span class="c1"># Enter the env</span>
-<span class="n">conda</span> <span class="n">update</span> <span class="o">--</span><span class="nb">all</span>
-<span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">></span> <span class="n">coolprojectname</span><span class="o">.</span><span class="n">yml</span>  <span class="c1"># A file that conda can use to recreate the env</span>
-<span class="n">pip</span> <span class="n">freeze</span> <span class="o">></span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>  <span class="c1"># A file that pip can use to recreate the env</span>
-<span class="n">deactivate</span> 
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Initialize the project directory as a local repo, and link it to a github repo. You can actually do this from your local command line (below, replace USER with your username and REPO with the name you want for the repo).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">u</span> <span class="s1">'USER'</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">api</span><span class="o">.</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">repos</span> <span class="o">-</span><span class="n">d</span> <span class="s1">'{"name":"REPO"}'</span>  <span class="c1"># Replace USER and REPO!</span>
-<span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="n">git</span><span class="nd">@github</span><span class="o">.</span><span class="n">com</span><span class="p">:</span><span class="n">USER</span><span class="o">/</span><span class="n">REPO</span><span class="o">.</span><span class="n">git</span>
-<span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>If you use a heavyweight IDE like I do (PyCharm) then go ahead and initialize a PyCharm project (or whatever <em>your</em> IDE calls them) from the top level of your cookiecutter project. It's going to add it's own control files here, but if they are hidden files (start with ".") then they'll be gitignored by default (otherwise consider adding them to <code>.gitignore</code>).</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now you can actually proceed with the important stuff! Data science workflows are notoriously hard to pigeonhole, but if you want to see people try to describe it just <a href="https://www.google.com/search?q=data+science+workflow&amp;espv=2&amp;biw=1242&amp;bih=580&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwiH1aj84LDSAhWsy4MKHT1bAeoQ_AUIBigB">search google images for "data science workflow"</a></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, in refactoring jupyter notebooks to src code scripts you might find the following command helpful</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ipython</span> <span class="n">nbconvert</span> <span class="o">--</span><span class="n">to</span> <span class="n">script</span> <span class="n">NOTEBOOKNAME</span><span class="o">.</span><span class="n">ipynb</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>My plan right now is to use this workflow and template for my next freelance project or kaggle competition (whichever comes first). At that point I'll update this post with tips and challenges.</p>
 </div>
 </div>
 </div>
