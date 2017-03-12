@@ -423,6 +423,19 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Computational-Graphs">Computational Graphs<a class="anchor-link" href="#Computational-Graphs">¶</a></h1><p>The key to not being intimidated by tensor flow is having a basic grasp of what computational graphs are <em>before</em> you jump in. There are only two resources you need here, and I recommend you avail yourself of both:</p>
+<ul>
+<li><a href="http://colah.github.io/posts/2015-08-Backprop/">Christopher Olah's excellent and short blog post</a> on computational graphs and backprop.</li>
+<li><a href="https://www.youtube.com/watch?v=GZTvxoSHZIo&amp;list=PLlJy-eBtNFt6EuMxFYRiNRS07MCWN5UIA&amp;index=4">Andrej Karpathy's excellent video lecture</a> introducing computational graphs. You only need to watch the first 50 minutes.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Walkthrough-of-TensorFlow-Official-&quot;Get-Started&quot;-Guide">Walkthrough of TensorFlow Official "Get Started" Guide<a class="anchor-link" href="#Walkthrough-of-TensorFlow-Official-&quot;Get-Started&quot;-Guide">¶</a></h1><p>This is a walk-through of the official "Get Started" tutorial under the "Develop" tab at tensorflow.org <a href="https://www.tensorflow.org/get_started/get_started">here.</a> In my walkthrough I will show the evolution of the computational graph in a lot more detail and I try to explain the steps in terms of editing the graph.</p>
 <h3 id="Overview">Overview<a class="anchor-link" href="#Overview">¶</a></h3><p>TensorFlow exposes various levels of API, the high-level one is <code>tf.contrib.learn</code>, but many people instead use the external python library <code>keras</code> to provide a simpler high-level syntax for working with TF. The lowest level API is called <code>TensorFlow Core</code> (TFC) and provides the maxmium amount of flexibility. TFC scripts consist of building a computational graph and then running that graph. According to the documentation:</p>
 <blockquote><p>A computational graph is a series of TensorFlow operations arranged into a graph of nodes... Each node takes zero or more tensors as inputs and produces a tensor as an output.</p>
