@@ -117,10 +117,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -155,7 +153,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -219,7 +216,7 @@
 <div class="prompt input_prompt">In [55]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="k">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
 <span class="kn">import</span> <span class="nn">pymc</span> 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span>
@@ -259,7 +256,7 @@
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">disasters_array</span> <span class="o">=</span>   <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">disasters_array</span> <span class="o">=</span>   <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
                    <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
                    <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
                    <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
@@ -322,9 +319,9 @@ l \sim \mathrm{Exponential}(r_l)\\
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">DiscreteUniform</span><span class="p">(</span><span class="s2">"s"</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>  <span class="c1"># Returns an object of the stochastic subclass discrete uniform</span>
-<span class="n">e</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="s2">"e"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Choose r_e to be 1 gives a reasonable prior</span>
-<span class="n">l</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="s2">"l"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Choose r_l to be 1 gives a reasonable prior</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">s</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">DiscreteUniform</span><span class="p">(</span><span class="s">"s"</span><span class="p">,</span> <span class="n">lower</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper</span><span class="o">=</span><span class="mi">110</span><span class="p">)</span>  <span class="c"># Returns an object of the stochastic subclass discrete uniform</span>
+<span class="n">e</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="s">"e"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Choose r_e to be 1 gives a reasonable prior</span>
+<span class="n">l</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Exponential</span><span class="p">(</span><span class="s">"l"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Choose r_l to be 1 gives a reasonable prior</span>
 </pre></div>
 </div>
 </div>
@@ -353,7 +350,7 @@ l \sim \mathrm{Exponential}(r_l)\\
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nd">@pymc</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nd">@pymc</span><span class="o">.</span><span class="n">deterministic</span><span class="p">(</span><span class="n">plot</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">r</span><span class="p">(</span><span class="n">s</span><span class="o">=</span><span class="n">s</span><span class="p">,</span> <span class="n">e</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="n">l</span><span class="p">):</span>
     <span class="sd">"""Concatenate the two Poisson mean values"""</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">disasters_array</span><span class="p">))</span>
@@ -380,7 +377,7 @@ l \sim \mathrm{Exponential}(r_l)\\
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">D</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Poisson</span><span class="p">(</span><span class="s2">"D"</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">disasters_array</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">D</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Poisson</span><span class="p">(</span><span class="s">"D"</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">r</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">disasters_array</span><span class="p">,</span> <span class="n">observed</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -401,7 +398,7 @@ l \sim \mathrm{Exponential}(r_l)\\
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">D</span><span class="o">.</span><span class="n">parents</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">D</span><span class="o">.</span><span class="n">parents</span>
 </pre></div>
 </div>
 </div>
@@ -430,7 +427,7 @@ l \sim \mathrm{Exponential}(r_l)\\
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span><span class="o">.</span><span class="n">children</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">r</span><span class="o">.</span><span class="n">children</span>
 </pre></div>
 </div>
 </div>
@@ -459,8 +456,8 @@ l \sim \mathrm{Exponential}(r_l)\\
 <div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">minemodel</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Model</span><span class="p">([</span><span class="n">e</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
-<span class="c1">#pymc.graph.graph(minemodel)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">minemodel</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">Model</span><span class="p">([</span><span class="n">e</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">D</span><span class="p">])</span>
+<span class="c">#pymc.graph.graph(minemodel)</span>
 </pre></div>
 </div>
 </div>
@@ -481,10 +478,10 @@ l \sim \mathrm{Exponential}(r_l)\\
 <div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">parents</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">parents</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">logp</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">110</span><span class="p">)</span>  <span class="c1"># for good measure</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="mi">110</span><span class="p">)</span>  <span class="c"># for good measure</span>
 </pre></div>
 </div>
 </div>
@@ -518,7 +515,7 @@ it - the MCMC sampler randomly updates the values of s, e and l according to the
 <div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampler</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">MCMC</span><span class="p">(</span><span class="n">minemodel</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sampler</span> <span class="o">=</span> <span class="n">pymc</span><span class="o">.</span><span class="n">MCMC</span><span class="p">(</span><span class="n">minemodel</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -538,7 +535,7 @@ it - the MCMC sampler randomly updates the values of s, e and l according to the
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Will create a sample of 10000 draws from the posterior by Met-Hast algo</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Will create a sample of 10000 draws from the posterior by Met-Hast algo</span>
 <span class="n">sampler</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="nb">iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span> <span class="n">burn</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">thin</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  
 </pre></div>
 </div>
@@ -568,8 +565,8 @@ it - the MCMC sampler randomly updates the values of s, e and l according to the
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s_tr</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">"s"</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">sampler</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">"s"</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">s_tr</span> <span class="o">=</span> <span class="n">sampler</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s">"s"</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">sampler</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s">"s"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -589,7 +586,7 @@ it - the MCMC sampler randomly updates the values of s, e and l according to the
 <div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampler</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s2">"s"</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>  <span class="c1"># Just look at the first few values</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sampler</span><span class="o">.</span><span class="n">trace</span><span class="p">(</span><span class="s">"s"</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>  <span class="c"># Just look at the first few values</span>
 </pre></div>
 </div>
 </div>
@@ -609,7 +606,7 @@ it - the MCMC sampler randomly updates the values of s, e and l according to the
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">s_tr</span><span class="p">[:],</span><span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -722,7 +719,7 @@ zqCXpMYZ9JLUOINekhpn0EtS4/4fRU5rMYWQS7UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pymc</span><span class="o">.</span><span class="n">Matplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sampler</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">pymc</span><span class="o">.</span><span class="n">Matplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sampler</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2125,7 +2122,7 @@ QQAAAAZJREFU/wG/GtpYo5UXhQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s_tr</span><span class="o">.</span><span class="n">stats</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">s_tr</span><span class="o">.</span><span class="n">stats</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2159,7 +2156,7 @@ QQAAAAZJREFU/wG/GtpYo5UXhQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampler</span><span class="o">.</span><span class="n">stats</span><span class="p">()[</span><span class="s2">"e"</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sampler</span><span class="o">.</span><span class="n">stats</span><span class="p">()[</span><span class="s">"e"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2188,7 +2185,7 @@ QQAAAAZJREFU/wG/GtpYo5UXhQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sampler</span><span class="o">.</span><span class="n">stats</span><span class="p">()[</span><span class="s2">"e"</span><span class="p">][</span><span class="s2">"mean"</span><span class="p">]</span> <span class="c1"># Same as np.mean(M.trace("e")[:])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sampler</span><span class="o">.</span><span class="n">stats</span><span class="p">()[</span><span class="s">"e"</span><span class="p">][</span><span class="s">"mean"</span><span class="p">]</span> <span class="c"># Same as np.mean(M.trace("e")[:])</span>
 </pre></div>
 </div>
 </div>
@@ -2220,12 +2217,12 @@ QQAAAAZJREFU/wG/GtpYo5UXhQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span>
 <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span>
-<span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
+<span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>
 <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span>
 <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span>
-<span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
+<span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="k">None</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span>
 <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -2237,8 +2234,8 @@ QQAAAAZJREFU/wG/GtpYo5UXhQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">masked_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_equal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="c1"># D = pymc.Impute("D", pymc.Poisson, masked_data, mu=r)  # compare to D = pymc.Poisson("D", mu=r, value=disasters_array)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">masked_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_equal</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="k">None</span><span class="p">)</span>
+<span class="c"># D = pymc.Impute("D", pymc.Poisson, masked_data, mu=r)  # compare to D = pymc.Poisson("D", mu=r, value=disasters_array)</span>
 </pre></div>
 </div>
 </div>

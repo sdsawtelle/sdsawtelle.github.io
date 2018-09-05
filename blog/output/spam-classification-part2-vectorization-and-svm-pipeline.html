@@ -120,10 +120,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -158,7 +156,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -200,7 +197,7 @@
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set up environment</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Set up environment</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
@@ -214,10 +211,10 @@
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s">"stopwords"</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -241,7 +238,7 @@
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk7</span><span class="o">-</span><span class="n">spam</span><span class="o">-</span><span class="n">svm</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk7</span><span class="o">-</span><span class="n">spam</span><span class="o">-</span><span class="n">svm</span>
 </pre></div>
 </div>
 </div>
@@ -272,7 +269,7 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"easyham_and_spam_corpus_raw_and_processed_and_y.pickle"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"easyham_and_spam_corpus_raw_and_processed_and_y.pickle"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="n">emails_raw</span><span class="p">,</span> <span class="n">emails_processed</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -284,7 +281,7 @@
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emails_raw</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">emails_raw</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -304,7 +301,7 @@
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emails_processed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">emails_processed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -349,7 +346,7 @@ This downscaling is called <strong>tf–idf for “Term Frequency times Inverse 
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flatlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">emails_processed</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)]</span>  <span class="c1"># A flat list of all words from all emails</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">flatlist</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">email</span> <span class="ow">in</span> <span class="n">emails_processed</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">email</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)]</span>  <span class="c"># A flat list of all words from all emails</span>
 </pre></div>
 </div>
 </div>
@@ -360,7 +357,7 @@ This downscaling is called <strong>tf–idf for “Term Frequency times Inverse 
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Count number of appearances of each word and store as dictionary</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Count number of appearances of each word and store as dictionary</span>
 <span class="kn">import</span> <span class="nn">collections</span>
 <span class="n">counts_dict</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">Counter</span><span class="p">(</span><span class="n">flatlist</span><span class="p">)</span>
 </pre></div>
@@ -382,8 +379,8 @@ This downscaling is called <strong>tf–idf for “Term Frequency times Inverse 
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Occurrence Count Value"</span><span class="p">,</span> <span class="s2">"Frequency of Occurrence Count Value"</span><span class="p">,</span> <span class="s2">"Frequency of Occurrence Count :)"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Occurrence Count Value"</span><span class="p">,</span> <span class="s">"Frequency of Occurrence Count Value"</span><span class="p">,</span> <span class="s">"Frequency of Occurrence Count :)"</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">([</span><span class="n">num</span> <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="n">counts_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">num</span> <span class="o">></span> <span class="mi">50</span> <span class="ow">and</span> <span class="n">num</span> <span class="o"><</span> <span class="mi">12000</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">50</span><span class="p">,</span> <span class="mi">1000</span><span class="p">])</span>
 </pre></div>
@@ -693,7 +690,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vocablist</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">counts_dict</span> <span class="k">if</span> <span class="n">counts_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">></span> <span class="mi">100</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">vocablist</span> <span class="o">=</span> <span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">counts_dict</span> <span class="k">if</span> <span class="n">counts_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">></span> <span class="mi">100</span><span class="p">]</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">vocablist</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -714,7 +711,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vocablist</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">17</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">vocablist</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">17</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -752,7 +749,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="k">import</span> <span class="n">CountVectorizer</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="k">import</span> <span class="n">CountVectorizer</span>
 </pre></div>
 </div>
 </div>
@@ -763,7 +760,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify our vocab list, and use processed email bodies</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Specify our vocab list, and use processed email bodies</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">vocabulary</span><span class="o">=</span><span class="n">vocablist</span><span class="p">)</span>  
 <span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">emails_processed</span><span class="p">)</span>
 <span class="n">X</span> 
@@ -787,7 +784,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="c1"># The number of times the 30th word appears in the 30th email</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">X</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span> <span class="c"># The number of times the 30th word appears in the 30th email</span>
 </pre></div>
 </div>
 </div>
@@ -816,69 +813,69 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
     <span class="sd">'''Produce a word salad from email body.'''</span>    
-    <span class="c1"># Parse HTML extract content only (but count tags)</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">'html.parser'</span><span class="p">)</span>
+    <span class="c"># Parse HTML extract content only (but count tags)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
     
-    <span class="c1"># Pull out only the non-markup tex</span>
+    <span class="c"># Pull out only the non-markup tex</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 
-    <span class="c1"># Count the number of HTML elements and specific link elements</span>
+    <span class="c"># Count the number of HTML elements and specific link elements</span>
     <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
-    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
-    <span class="c1"># Sub in special strings for "counting"</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s2">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s2">" linktag "</span>
+    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">))</span>
+    <span class="c"># Sub in special strings for "counting"</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s">" linktag "</span>
     
-    <span class="c1"># lowercase everything</span>
+    <span class="c"># lowercase everything</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     
-    <span class="c1"># Replace all URLs with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(http|https)://[^\s]*"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all URLs with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(http|https)://[^\s]*"</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Replace all email addresses with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all email addresses with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
     
-    <span class="c1"># Replace all numbers with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[\d.]+\b"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all numbers with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[\d.]+\b"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Replace all $, ! and ? with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[$]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[!]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[?]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all $, ! and ? with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[$]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[!]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[?]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Remove all other punctuation (replace with white space)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Remove all other punctuation (replace with white space)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
     
-    <span class="c1"># Replace all newlines and blanklines with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n\n"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all newlines and blanklines with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n\n"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Make all white space a single space</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Make all white space a single space</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\s+"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Remove any trailing or leading white space</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="c"># Remove any trailing or leading white space</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
  
-    <span class="c1"># Remove all useless stopwords</span>
-    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]</span>
+    <span class="c"># Remove all useless stopwords</span>
+    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)]</span>
 
-    <span class="c1"># Stem all words</span>
-    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)</span>
+    <span class="c"># Stem all words</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s">"english"</span><span class="p">)</span>
     <span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">keepwords</span><span class="p">]</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">body</span>
 </pre></div>
@@ -891,7 +888,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify our custom preprocessor and use raw email bodies</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Specify our custom preprocessor and use raw email bodies</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">preprocessor</span><span class="o">=</span><span class="n">word_salad</span><span class="p">,</span> <span class="n">vocabulary</span><span class="o">=</span><span class="n">vocablist</span><span class="p">)</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">vectorizer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">emails_raw</span><span class="p">)</span>
 <span class="n">X</span> 
@@ -924,7 +921,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [156]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let vectorizer automatically build a vocab list</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Let vectorizer automatically build a vocab list</span>
 <span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>  
 <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">emails_processed</span><span class="p">)</span>
 </pre></div>
@@ -961,7 +958,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()[</span><span class="mi">10</span><span class="p">:</span><span class="mi">17</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()[</span><span class="mi">10</span><span class="p">:</span><span class="mi">17</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -981,7 +978,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [42]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -1010,7 +1007,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [92]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> 
+<div class=" highlight hl-ipython3"><pre><span class="n">vectorizer</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">min_df</span><span class="o">=</span><span class="mf">0.03</span><span class="p">,</span> <span class="n">max_df</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">ngram_range</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> 
 <span class="n">vectorizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">emails_processed</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1046,7 +1043,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [93]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()[</span><span class="mi">143</span><span class="p">:</span><span class="mi">150</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">vectorizer</span><span class="o">.</span><span class="n">get_feature_names</span><span class="p">()[</span><span class="mi">143</span><span class="p">:</span><span class="mi">150</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1075,7 +1072,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="k">import</span> <span class="n">TfidfTransformer</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="k">import</span> <span class="n">TfidfTransformer</span>
 </pre></div>
 </div>
 </div>
@@ -1086,10 +1083,10 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf_transformer</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span><span class="n">use_idf</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tf_transformer</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span><span class="n">use_idf</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">X_tf</span> <span class="o">=</span> <span class="n">tf_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="n">X_tf</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>  <span class="c1"># term frequency of 30th vocab word in the 30th email</span>
+<span class="n">X_tf</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>  <span class="c"># term frequency of 30th vocab word in the 30th email</span>
 </pre></div>
 </div>
 </div>
@@ -1109,10 +1106,10 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tfidf_transformer</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span><span class="n">use_idf</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tfidf_transformer</span> <span class="o">=</span> <span class="n">TfidfTransformer</span><span class="p">(</span><span class="n">use_idf</span><span class="o">=</span><span class="k">True</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 <span class="n">X_tfidf</span> <span class="o">=</span> <span class="n">tfidf_transformer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 
-<span class="n">X_tfidf</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>  <span class="c1"># term freqn - inverse doc freqn of 30th vocab word in the 30th email</span>
+<span class="n">X_tfidf</span><span class="p">[</span><span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>  <span class="c"># term freqn - inverse doc freqn of 30th vocab word in the 30th email</span>
 </pre></div>
 </div>
 </div>
@@ -1148,7 +1145,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVC</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="k">import</span> <span class="n">SVC</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="k">import</span> <span class="n">Pipeline</span>
 </pre></div>
@@ -1170,10 +1167,10 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define component objects of our pipeline then create it!</span>
-<span class="n">objs</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"vect"</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">()),</span> 
-        <span class="p">(</span><span class="s2">"tfidf"</span><span class="p">,</span> <span class="n">TfidfTransformer</span><span class="p">()),</span>
-        <span class="p">(</span><span class="s2">"svm"</span><span class="p">,</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s2">"rbf"</span><span class="p">))]</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Define component objects of our pipeline then create it!</span>
+<span class="n">objs</span> <span class="o">=</span> <span class="p">[(</span><span class="s">"vect"</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">()),</span> 
+        <span class="p">(</span><span class="s">"tfidf"</span><span class="p">,</span> <span class="n">TfidfTransformer</span><span class="p">()),</span>
+        <span class="p">(</span><span class="s">"svm"</span><span class="p">,</span> <span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s">"rbf"</span><span class="p">))]</span>
 <span class="n">pipe</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">(</span><span class="n">objs</span><span class="p">)</span>
 <span class="n">pipe</span><span class="o">.</span><span class="n">named_steps</span>
 </pre></div>
@@ -1215,16 +1212,16 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Specify parameters of the pipeline and their ranges for grid search</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Specify parameters of the pipeline and their ranges for grid search</span>
 <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">'vect__min_df'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-    <span class="s1">'vect__ngram_range'</span><span class="p">:</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>  <span class="c1"># unigrams or bigrams</span>
-    <span class="s1">'tfidf__use_idf'</span><span class="p">:</span> <span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-    <span class="s1">'svm__C'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-    <span class="s1">'svm__gamma'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s">'vect__min_df'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.005</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="s">'vect__ngram_range'</span><span class="p">:</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span>  <span class="c"># unigrams or bigrams</span>
+    <span class="s">'tfidf__use_idf'</span><span class="p">:</span> <span class="p">(</span><span class="k">True</span><span class="p">,</span> <span class="k">False</span><span class="p">),</span>
+    <span class="s">'svm__C'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s">'svm__gamma'</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
 <span class="p">}</span>
 
-<span class="c1"># Construct our grid search object</span>
+<span class="c"># Construct our grid search object</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">pipe</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">params</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1245,7 +1242,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">emails_processed</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">emails_processed</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1278,7 +1275,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Best parameter values:"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"Best parameter values:"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">search</span><span class="o">.</span><span class="n">best_params_</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">param</span><span class="p">)</span>
 </pre></div>
@@ -1306,7 +1303,7 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"CV Score using best parameter values:"</span><span class="p">,</span> <span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"CV Score using best parameter values:"</span><span class="p">,</span> <span class="n">search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

@@ -119,10 +119,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -157,7 +155,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -203,7 +200,7 @@
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
 </pre></div>
@@ -225,8 +222,8 @@
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Look at the first few rows of the CSV file</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Look at the first few rows of the CSV file</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -280,8 +277,8 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Peek at the middle of the CSV file</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Peek at the middle of the CSV file</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="k">None</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -344,9 +341,9 @@
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Read in the data chunk by chunk</span>
-<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s2">"last_name"</span><span class="p">])</span>  <span class="c1"># Each chunk gives you a dataframe with the same header :)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Read in the data chunk by chunk</span>
+<span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">"last_name"</span><span class="p">])</span>  <span class="c"># Each chunk gives you a dataframe with the same header :)</span>
 </pre></div>
 </div>
 </div>
@@ -380,7 +377,7 @@ Smith
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -462,7 +459,7 @@ Smith
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
@@ -488,7 +485,7 @@ dtype: object</pre>
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -526,12 +523,12 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cast during the csv read</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s2">"active"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">})</span>  
+<div class=" highlight hl-ipython3"><pre><span class="c"># Cast during the csv read</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="s">"active"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">})</span>  
 
-<span class="c1"># ...or cast after reading </span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"age"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+<span class="c"># ...or cast after reading </span>
+<span class="n">df</span><span class="p">[</span><span class="s">"age"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"age"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -542,7 +539,7 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
 </div>
@@ -568,7 +565,7 @@ dtype: object</pre>
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">memory_usage</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -614,9 +611,9 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Impute the NaNs in the sex column, let's make them their own category:</span>
-<span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="s2">"sex"</span><span class="p">:</span> <span class="s2">"NAN"</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Impute the NaNs in the sex column, let's make them their own category:</span>
+<span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="p">{</span><span class="s">"sex"</span><span class="p">:</span> <span class="s">"NAN"</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -636,12 +633,12 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create a label encoder and fit it</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create a label encoder and fit it</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">LabelEncoder</span>
 <span class="n">le_sex</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
-<span class="n">le_sex</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<span class="n">le_sex</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 
-<span class="n">le_sex</span><span class="o">.</span><span class="n">classes_</span>  <span class="c1"># The fit results in two classes - M and F</span>
+<span class="n">le_sex</span><span class="o">.</span><span class="n">classes_</span>  <span class="c"># The fit results in two classes - M and F</span>
 </pre></div>
 </div>
 </div>
@@ -670,8 +667,8 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example of the transform</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">le_sex</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s2">"M"</span><span class="p">,</span> <span class="s2">"M"</span><span class="p">,</span> <span class="s2">"NAN"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">]))</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Example of the transform</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">le_sex</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="s">"M"</span><span class="p">,</span> <span class="s">"M"</span><span class="p">,</span> <span class="s">"NAN"</span><span class="p">,</span> <span class="s">"F"</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -692,10 +689,10 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In [136]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Transform the sex categories into integers and then change type</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span> <span class="o">=</span> <span class="n">le_sex</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">])</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s2">"sex"</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Transform the sex categories into integers and then change type</span>
+<span class="n">df</span><span class="p">[</span><span class="s">"sex"</span><span class="p">]</span> <span class="o">=</span> <span class="n">le_sex</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"sex"</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s">"sex"</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"sex"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s">"sex"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -751,9 +748,9 @@ Name: sex, dtype: int8</pre>
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"all_your_base.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"all_your_base.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c"># This object lets us actually send messages to our DB and receive results</span>
 </pre></div>
 </div>
 </div>
@@ -774,8 +771,8 @@ Name: sex, dtype: int8</pre>
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"data.csv"</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
-    <span class="n">chunk</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1">#"name" is name of table </span>
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">chunk</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"data.csv"</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">chunk</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>  <span class="c">#"name" is name of table </span>
     <span class="nb">print</span><span class="p">(</span><span class="n">chunk</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -818,7 +815,7 @@ Smith
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">"CREATE TABLE person (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, age INTEGER);"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sql</span> <span class="o">=</span> <span class="s">"CREATE TABLE person (id INTEGER PRIMARY KEY, first_name TEXT, last_name TEXT, age INTEGER);"</span>
 </pre></div>
 </div>
 </div>
@@ -844,7 +841,7 @@ Smith
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT first_name, last_name FROM person;"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT first_name, last_name FROM person;"</span>
 </pre></div>
 </div>
 </div>
@@ -864,7 +861,7 @@ Smith
 <div class="prompt input_prompt">In [122]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">"ALTER TABLE person ADD COLUMN town TEXT DEFAULT 'North Pole';"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sql</span> <span class="o">=</span> <span class="s">"ALTER TABLE person ADD COLUMN town TEXT DEFAULT 'North Pole';"</span>
 </pre></div>
 </div>
 </div>
@@ -902,8 +899,8 @@ Smith
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT DISTINCT sex FROM data;"</span>  <span class="c1"># A SQL command to get unique values from the sex column </span>
-<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>  <span class="c1"># The cursor gives this command to our DB, the results are now available in cur</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT DISTINCT sex FROM data;"</span>  <span class="c"># A SQL command to get unique values from the sex column </span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>  <span class="c"># The cursor gives this command to our DB, the results are now available in cur</span>
 </pre></div>
 </div>
 </div>
@@ -923,7 +920,7 @@ Smith
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>  <span class="c1"># Pop the first result of the query like `next()`</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cur</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>  <span class="c"># Pop the first result of the query like `next()`</span>
 </pre></div>
 </div>
 </div>
@@ -943,7 +940,7 @@ Smith
 <div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>  <span class="c1"># Pop the remaining results of the query</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>  <span class="c"># Pop the remaining results of the query</span>
 </pre></div>
 </div>
 </div>
@@ -963,7 +960,7 @@ Smith
 <div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Execute returns a generator you can loop through.</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Execute returns a generator you can loop through.</span>
 <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
@@ -998,9 +995,9 @@ Smith
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">494724</span><span class="p">,</span> <span class="mi">102001</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">494724</span><span class="p">,</span> <span class="mi">102001</span><span class="p">]</span>
 <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span> <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">ids</span><span class="p">]</span> 
-<span class="n">str_matching</span> <span class="o">=</span> <span class="s2">"("</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span>  <span class="c1"># Construct the string of SQL language</span>
+<span class="n">str_matching</span> <span class="o">=</span> <span class="s">"("</span> <span class="o">+</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ids</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span>  <span class="c"># Construct the string of SQL language</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">str_matching</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1022,7 +1019,7 @@ Smith
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data WHERE id IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s2">";"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data WHERE id IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s">";"</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1044,7 +1041,7 @@ Smith
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1108,13 +1105,13 @@ Smith
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
-                      <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">200100</span><span class="p">,</span> <span class="mi">109333</span><span class="p">],</span> 
-                      <span class="s2">"last_name"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Caster"</span><span class="p">,</span> <span class="s2">"Spenny"</span><span class="p">],</span> 
-                      <span class="s2">"age"</span><span class="p">:</span> <span class="p">[</span><span class="mi">81</span><span class="p">,</span> <span class="mi">62</span><span class="p">],</span>
-                      <span class="s2">"sex"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"F"</span><span class="p">,</span> <span class="s2">"F"</span><span class="p">],</span>
-                      <span class="s2">"acct_type"</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s2">"savings"</span><span class="p">],</span>
-                      <span class="s2">"active"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df_new</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span>
+                      <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s">"id"</span><span class="p">:</span> <span class="p">[</span><span class="mi">200100</span><span class="p">,</span> <span class="mi">109333</span><span class="p">],</span> 
+                      <span class="s">"last_name"</span><span class="p">:</span> <span class="p">[</span><span class="s">"Caster"</span><span class="p">,</span> <span class="s">"Spenny"</span><span class="p">],</span> 
+                      <span class="s">"age"</span><span class="p">:</span> <span class="p">[</span><span class="mi">81</span><span class="p">,</span> <span class="mi">62</span><span class="p">],</span>
+                      <span class="s">"sex"</span><span class="p">:</span> <span class="p">[</span><span class="s">"F"</span><span class="p">,</span> <span class="s">"F"</span><span class="p">],</span>
+                      <span class="s">"acct_type"</span><span class="p">:</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s">"savings"</span><span class="p">],</span>
+                      <span class="s">"active"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
 </pre></div>
 </div>
 </div>
@@ -1125,7 +1122,7 @@ Smith
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_new</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df_new</span>
 </pre></div>
 </div>
 </div>
@@ -1179,7 +1176,7 @@ Smith
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_new</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span class="n">df_new</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -1199,8 +1196,8 @@ Smith
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT DISTINCT last_name FROM data;"</span>  <span class="c1"># A SQL command to get unique values from the sex column </span>
-<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>  <span class="c1"># The cursor gives this command to our DB, the results are now available in cur</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT DISTINCT last_name FROM data;"</span>  <span class="c"># A SQL command to get unique values from the sex column </span>
+<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>  <span class="c"># The cursor gives this command to our DB, the results are now available in cur</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1243,7 +1240,7 @@ Smith
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sql2</span> <span class="o">=</span> <span class="s2">"CREATE INDEX id_idx ON data (id);"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sql2</span> <span class="o">=</span> <span class="s">"CREATE INDEX id_idx ON data (id);"</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql2</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 </pre></div>
@@ -1265,7 +1262,7 @@ Smith
 <div class="prompt input_prompt">In [133]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1286,7 +1283,7 @@ Smith
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">"SELECT * FROM data WHERE ncodpers IN (?, ?);"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s">"SELECT * FROM data WHERE ncodpers IN (?, ?);"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>

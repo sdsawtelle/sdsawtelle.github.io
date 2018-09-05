@@ -121,10 +121,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -159,7 +157,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -201,7 +198,7 @@
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set up environment</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Set up environment</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
@@ -215,10 +212,10 @@
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s">"stopwords"</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -242,7 +239,7 @@
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk7</span><span class="o">-</span><span class="n">spam</span><span class="o">-</span><span class="n">preprocessing</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk7</span><span class="o">-</span><span class="n">spam</span><span class="o">-</span><span class="n">preprocessing</span>
 </pre></div>
 </div>
 </div>
@@ -272,14 +269,14 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Setup for accessing all the spam and ham text files</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Setup for accessing all the spam and ham text files</span>
 <span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
 
-<span class="n">spampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"spam"</span><span class="p">)</span>
+<span class="n">spampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s">"spam"</span><span class="p">)</span>
 <span class="n">spamfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">join</span><span class="p">(</span><span class="n">spampath</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">spampath</span><span class="p">)]</span>
 
-<span class="n">hampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">"easy_ham"</span><span class="p">)</span>
+<span class="n">hampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s">"easy_ham"</span><span class="p">)</span>
 <span class="n">hamfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">join</span><span class="p">(</span><span class="n">hampath</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">hampath</span><span class="p">)]</span>
 </pre></div>
 </div>
@@ -300,7 +297,7 @@
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
@@ -487,7 +484,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
@@ -529,15 +526,15 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
     <span class="sd">'''Get email body lines from fpath using first occurence of empty line.'''</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="s2">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span> 
             <span class="n">lines</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-            <span class="n">idx</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> <span class="c1"># only grabs first instance</span>
-            <span class="k">return</span> <span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">:])</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span> <span class="c"># only grabs first instance</span>
+            <span class="k">return</span> <span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">:])</span>
         <span class="k">except</span><span class="p">:</span> 
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Couldn't decode file </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">,))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s">"Couldn't decode file %s"</span> <span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">,))</span>
 </pre></div>
 </div>
 </div>
@@ -548,7 +545,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test it out </span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Test it out </span>
 <span class="n">body</span><span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -560,7 +557,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>  <span class="c1"># This is the actual string we are going to be processing</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">body</span>  <span class="c"># This is the actual string we are going to be processing</span>
 </pre></div>
 </div>
 </div>
@@ -580,7 +577,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c1"># This is what it would look like properly displayed</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c"># This is what it would look like properly displayed</span>
 </pre></div>
 </div>
 </div>
@@ -665,9 +662,9 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [23]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parse the email body into HTML elements</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Parse the email body into HTML elements</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">'html.parser'</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -678,14 +675,14 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pull out only the non-markup tex</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Pull out only the non-markup tex</span>
 <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 
-<span class="c1"># Count the number of HTML elements and specific link elements</span>
+<span class="c"># Count the number of HTML elements and specific link elements</span>
 <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
-<span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
-<span class="c1"># Sub in special strings for "counting"</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s2">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s2">" linktag "</span>
+<span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">))</span>
+<span class="c"># Sub in special strings for "counting"</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s">" linktag "</span>
 </pre></div>
 </div>
 </div>
@@ -705,7 +702,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lowercase everything</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Lowercase everything</span>
 <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -726,13 +723,13 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all URLs with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(http|https)://[^\s]*"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Replace all URLs with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(http|https)://[^\s]*"</span><span class="p">)</span>
+<span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c1"># Replace all email addresses with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c"># Replace all email addresses with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
+<span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -743,7 +740,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [27]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
 </pre></div>
 </div>
 </div>
@@ -772,21 +769,21 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all numbers with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[\d.]+\b"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Replace all numbers with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[\d.]+\b"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c1"># Replace all $, ! and ? with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[$]"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[!]"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[?]"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c"># Replace all $, ! and ? with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[$]"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[!]"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[?]"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c1"># Remove all other punctuation (replace with white space)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c"># Remove all other punctuation (replace with white space)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -797,7 +794,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [29]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
 </pre></div>
 </div>
 </div>
@@ -826,18 +823,18 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all newlines and blanklines with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n\n"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Replace all newlines and blanklines with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n\n"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c1"># Make all white space a single space</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c"># Make all white space a single space</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\s+"</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c1"># Remove any trailing or leading white space</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<span class="c"># Remove any trailing or leading white space</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -848,7 +845,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [31]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
 </pre></div>
 </div>
 </div>
@@ -877,7 +874,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [32]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nwords</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">nwords</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">))</span>
 <span class="n">nwords</span>
 </pre></div>
 </div>
@@ -908,9 +905,9 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [33]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">"stopwords"</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s">"stopwords"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -938,7 +935,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [34]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"english"</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">"english"</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -958,7 +955,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [35]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">"english"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -978,10 +975,10 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [36]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove all useless stopwords</span>
-<span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-<span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]</span>
-<span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keepwords</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Remove all useless stopwords</span>
+<span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+<span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)]</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keepwords</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -992,7 +989,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
 </pre></div>
 </div>
 </div>
@@ -1021,10 +1018,10 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [38]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
-<span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s">"english"</span><span class="p">)</span>
 
-<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s2">"generously"</span><span class="p">)</span>
+<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s">"generously"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1044,10 +1041,10 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [39]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stem all words</span>
-<span class="n">words</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Stem all words</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
 <span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
-<span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1058,7 +1055,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
 </pre></div>
 </div>
 </div>
@@ -1087,69 +1084,69 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [41]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
     <span class="sd">'''Produce a word salad from email body.'''</span>    
-    <span class="c1"># Parse HTML extract content only (but count tags)</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">'html.parser'</span><span class="p">)</span>
+    <span class="c"># Parse HTML extract content only (but count tags)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
     
-    <span class="c1"># Pull out only the non-markup tex</span>
+    <span class="c"># Pull out only the non-markup tex</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 
-    <span class="c1"># Count the number of HTML elements and specific link elements</span>
+    <span class="c"># Count the number of HTML elements and specific link elements</span>
     <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
-    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">))</span>
-    <span class="c1"># Sub in special strings for "counting"</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s2">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s2">" linktag "</span>
+    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">))</span>
+    <span class="c"># Sub in special strings for "counting"</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s">" linktag "</span>
     
-    <span class="c1"># lowercase everything</span>
+    <span class="c"># lowercase everything</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     
-    <span class="c1"># Replace all URLs with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(http|https)://[^\s]*"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all URLs with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(http|https)://[^\s]*"</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Replace all email addresses with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all email addresses with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
     
-    <span class="c1"># Replace all numbers with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b[\d.]+\b"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all numbers with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[\d.]+\b"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Replace all $, ! and ? with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[$]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[!]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[?]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all $, ! and ? with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[$]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[!]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[?]"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Remove all other punctuation (replace with white space)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Remove all other punctuation (replace with white space)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
     
-    <span class="c1"># Replace all newlines and blanklines with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\n\n"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Replace all newlines and blanklines with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n\n"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Make all white space a single space</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c"># Make all white space a single space</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\s+"</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c1"># Remove any trailing or leading white space</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
+    <span class="c"># Remove any trailing or leading white space</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
  
-    <span class="c1"># Remove all useless stopwords</span>
-    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">" "</span><span class="p">)</span>
-    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">)]</span>
+    <span class="c"># Remove all useless stopwords</span>
+    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)]</span>
 
-    <span class="c1"># Stem all words</span>
-    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">"english"</span><span class="p">)</span>
+    <span class="c"># Stem all words</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s">"english"</span><span class="p">)</span>
     <span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">keepwords</span><span class="p">]</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">body</span>
 </pre></div>
@@ -1162,7 +1159,7 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [42]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Try out our function</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Try out our function</span>
 <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">[</span><span class="mi">179</span><span class="p">])</span>
 <span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 <span class="n">processed</span>
@@ -1194,14 +1191,14 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [43]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emails_raw</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Reserve in memory, faster than append</span>
-<span class="n">emails_processed</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Reserve in memory, faster than append</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Ground truth vector</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">emails_raw</span> <span class="o">=</span>  <span class="p">[</span><span class="s">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c"># Reserve in memory, faster than append</span>
+<span class="n">emails_processed</span> <span class="o">=</span>  <span class="p">[</span><span class="s">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c"># Reserve in memory, faster than append</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">)</span>  <span class="c"># Ground truth vector</span>
 
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">):</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>  <span class="c1"># Extract only the email body text</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>  <span class="c"># Extract only the email body text</span>
     <span class="n">emails_raw</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">body</span>
-    <span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c1"># All preprocessing</span>
+    <span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c"># All preprocessing</span>
     <span class="n">emails_processed</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">processed</span>
 </pre></div>
 </div>
@@ -1213,8 +1210,8 @@ http://tb.tf/mailman/listinfo/irregulars
 <div class="prompt input_prompt">In [44]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pickle these objects for easier access later</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"easyham_and_spam_corpus_raw_and_processed_and_y.pickle"</span><span class="p">,</span> <span class="s2">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Pickle these objects for easier access later</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"easyham_and_spam_corpus_raw_and_processed_and_y.pickle"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">([</span><span class="n">emails_raw</span><span class="p">,</span> <span class="n">emails_processed</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">myfile</span><span class="p">)</span>
 </pre></div>
 </div>

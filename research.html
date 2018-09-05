@@ -22,16 +22,16 @@
 			<div class="hex-bottom"></div>
 		</div>
 		<div class="hex">
-			<div class="hex-top-cur"></div>
-			<div class="hex-mid-cur">
-				<a class="hex-link-cur"; href="research.html">research</a> 
+			<div class="hex-top"></div>
+			<div class="hex-mid">
+				<a class="hex-link"; href="blog/output/index.html">posts</a> 
 			</div>
-			<div class="hex-bottom-cur"></div>
+			<div class="hex-bottom"></div>
 		</div>
 		<div class="hex">
 			<div class="hex-top"></div>
 			<div class="hex-mid">
-				<a class="hex-link"; href="skills.html">skills</a> 
+				<a class="hex-link"; href="projects.html">projects</a> 
 			</div>
 			<div class="hex-bottom"></div>
 		</div>
@@ -45,8 +45,11 @@
 	</nav>	
 	<p class="contact">
 		<ul class="contact">
-			<li class="nameplate"><b>Sonya S.</b></li>
-			<li><a href="mailto:sonya.sawtelle@yale.edu" class="contact">email me. </a><a href="https://www.linkedin.com/pub/sonya-sawtelle/30/b34/176" class="contact">linked in.</a></li>
+			<li class="nameplate"><b>Sonya</b></li>
+			<li><a href="mailto:sonya.sawtelle@yale.edu" class="contact">email.</a></li>
+			<li><a href="https://github.com/sdsawtelle" class="contact">github.</a></li>
+			<li><a href="https://www.linkedin.com/pub/sonya-sawtelle/30/b34/176" class="contact">linkedin.</a></li>
+			<li><a href="resume.html" class="contact">resume.</a></li>
 		</ul>
 	</p>
 	<div style="clear: both;"></div>
@@ -55,11 +58,12 @@
 <section class="main">
 	<section class="overview">
 		<p>
-			I am a 4th year PhD candidate in the department of Applied Physics at <mark class="highlight">Yale</mark>, and I earned my B.S. in Physics at Indiana University. I work in <a href="http://www.eng.yale.edu/reedlab/">Mark Reed's group</a> doing mostly <mark class="highlight">device physics</mark> type work. Below you can read about the projects I have been involved in during my PhD. In my first and second year I worked on using <a href="#DEP">electric fields to manipulate cells</a>. I also worked on <a href="#SiNW">biosensing</a> applications of silicon nanowires. My dissertation will stem from my most recent work on the <a href="#molT">electronic properties of single molecule transistors</a>.
+			I recently completed my PhD in the department of Applied Physics at <mark class="highlight">Yale</mark>, and I previously earned my B.S. in Physics at Indiana University. My PhD work was conducted in <a href="http://www.eng.yale.edu/reedlab/">Mark Reed's group</a> doing mostly <mark class="highlight">device physics</mark> type work. Below you can read about the projects I was involved in during my PhD. In my first and second year I worked on using <a href="#DEP">electric fields to manipulate cells</a>. I also worked on <a href="#SiNW">biosensing</a> applications of silicon nanowires. Later I worked on an engineering effort to create a multimodal brain probe for trauma patients. My dissertation stemmed from my work on <a href="#electromigration">electromigration and electrothermal properties in gold nanostructures</a>.
 		</p>
 		<img src="images/thumbnail.png" class="thumbnailstrip">
 	</section>
-	<section class = "subsection">
+	
+<!-- 	<section class = "subsection">
 		<a name="molT"></a>
 		<h1 class="heading">Charge Transport in Single Molecule Devices</h1>
 		<h1 class="borderaccent"></h1>
@@ -72,8 +76,28 @@
 			<img src="images/hillock.png" class="research">
 			
 			We make gaps a few nanometers wide in these wires by using the electromigrated break junction technique, and seek to suspend single organic molecules across the gap. Electromigration (EM) is a process in which atoms of a metal migrate preferentially in one direction under applied bias. The mechanism of this migration is transfer of the field-induced momentum of charge carriers to the atomic nuclei via scattering events. The key to controlled EMBJ is to maintain a constant junction temperature (corresponding to a constant power dissipated in the junction) once the migration has started. If the constant power constraint is not met, thermal runaway ensues as an increase in junction resistance gives an increase in temperature, which in turn facilitates more rapid breaking. Working with undergraduate Stan Swidwinski (Yale College, Physics) we have created a fully-automated controlled breaking program. Experiments are underway to analyze devices which have been coated with suitable organic molecule prior to loading in our cryostat for electromigration.
-		</p>
+		</p> 
+	</section>-->
+		<section class = "subsection">
+		<a name="electromigration"></a>
+		<h1 class="heading">Electromigration and Electrothermal Properties in Gold Nanostructures</h1>
+		<h1 class="borderaccent"></h1>
+		<h3>October 2014</h3>
+		<p>
+		As on-chip technologies continue to scale down across fields from electronics to biomedical devices, the relevance of metallic nanostructures under AC and DC current stress continues to grow. However, electrothermal phenomena and related material properties differ greatly from the micro to the nano scale, due to fundamental differences in the role of surfaces and interfaces, size effects in microstructure, and ultimately, at small enough length scales, quantum effects. 
 		
+		<img src="images/FIG_schematic.svg" class="research" width=400>
+		
+		My thesis work sought to improve understanding and modeling of electrothermal properties and the phenomenon of electromigration (EM) in ultra-thin, top-down patterned metal nanostructures.
+		
+		We developed and applied an experimental technique to estimate values for thermal conductivity of both a metal nanowire and its insulating substrate by measuring the increase in resistance due to small amounts of self-heating. We found that the thermal conductivity of our nanowires increases rapidly with temperature and width, while the Lorenz ratio is is significantly lower than would be predicted within conventional Weidemann-Franz theory.
+
+		Armed with measured values of electrothermal material properties, we investigated the behavior of nanowires and nanobowties under conventional DC EM. We conducted several experiments supporting the need for a more nuanced picture of nanoscale EM than that of a fixed critical junction temperature at which EM onset is achieved. 
+
+		<img src="images/FIG_device_fab_ver3.svg" class="research-right" width=500>
+		
+		The final part of the thesis explored the relationship between temperature and electron wind force in EM by looking at power and current density at breakdown under a generalized AC bias (AC with a DC offset). Additionally, we implemented the first algorithm for feedback controlled AC EM (FCACEM) which may prove more suitable for single molecule junction applications.
+		</p>
 	</section>	
 	
 	<section class = "subsection">
@@ -118,8 +142,8 @@
 			
 			We expanded our experiment to investigate differential manipulation of E.coli and human red blood cells, which is predicted to occur in some small range of frequencies where one type experiences PDEP and the other experiences NDEP. We were able to achieve selective capture of E.coli on electrodes in a solution of mixed cell type. This may be useful for applying this method to blood samples, but needs further investigation. [many thanks to Claudia Shin for wonderful video editing.]
 			<p>
-				<iframe style="float: left; overflow: auto; margin-right: 4%;" width="48%" height="315" src="http://www.youtube.com/embed/o_Nto_96NgI?rel=0" frameborder="0" allowfullscreen></iframe>
-				<iframe width="48%" height="315" src="http://www.youtube.com/embed/j9gzTQVC3Lg?rel=0" frameborder="0" allowfullscreen></iframe>
+				<iframe style="float: left; overflow: auto; margin-right: 4%;" width="48%" height="315" src="http://www.youtube.com/embed/o_Nto_96NgI?rel=0&origin=http://sdsawtelle.github.io" frameborder="0" allowfullscreen></iframe>
+				<iframe width="48%" height="315" src="http://www.youtube.com/embed/j9gzTQVC3Lg?rel=0&origin=http://sdsawtelle.github.io" frameborder="0" allowfullscreen></iframe>
 			</p>		
 			<div style="clear: both;"></div>
 		</p>

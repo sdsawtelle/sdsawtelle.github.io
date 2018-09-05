@@ -119,10 +119,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -157,7 +155,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -200,7 +197,7 @@
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -215,8 +212,8 @@
 <span class="kn">from</span> <span class="nn">scipy</span> <span class="k">import</span> <span class="n">stats</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">mean_squared_error</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -237,15 +234,15 @@
 <div class="prompt input_prompt">In [212]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a connection to the database housing ratings. </span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_recommender.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make a connection to the database housing ratings. </span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_recommender.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c"># This object lets us actually send messages to our DB and receive results</span>
 
-<span class="c1"># Retrieve usernames for all users with < 20 ratings in the DB</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
-    <span class="s2">"SELECT username"</span><span class="p">,</span>
-    <span class="s2">"FROM (SELECT username, count(*) as freqn FROM data GROUP BY username)"</span><span class="p">,</span>
-    <span class="s2">"AS tbl WHERE freqn < 20"</span><span class="p">,</span>
+<span class="c"># Retrieve usernames for all users with < 20 ratings in the DB</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
+    <span class="s">"SELECT username"</span><span class="p">,</span>
+    <span class="s">"FROM (SELECT username, count(*) as freqn FROM data GROUP BY username)"</span><span class="p">,</span>
+    <span class="s">"AS tbl WHERE freqn < 20"</span><span class="p">,</span>
 <span class="p">))</span>
 <span class="n">users</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">users</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -291,13 +288,13 @@
 <div class="prompt input_prompt">In [213]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop all the rows for the above list of users</span>
-<span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s2">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-<span class="n">str_matching</span> <span class="o">=</span> <span class="s2">"("</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span>  <span class="c1"># Construct the string of SQL language</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"DELETE FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s2">";"</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Drop all the rows for the above list of users</span>
+<span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">str_matching</span> <span class="o">=</span> <span class="s">"("</span> <span class="o">+</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span>  <span class="c"># Construct the string of SQL language</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"DELETE FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s">";"</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 
-<span class="c1"># Close DB connection</span>
+<span class="c"># Close DB connection</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -319,9 +316,9 @@
 <div class="prompt input_prompt">In [77]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load full data set into RAM</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_recommender.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data"</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Load full data set into RAM</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_recommender.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data"</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -334,7 +331,7 @@
 <div class="prompt input_prompt">In [78]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -354,7 +351,7 @@
 <div class="prompt input_prompt">In [79]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -375,10 +372,10 @@
 <div class="prompt input_prompt">In [216]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Calculate sparsity of ratings data</span>
-<span class="n">max_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Calculate sparsity of ratings data</span>
+<span class="n">max_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 <span class="n">actual_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Sparsity of Ratings Data is </span><span class="si">%.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">actual_n_ratings</span><span class="o">/</span><span class="n">max_n_ratings</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s">"Sparsity of Ratings Data is %.2f%%"</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">actual_n_ratings</span><span class="o">/</span><span class="n">max_n_ratings</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -408,10 +405,10 @@
 <div class="prompt input_prompt">In [220]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a connection to a new database, write to it, then close</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_recommender.db"</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make a connection to a new database, write to it, then close</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_recommender.db"</span><span class="p">)</span> 
 <span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"CREATE INDEX usr_idx ON data (username);"</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"CREATE INDEX usr_idx ON data (username);"</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">sql</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -434,9 +431,9 @@
 <div class="prompt input_prompt">In [80]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gameid</span> <span class="o">=</span> <span class="mi">17226</span>
-<span class="n">cnts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span><span class="o">==</span><span class="n">gameid</span><span class="p">,</span> 
-              <span class="p">[</span><span class="s2">"username"</span><span class="p">,</span> <span class="s2">"ratings"</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>  <span class="c1"># Num. of entries for this game for each user</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">gameid</span> <span class="o">=</span> <span class="mi">17226</span>
+<span class="n">cnts</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span><span class="o">==</span><span class="n">gameid</span><span class="p">,</span> 
+              <span class="p">[</span><span class="s">"username"</span><span class="p">,</span> <span class="s">"ratings"</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"username"</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>  <span class="c"># Num. of entries for this game for each user</span>
 </pre></div>
 </div>
 </div>
@@ -447,9 +444,9 @@
 <div class="prompt input_prompt">In [81]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">multi_users</span> <span class="o">=</span> <span class="n">cnts</span><span class="p">[</span><span class="n">cnts</span><span class="p">[</span><span class="s2">"ratings"</span><span class="p">]</span> <span class="o">></span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>  <span class="c1"># list of usernames who rated the game more than once</span>
-<span class="n">multis</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span><span class="o">==</span><span class="n">gameid</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">multi_users</span><span class="p">))]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">"username"</span><span class="p">)</span>
-<span class="n">stds</span> <span class="o">=</span> <span class="n">multis</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)[</span><span class="s2">"ratings"</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c1"># standard deviation of ratings for users with multiple entries</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">multi_users</span> <span class="o">=</span> <span class="n">cnts</span><span class="p">[</span><span class="n">cnts</span><span class="p">[</span><span class="s">"ratings"</span><span class="p">]</span> <span class="o">></span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>  <span class="c"># list of usernames who rated the game more than once</span>
+<span class="n">multis</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span><span class="o">==</span><span class="n">gameid</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">multi_users</span><span class="p">))]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s">"username"</span><span class="p">)</span>
+<span class="n">stds</span> <span class="o">=</span> <span class="n">multis</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"username"</span><span class="p">)[</span><span class="s">"ratings"</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>  <span class="c"># standard deviation of ratings for users with multiple entries</span>
 <span class="n">stds</span>
 </pre></div>
 </div>
@@ -501,8 +498,8 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [89]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">multis</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span>  <span class="c1"># rows where (game, user) is duplicate</span>
-<span class="n">df_no_multis</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span><span class="p">)]</span> <span class="c1"># rows where (game, user) is NOT duplicate</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">multis</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">,</span> <span class="s">"username"</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="k">False</span><span class="p">)]</span>  <span class="c"># rows where (game, user) is duplicate</span>
+<span class="n">df_no_multis</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">,</span> <span class="s">"username"</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="k">False</span><span class="p">)]</span> <span class="c"># rows where (game, user) is NOT duplicate</span>
 </pre></div>
 </div>
 </div>
@@ -513,7 +510,7 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [90]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">multis</span><span class="p">)</span>  <span class="c1"># Just out of curiosity, how often do users re-rate a game?</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">multis</span><span class="p">)</span>  <span class="c"># Just out of curiosity, how often do users re-rate a game?</span>
 </pre></div>
 </div>
 </div>
@@ -533,7 +530,7 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [91]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">means</span> <span class="o">=</span> <span class="n">multis</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">])[</span><span class="s2">"ratings"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>  <span class="c1"># replace each set of duplicates with avg</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">means</span> <span class="o">=</span> <span class="n">multis</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s">"gameid"</span><span class="p">,</span> <span class="s">"username"</span><span class="p">])[</span><span class="s">"ratings"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>  <span class="c"># replace each set of duplicates with avg</span>
 <span class="n">means</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -597,8 +594,8 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [92]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_no_multis</span><span class="p">,</span> <span class="n">means</span><span class="p">])</span>  <span class="c1"># Add the de-duplicated average rows back in</span>
-<span class="nb">any</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s2">"username"</span><span class="p">,</span> <span class="s2">"gameid"</span><span class="p">]]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">())</span>  <span class="c1"># Verify that we successfully completely deduplicated</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_no_multis</span><span class="p">,</span> <span class="n">means</span><span class="p">])</span>  <span class="c"># Add the de-duplicated average rows back in</span>
+<span class="nb">any</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s">"username"</span><span class="p">,</span> <span class="s">"gameid"</span><span class="p">]]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">())</span>  <span class="c"># Verify that we successfully completely deduplicated</span>
 </pre></div>
 </div>
 </div>
@@ -618,9 +615,9 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [98]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Write the updated values to a new database</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span> 
-<span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">connex</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Write the updated values to a new database</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span> 
+<span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s">"data"</span><span class="p">,</span> <span class="n">connex</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -743,7 +740,7 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [192]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Bob0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">Bob0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
 <span class="n">Bob1</span> <span class="o">=</span> <span class="n">Bob0</span> <span class="o">-</span> <span class="mi">2</span>
 <span class="n">Bob2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Bob0</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.4</span><span class="o">*</span><span class="p">(</span><span class="n">Bob0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Bob0</span><span class="p">))</span>
 <span class="n">Bob3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
@@ -751,8 +748,8 @@ Name: ratings, dtype: float64</pre>
 <span class="n">Bob5</span> <span class="o">=</span> <span class="n">Bob0</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
 <span class="n">bobs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span><span class="n">Bob0</span><span class="p">,</span> <span class="n">Bob1</span><span class="p">,</span> <span class="n">Bob2</span><span class="p">,</span> <span class="n">Bob3</span><span class="p">,</span> <span class="n">Bob4</span><span class="p">,</span> <span class="n">Bob5</span><span class="p">],</span> 
-                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s2">"Bob0"</span><span class="p">,</span> <span class="s2">"Bob1_shifted"</span><span class="p">,</span> <span class="s2">"Bob2_squeezed"</span><span class="p">,</span> 
-                           <span class="s2">"Bob3_missing"</span><span class="p">,</span> <span class="s2">"Bob4_squeezed_shifted"</span><span class="p">,</span> <span class="s2">"Bob5_anticorrelated"</span><span class="p">])</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s">"Bob0"</span><span class="p">,</span> <span class="s">"Bob1_shifted"</span><span class="p">,</span> <span class="s">"Bob2_squeezed"</span><span class="p">,</span> 
+                           <span class="s">"Bob3_missing"</span><span class="p">,</span> <span class="s">"Bob4_squeezed_shifted"</span><span class="p">,</span> <span class="s">"Bob5_anticorrelated"</span><span class="p">])</span>
 <span class="n">bobs</span>
 </pre></div>
 </div>
@@ -878,7 +875,7 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [204]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">cosine_nan_to_zero</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bob</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">cosine_nan_to_zero</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bob</span><span class="p">):</span>
     <span class="sd">"""Fill NaNs with zero then compute angle. DON'T DO THIS!! """</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -917,11 +914,11 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [205]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">"Cosine Fill Nan with 0 (DON'T DO THIS!)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cosine_nan_to_zero</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">"Cosine Drop NaN"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cosine_sim</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">"Pearson"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pearson_corr</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">results</span><span class="p">[</span><span class="s2">"Mean Squared Diff"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mean_sqrd_diff</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">results</span><span class="p">[</span><span class="s">"Cosine Fill Nan with 0 (DON'T DO THIS!)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cosine_nan_to_zero</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s">"Cosine Drop NaN"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">cosine_sim</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s">"Pearson"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pearson_corr</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">results</span><span class="p">[</span><span class="s">"Mean Squared Diff"</span><span class="p">]</span> <span class="o">=</span> <span class="n">bobs</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">mean_sqrd_diff</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">Bob0</span><span class="p">,),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">results</span>
 </pre></div>
@@ -1008,8 +1005,8 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data"</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1022,7 +1019,7 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1113,10 +1110,10 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gameid</span> <span class="o">=</span> <span class="mi">2516</span>
-<span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># list of all users who rated this game</span>
-<span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  <span class="c1"># all ratings for all games from users who rated this game</span>
-<span class="n">df_pivot</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">"ratings"</span><span class="p">)</span>  <span class="c1"># pivot to matrix (user x game) matrix</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">gameid</span> <span class="o">=</span> <span class="mi">2516</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c"># list of all users who rated this game</span>
+<span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  <span class="c"># all ratings for all games from users who rated this game</span>
+<span class="n">df_pivot</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s">"ratings"</span><span class="p">)</span>  <span class="c"># pivot to matrix (user x game) matrix</span>
 <span class="n">df_pivot</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1322,7 +1319,7 @@ Name: ratings, dtype: float64</pre>
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">time</span>
 temp = df_pivot.transpose()
 corrs = temp.corr()  # Default for min_periods is 1
 </pre></div>
@@ -1345,7 +1342,7 @@ corrs = temp.corr()  # Default for min_periods is 1
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">corrs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">corrs</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1550,12 +1547,12 @@ corrs = temp.corr()  # Default for min_periods is 1
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Look at just the upper triangular submatrix (excluding the diagonal)since matrix is symmetric.</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Look at just the upper triangular submatrix (excluding the diagonal)since matrix is symmetric.</span>
 <span class="n">Xcorr</span> <span class="o">=</span> <span class="n">corrs</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
 <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">Xcorr</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Correlation"</span><span class="p">,</span> <span class="s2">"2*Counts"</span><span class="p">,</span> <span class="s2">"Correlation"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Correlation"</span><span class="p">,</span> <span class="s">"2*Counts"</span><span class="p">,</span> <span class="s">"Correlation"</span><span class="p">)</span>
 <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">Xcorr</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Xcorr</span><span class="p">)],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1773,12 +1770,12 @@ YII=
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c1"># get values as a numpy matrix</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">X</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c"># get values as a numpy matrix</span>
 
-<span class="c1"># Make a matrix holding number of common games rated between users (i, j)</span>
-<span class="n">m1</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>  <span class="c1"># zeroes for missing ratings, one elsewhere</span>
+<span class="c"># Make a matrix holding number of common games rated between users (i, j)</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>  <span class="c"># zeroes for missing ratings, one elsewhere</span>
 <span class="n">shared</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">shared</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c1"># diagonals are matching a user with themselves so don't include!</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">shared</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c"># diagonals are matching a user with themselves so don't include!</span>
 </pre></div>
 </div>
 </div>
@@ -1789,9 +1786,9 @@ YII=
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the distribution of number of rated games in common between users</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the distribution of number of rated games in common between users</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Log10 Number of Rated Games in Common"</span><span class="p">,</span> <span class="s2">"2*Counts"</span><span class="p">,</span> <span class="s2">"Log10 Number of Rated Games in Common"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Log10 Number of Rated Games in Common"</span><span class="p">,</span> <span class="s">"2*Counts"</span><span class="p">,</span> <span class="s">"Log10 Number of Rated Games in Common"</span><span class="p">)</span>
 <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">shared</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">shared</span><span class="p">)]),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">2500</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2107,7 +2104,7 @@ GFPAhtEYY4wpYMNojDHGFPj/9faPMxLGbKsAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Grab just the upper triangle (above the diagonal) to avoid duplicating scatter points</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Grab just the upper triangle (above the diagonal) to avoid duplicating scatter points</span>
 <span class="n">trngl_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">shared</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">trngl_corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">Xcorr</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
@@ -2124,11 +2121,11 @@ GFPAhtEYY4wpYMNojDHGFPj/9faPMxLGbKsAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"# Shared Games"</span><span class="p">,</span> <span class="s2">"Correlation"</span><span class="p">,</span> <span class="s2">"# Shared Games vs. Correlations"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"# Shared Games"</span><span class="p">,</span> <span class="s">"Correlation"</span><span class="p">,</span> <span class="s">"# Shared Games vs. Correlations"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">,</span> <span class="n">trngl_cor</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2000</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2720,11 +2717,11 @@ J1EBUxRFUfYk/z+qWbnUqlId/wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [16]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"# Shared Games"</span><span class="p">,</span> <span class="s2">"Correlation"</span><span class="p">,</span> <span class="s2">"# Shared Games vs. Correlations"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"# Shared Games"</span><span class="p">,</span> <span class="s">"Correlation"</span><span class="p">,</span> <span class="s">"# Shared Games vs. Correlations"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">,</span> <span class="n">trngl_cor</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3880,9 +3877,9 @@ RK5CYII=
 <div class="prompt input_prompt">In [37]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Bin the data points by number of shared games and compute mean/var in each bin</span>
-<span class="n">binned_means</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">binned_stds</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">'std'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Bin the data points by number of shared games and compute mean/var in each bin</span>
+<span class="n">binned_means</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s">'mean'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">binned_stds</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s">'std'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3893,14 +3890,14 @@ RK5CYII=
 <div class="prompt input_prompt">In [40]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"# Shared Games"</span><span class="p">,</span> <span class="s2">"Mean Correlation"</span><span class="p">,</span> <span class="s2">"Binned # Shared Games vs. Correlations"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$\mu$ in bin"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"# Shared Games"</span><span class="p">,</span> <span class="s">"Mean Correlation"</span><span class="p">,</span> <span class="s">"Binned # Shared Games vs. Correlations"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"$\mu$ in bin"</span><span class="p">)</span>
 <span class="n">upper</span> <span class="o">=</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">binned_stds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">lower</span> <span class="o">=</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">binned_stds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$\sigma$ in bin"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"$\sigma$ in bin"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4433,21 +4430,21 @@ QBgzwwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get random sample of users</span>
-<span class="n">users</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"bgg_users.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Get random sample of users</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"bgg_users.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="k">None</span><span class="p">)</span>
 <span class="n">users</span> <span class="o">=</span> <span class="n">users</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3000</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
 <span class="n">users</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">users</span><span class="p">))</span>
 
-<span class="c1"># Pull all the rows for the users in the random sample</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s2">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">]</span>
-<span class="n">str_matching</span> <span class="o">=</span> <span class="s2">"("</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span>  <span class="c1"># Construct the string of SQL language</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s2">";"</span>
+<span class="c"># Pull all the rows for the users in the random sample</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">]</span>
+<span class="n">str_matching</span> <span class="o">=</span> <span class="s">"("</span> <span class="o">+</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span>  <span class="c"># Construct the string of SQL language</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s">";"</span>
 <span class="n">df_sample</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<span class="c1"># Create the matrix of users vs. games</span>
-<span class="n">df_pivot</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">"ratings"</span><span class="p">)</span>  <span class="c1"># pivot to matrix (user x game) matrix</span>
+<span class="c"># Create the matrix of users vs. games</span>
+<span class="n">df_pivot</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s">"ratings"</span><span class="p">)</span>  <span class="c"># pivot to matrix (user x game) matrix</span>
 </pre></div>
 </div>
 </div>
@@ -4458,7 +4455,7 @@ QBgzwwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">time</span>
 # Compute correlations
 temp = df_pivot.transpose()
 corrs = temp.corr()
@@ -4485,11 +4482,11 @@ Xcorr = corrs.as_matrix()
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make a matrix holding number of common games rated between users (i, j)</span>
-<span class="n">X</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c1"># get values as a numpy matrix</span>
-<span class="n">m1</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>  <span class="c1"># zeroes for missing ratings, one elsewhere</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make a matrix holding number of common games rated between users (i, j)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c"># get values as a numpy matrix</span>
+<span class="n">m1</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>  <span class="c"># zeroes for missing ratings, one elsewhere</span>
 <span class="n">shared</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">shared</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c1"># diagonals are matching a user with themselves so don't include!</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">shared</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c"># diagonals are matching a user with themselves so don't include!</span>
 </pre></div>
 </div>
 </div>
@@ -4500,7 +4497,7 @@ Xcorr = corrs.as_matrix()
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Grab just the upper triangle (above the diagonal) to avoid duplicating scatter points</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Grab just the upper triangle (above the diagonal) to avoid duplicating scatter points</span>
 <span class="n">trngl_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">shared</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">trngl_corr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">triu</span><span class="p">(</span><span class="n">Xcorr</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="n">trngl_count</span> <span class="o">></span> <span class="mi">1</span><span class="p">)</span> <span class="o">&</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">trngl_corr</span><span class="p">)</span>
@@ -4516,9 +4513,9 @@ Xcorr = corrs.as_matrix()
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Bin the data points by number of shared games and compute mean/var in each bin</span>
-<span class="n">binned_means</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
-<span class="n">binned_stds</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">'std'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Bin the data points by number of shared games and compute mean/var in each bin</span>
+<span class="n">binned_means</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s">'mean'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">binned_stds</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">trngl_cnt</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">trngl_cor</span><span class="p">[</span><span class="n">trngl_cnt</span> <span class="o"><</span> <span class="mi">150</span><span class="p">],</span> <span class="n">statistic</span><span class="o">=</span><span class="s">'std'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4529,14 +4526,14 @@ Xcorr = corrs.as_matrix()
 <div class="prompt input_prompt">In [18]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"# Shared Games"</span><span class="p">,</span> <span class="s2">"Mean Correlation"</span><span class="p">,</span> <span class="s2">"Binned # Shared Games vs. Correlations"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$\mu$ in bin"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"# Shared Games"</span><span class="p">,</span> <span class="s">"Mean Correlation"</span><span class="p">,</span> <span class="s">"Binned # Shared Games vs. Correlations"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"$\mu$ in bin"</span><span class="p">)</span>
 <span class="n">upper</span> <span class="o">=</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">binned_stds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">lower</span> <span class="o">=</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">binned_stds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$\sigma$ in bin"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"$\sigma$ in bin"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5154,7 +5151,7 @@ Vo7jOE7J48rKcRzHKXn+P/aEtINga+ayAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [50]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Restrict to user pairs with high number of shared games</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Restrict to user pairs with high number of shared games</span>
 <span class="n">highcnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">trngl_count</span> <span class="o">></span> <span class="mi">150</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -5166,7 +5163,7 @@ Vo7jOE7J48rKcRzHKXn+P/aEtINga+ayAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [51]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example of getting a particular user pair with high number of shared games</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Example of getting a particular user pair with high number of shared games</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">highcnts</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">highcnts</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">shared</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">Xcorr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
@@ -5189,12 +5186,12 @@ Vo7jOE7J48rKcRzHKXn+P/aEtINga+ayAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [60]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Example of computing correlation between two users</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Example of computing correlation between two users</span>
 <span class="n">paircorr</span> <span class="o">=</span> <span class="n">Xcorr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span>
 <span class="n">user1</span><span class="p">,</span> <span class="n">user2</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
 <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">user1</span><span class="p">))</span> <span class="o">&</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">user2</span><span class="p">))</span>
 <span class="n">user1</span><span class="p">,</span> <span class="n">user2</span> <span class="o">=</span> <span class="n">user1</span><span class="p">[</span><span class="n">mask</span><span class="p">],</span> <span class="n">user2</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">algos</span><span class="o">.</span><span class="n">nancorr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">user1</span><span class="p">,</span> <span class="n">user2</span><span class="p">]))[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># Same machinery as used by DataFrame.corr()</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">algos</span><span class="o">.</span><span class="n">nancorr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="n">user1</span><span class="p">,</span> <span class="n">user2</span><span class="p">]))[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c"># Same machinery as used by DataFrame.corr()</span>
 </pre></div>
 </div>
 </div>
@@ -5214,13 +5211,13 @@ Vo7jOE7J48rKcRzHKXn+P/aEtINga+ayAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [78]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For different chunk sizes, compute correlation on those chunks and save the errors</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># For different chunk sizes, compute correlation on those chunks and save the errors</span>
 <span class="n">errors</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">sizes</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">highcnts</span><span class="p">:</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="c1"># Get the ratings for these two users on the games they have in common, randomize!</span>
+    <span class="c"># Get the ratings for these two users on the games they have in common, randomize!</span>
     <span class="n">paircorr</span> <span class="o">=</span> <span class="n">Xcorr</span><span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">]</span>
     <span class="n">user1</span><span class="p">,</span> <span class="n">user2</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="p">]</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">user1</span><span class="p">))</span> <span class="o">&</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">user2</span><span class="p">))</span>
@@ -5244,11 +5241,11 @@ Vo7jOE7J48rKcRzHKXn+P/aEtINga+ayAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [79]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Bin the data points by number of shared games and compute mean/var in each bin</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Bin the data points by number of shared games and compute mean/var in each bin</span>
 <span class="n">sizes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
 <span class="n">errors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
-<span class="n">binned_means</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">'mean'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">binned_stds</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s1">'std'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">binned_means</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s">'mean'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">binned_stds</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">binned_statistic</span><span class="p">(</span><span class="n">sizes</span><span class="p">,</span> <span class="n">errors</span><span class="p">,</span> <span class="n">statistic</span><span class="o">=</span><span class="s">'std'</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 <span class="n">bin_centers</span> <span class="o">=</span> <span class="p">(</span><span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">1</span><span class="p">][:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -5260,14 +5257,14 @@ Vo7jOE7J48rKcRzHKXn+P/aEtINga+ayAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [80]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot Correlation Errors vs. Chunk Size of Correlation Estimator</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot Correlation Errors vs. Chunk Size of Correlation Estimator</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Chunk Size for Computing Correlation"</span><span class="p">,</span> <span class="s2">"Error in Correlation"</span><span class="p">,</span> <span class="s2">"Computing Correlation with Different Chunk Sizes"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$\mu$ in bin"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Chunk Size for Computing Correlation"</span><span class="p">,</span> <span class="s">"Error in Correlation"</span><span class="p">,</span> <span class="s">"Computing Correlation with Different Chunk Sizes"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"$\mu$ in bin"</span><span class="p">)</span>
 <span class="n">upper</span> <span class="o">=</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">binned_stds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">lower</span> <span class="o">=</span> <span class="n">binned_means</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">binned_stds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'b'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"$\sigma$ in bin"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">bin_centers</span><span class="p">,</span> <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">'b'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"$\sigma$ in bin"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -5724,10 +5721,10 @@ IlVMiUQikSgUqWJKJBKJRKFIFVMikUgkCsX/A/UbxFVdigg0AAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [128]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gameid</span> <span class="o">=</span> <span class="mi">2516</span>
-<span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># list of all users who rated this game</span>
-<span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  <span class="c1"># all ratings for all games from users who rated this game</span>
-<span class="n">df_pivot</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">"ratings"</span><span class="p">)</span>  <span class="c1"># pivot to matrix (user x game) matrix</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">gameid</span> <span class="o">=</span> <span class="mi">2516</span>
+<span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  <span class="c"># list of all users who rated this game</span>
+<span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  <span class="c"># all ratings for all games from users who rated this game</span>
+<span class="n">df_pivot</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s">"ratings"</span><span class="p">)</span>  <span class="c"># pivot to matrix (user x game) matrix</span>
 <span class="n">df_pivot</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -5924,7 +5921,7 @@ IlVMiUQikSgUqWJKJBKJRKFIFVMikUgkCsX/A/UbxFVdigg0AAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [129]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">time</span>
 temp = df_pivot.transpose()
 corrs = temp.corr(min_periods=4) 
 corrs.head()
@@ -5957,7 +5954,7 @@ corrs.head()
 <div class="prompt input_prompt">In [96]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -5980,8 +5977,8 @@ corrs.head()
 <div class="prompt input_prompt">In [97]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c1"># Rows hold indices to sort the corresponding rows</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># Columns hold indices to sort the corresponding columns</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>  <span class="c"># Rows hold indices to sort the corresponding rows</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>  <span class="c"># Columns hold indices to sort the corresponding columns</span>
 </pre></div>
 </div>
 </div>
@@ -6014,7 +6011,7 @@ corrs.head()
 <div class="prompt input_prompt">In [190]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">time</span>
 X = corrs.fillna(-1).as_matrix()
 np.fill_diagonal(X, -1)
 k_nearest_indcs = np.argsort(X, axis=1)[:, -5:]  # Return matrix where each row holds index order that would sort that row
@@ -6038,7 +6035,7 @@ k_nearest_indcs = np.argsort(X, axis=1)[:, -5:]  # Return matrix where each row 
 <div class="prompt input_prompt">In [181]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">k_nearest_indcs</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">k_nearest_indcs</span>
 </pre></div>
 </div>
 </div>
@@ -6064,7 +6061,7 @@ k_nearest_indcs = np.argsort(X, axis=1)[:, -5:]  # Return matrix where each row 
 <div class="prompt input_prompt">In [182]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">k_nearest_indcs</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">k_nearest_indcs</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -6093,13 +6090,13 @@ k_nearest_indcs = np.argsort(X, axis=1)[:, -5:]  # Return matrix where each row 
 <div class="prompt input_prompt">In [221]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">this_movie_indx</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="mi">2516</span><span class="p">)</span>  <span class="c1"># Column integer position of the movie we are predicting ratings for</span>
-<span class="n">ratings</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c1"># Matrix of all the ratings of all rated movies for these users, users are rows!</span>
-<span class="n">neighbor_ratings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Each row holds the ratings from the k nearest neighbors for that user</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">this_movie_indx</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="mi">2516</span><span class="p">)</span>  <span class="c"># Column integer position of the movie we are predicting ratings for</span>
+<span class="n">ratings</span> <span class="o">=</span> <span class="n">df_pivot</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c"># Matrix of all the ratings of all rated movies for these users, users are rows!</span>
+<span class="n">neighbor_ratings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c"># Each row holds the ratings from the k nearest neighbors for that user</span>
 
 <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">neighbor_indxs</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
     <span class="n">neighbor_ratings</span><span class="p">[:,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">neighbor_indxs</span><span class="p">,</span> <span class="n">this_movie_indx</span><span class="p">]</span>
-<span class="n">predict_rating</span> <span class="o">=</span> <span class="n">neighbor_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Average the ratings of the k neighbors for each user</span>
+<span class="n">predict_rating</span> <span class="o">=</span> <span class="n">neighbor_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Average the ratings of the k neighbors for each user</span>
 </pre></div>
 </div>
 </div>
@@ -6110,7 +6107,7 @@ k_nearest_indcs = np.argsort(X, axis=1)[:, -5:]  # Return matrix where each row 
 <div class="prompt input_prompt">In [222]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">neighbor_ratings</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">neighbor_ratings</span>
 </pre></div>
 </div>
 </div>
@@ -6136,8 +6133,8 @@ k_nearest_indcs = np.argsort(X, axis=1)[:, -5:]  # Return matrix where each row 
 <div class="prompt input_prompt">In [228]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Predicted Rating for Movie ID 2516"</span><span class="p">,</span> <span class="s2">"Counts"</span><span class="p">,</span> <span class="s2">"Distribution of Predicted Rating"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Predicted Rating for Movie ID 2516"</span><span class="p">,</span> <span class="s">"Counts"</span><span class="p">,</span> <span class="s">"Distribution of Predicted Rating"</span><span class="p">)</span>
 <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">predict_rating</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6393,8 +6390,8 @@ rgUvAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [233]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Prediction Errors for Movie ID 2516"</span><span class="p">,</span> <span class="s2">"Counts"</span><span class="p">,</span> <span class="s2">"Distribution of Prediction Errors"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Prediction Errors for Movie ID 2516"</span><span class="p">,</span> <span class="s">"Counts"</span><span class="p">,</span> <span class="s">"Distribution of Prediction Errors"</span><span class="p">)</span>
 <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_pivot</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2516</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">predict_rating</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -6644,7 +6641,7 @@ CnEAMTOzQhxAzMysEAcQMzMrxAHEzMwKcQAxM7NC/j93nwiH0F33iAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [261]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Double check that most users are giving integer ratings</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Double check that most users are giving integer ratings</span>
 <span class="nb">sum</span><span class="p">(</span><span class="n">df_pivot</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2516</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">%</span><span class="k">1</span> == 0)/len(df_pivot.loc[:, 2516])
 </pre></div>
 </div>
@@ -6665,14 +6662,14 @@ CnEAMTOzQhxAzMysEAcQMzMrxAHEzMwKcQAxM7NC/j93nwiH0F33iAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [264]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Prediction Errors for Movie ID 2516"</span><span class="p">,</span> <span class="s2">"Counts"</span><span class="p">,</span> <span class="s2">"Performance of Algorithm vs. Benchmark"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Prediction Errors for Movie ID 2516"</span><span class="p">,</span> <span class="s">"Counts"</span><span class="p">,</span> <span class="s">"Performance of Algorithm vs. Benchmark"</span><span class="p">)</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
-<span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_pivot</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2516</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">predict_rating</span><span class="o">.</span><span class="n">round</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"algorithm"</span><span class="p">)</span>
+<span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_pivot</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2516</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">predict_rating</span><span class="o">.</span><span class="n">round</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"algorithm"</span><span class="p">)</span>
 <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_pivot</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2516</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_pivot</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="mi">2516</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">mean</span><span class="p">()),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> 
-                <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"benchmark"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+                <span class="n">color</span><span class="o">=</span><span class="s">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"benchmark"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper right"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -6973,8 +6970,8 @@ Ks4551LjQcU551xq/j8cfke3wBE7GwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [229]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_recommender_deduplicated.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data"</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -6987,22 +6984,22 @@ Ks4551LjQcU551xq/j8cfke3wBE7GwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [230]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">simtype</span><span class="o">=</span><span class="s2">"pearson"</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">simtype</span><span class="o">=</span><span class="s">"pearson"</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Compute the similarity between every pair of users from the set of all users who rated the game 'gameid'.</span>
 <span class="sd">    """</span>
     
-    <span class="c1"># Restrict to all users who rated this game and all games rated by this set of users</span>
-    <span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  
-    <span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  
+    <span class="c"># Restrict to all users who rated this game and all games rated by this set of users</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  
+    <span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  
     
-    <span class="c1"># Pivot to matrix (user x game) and then get a correlation marix</span>
-    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">"ratings"</span><span class="p">)</span> 
+    <span class="c"># Pivot to matrix (user x game) and then get a correlation marix</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s">"ratings"</span><span class="p">)</span> 
     
-    <span class="k">if</span> <span class="n">simtype</span> <span class="o">==</span> <span class="s2">"pearson"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">simtype</span> <span class="o">==</span> <span class="s">"pearson"</span><span class="p">:</span>
         <span class="n">sims</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">min_periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> 
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"We didn't recognize that similarity metric."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">"We didn't recognize that similarity metric."</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">0</span>
     
     <span class="k">return</span> <span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span>
@@ -7016,30 +7013,30 @@ Ks4551LjQcU551xq/j8cfke3wBE7GwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [255]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predict_ratings</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">predict_ratings</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Find the k nearest neighbors of a user in terms of the similarities 'sims' and use those users ratings to </span>
 <span class="sd">    make a prediction for the rating of the game 'gameid' by each user.</span>
 <span class="sd">    """</span>
     
-    <span class="c1"># Identify k nearest neighbors based on similarity</span>
+    <span class="c"># Identify k nearest neighbors based on similarity</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">sims</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
     <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">k_nearest_indcs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="o">-</span><span class="n">k</span><span class="p">:]</span>  <span class="c1"># Return matrix where each row holds index order that would sort that row</span>
+    <span class="n">k_nearest_indcs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="o">-</span><span class="n">k</span><span class="p">:]</span>  <span class="c"># Return matrix where each row holds index order that would sort that row</span>
     
-    <span class="c1"># Center the ratings</span>
+    <span class="c"># Center the ratings</span>
     <span class="n">user_means</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     
-    <span class="c1"># Get ratings from the k nearest neighbors of each user</span>
+    <span class="c"># Get ratings from the k nearest neighbors of each user</span>
     <span class="n">ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span> 
-    <span class="n">neighbor_ratings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Each row holds the ratings from the k nearest neighbors for that user</span>
-    <span class="n">this_movie_indx</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">gameid</span><span class="p">)</span>  <span class="c1"># Column int pos'n of movie we are predicting ratings for</span>
+    <span class="n">neighbor_ratings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c"># Each row holds the ratings from the k nearest neighbors for that user</span>
+    <span class="n">this_movie_indx</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">gameid</span><span class="p">)</span>  <span class="c"># Column int pos'n of movie we are predicting ratings for</span>
     <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">neighbor_indxs</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
         <span class="n">neighbor_ratings</span><span class="p">[:,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">neighbor_indxs</span><span class="p">,</span> <span class="n">this_movie_indx</span><span class="p">]</span>
         
-    <span class="c1"># Make a prediction based on unweighted average of k nearest neighbors (and "uncenter")</span>
-    <span class="n">predicted</span> <span class="o">=</span> <span class="n">user_means</span> <span class="o">+</span> <span class="n">neighbor_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Average the neighbors ratings and "uncenter"</span>
+    <span class="c"># Make a prediction based on unweighted average of k nearest neighbors (and "uncenter")</span>
+    <span class="n">predicted</span> <span class="o">=</span> <span class="n">user_means</span> <span class="o">+</span> <span class="n">neighbor_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Average the neighbors ratings and "uncenter"</span>
     
     <span class="k">return</span> <span class="n">predicted</span>
 </pre></div>
@@ -7052,34 +7049,34 @@ Ks4551LjQcU551xq/j8cfke3wBE7GwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [250]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">False</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Analyze the errors in predictions for game 'gameid', and plot a comparison to the errors from the simplest</span>
 <span class="sd">    naive estimator of user rating - the games average rating.</span>
 <span class="sd">    """</span>
     
-    <span class="c1"># Compute naive estimator - the rounded mean rating of the game</span>
+    <span class="c"># Compute naive estimator - the rounded mean rating of the game</span>
     <span class="n">naive</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">gameid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
     
-    <span class="c1"># Compute MSE for our algorithm and for simple estimator</span>
+    <span class="c"># Compute MSE for our algorithm and for simple estimator</span>
     <span class="n">mse_algo</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">gameid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">predicted</span><span class="p">)</span>
     <span class="n">mse_naive</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">gameid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="p">[</span><span class="n">naive</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">))</span>
     
-    <span class="c1"># If running silently just return the mean squared errors of algorithm and simple estimator</span>
+    <span class="c"># If running silently just return the mean squared errors of algorithm and simple estimator</span>
     <span class="k">if</span> <span class="n">silent</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">mse_algo</span><span class="p">,</span> <span class="n">mse_naive</span>
     
-    <span class="c1"># If not running silently, plot errors</span>
+    <span class="c"># If not running silently, plot errors</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-        <span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Prediction Errors for Movie ID </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,),</span> <span class="s2">"Counts"</span><span class="p">,</span> <span class="s2">"Performance of Algorithm vs. Benchmark"</span><span class="p">)</span>
+        <span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Prediction Errors for Movie ID %i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,),</span> <span class="s">"Counts"</span><span class="p">,</span> <span class="s">"Performance of Algorithm vs. Benchmark"</span><span class="p">)</span>
         <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
-        <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">gameid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">predicted</span><span class="o">.</span><span class="n">round</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"algorithm"</span><span class="p">)</span>
-        <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">gameid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">naive</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"benchmark"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
-        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper right"</span><span class="p">)</span>
+        <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">gameid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">predicted</span><span class="o">.</span><span class="n">round</span><span class="p">(),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"algorithm"</span><span class="p">)</span>
+        <span class="n">trash</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">gameid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">naive</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"benchmark"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper right"</span><span class="p">)</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Mean Squared Error of algorithm is </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">mse_algo</span><span class="p">,))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Mean Squared Error of naive mean game rating estimator is </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">mse_naive</span><span class="p">,))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">"Mean Squared Error of algorithm is %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">mse_algo</span><span class="p">,))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">"Mean Squared Error of naive mean game rating estimator is %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">mse_naive</span><span class="p">,))</span>
         <span class="k">return</span> <span class="n">ax</span><span class="p">,</span> <span class="n">mse_algo</span><span class="p">,</span> <span class="n">mse_naive</span>
 </pre></div>
 </div>
@@ -7100,7 +7097,7 @@ Ks4551LjQcU551xq/j8cfke3wBE7GwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [258]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">time</span>
 # Try out our modularized functions!
 gameid = 2516
 sims, df_ratings = compute_similarity(gameid)
@@ -7536,11 +7533,11 @@ OEEQBEEQ9B2h4ARBEARB0HeEghMEQRAEQd/x//2Vp5UKGVQvAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [256]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">mses_basic</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ks</span><span class="p">):</span> 
     <span class="n">predicted_basic</span> <span class="o">=</span> <span class="n">predict_ratings</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-    <span class="n">mses_basic</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted_basic</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">mses_basic</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted_basic</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -7551,11 +7548,11 @@ OEEQBEEQ9B2h4ARBEARB0HeEghMEQRAEQd/x//2Vp5UKGVQvAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [257]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"k neighbors"</span><span class="p">,</span> <span class="s2">"MSE"</span><span class="p">,</span> <span class="s2">"Performance vs k for PC"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">mses_basic</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"algorithm"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted_basic</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"game mean rating estimator"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"center right"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"k neighbors"</span><span class="p">,</span> <span class="s">"MSE"</span><span class="p">,</span> <span class="s">"Performance vs k for PC"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">mses_basic</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"algorithm"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted_basic</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"game mean rating estimator"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"center right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8000,42 +7997,42 @@ TkSuQmCC
 <div class="prompt input_prompt">In [259]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">predict_ratings</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">weighted_alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">predict_ratings</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">weighted_alpha</span><span class="o">=</span><span class="k">None</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Find the k nearest neighbors of a user in terms of the similarities 'sims' and use those users ratings to </span>
 <span class="sd">    make a prediction for the rating of the game 'gameid' by each user. The prediction is the (optionally weighted)</span>
 <span class="sd">    average of the neighbors ratings.</span>
 <span class="sd">    """</span>
     
-    <span class="c1"># Identify k nearest neighbors based on similarity</span>
+    <span class="c"># Identify k nearest neighbors based on similarity</span>
     <span class="n">X</span> <span class="o">=</span> <span class="n">sims</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
     <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">k_nearest_indcs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="o">-</span><span class="n">k</span><span class="p">:]</span>  <span class="c1"># Return matrix where each row holds index order that would sort that row</span>
+    <span class="n">k_nearest_indcs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="o">-</span><span class="n">k</span><span class="p">:]</span>  <span class="c"># Return matrix where each row holds index order that would sort that row</span>
     
-    <span class="c1"># Center the ratings</span>
+    <span class="c"># Center the ratings</span>
     <span class="n">user_means</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">df_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     
-    <span class="c1"># Get ratings from the k nearest neighbors of each user</span>
+    <span class="c"># Get ratings from the k nearest neighbors of each user</span>
     <span class="n">ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span> 
-    <span class="n">neighbor_ratings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Each row holds the ratings from the k nearest neighbors for that user</span>
+    <span class="n">neighbor_ratings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c"># Each row holds the ratings from the k nearest neighbors for that user</span>
     <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">neighbor_indxs</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">T</span><span class="p">):</span>
         <span class="n">neighbor_ratings</span><span class="p">[:,</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">ratings</span><span class="p">[</span><span class="n">neighbor_indxs</span><span class="p">,</span> <span class="n">this_movie_indx</span><span class="p">]</span>
 
-    <span class="c1"># Make a prediction, weighted or unweighted, based on average of k nearest neighbors</span>
+    <span class="c"># Make a prediction, weighted or unweighted, based on average of k nearest neighbors</span>
     <span class="k">if</span> <span class="n">weighted_alpha</span><span class="p">:</span>
-        <span class="c1"># Get correlations from the k nearest neighbors of each user</span>
+        <span class="c"># Get correlations from the k nearest neighbors of each user</span>
         <span class="n">neighbor_corrs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">row</span><span class="p">,</span> <span class="n">neighbor_indxs</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">k_nearest_indcs</span><span class="p">):</span>
             <span class="n">neighbor_corrs</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">row</span><span class="p">,</span> <span class="n">neighbor_indxs</span><span class="p">]</span>
             <span class="n">amplified</span> <span class="o">=</span> <span class="n">neighbor_corrs</span><span class="o">**</span><span class="n">weighted_alpha</span>
 
-        <span class="c1"># To divide each row by it's sum requires transposing to get broadcasting to work</span>
+        <span class="c"># To divide each row by it's sum requires transposing to get broadcasting to work</span>
         <span class="n">neighbor_weights</span> <span class="o">=</span> <span class="p">(</span><span class="n">amplified</span><span class="o">.</span><span class="n">T</span><span class="o">/</span><span class="n">amplified</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-        <span class="n">predicted</span> <span class="o">=</span> <span class="n">user_means</span> <span class="o">+</span> <span class="p">(</span><span class="n">neighbor_ratings</span><span class="o">*</span><span class="n">neighbor_weights</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Weighted avg k neighbors for each user</span>
+        <span class="n">predicted</span> <span class="o">=</span> <span class="n">user_means</span> <span class="o">+</span> <span class="p">(</span><span class="n">neighbor_ratings</span><span class="o">*</span><span class="n">neighbor_weights</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Weighted avg k neighbors for each user</span>
 
     <span class="k">else</span><span class="p">:</span>        
-        <span class="n">predicted</span> <span class="o">=</span> <span class="n">user_means</span> <span class="o">+</span> <span class="n">neighbor_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Unweighted avg k neighbors for each user</span>
+        <span class="n">predicted</span> <span class="o">=</span> <span class="n">user_means</span> <span class="o">+</span> <span class="n">neighbor_ratings</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Unweighted avg k neighbors for each user</span>
     
     <span class="k">return</span> <span class="n">predicted</span>
 </pre></div>
@@ -8048,20 +8045,20 @@ TkSuQmCC
 <div class="prompt input_prompt">In [260]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">)</span>
 
 <span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">mses</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ks</span><span class="p">):</span> 
     <span class="n">predicted</span> <span class="o">=</span> <span class="n">predict_ratings</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">,</span> <span class="n">weighted_alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    <span class="n">mses</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">mses</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"k neighbors"</span><span class="p">,</span> <span class="s2">"MSE"</span><span class="p">,</span> <span class="s2">"Performance vs k for PC"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">mses</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"green"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Weighted Avg. k Neighbors"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">mses_basic</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Unweighted Avg. k Neighbors"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted_basic</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"game mean rating estimator"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"center right"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"k neighbors"</span><span class="p">,</span> <span class="s">"MSE"</span><span class="p">,</span> <span class="s">"Performance vs k for PC"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">mses</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"green"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"Weighted Avg. k Neighbors"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">mses_basic</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"Unweighted Avg. k Neighbors"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted_basic</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s">"blue"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"game mean rating estimator"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"center right"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -8670,38 +8667,38 @@ B7eENNhgzT4bAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [261]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">simtype</span><span class="o">=</span><span class="s2">"pearson"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">simtype</span><span class="o">=</span><span class="s">"pearson"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mi">20</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Compute the similarity between every pair of users from the set of all users who rated the game 'gameid'.</span>
 <span class="sd">    """</span>
     
-    <span class="c1"># Restrict to all users who rated this game and all games rated by this set of users</span>
-    <span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  
-    <span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  
+    <span class="c"># Restrict to all users who rated this game and all games rated by this set of users</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">gameid</span><span class="p">,</span> <span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>  
+    <span class="n">df_sample</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">users</span><span class="p">)]</span>  
     
-    <span class="c1"># Pivot to matrix (user x game) and then get a correlation marix</span>
-    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s2">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">"ratings"</span><span class="p">)</span> 
+    <span class="c"># Pivot to matrix (user x game) and then get a correlation marix</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_sample</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s">"username"</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s">"gameid"</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s">"ratings"</span><span class="p">)</span> 
     
-    <span class="k">if</span> <span class="n">simtype</span> <span class="o">==</span> <span class="s2">"pearson"</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">simtype</span> <span class="o">==</span> <span class="s">"pearson"</span><span class="p">:</span>
         <span class="n">sims</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">min_periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> 
         
-    <span class="k">elif</span> <span class="n">simtype</span> <span class="o">==</span> <span class="s2">"uncertainty_discounted_pearson"</span><span class="p">:</span>
-        <span class="c1"># First compute standard pearson correlation</span>
+    <span class="k">elif</span> <span class="n">simtype</span> <span class="o">==</span> <span class="s">"uncertainty_discounted_pearson"</span><span class="p">:</span>
+        <span class="c"># First compute standard pearson correlation</span>
         <span class="n">sims</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">corr</span><span class="p">(</span><span class="n">min_periods</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span> 
         
-        <span class="c1"># Make a matrix holding number of common games rated between users (i, j)</span>
-        <span class="n">X</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c1"># get values as a numpy matrix</span>
-        <span class="n">m1</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>  <span class="c1"># zeroes for missing ratings, one elsewhere</span>
+        <span class="c"># Make a matrix holding number of common games rated between users (i, j)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c"># get values as a numpy matrix</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>  <span class="c"># zeroes for missing ratings, one elsewhere</span>
         <span class="n">shared</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">m1</span><span class="p">,</span> <span class="n">m1</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
         
-        <span class="c1"># Turn the number of shared games for each user pair into an uncertainty</span>
+        <span class="c"># Turn the number of shared games for each user pair into an uncertainty</span>
         <span class="n">uncertainties</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">shared</span><span class="p">,</span> <span class="n">beta</span><span class="p">)</span><span class="o">/</span><span class="n">beta</span>
         
-        <span class="c1"># Multiply uncertainties by pearson correlation</span>
+        <span class="c"># Multiply uncertainties by pearson correlation</span>
         <span class="n">sims</span> <span class="o">=</span> <span class="n">sims</span><span class="o">*</span><span class="n">uncertainties</span>
         
     <span class="k">else</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"We didn't recognize that similarity metric."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">"We didn't recognize that similarity metric."</span><span class="p">)</span>
         <span class="k">return</span> <span class="mi">0</span>
     
     <span class="k">return</span> <span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span>
@@ -8715,7 +8712,7 @@ B7eENNhgzT4bAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [262]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">time</span>
+<div class=" highlight hl-ipython3"><pre><span class="o">%%</span><span class="k">time</span>
 # Compute similarities with new uncertainty weighted pearson correlation
 gameid = 2516
 sims, df_ratings = compute_similarity(gameid, simtype="uncertainty_discounted_pearson", beta=20)
@@ -8739,24 +8736,24 @@ sims, df_ratings = compute_similarity(gameid, simtype="uncertainty_discounted_pe
 <div class="prompt input_prompt">In [270]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"k neighbors"</span><span class="p">,</span> <span class="s2">"MSE"</span><span class="p">,</span> <span class="s2">"Performance vs k for Weighted PC"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"k neighbors"</span><span class="p">,</span> <span class="s">"MSE"</span><span class="p">,</span> <span class="s">"Performance vs k for Weighted PC"</span><span class="p">)</span>
 
-<span class="c1"># Plot the weighted PCs vs. k for different values of beta</span>
+<span class="c"># Plot the weighted PCs vs. k for different values of beta</span>
 <span class="k">for</span> <span class="n">beta</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-    <span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">simtype</span><span class="o">=</span><span class="s2">"uncertainty_discounted_pearson"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
+    <span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">compute_similarity</span><span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">simtype</span><span class="o">=</span><span class="s">"uncertainty_discounted_pearson"</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="n">beta</span><span class="p">)</span>
     <span class="n">ks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     <span class="n">mses</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">ks</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ks</span><span class="p">):</span>
         <span class="n">predicted</span> <span class="o">=</span> <span class="n">predict_ratings</span><span class="p">(</span><span class="n">sims</span><span class="p">,</span> <span class="n">df_ratings</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
-        <span class="n">mses</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>   
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">mses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Discounted PC beta = </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">beta</span><span class="p">,))</span>
+        <span class="n">mses</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">analyze_errors</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">gameid</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>   
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ks</span><span class="p">,</span> <span class="n">mses</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"Discounted PC beta = %i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">beta</span><span class="p">,))</span>
 
-<span class="c1"># Plot the unweighted PC and naive mean rating estimator vs. k</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">mses_basic</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Undiscounted PC"</span><span class="p">)</span>
+<span class="c"># Plot the unweighted PC and naive mean rating estimator vs. k</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">mses_basic</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"Undiscounted PC"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">40</span><span class="p">])</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mf">0.47</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">])</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

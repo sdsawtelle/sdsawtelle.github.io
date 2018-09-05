@@ -7,9 +7,9 @@ Sonya Sawtelle
 
 Education
 ---------
-**Ph.D. program in Applied Physics, Yale University** (2012-present)
+**Ph.D. in Applied Physics, Yale University** (2012-2018)
 
-- Research on transport in metal nanostructures. 
+- Simulation and data analysis with Python, MATLAB, and C++.
 - Coursework in physics, engineering, and statistics.
 
 **B.S. in Physics, Indiana University** (2008-2011)
@@ -22,17 +22,17 @@ Education
 
 Experience
 ---------
-**Freelance Data Scientist, Upwork** (2017-present)
+**Data Scientist, Upwork** (2017-2018)
 
-- Worked on a variety of data analysis, visualization and machine learning projects.
+- Analyzed Upwork platform data (postgreSQL) and built machine learning models to improve platform outcomes.
 
 **Independent Researcher, Yale University** (2012-present, New Haven CT)
 
-- Data analysis and simulation in Python and MATLAB, and instrument control in C++. Designed and executed experiments across four projects and managed several undegraduate students.
+- Data analysis and simulation in Python and MATLAB, and instrument control in C++. Independently designed and executed experiments across four major projects. Managed four undegraduate students.
 
 **MCAT Instructor, Kaplan Test Prep** (2011-2012, New Haven CT)
 
-- Planned and delivered lectures on core content in undergraduate Physics, Chemistry and Biology to medium-sized groups of undergraduates.
+- Planned and delivered lectures on Physics, Chemistry and Biology.
 
 Skills
 ------
@@ -44,7 +44,11 @@ Awards
 ------
 - **Sterling Prize Fellowship**, Yale University (2013). Awarded to 30 out of 10,500 applicants.
 - **IU Founders Scholar**, Indiana University (2012)
-- **Baccalaureate with Highest Distinction**, Indiana University (2012). Granted to 5 students out of 498 in the class.
+- **Baccalaureate with Highest Distinction**, Indiana University (2012). Granted to 5 students.
+
+<!---
+Granted to 5 students out of 498 in the class.
+-->
 
 Projects
 --------
@@ -54,4 +58,4 @@ Projects
 
 **[GeekBuddy Social Graph and Buddy Finder](http://sdsawtelle.pythonanywhere.com)** (2017)
 
-- Built a web app that displays the social graph for a user in the www.boardgamegeek.com community and colors nodes by correlation to the user with boardgame ratings data.
+- A web app that displays the social graph for a user on www.boardgamegeek.com and colors nodes by correlation to the user computed from boardgame ratings data.

@@ -52,7 +52,7 @@
 	<meta property="og:title" content="Shooting Method for Solving Differential Equations in Python">
 	<meta property="og:description" content="">
 	<meta property="og:image" content="./">
-	<meta property="article:published_time" content="2017-03-01 13:30:00-05:00">
+	<meta property="article:published_time" content="2017-03-10 13:30:00-05:00">
 </head>
 
 <body>
@@ -92,7 +92,7 @@
                         <h1>Shooting Method for Solving Differential Equations in Python</h1>
                         <span class="meta">Posted by
                                 <a href="./author/sonya-sawtelle.html">Sonya Sawtelle</a>
-                             on Wed 01 March 2017
+                             on Fri 10 March 2017
                         </span>
                         
                     </div>
@@ -118,10 +118,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -156,7 +154,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -184,7 +181,7 @@
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="In-which-I-implement-a-very-aggressively-named-algorithm.">In which I implement a very aggressively named algorithm.<a class="anchor-link" href="#In-which-I-implement-a-very-aggressively-named-algorithm.">¶</a></h1><p>Recently I found myself needing to solve a second order ODE with some slightly messy boundary conditions and after struggling for a while I ultimately stumbled across the numerical <strong>shooting method</strong>. Below is an example of a similar problem and a python implementation for solving it with the shooting method.</p>
 <p>The shooting method works for solving problems of the form $\frac{d\vec{y}}{dt} = f(t, \vec{y})$ where rather than having $\vec{y}$ fully specified at some $t$ (an initial value problem) we instead have various components of $\vec{y}$ specified at different $t$ (a boundary value problem). For boundary value problems (BVP) the boundary conditions can be Dirichlet, Neumann or mixed and the shooting method can handle them all!</p>
-<h1 id="Example:-Steady-State-Heat-Equation">Example: Steady State Heat Equation<a class="anchor-link" href="#Example:-Steady-State-Heat-Equation">¶</a></h1><p>The quasi-one-dimensional steady state approximation to the general <a href="https://en.wikipedia.org/wiki/Heat_equation">heat equation</a> is an ordinary differential equation (ODE) in the temperature, $T$, that also depends on the area as a function of position, $A(x)$. For this example we have a physical system which is a metal nanowire of length $L=20$ nm coupled on the left to a heat sink and coupled on the right to a constant-power heat source. Thus the boundary condition constraints on the solution to this steady state proble are that the temperature on the left boundary is pinned to the environmental temperature, $T_E$, (a Dirichlet condition) while on the right hand side we know the influx of heat energy per unit area. This latter condition can be cast in terms of the temperature gradient (so a Neumann condition) by Fourier's Law, which states that the rate of heat flow is proportional to the spatial gradient of the temperature:</p>
+<h1 id="Example:-Steady-State-Heat-Equation">Example: Steady State Heat Equation<a class="anchor-link" href="#Example:-Steady-State-Heat-Equation">¶</a></h1><p>The quasi-one-dimensional steady state approximation to the general <a href="https://en.wikipedia.org/wiki/Heat_equation">heat equation</a> is an ordinary differential equation (ODE) in the temperature, $T$, that also depends on the area as a function of position, $A(x)$. For this example we have a physical system which is a metal nanowire of length $L=20$ nm coupled on the left to a heat sink and coupled on the right to a constant-power heat source. Thus the boundary constraints on the solution to this steady state problem are that the temperature on the left boundary is pinned to the environmental temperature, $T_E$, (a Dirichlet condition) while on the right hand side we know the influx of heat energy per unit area. This latter condition can be cast in terms of the temperature gradient (so a Neumann condition) by Fourier's Law, which states that the rate of heat flow is proportional to the spatial gradient of the temperature:</p>
 \begin{align*}
 \textrm{Fouriers Law:} \qquad \frac{dQ}{dt} = -\kappa(A\frac{dT}{dx}).
 \end{align*}<p>In Fourier's law $\kappa$ is a material-dependent thermal conductivity. The full boundary value problem is thus</p>
@@ -245,11 +242,11 @@ y' = \frac{dy}{dx}\\
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Shooting-Method-Resources">Shooting Method Resources<a class="anchor-link" href="#Shooting-Method-Resources">¶</a></h3><ul>
-<li><a href="https://docs.scipy.org/doc/scipy-0.13.0/reference/generated/scipy.integrate.ode.html#hnw93">official docs</a> for <code>scipy.integrate.ode</code>, a multipupose numerical integrator for expressions of the form $y' = f(t, y)$.</li>
-<li><a href="http://www.math-cs.gordon.edu/courses/mat342/python/bvp.py">python implementation of shooting method</a> for boundary conditions $y(0) = \alpha$ and $y(L) = \beta$</li>
-<li><a href="http://stackoverflow.com/questions/19779217/need-help-solving-a-second-order-non-linear-ode-in-python">stack overflow question</a> about solving a second order ODE by turning it into a system of two first order ODEs. </li>
-<li><a href="https://web.stanford.edu/~fringer/teaching/numerical_methods_02/handouts/lecture9.pdf">incredibly clear lecture notes</a> on the shooting method and how to implement it. </li>
-<li><a href="http://www.cems.uvm.edu/~tlakoba/math337/notes_7.pdf">good notes on the shooting method</a> with a somewhat different interpretation and approach</li>
+<li><a href="https://docs.scipy.org/doc/scipy-0.13.0/reference/generated/scipy.integrate.ode.html#hnw93">official docs for <code>scipy.integrate.ode</code>, a multipupose numerical integrator for expressions of the form $y' = f(t, y)$.</a></li>
+<li><a href="http://www.math-cs.gordon.edu/courses/mat342/python/bvp.py">python implementation of shooting method for boundary conditions $y(0) = \alpha$ and $y(L) = \beta$</a> </li>
+<li><a href="http://stackoverflow.com/questions/19779217/need-help-solving-a-second-order-non-linear-ode-in-python">stack overflow question about solving a second order ODE by turning it into a system of two first order ODEs.</a></li>
+<li><a href="https://web.stanford.edu/~fringer/teaching/numerical_methods_02/handouts/lecture9.pdf">incredibly clear lecture notes on the shooting method and how to implement it.</a></li>
+<li><a href="http://www.cems.uvm.edu/~tlakoba/math337/notes_7.pdf">good notes on the shooting method with a somewhat different interpretation and approach</a></li>
 </ul>
 </div>
 </div>
@@ -260,7 +257,7 @@ y' = \frac{dy}{dx}\\
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Numerical-Implementation-of-Shooting">Numerical Implementation of Shooting<a class="anchor-link" href="#Numerical-Implementation-of-Shooting">¶</a></h1><p>The process of propagating is essentially the process of integrating as you are using the value of the derivative at each point to produce the value of the function at the next point. There are various tools for numerical integration but we will use the very convenient and general <code>scipy.integrate.ode</code> which lets you <a href="https://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.integrate.ode.set_initial_value.html">choose from a variety of specific numerical integration algorithms</a>. In particular we will use the Runge-Kutta algorithm.</p>
-<p>The Runge-Kutta algorithm expects you to pass it a function that computes the derivative at any point, $\vec{z}' = f(x,\vec{x})$ (vector-valued for a system of coupled equations), so we will implement this as a small function. Then we will write a wrapper that takes an initial value $\vec{z}(0)$ and calls the Runge-Kutta algorithm repeatedly to integrate across the full domain This function will return a list of $\vec{z}$ values which is the integrated solution for the discretized points in the domain. Finally we will write an optimization wrapper that actually solves the problem i.e. finds the optimal value for $y'(0) = \big(\vec{z}(0)\big)_2$ where loss is the squared error between the propagated $y'(L)$ and the true $y'(L)$.</p>
+<p>The Runge-Kutta algorithm expects you to pass it a function that computes the derivative at any point, $\vec{z}' = f(x,\vec{z})$ (vector-valued for a system of coupled equations), so we will implement this as a small function. Then we will write a wrapper that takes an initial value $\vec{z}(0)$ and calls the Runge-Kutta algorithm repeatedly to integrate across the full domain This function will return a list of $\vec{z}$ values which is the integrated solution for the discretized points in the domain. Finally we will write an optimization wrapper that actually solves the problem i.e. finds the optimal value for $y'(0) = \big(\vec{z}(0)\big)_2$ where loss is the squared error between the propagated $y'(L)$ and the true $y'(L)$.</p>
 </div>
 </div>
 </div>
@@ -269,7 +266,7 @@ y' = \frac{dy}{dx}\\
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>
@@ -288,14 +285,14 @@ y' = \frac{dy}{dx}\\
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">compute_area_areaprime</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">compute_area_areaprime</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Compute the area and it's derivative as a function of independent variable x, return them as a vector.</span>
 <span class="sd">    </span>
 <span class="sd">    :param x: independent variable, the domain of the problem is x=0 to L</span>
 <span class="sd">    :return: a 2-vec holding [A, dA/dx].</span>
 <span class="sd">    """</span>
-    <span class="k">return</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># Rectangle geometry</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c"># Rectangle geometry</span>
 
 
 <span class="k">def</span> <span class="nf">compute_zprime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">):</span>
@@ -315,7 +312,7 @@ y' = \frac{dy}{dx}\\
     <span class="k">return</span> <span class="p">[</span><span class="n">zprime_0</span><span class="p">,</span> <span class="n">zprime_1</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">integrate_over_domain</span><span class="p">(</span><span class="n">z_at_0</span><span class="p">,</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">integrate_over_domain</span><span class="p">(</span><span class="n">z_at_0</span><span class="p">,</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Call runge-kutta repeatedly to integrate the vector function z over the full domain (specified by length). Return</span>
 <span class="sd">    a list of 2-vecs which are the value of the vector z at every point in the domain discretized by 'step'. Note that</span>
@@ -330,7 +327,7 @@ y' = \frac{dy}{dx}\\
 <span class="sd">    :return: array of 2-vecs - the value of vector z obtained by integration for each point in the discretized domain.</span>
 <span class="sd">    """</span>
     <span class="n">initial_conditions</span> <span class="o">=</span> <span class="n">z_at_0</span>
-    <span class="n">integrator</span><span class="o">.</span><span class="n">set_initial_value</span><span class="p">(</span><span class="n">initial_conditions</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Set the initial values of z and x</span>
+    <span class="n">integrator</span><span class="o">.</span><span class="n">set_initial_value</span><span class="p">(</span><span class="n">initial_conditions</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># Set the initial values of z and x</span>
     <span class="n">integrator</span><span class="o">.</span><span class="n">set_f_params</span><span class="p">(</span><span class="n">areafunction</span><span class="p">)</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">step</span>
 
@@ -340,11 +337,11 @@ y' = \frac{dy}{dx}\\
         <span class="n">xs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">integrator</span><span class="o">.</span><span class="n">t</span><span class="p">)</span>
         <span class="n">zs</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">integrator</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">integrator</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">silent</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"Current x and z values: "</span><span class="p">,</span> <span class="n">integrator</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">integrator</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s">"Current x and z values: "</span><span class="p">,</span> <span class="n">integrator</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">integrator</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">xs</span><span class="p">,</span> <span class="n">zs</span>
 
 
-<span class="k">def</span> <span class="nf">solve_bvp_pj</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_length</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">solve_bvp_pj</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_length</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Numerically find the value for y'(0) that gives us a propagated (integrated) solution matching most closely with</span>
 <span class="sd">    with other known boundary condition y'(L) which is proportional to the power dissipated by the junction.</span>
@@ -357,21 +354,21 @@ y' = \frac{dy}{dx}\\
 <span class="sd">    :param silent: bool indicating whether to print the progress of the integrator</span>
 <span class="sd">    :return: the optimized estimate of y' at the left boundary point giving the most accurate integrated solution.</span>
 <span class="sd">    """</span>
-    <span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s2">"dopri5"</span><span class="p">)</span>
-    <span class="n">z_at_0</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>  <span class="c1"># Make an initial guess for yprime at x=0</span>
+    <span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s">"dopri5"</span><span class="p">)</span>
+    <span class="n">z_at_0</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>  <span class="c"># Make an initial guess for yprime at x=0</span>
 
     <span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">yprime_at_0</span><span class="p">,</span> <span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_length</span><span class="p">):</span>
 
-        <span class="c1"># Use RK to compute [y, y'] over the domain given the values for y, y' at the boundary</span>
+        <span class="c"># Use RK to compute [y, y'] over the domain given the values for y, y' at the boundary</span>
         <span class="n">z_at_0</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_0</span><span class="p">]</span>
         <span class="n">xs</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">integrate_over_domain</span><span class="p">(</span><span class="n">z_at_0</span><span class="p">,</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">)</span>
         <span class="n">yprime_at_length_integrated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zs</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 
-        <span class="c1"># Return the difference between y'(L) found by numerical integrator and the true value</span>
+        <span class="c"># Return the difference between y'(L) found by numerical integrator and the true value</span>
         <span class="k">return</span> <span class="n">yprime_at_length</span> <span class="o">-</span> <span class="n">yprime_at_length_integrated</span>
 
     <span class="n">yprime_at_0_guess</span> <span class="o">=</span> <span class="mf">0.2</span>
-    <span class="n">lsq</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">yprime_at_0_guess</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_length</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s2">"soft_l1"</span><span class="p">)</span>
+    <span class="n">lsq</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">yprime_at_0_guess</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_length</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s">"soft_l1"</span><span class="p">)</span>
     <span class="n">yprime_at_0_estimate</span> <span class="o">=</span> <span class="n">lsq</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">yprime_at_0_estimate</span>
 </pre></div>
@@ -394,27 +391,27 @@ y' = \frac{dy}{dx}\\
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">areafuncs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"funnel1"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.166</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span>
-             <span class="s2">"funnel2"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.59</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span>
-             <span class="s2">"trapezoid"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="o">-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span>
-             <span class="s2">"rectangle"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">areafuncs</span> <span class="o">=</span> <span class="p">{</span><span class="s">"funnel1"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.166</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span>
+             <span class="s">"funnel2"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.59</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="o">/</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">],</span>
+             <span class="s">"trapezoid"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="o">-</span><span class="mf">0.2</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">],</span>
+             <span class="s">"rectangle"</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
              <span class="p">}</span>
-<span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s2">"dopri5"</span><span class="p">)</span>
+<span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s">"dopri5"</span><span class="p">)</span>
 <span class="n">yprime_at_length</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">y_at_0</span> <span class="o">=</span> <span class="mi">200</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"x (nm)"</span><span class="p">,</span> <span class="s2">"T (K)"</span><span class="p">,</span> <span class="s2">"Quasi-1D, Steady State, Heat Eqn"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"x (nm)"</span><span class="p">,</span> <span class="s">"T (K)"</span><span class="p">,</span> <span class="s">"Quasi-1D, Steady State, Heat Eqn"</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">nm</span><span class="p">,</span> <span class="n">areaf</span> <span class="ow">in</span> <span class="n">areafuncs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="n">integrator</span><span class="o">.</span><span class="n">set_initial_value</span><span class="p">([</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Set the initial values of z and x</span>
+    <span class="n">integrator</span><span class="o">.</span><span class="n">set_initial_value</span><span class="p">([</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># Set the initial values of z and x</span>
     <span class="n">integrator</span><span class="o">.</span><span class="n">set_f_params</span><span class="p">(</span><span class="n">areaf</span><span class="p">)</span>
     <span class="n">yprime_at_0_estimate</span> <span class="o">=</span> <span class="n">solve_bvp_pj</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_length</span><span class="p">,</span> <span class="n">areaf</span><span class="p">)</span>
     <span class="n">xs</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">integrate_over_domain</span><span class="p">([</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_0_estimate</span><span class="p">],</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">areaf</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zs</span><span class="p">)[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">nm</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"best"</span><span class="p">)</span>
-<span class="n">props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">'round'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">'wheat'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">"$y'(L)$ = </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">yprime_at_length</span><span class="p">,),</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
-        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">'top'</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"best"</span><span class="p">)</span>
+<span class="n">props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s">'round'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'wheat'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s">"$y'(L)$ = %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">yprime_at_length</span><span class="p">,),</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+        <span class="n">verticalalignment</span><span class="o">=</span><span class="s">'top'</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1056,7 +1053,7 @@ JxEREZGEFDiJiIiIJKTASURERCSh/w8SOl6ayaqUcAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">solve_bvp_tj</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">y_at_length</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">solve_bvp_tj</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">y_at_length</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="k">True</span><span class="p">):</span>
     <span class="sd">"""</span>
 <span class="sd">    Numerically find the value for y'(0) that gives us a propagated (integrated) solution matching most closely with</span>
 <span class="sd">    with other known boundary condition y(L) which is proportional junction temperature.</span>
@@ -1069,20 +1066,20 @@ JxEREZGEFDiJiIiIJKTASURERCSh/w8SOl6ayaqUcAAAAABJRU5ErkJggg==
 <span class="sd">    :param silent: bool indicating whether to print the progress of the integrator</span>
 <span class="sd">    :return: the optimized estimate of y' at the left boundary point giving the most accurate integrated solution.</span>
 <span class="sd">    """</span>
-    <span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s2">"dopri5"</span><span class="p">)</span>
-    <span class="n">z_at_0</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>  <span class="c1"># Make an initial guess for yprime at x=0</span>
+    <span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s">"dopri5"</span><span class="p">)</span>
+    <span class="n">z_at_0</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]</span>  <span class="c"># Make an initial guess for yprime at x=0</span>
 
     <span class="k">def</span> <span class="nf">residuals</span><span class="p">(</span><span class="n">yprime_at_0</span><span class="p">,</span> <span class="n">y_at_0</span><span class="p">,</span> <span class="n">y_at_length</span><span class="p">):</span>
-        <span class="c1"># Use RK to compute [y, y'] over the domain given the values for y, y' at the boundary</span>
+        <span class="c"># Use RK to compute [y, y'] over the domain given the values for y, y' at the boundary</span>
         <span class="n">z_at_0</span> <span class="o">=</span> <span class="p">[</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_0</span><span class="p">]</span>
         <span class="n">xs</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">integrate_over_domain</span><span class="p">(</span><span class="n">z_at_0</span><span class="p">,</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">areafunction</span><span class="p">)</span>
         <span class="n">y_at_length_integrated</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zs</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
-        <span class="c1"># Return the difference between y'(L) found by numerical integrator and the true value</span>
+        <span class="c"># Return the difference between y'(L) found by numerical integrator and the true value</span>
         <span class="k">return</span> <span class="n">y_at_length</span> <span class="o">-</span> <span class="n">y_at_length_integrated</span>
 
     <span class="n">yprime_at_0_guess</span> <span class="o">=</span> <span class="mf">0.2</span>
-    <span class="n">lsq</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">yprime_at_0_guess</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">y_at_length</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s2">"soft_l1"</span><span class="p">)</span>
+    <span class="n">lsq</span> <span class="o">=</span> <span class="n">least_squares</span><span class="p">(</span><span class="n">residuals</span><span class="p">,</span> <span class="n">yprime_at_0_guess</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">y_at_length</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s">"soft_l1"</span><span class="p">)</span>
     <span class="n">yprime_at_0_estimate</span> <span class="o">=</span> <span class="n">lsq</span><span class="o">.</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">yprime_at_0_estimate</span>
 </pre></div>
@@ -1095,25 +1092,25 @@ JxEREZGEFDiJiIiIJKTASURERCSh/w8SOl6ayaqUcAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s2">"dopri5"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">integrator</span> <span class="o">=</span> <span class="n">ode</span><span class="p">(</span><span class="n">compute_zprime</span><span class="p">)</span><span class="o">.</span><span class="n">set_integrator</span><span class="p">(</span><span class="s">"dopri5"</span><span class="p">)</span>
 <span class="n">y_at_length</span> <span class="o">=</span> <span class="mi">300</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"$T_E$ (K)"</span><span class="p">,</span> <span class="s2">"$p_c$ (arb. units)"</span><span class="p">,</span> <span class="s2">"Quasi-1D, Steady State, Heat Eqn"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"$T_E$ (K)"</span><span class="p">,</span> <span class="s">"$p_c$ (arb. units)"</span><span class="p">,</span> <span class="s">"Quasi-1D, Steady State, Heat Eqn"</span><span class="p">)</span>
 <span class="n">tenvs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">260</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">nm</span><span class="p">,</span> <span class="n">areaf</span> <span class="ow">in</span> <span class="n">areafuncs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">pjs</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">y_at_0</span> <span class="ow">in</span> <span class="n">tenvs</span><span class="p">:</span>
-        <span class="n">integrator</span><span class="o">.</span><span class="n">set_initial_value</span><span class="p">([</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Set the initial values of z and x</span>
+        <span class="n">integrator</span><span class="o">.</span><span class="n">set_initial_value</span><span class="p">([</span><span class="n">y_at_0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">t</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># Set the initial values of z and x</span>
         <span class="n">integrator</span><span class="o">.</span><span class="n">set_f_params</span><span class="p">(</span><span class="n">areaf</span><span class="p">)</span>
         <span class="n">yprime_at_0_estimate</span> <span class="o">=</span> <span class="n">solve_bvp_tj</span><span class="p">(</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">y_at_length</span><span class="p">,</span> <span class="n">areaf</span><span class="p">)</span>
         <span class="n">xs</span><span class="p">,</span> <span class="n">zs</span> <span class="o">=</span> <span class="n">integrate_over_domain</span><span class="p">([</span><span class="n">y_at_0</span><span class="p">,</span> <span class="n">yprime_at_0_estimate</span><span class="p">],</span> <span class="n">integrator</span><span class="p">,</span> <span class="n">areaf</span><span class="p">)</span>
         <span class="n">pjs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">zs</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tenvs</span><span class="p">,</span> <span class="n">pjs</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">nm</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"best"</span><span class="p">)</span>
-<span class="n">props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">'round'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">'wheat'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s2">"$T_j$ = </span><span class="si">%.0f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">y_at_length</span><span class="p">,),</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
-        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">'top'</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"best"</span><span class="p">)</span>
+<span class="n">props</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s">'round'</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s">'wheat'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="s">"$T_j$ = %.0f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">y_at_length</span><span class="p">,),</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span>
+        <span class="n">verticalalignment</span><span class="o">=</span><span class="s">'top'</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">props</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>

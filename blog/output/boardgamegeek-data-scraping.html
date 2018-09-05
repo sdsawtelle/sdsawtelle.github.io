@@ -121,10 +121,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -159,7 +157,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -205,7 +202,7 @@
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -216,8 +213,8 @@
 <span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
 <span class="kn">import</span> <span class="nn">timeit</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -241,21 +238,21 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">req</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">req</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
     <span class="sd">"""Make fault tolerant BGG server requests."""</span>
-    <span class="c1"># Sleep to make sure you are not pinging the server to frequently</span>
+    <span class="c"># Sleep to make sure you are not pinging the server to frequently</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
-    <span class="c1"># Keep trying requests until status-code is 200</span>
+    <span class="c"># Keep trying requests until status-code is 200</span>
     <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>
     <span class="k">while</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
         <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="n">status_code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
-            <span class="c1"># if status_code != 200:</span>
-                <span class="c1"># print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
+            <span class="c"># if status_code != 200:</span>
+                <span class="c"># print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="c1"># print("An exception has occurred, probably a momentory loss of connection. Waiting three seconds...")</span>
+            <span class="c"># print("An exception has occurred, probably a momentory loss of connection. Waiting three seconds...")</span>
             <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">r</span>
 </pre></div>
@@ -277,9 +274,9 @@
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/user?name=Zazz&top;=1"</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>  <span class="c1"># Use the xml parser for API responses and the html_parser for scraping</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c1"># 404 not found and the like. Hopefully 200!</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/user?name=Zazz&top;=1"</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>  <span class="c"># Use the xml parser for API responses and the html_parser for scraping</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c"># 404 not found and the like. Hopefully 200!</span>
 </pre></div>
 </div>
 </div>
@@ -309,18 +306,18 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="sd">'''A wrapper to make robust https requests.'''</span>
-    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># Want to get a status-code of 200</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c"># Want to get a status-code of 200</span>
     <span class="k">while</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>  <span class="c1"># Don't ping the server too often</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>  <span class="c"># Don't ping the server too often</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="n">status_code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
             <span class="k">if</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">"Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s">"Server Error! Response Code %i. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">"An exception has occurred, probably a momentory loss of connection. Waiting one seconds..."</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s">"An exception has occurred, probably a momentory loss of connection. Waiting one seconds..."</span><span class="p">)</span>
             <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">r</span>
 </pre></div>
@@ -343,44 +340,44 @@
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize a DF to hold all our scraped game info</span>
-<span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">,</span> <span class="s2">"pic_url"</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Initialize a DF to hold all our scraped game info</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"id"</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">,</span> <span class="s">"pic_url"</span><span class="p">])</span>
 <span class="n">min_nrate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e5</span>
 <span class="n">npage</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c1"># Scrap successful pages in the results until we get down to games with < 1000 ratings each</span>
+<span class="c"># Scrap successful pages in the results until we get down to games with < 1000 ratings each</span>
 <span class="k">while</span> <span class="n">min_nrate</span> <span class="o">></span> <span class="mi">1000</span><span class="p">:</span>
-    <span class="c1"># Get full HTML for a specific page in the full listing of boardgames sorted by </span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">"https://boardgamegeek.com/browse/boardgame/page/</span><span class="si">%i</span><span class="s2">?sort=numvoters&sortdir;=desc"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,))</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"html.parser"</span><span class="p">)</span>    
+    <span class="c"># Get full HTML for a specific page in the full listing of boardgames sorted by </span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s">"https://boardgamegeek.com/browse/boardgame/page/%i?sort=numvoters&sortdir;=desc"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>    
     
-    <span class="c1"># Get rows for the table listing all the games on this page</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"tr"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">"id"</span><span class="p">:</span> <span class="s2">"row_"</span><span class="p">})</span>  <span class="c1"># Get list of all the rows (tags) in the list of games on this page</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"id"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">,</span> <span class="s2">"pic_url"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)))</span>  <span class="c1"># DF to hold this pages results</span>
+    <span class="c"># Get rows for the table listing all the games on this page</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"tr"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">"id"</span><span class="p">:</span> <span class="s">"row_"</span><span class="p">})</span>  <span class="c"># Get list of all the rows (tags) in the list of games on this page</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"id"</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">,</span> <span class="s">"pic_url"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)))</span>  <span class="c"># DF to hold this pages results</span>
     
-    <span class="c1"># Loop through each row and pull out the info for that game</span>
+    <span class="c"># Loop through each row and pull out the info for that game</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
-        <span class="c1"># Row may or may not start with a "boardgame rank" link, if YES then strip it</span>
-        <span class="n">links</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">"name"</span> <span class="ow">in</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c"># Row may or may not start with a "boardgame rank" link, if YES then strip it</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s">"name"</span> <span class="ow">in</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">del</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">gamelink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Get the relative URL for the specific game</span>
-        <span class="n">gameid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gamelink</span><span class="p">[</span><span class="s2">"href"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Get the game ID by parsing the relative URL</span>
-        <span class="n">gamename</span> <span class="o">=</span> <span class="n">gamelink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the actual name of the game as the link contents</span>
-        <span class="n">imlink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the URL for the game thumbnail</span>
-        <span class="n">thumbnail</span> <span class="o">=</span> <span class="n">imlink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"src"</span><span class="p">]</span>
+        <span class="n">gamelink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># Get the relative URL for the specific game</span>
+        <span class="n">gameid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gamelink</span><span class="p">[</span><span class="s">"href"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>  <span class="c"># Get the game ID by parsing the relative URL</span>
+        <span class="n">gamename</span> <span class="o">=</span> <span class="n">gamelink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># Get the actual name of the game as the link contents</span>
+        <span class="n">imlink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># Get the URL for the game thumbnail</span>
+        <span class="n">thumbnail</span> <span class="o">=</span> <span class="n">imlink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"src"</span><span class="p">]</span>
 
-        <span class="n">ratings_str</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">"td"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="s2">"collection_bggrating"</span><span class="p">})[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">nratings</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ratings_str</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="n">ratings_str</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"td"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">"class"</span><span class="p">:</span> <span class="s">"collection_bggrating"</span><span class="p">})[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">nratings</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ratings_str</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 
         <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gameid</span><span class="p">,</span> <span class="n">gamename</span><span class="p">,</span> <span class="n">nratings</span><span class="p">,</span> <span class="n">thumbnail</span><span class="p">]</span>
 
-    <span class="c1"># Concatenate the results of this page to the master dataframe</span>
-    <span class="n">min_nrate</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># The smallest number of ratings of any game on the page</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Page </span><span class="si">%i</span><span class="s2"> scraped, minimum number of ratings was </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,</span> <span class="n">min_nrate</span><span class="p">))</span>
+    <span class="c"># Concatenate the results of this page to the master dataframe</span>
+    <span class="n">min_nrate</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c"># The smallest number of ratings of any game on the page</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">"Page %i scraped, minimum number of ratings was %i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,</span> <span class="n">min_nrate</span><span class="p">))</span>
     <span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_all</span><span class="p">,</span> <span class="n">df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">npage</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Keep the BGG server happy.</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># Keep the BGG server happy.</span>
 </pre></div>
 </div>
 </div>
@@ -419,11 +416,11 @@ Page 19 scraped, minimum number of ratings was 956
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="c1"># Reset the index since we concatenated a bunch of DFs with the same index into one DF</span>
-<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># Write the DF to .csv for future use</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">"bgg_gamelist.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c"># Reset the index since we concatenated a bunch of DFs with the same index into one DF</span>
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+<span class="c"># Write the DF to .csv for future use</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">"bgg_gamelist.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -493,8 +490,8 @@ Page 19 scraped, minimum number of ratings was 956
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Number of games with > 1000 ratings is approximately </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Total number of ratings from all these games is </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"Number of games with > 1000 ratings is approximately %i"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s">"Total number of ratings from all these games is %i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
 </pre></div>
 </div>
 </div>
@@ -525,10 +522,10 @@ Total number of ratings from all these games is 7593766
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"LOG(# Ratings)"</span><span class="p">,</span> <span class="s2">"Count"</span><span class="p">,</span> <span class="s2">"Distribution of LOG(# Ratings)"</span><span class="p">)</span>
-<span class="n">__</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"LOG(# Ratings)"</span><span class="p">,</span> <span class="s">"Count"</span><span class="p">,</span> <span class="s">"Distribution of LOG(# Ratings)"</span><span class="p">)</span>
+<span class="n">__</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -743,10 +740,10 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Getting the ratings of specific board game (each is in a "comment" div)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=213578&ratingcomments;=1"</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
-<span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Getting the ratings of specific board game (each is in a "comment" div)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=213578&ratingcomments;=1"</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">"comment"</span><span class="p">)</span>
 <span class="n">comments</span>
 </pre></div>
 </div>
@@ -776,7 +773,7 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"username"</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"username"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -814,8 +811,8 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Dropping the 20 most-rated games would give a total number of ratings of </span><span class="si">%i</span><span class="s2">"</span> 
-      <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">500</span><span class="p">:,</span> <span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"Dropping the 20 most-rated games would give a total number of ratings of %i"</span> 
+      <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">500</span><span class="p">:,</span> <span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
 </pre></div>
 </div>
 </div>
@@ -836,9 +833,9 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Thresholding at 2000 ratings gives </span><span class="si">%i</span><span class="s2"> games and </span><span class="si">%i</span><span class="s2"> total ratings"</span>
-     <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> 
-        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"Thresholding at 2000 ratings gives %i games and %i total ratings"</span>
+     <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> 
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
 </pre></div>
 </div>
 </div>
@@ -859,8 +856,8 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [20]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Restrict the data set to fewer games that have fewer ratings (our toy data set!)</span>
-<span class="n">df_toy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Restrict the data set to fewer games that have fewer ratings (our toy data set!)</span>
+<span class="n">df_toy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -881,8 +878,8 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare a "# of FULL pages of ratings" column to track # API calls needed</span>
-<span class="n">df_toy</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Round DOWN to nearest 100</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Prepare a "# of FULL pages of ratings" column to track # API calls needed</span>
+<span class="n">df_toy</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c"># Round DOWN to nearest 100</span>
 <span class="n">df_toy</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -967,10 +964,10 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the database and make a cursor to talk to it.</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create the database and make a cursor to talk to it.</span>
 <span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings_toy.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_toy.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c"># This object lets us actually send messages to our DB and receive results</span>
 </pre></div>
 </div>
 </div>
@@ -981,66 +978,66 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#############################################################</span>
-<span class="c1"># Gathering all ratings from all games in toy data set</span>
-<span class="c1">#############################################################</span>
-<span class="c1"># Get ratings page-by-page for all games, but do it in chunks of 250 games</span>
+<div class=" highlight hl-ipython3"><pre><span class="c">#############################################################</span>
+<span class="c"># Gathering all ratings from all games in toy data set</span>
+<span class="c">#############################################################</span>
+<span class="c"># Get ratings page-by-page for all games, but do it in chunks of 250 games</span>
 <span class="k">for</span> <span class="n">nm</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">))</span><span class="o">//</span><span class="mi">150</span><span class="p">):</span>
-    <span class="c1"># Initialize a DF to hold all the responses for this chunk of games</span>
-    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">,</span> <span class="s2">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">+</span><span class="mi">100000</span><span class="p">))</span>
+    <span class="c"># Initialize a DF to hold all the responses for this chunk of games</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">,</span> <span class="s">"username"</span><span class="p">,</span> <span class="s">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">+</span><span class="mi">100000</span><span class="p">))</span>
 
-    <span class="c1"># Initialize indices for writing to the ratings dataframe</span>
+    <span class="c"># Initialize indices for writing to the ratings dataframe</span>
     <span class="n">dfidx_start</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">dfidx</span> <span class="o">=</span> <span class="mi">0</span>
     
-    <span class="c1"># For this group of games, make calls until all FULL pages of every game have been pulled</span>
+    <span class="c"># For this group of games, make calls until all FULL pages of every game have been pulled</span>
     <span class="n">pagenum</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">])</span> <span class="o">></span> <span class="mi">0</span><span class="p">:</span> 
-        <span class="c1"># Get a restricted DF with only still-active games (have ratings pages left)</span>
-        <span class="n">active_games</span> <span class="o">=</span> <span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">])</span> <span class="o">></span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="c"># Get a restricted DF with only still-active games (have ratings pages left)</span>
+        <span class="n">active_games</span> <span class="o">=</span> <span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">]</span>
 
-        <span class="c1"># Set the next chunk of the DF "gameid" column using the list of game IDs</span>
+        <span class="c"># Set the next chunk of the DF "gameid" column using the list of game IDs</span>
         <span class="n">id_list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s">"id"</span><span class="p">]:</span>
             <span class="n">id_list</span> <span class="o">+=</span> <span class="p">[</span><span class="n">game</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
         <span class="n">dfidx_end</span> <span class="o">=</span> <span class="n">dfidx_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
-        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
 
-        <span class="c1"># Make the request with the list of all game IDs that have ratings left</span>
-        <span class="n">id_strs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span> <span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]</span>
-        <span class="n">gameids</span> <span class="o">=</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">id_strs</span><span class="p">)</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%s</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
-<span class="c1">#         while r.status_code != 200:</span>
-<span class="c1">#             sleep(2)  # Keep the server happy</span>
-<span class="c1">#             print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
-<span class="c1">#             r = requests.get("http://www.boardgamegeek.com/xmlapi2/thing?id=%s&ratingcomments;=1&page;=%i" % (gameids, pagenum))        </span>
-        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
-        <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
-<span class="c1">#         print("Response status was %i - number of ratings retrieved was %i" % (r.status_code, len(comments)))</span>
+        <span class="c"># Make the request with the list of all game IDs that have ratings left</span>
+        <span class="n">id_strs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span> <span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s">"id"</span><span class="p">]]</span>
+        <span class="n">gameids</span> <span class="o">=</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">id_strs</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>  <span class="c"># Keep the server happy</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%s&ratingcomments;=1&page;=%i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+<span class="c">#         while r.status_code != 200:</span>
+<span class="c">#             sleep(2)  # Keep the server happy</span>
+<span class="c">#             print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
+<span class="c">#             r = requests.get("http://www.boardgamegeek.com/xmlapi2/thing?id=%s&ratingcomments;=1&page;=%i" % (gameids, pagenum))        </span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
+        <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">"comment"</span><span class="p">)</span>
+<span class="c">#         print("Response status was %i - number of ratings retrieved was %i" % (r.status_code, len(comments)))</span>
 
-        <span class="c1"># Parse the response and assign it into the dataframe</span>
+        <span class="c"># Parse the response and assign it into the dataframe</span>
         <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
         <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
         <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">comm</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
-            <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span>
-            <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">])</span>
+            <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span>
+            <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s">"rating"</span><span class="p">])</span>
             <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
-        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
 
         
-        <span class="n">grp</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c1"># Decrement the number of FULL pages of each game id</span>
+        <span class="n">grp</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c"># Decrement the number of FULL pages of each game id</span>
         <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>     
         <span class="n">pagenum</span> <span class="o">+=</span> <span class="mi">1</span>  
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"pagenum updated to </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">pagenum</span><span class="p">,))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">"pagenum updated to %i"</span> <span class="o">%</span><span class="p">(</span><span class="n">pagenum</span><span class="p">,))</span>
     
-    <span class="c1"># Strip off the empty rows</span>
-    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
-    <span class="c1"># Write this batch of all FULL pages of ratings for this chunk of games to the DB</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Processed ratings for batch #</span><span class="si">%i</span><span class="s2"> of games."</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">))</span>
+    <span class="c"># Strip off the empty rows</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s">"all"</span><span class="p">)</span>
+    <span class="c"># Write this batch of all FULL pages of ratings for this chunk of games to the DB</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s">"Processed ratings for batch #%i of games."</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1060,62 +1057,62 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#############################################################</span>
-<span class="c1"># Request the final partial page of ratings for each game</span>
-<span class="c1">#############################################################</span>
-<span class="c1"># Restore the correct number of FULL pages</span>
-<span class="n">df_toy</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Round DOWN to nearest 100, then divide by 100</span>
+<div class=" highlight hl-ipython3"><pre><span class="c">#############################################################</span>
+<span class="c"># Request the final partial page of ratings for each game</span>
+<span class="c">#############################################################</span>
+<span class="c"># Restore the correct number of FULL pages</span>
+<span class="n">df_toy</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c"># Round DOWN to nearest 100, then divide by 100</span>
 
-<span class="c1"># Initialize a DF to hold all the responses over all the chunks of games</span>
-<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">,</span> <span class="s2">"username"</span><span class="p">,</span> <span class="s2">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="c"># Initialize a DF to hold all the responses over all the chunks of games</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">,</span> <span class="s">"username"</span><span class="p">,</span> <span class="s">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
 
-<span class="c1"># Initialize indices for writing to the ratings dataframe</span>
+<span class="c"># Initialize indices for writing to the ratings dataframe</span>
 <span class="n">dfidx_start</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">dfidx</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c1"># Loop through game-by-game and request the final page of ratings for each game</span>
+<span class="c"># Loop through game-by-game and request the final page of ratings for each game</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="c1"># Get the game ID and the last page number to request</span>
-    <span class="n">pagenum</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">"nfullpages"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">gameid</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span>
+    <span class="c"># Get the game ID and the last page number to request</span>
+    <span class="n">pagenum</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">gameid</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span>
     
-    <span class="c1"># Make the request for just the last page of ratings of this game</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+    <span class="c"># Make the request for just the last page of ratings of this game</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Keep the server happy</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%i&ratingcomments;=1&page;=%i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
     <span class="k">while</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&ratingcomments;=1&page;=</span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
-    <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">"comment"</span><span class="p">)</span>
-<span class="c1">#         print("Response status was %i - length of comments is %i" % (r.status_code, len(comments)))</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c"># Keep the server happy</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">"Server Error! Response Code %i. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%i&ratingcomments;=1&page;=%i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">"comment"</span><span class="p">)</span>
+<span class="c">#         print("Response status was %i - length of comments is %i" % (r.status_code, len(comments)))</span>
 
-    <span class="c1"># Set the next chunk of the DF "gameids" column with this gameid</span>
+    <span class="c"># Set the next chunk of the DF "gameids" column with this gameid</span>
     <span class="n">id_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">gameid</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
     <span class="n">dfidx_end</span> <span class="o">=</span> <span class="n">dfidx_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
 
-    <span class="c1"># Parse the response and assign it into the dataframe</span>
+    <span class="c"># Parse the response and assign it into the dataframe</span>
     <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
     <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">comm</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
-        <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span>
-        <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">])</span>
+        <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span>
+        <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s">"rating"</span><span class="p">])</span>
         <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
 
-    <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>   <span class="c1"># Increment the starting index for next round        </span>
+    <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>   <span class="c"># Increment the starting index for next round        </span>
 
     <span class="k">if</span> <span class="n">idx</span><span class="o">%</span><span class="k">100</span> == 0:
-        <span class="nb">print</span><span class="p">(</span><span class="s2">"Finished with a chunk of 100 games."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s">"Finished with a chunk of 100 games."</span><span class="p">)</span>
         
-<span class="c1"># Strip off the empty rows</span>
-<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">"all"</span><span class="p">)</span>
+<span class="c"># Strip off the empty rows</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s">"all"</span><span class="p">)</span>
 
-<span class="c1"># Write this final batch of all partial pages of ratings for this chunk of games to the DB</span>
-<span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
+<span class="c"># Write this final batch of all partial pages of ratings for this chunk of games to the DB</span>
+<span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>    
 </pre></div>
 </div>
 </div>
@@ -1126,7 +1123,7 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save our changes and close the connection</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Save our changes and close the connection</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1157,9 +1154,9 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [63]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">"bgg_ratings.db"</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
-<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data"</span> <span class="o">+</span> <span class="s2">";"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c"># This object lets us actually send messages to our DB and receive results</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data"</span> <span class="o">+</span> <span class="s">";"</span>
 <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
@@ -1263,21 +1260,21 @@ OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [106]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">999</span><span class="p">)):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="p">[</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">]</span>
-    <span class="n">nm</span> <span class="o">=</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">__</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> (</span><span class="si">%i</span><span class="s2">)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">game</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Our Data: Mean = </span><span class="si">%.2f</span><span class="s2">. StdDev = </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">999</span><span class="p">)):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="p">[</span><span class="n">df_ratings</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">]</span>
+    <span class="n">nm</span> <span class="o">=</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">,</span> <span class="s">"name"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">__</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"rating"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"%s (%i)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">game</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">"%s Our Data: Mean = %.2f. StdDev = %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
     
-    <span class="c1"># Request actual stats from the server to compare with scraped data</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&stats;=1"</span> <span class="o">%</span> <span class="p">(</span><span class="n">game</span><span class="p">,))</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
-    <span class="n">std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s2">"stddev"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"value"</span><span class="p">])</span>
-    <span class="n">mn</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s2">"average"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"value"</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="si">%s</span><span class="s2"> Server Stats: Mean = </span><span class="si">%.2f</span><span class="s2">. StdDev = </span><span class="si">%.2f</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">mn</span><span class="p">,</span><span class="n">std</span><span class="p">))</span>
+    <span class="c"># Request actual stats from the server to compare with scraped data</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%i&stats;=1"</span> <span class="o">%</span> <span class="p">(</span><span class="n">game</span><span class="p">,))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s">"stddev"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s">"value"</span><span class="p">])</span>
+    <span class="n">mn</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s">"average"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s">"value"</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">"%s Server Stats: Mean = %.2f. StdDev = %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">mn</span><span class="p">,</span><span class="n">std</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1680,11 +1677,11 @@ AElFTkSuQmCC
 <div class="prompt input_prompt">In [115]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A nifty and somewhat fault-tolerant way of constructing long SQL queries</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
-    <span class="s2">"SELECT username"</span><span class="p">,</span>
-    <span class="s2">"FROM (SELECT username, count(*) as freqn FROM data GROUP BY username)"</span><span class="p">,</span>
-    <span class="s2">"AS tbl WHERE freqn > 10"</span><span class="p">,</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># A nifty and somewhat fault-tolerant way of constructing long SQL queries</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
+    <span class="s">"SELECT username"</span><span class="p">,</span>
+    <span class="s">"FROM (SELECT username, count(*) as freqn FROM data GROUP BY username)"</span><span class="p">,</span>
+    <span class="s">"AS tbl WHERE freqn > 10"</span><span class="p">,</span>
 <span class="p">))</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
@@ -1731,9 +1728,9 @@ AElFTkSuQmCC
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s2">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-<span class="n">str_matching</span> <span class="o">=</span> <span class="s2">"("</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">")"</span>  <span class="c1"># Construct the string of SQL language</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s2">"SELECT * FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s2">";"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">str_matching</span> <span class="o">=</span> <span class="s">"("</span> <span class="o">+</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span>  <span class="c"># Construct the string of SQL language</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s">";"</span>
 <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
@@ -1746,7 +1743,7 @@ AElFTkSuQmCC
 <div class="prompt input_prompt">In [120]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1806,9 +1803,9 @@ AElFTkSuQmCC
 <div class="prompt input_prompt">In [123]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">"gameid"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">max_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 <span class="n">actual_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Sparsity of Ratings Data is </span><span class="si">%.2f%%</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">actual_n_ratings</span><span class="o">/</span><span class="n">max_n_ratings</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s">"Sparsity of Ratings Data is %.2f%%"</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">actual_n_ratings</span><span class="o">/</span><span class="n">max_n_ratings</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1838,8 +1835,8 @@ AElFTkSuQmCC
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r3</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://www.boardgamegeek.com/xmlapi2/collection?username=odo_ital&rated;=1"</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">"xml"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">r3</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/collection?username=odo_ital&rated;=1"</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 <span class="n">r3</span><span class="o">.</span><span class="n">text</span>
 </pre></div>

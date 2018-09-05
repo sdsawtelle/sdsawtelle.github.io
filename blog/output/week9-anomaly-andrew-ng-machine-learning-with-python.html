@@ -119,10 +119,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -157,7 +155,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -209,7 +206,7 @@
 <div class="prompt input_prompt">In [158]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.io</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
@@ -217,8 +214,8 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -230,7 +227,7 @@
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk9</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk9</span>
 </pre></div>
 </div>
 </div>
@@ -261,8 +258,8 @@
 <div class="prompt input_prompt">In [796]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">"ex8data1.mat"</span><span class="p">)</span>
-<span class="n">trash</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">X1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"X"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"yval"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"Xval"</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s">"ex8data1.mat"</span><span class="p">)</span>
+<span class="n">trash</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">X1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"X"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"yval"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"Xval"</span><span class="p">]</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y1</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -274,8 +271,8 @@
 <div class="prompt input_prompt">In [829]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">"ex8data2.mat"</span><span class="p">)</span>
-<span class="n">X2_normal</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"X"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"yval"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">"Xval"</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s">"ex8data2.mat"</span><span class="p">)</span>
+<span class="n">X2_normal</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"X"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"yval"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"Xval"</span><span class="p">]</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y2</span><span class="p">))</span>
 <span class="n">y2_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X2_normal</span><span class="p">))</span>
 </pre></div>
@@ -288,7 +285,7 @@
 <div class="prompt input_prompt">In [830]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y2</span><span class="p">,</span> <span class="n">y2_normal</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y2</span><span class="p">,</span> <span class="n">y2_normal</span><span class="p">])</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X2</span><span class="p">,</span> <span class="n">X2_normal</span><span class="p">])</span>
 </pre></div>
 </div>
@@ -300,7 +297,7 @@
 <div class="prompt input_prompt">In [799]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X2</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X2</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 </div>
 </div>
@@ -320,11 +317,11 @@
 <div class="prompt input_prompt">In [800]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"throughput"</span><span class="p">,</span> <span class="s2">"latency"</span><span class="p">,</span> <span class="s2">"Toy Data: Server Responses"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"inliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"outliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Toy Data: Server Responses"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"inliers"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outliers"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -629,9 +626,9 @@ IhI3SioiIhI3SioiIhI3SioiIhI3/x/Av+ZW+87r7wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [801]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
-<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Reduce to k=3 dimensions</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c"># Reduce to k=3 dimensions</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -643,7 +640,7 @@ IhI3SioiIhI3SioiIhI3SioiIhI3/x/Av+ZW+87r7wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [802]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
 <span class="n">X_reduce</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -655,19 +652,19 @@ IhI3SioiIhI3SioiIhI3SioiIhI3/x/Av+ZW+87r7wAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [806]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot all the ground truth points together with the predictions</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot all the ground truth points together with the predictions</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"x_composite_1"</span><span class="p">,</span> <span class="s2">"x_composite_2"</span><span class="p">,</span> <span class="s2">"Outliers in Reduced Dimension"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"x_composite_3"</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"x_composite_1"</span><span class="p">,</span> <span class="s">"x_composite_2"</span><span class="p">,</span> <span class="s">"Outliers in Reduced Dimension"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">"x_composite_3"</span><span class="p">)</span>
 
-<span class="c1"># Plot the compressed data points</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"inliers"</span><span class="p">)</span>
+<span class="c"># Plot the compressed data points</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"inliers"</span><span class="p">)</span>
 
-<span class="c1"># Plot x's for the ground truth outliers</span>
+<span class="c"># Plot x's for the ground truth outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"outliers"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outliers"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1730,7 +1727,7 @@ ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [612]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="k">import</span> <span class="n">EllipticEnvelope</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="k">import</span> <span class="n">EllipticEnvelope</span>
 <span class="n">outlier_frac</span> <span class="o">=</span> <span class="mf">0.035</span>
 <span class="n">ell</span> <span class="o">=</span> <span class="n">EllipticEnvelope</span><span class="p">(</span><span class="n">contamination</span><span class="o">=</span><span class="n">outlier_frac</span><span class="p">)</span>
 <span class="n">ell</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
@@ -1763,9 +1760,9 @@ ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [613]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Binary prediction of normal vs. outlier</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Binary prediction of normal vs. outlier</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
-<span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Outlier points are predicted as -1</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Outlier points are predicted as -1</span>
 </pre></div>
 </div>
 </div>
@@ -1785,7 +1782,7 @@ ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [614]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Continuous output of the decision_function</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Continuous output of the decision_function</span>
 <span class="n">decision</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 <span class="n">decision</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">decision</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
@@ -1807,7 +1804,7 @@ ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [615]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the "thresholding" value from the decision function</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Get the "thresholding" value from the decision function</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">scoreatpercentile</span><span class="p">(</span><span class="n">ell</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X1</span><span class="p">),</span> <span class="mi">100</span><span class="o">*</span><span class="n">outlier_frac</span><span class="p">)</span>
 <span class="n">threshold</span>
 </pre></div>
@@ -1838,7 +1835,7 @@ ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [616]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First make a meshgrid for the (x1, x2) feature space</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># First make a meshgrid for the (x1, x2) feature space</span>
 <span class="n">x1s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">x2s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">x1grid</span><span class="p">,</span> <span class="n">x2grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x1s</span><span class="p">,</span> <span class="n">x2s</span><span class="p">)</span> 
@@ -1852,10 +1849,10 @@ ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [617]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now make predictions for each point on the grid </span>
-<span class="n">Xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x1grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">x2grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>  <span class="c1"># Feature matrix containing all grid points</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Now make predictions for each point on the grid </span>
+<span class="n">Xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x1grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">x2grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>  <span class="c"># Feature matrix containing all grid points</span>
 <span class="n">dens</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">Xgrid</span><span class="p">)</span>
-<span class="n">densgrid</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x1grid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Reshape the vector of densities back onto the "grid"</span>
+<span class="n">densgrid</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x1grid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c"># Reshape the vector of densities back onto the "grid"</span>
 </pre></div>
 </div>
 </div>
@@ -1866,16 +1863,16 @@ ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [618]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use the densites as the "z" values in a contour plot on the grid</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Use the densites as the "z" values in a contour plot on the grid</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"throughput"</span><span class="p">,</span> <span class="s2">"latency"</span><span class="p">,</span> <span class="s2">"Outlier Decision Function Contours"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Outlier Decision Function Contours"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x1grid</span><span class="p">,</span> <span class="n">x2grid</span><span class="p">,</span> <span class="n">densgrid</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">dens</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"g"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
 
-<span class="c1"># Pot circles around the predicted outliers</span>
+<span class="c"># Pot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  
-           <span class="n">facecolors</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"predicted outliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+           <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outliers"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2234,21 +2231,21 @@ ykrC0DYLRVEUpVK0zUJRFEWpFBULRVEUpVJULBRFUZRKUbFQFEVRKkXFQlEURakUFQtFURSlUv4f
 <div class="prompt input_prompt">In [599]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let it discard as many points as it wants in fitting</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Let it discard as many points as it wants in fitting</span>
 <span class="n">ell</span> <span class="o">=</span> <span class="n">EllipticEnvelope</span><span class="p">()</span>
 <span class="n">ell</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 
-<span class="c1"># Use the densites as the "z" values in a contour plot on the grid</span>
+<span class="c"># Use the densites as the "z" values in a contour plot on the grid</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"throughput"</span><span class="p">,</span> <span class="s2">"latency"</span><span class="p">,</span> <span class="s2">"Maximally Robust Fit"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Maximally Robust Fit"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x1grid</span><span class="p">,</span> <span class="n">x2grid</span><span class="p">,</span> <span class="n">densgrid</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">dens</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"g"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
 
-<span class="c1"># Pot circles around the predicted outliers</span>
+<span class="c"># Pot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  
-           <span class="n">facecolors</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"predicted outliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+           <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outliers"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2636,7 +2633,7 @@ jGmInYUxxpiG2FkYY4xpyP8BNqNg0O57S7UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [736]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
 <span class="n">y1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">y1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
@@ -2658,7 +2655,7 @@ jGmInYUxxpiG2FkYY4xpyP8BNqNg0O57S7UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [621]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">StratifiedKFold</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">StratifiedKFold</span>
 <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">folds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
 </pre></div>
@@ -2680,11 +2677,11 @@ jGmInYUxxpiG2FkYY4xpyP8BNqNg0O57S7UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [622]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">make_scorer</span>
 
 <span class="n">f1sc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">)</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"contamination"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s">"contamination"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">ell</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">ps</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1sc</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
 <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
 </pre></div>
@@ -2715,8 +2712,8 @@ jGmInYUxxpiG2FkYY4xpyP8BNqNg0O57S7UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [623]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[[</span><span class="s2">"mean_test_score"</span><span class="p">,</span> <span class="s2">"std_test_score"</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">"mean_test_score"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s">"mean_test_score"</span><span class="p">,</span> <span class="s">"std_test_score"</span><span class="p">,</span> <span class="s">"params"</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">"mean_test_score"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2779,25 +2776,25 @@ jGmInYUxxpiG2FkYY4xpyP8BNqNg0O57S7UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [624]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make predictions with our optimized envelope fit</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make predictions with our optimized envelope fit</span>
 <span class="n">optimal_ell</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">optimal_ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 
-<span class="c1"># Use the densites as the "z" values in a contour plot on the grid</span>
+<span class="c"># Use the densites as the "z" values in a contour plot on the grid</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"throughput"</span><span class="p">,</span> <span class="s2">"latency"</span><span class="p">,</span> <span class="s2">"Outlier Decision Function Contours"</span><span class="p">)</span>
-<span class="c1"># ax.contourf(x1grid, x2grid, densgrid, cmap=plt.cm.Blues_r, levels=np.linspace(dens.min(), threshold, 7))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"g"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Outlier Decision Function Contours"</span><span class="p">)</span>
+<span class="c"># ax.contourf(x1grid, x2grid, densgrid, cmap=plt.cm.Blues_r, levels=np.linspace(dens.min(), threshold, 7))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
 
-<span class="c1"># Plot circles around the predicted outliers</span>
+<span class="c"># Plot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  
-           <span class="n">facecolors</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"predicted outliers"</span><span class="p">)</span>
+           <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outliers"</span><span class="p">)</span>
 
-<span class="c1"># Plot x's for the ground truth outliers</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> 
-           <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"ground truth outliers"</span><span class="p">)</span>
+<span class="c"># Plot x's for the ground truth outliers</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> 
+           <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"ground truth outliers"</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3137,7 +3134,7 @@ ijHGmJixpGKMMSZmLKkYY4yJGUsqxhhjYub/AVMwunQXpVepAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [835]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
 <span class="n">y2</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">y2</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
@@ -3159,12 +3156,12 @@ ijHGmJixpGKMMSZmLKkYY4yJGUsqxhhjYub/AVMwunQXpVepAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [808]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Grid Search over contamination fraction</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Grid Search over contamination fraction</span>
 <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">folds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>
 <span class="n">ell</span> <span class="o">=</span> <span class="n">EllipticEnvelope</span><span class="p">()</span>
 <span class="n">f1sc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">)</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"contamination"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s">"contamination"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">ell</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">ps</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1sc</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
 <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
 </pre></div>
@@ -3204,7 +3201,7 @@ ijHGmJixpGKMMSZmLKkYY4yJGUsqxhhjYub/AVMwunQXpVepAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [809]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make predictions with our optimized envelope fit</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make predictions with our optimized envelope fit</span>
 <span class="n">optimal_ell</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">optimal_ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
 </pre></div>
@@ -3217,23 +3214,23 @@ ijHGmJixpGKMMSZmLKkYY4yJGUsqxhhjYub/AVMwunQXpVepAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [811]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"x_composite_1"</span><span class="p">,</span> <span class="s2">"x_composite_2"</span><span class="p">,</span> <span class="s2">"Outliers in Reduced Dimension"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"x_composite_3"</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"x_composite_1"</span><span class="p">,</span> <span class="s">"x_composite_2"</span><span class="p">,</span> <span class="s">"Outliers in Reduced Dimension"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">"x_composite_3"</span><span class="p">)</span>
 
-<span class="c1"># Plot the reduced dimensionality data points</span>
+<span class="c"># Plot the reduced dimensionality data points</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># Plot circles around the predicted outliers</span>
+<span class="c"># Plot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"predicted outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outlier"</span><span class="p">)</span>
 
-<span class="c1"># Plot x's for the ground truth outliers</span>
+<span class="c"># Plot x's for the ground truth outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outlier"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4279,16 +4276,16 @@ wHdxIHoA28XGPQ1xGjjBbX9t2M/cBMyxsHi7PoED9Gbc5s97uKUME9ZWAAAAVUlEQVTqNdwTDq8B
 <div class="prompt input_prompt">In [909]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">IsolationForest</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">IsolationForest</span>
 <span class="n">forest</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">()</span>
 
-<span class="c1"># Grid Search over contamination fraction</span>
+<span class="c"># Grid Search over contamination fraction</span>
 <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> 
 <span class="n">folds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>
 <span class="n">forest</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">()</span>
 <span class="n">forest</span><span class="o">.</span><span class="n">contamination</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
 <span class="n">f1sc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">)</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"n_estimators"</span><span class="p">:</span> <span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">115</span><span class="p">)}</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s">"n_estimators"</span><span class="p">:</span> <span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">115</span><span class="p">)}</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">forest</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">ps</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1sc</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
 <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
 </pre></div>
@@ -4318,8 +4315,8 @@ wHdxIHoA28XGPQ1xGjjBbX9t2M/cBMyxsHi7PoED9Gbc5s97uKUME9ZWAAAAVUlEQVTqNdwTDq8B
 <div class="prompt input_prompt">In [910]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[[</span><span class="s2">"mean_test_score"</span><span class="p">,</span> <span class="s2">"std_test_score"</span><span class="p">,</span> <span class="s2">"params"</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">"mean_test_score"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s">"mean_test_score"</span><span class="p">,</span> <span class="s">"std_test_score"</span><span class="p">,</span> <span class="s">"params"</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">"mean_test_score"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -4376,7 +4373,7 @@ wHdxIHoA28XGPQ1xGjjBbX9t2M/cBMyxsHi7PoED9Gbc5s97uKUME9ZWAAAAVUlEQVTqNdwTDq8B
 <div class="prompt input_prompt">In [907]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make predictions with our optimized decision tree</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make predictions with our optimized decision tree</span>
 <span class="n">optimal_forest</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">optimal_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
 </pre></div>
@@ -4389,23 +4386,23 @@ wHdxIHoA28XGPQ1xGjjBbX9t2M/cBMyxsHi7PoED9Gbc5s97uKUME9ZWAAAAVUlEQVTqNdwTDq8B
 <div class="prompt input_prompt">In [911]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">'3d'</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"x_composite_1"</span><span class="p">,</span> <span class="s2">"x_composite_2"</span><span class="p">,</span> <span class="s2">"Outliers in Reduced Dimension"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"x_composite_3"</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"x_composite_1"</span><span class="p">,</span> <span class="s">"x_composite_2"</span><span class="p">,</span> <span class="s">"Outliers in Reduced Dimension"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">"x_composite_3"</span><span class="p">)</span>
 
-<span class="c1"># Plot the reduced dimensionality data points</span>
+<span class="c"># Plot the reduced dimensionality data points</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c1"># Plot circles around the predicted outliers</span>
+<span class="c"># Plot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s2">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"predicted outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outlier"</span><span class="p">)</span>
 
-<span class="c1"># Plot x's for the ground truth outliers</span>
+<span class="c"># Plot x's for the ground truth outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outlier"</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
 </div>

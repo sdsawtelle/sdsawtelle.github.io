@@ -118,10 +118,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -156,7 +154,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -305,9 +302,9 @@
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">pattern_str</span> <span class="o">=</span> <span class="s2">r"[bcf]at+y?"</span>  <span class="c1"># see below for why the r-prefix</span>
+<span class="n">pattern_str</span> <span class="o">=</span> <span class="s">r"[bcf]at+y?"</span>  <span class="c"># see below for why the r-prefix</span>
 <span class="n">regx</span><span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern_str</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -336,8 +333,8 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Search input string "ba" for a match to the regex - FAIL</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"ba"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Search input string "ba" for a match to the regex - FAIL</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">"ba"</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -358,8 +355,8 @@
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Search input string "bat" for a match to the regex - SUCCESS!</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"fattyy"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Search input string "bat" for a match to the regex - SUCCESS!</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">"fattyy"</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -389,7 +386,7 @@
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Look at what text the resulting "match" contains</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Look at what text the resulting "match" contains</span>
 <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -410,8 +407,8 @@
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The start and stop positions of the match within the original input string</span>
-<span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">()</span>  <span class="c1"># "fattyy[0:5] = "fatty"</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># The start and stop positions of the match within the original input string</span>
+<span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">()</span>  <span class="c"># "fattyy[0:5] = "fatty"</span>
 </pre></div>
 </div>
 </div>
@@ -440,12 +437,12 @@
 <div class="prompt input_prompt">In [122]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compile and search a regex that has subpattern groups defined</span>
-<span class="n">regx_grp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(\w*)@(\w*)\.[\w]*"</span><span class="p">)</span>  <span class="c1"># has two defined groups</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">regx_grp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">"coolemail@hotdomain.net"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Compile and search a regex that has subpattern groups defined</span>
+<span class="n">regx_grp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(\w*)@(\w*)\.[\w]*"</span><span class="p">)</span>  <span class="c"># has two defined groups</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">regx_grp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">"coolemail@hotdomain.net"</span><span class="p">)</span>
 
 
-<span class="c1"># Get a tuple of the text for matched groups</span>
+<span class="c"># Get a tuple of the text for matched groups</span>
 <span class="n">result</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -466,7 +463,7 @@
 <div class="prompt input_prompt">In [123]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the full matched text</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Get the full matched text</span>
 <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -496,7 +493,7 @@
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s2">"my fat cat was behaving in a very batty fashion."</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s">"my fat cat was behaving in a very batty fashion."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -507,8 +504,8 @@
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">mtch</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">mtch</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># print the matched substring for each match object</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">mtch</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mtch</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c"># print the matched substring for each match object</span>
 </pre></div>
 </div>
 </div>
@@ -531,7 +528,7 @@ batty
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">"my fat cat was behaving in a very batty fashion."</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">"my fat cat was behaving in a very batty fashion."</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -560,8 +557,8 @@ batty
 <div class="prompt input_prompt">In [85]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"my fat cat was behaving in a very batty fashion."</span>
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">"**CENSORED**"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Only do the first two replacements</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"my fat cat was behaving in a very batty fashion."</span>
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"**CENSORED**"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c"># Only do the first two replacements</span>
 </pre></div>
 </div>
 </div>
@@ -590,7 +587,7 @@ batty
 <div class="prompt input_prompt">In [86]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define function which will uppercase the text of the match objects</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Define function which will uppercase the text of the match objects</span>
 <span class="n">replace_with</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">match</span><span class="p">:</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="n">replace_with</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
@@ -622,7 +619,7 @@ batty
 <div class="prompt input_prompt">In [119]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">regx</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -651,12 +648,12 @@ batty
 <div class="prompt input_prompt">In [125]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"""</span>
-<span class="s2"> [bcf]  # insist on starting with a single "b", "c" or "f"</span>
-<span class="s2"> a      # insist on a single "a"</span>
-<span class="s2"> t+     # insist on at least one "t", but as many as possible</span>
-<span class="s2"> y?     # insist on 0 or 1 "y"s, but as many as possible</span>
-<span class="s2">"""</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"""</span>
+<span class="s"> [bcf]  # insist on starting with a single "b", "c" or "f"</span>
+<span class="s"> a      # insist on a single "a"</span>
+<span class="s"> t+     # insist on at least one "t", but as many as possible</span>
+<span class="s"> y?     # insist on 0 or 1 "y"s, but as many as possible</span>
+<span class="s">"""</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -676,8 +673,8 @@ batty
 <div class="prompt input_prompt">In [143]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"From hurst@missouri.co.jp Fri Aug 23 11:03:04 2002"</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"^From\s+(\S*)\s+\w+\s+\w+\s+\d+\s+([\d:]*)\s+\d</span><span class="si">{4}</span><span class="s2">"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"From hurst@missouri.co.jp Fri Aug 23 11:03:04 2002"</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"^From\s+(\S*)\s+\w+\s+\w+\s+\d+\s+([\d:]*)\s+\d{4}"</span><span class="p">)</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
@@ -708,10 +705,10 @@ batty
 <div class="prompt input_prompt">In [201]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"This    is a  crazily  spaced      sentence."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\s+"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"This    is a  crazily  spaced      sentence."</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\s+"</span><span class="p">)</span>
 
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -740,11 +737,11 @@ batty
 <div class="prompt input_prompt">In [215]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str1</span> <span class="o">=</span> <span class="s2">"540 Hard Road Road"</span>
-<span class="n">inp_str2</span> <span class="o">=</span> <span class="s2">"78 RIVER ROAD"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str1</span> <span class="o">=</span> <span class="s">"540 Hard Road Road"</span>
+<span class="n">inp_str2</span> <span class="o">=</span> <span class="s">"78 RIVER ROAD"</span>
 
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"road$"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">"Rd."</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str1</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"road$"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"Rd."</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -764,7 +761,7 @@ batty
 <div class="prompt input_prompt">In [216]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">"Rd."</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"Rd."</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -799,11 +796,11 @@ batty
 <div class="prompt input_prompt">In [224]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str1</span> <span class="o">=</span> <span class="s2">"800-555-1212"</span>
-<span class="n">inp_str2</span> <span class="o">=</span> <span class="s2">"800.555.1212"</span>
-<span class="n">inp_str3</span> <span class="o">=</span> <span class="s2">"(800) 555-1212"</span>
-<span class="n">inp_str4</span> <span class="o">=</span> <span class="s2">"1-800-555-1212"</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r".*(\d</span><span class="si">{3}</span><span class="s2">)[^\w]{1,2}(\d</span><span class="si">{3}</span><span class="s2">)[^\w]{1,2}(\d</span><span class="si">{4}</span><span class="s2">)"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str1</span> <span class="o">=</span> <span class="s">"800-555-1212"</span>
+<span class="n">inp_str2</span> <span class="o">=</span> <span class="s">"800.555.1212"</span>
+<span class="n">inp_str3</span> <span class="o">=</span> <span class="s">"(800) 555-1212"</span>
+<span class="n">inp_str4</span> <span class="o">=</span> <span class="s">"1-800-555-1212"</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r".*(\d{3})[^\w]{1,2}(\d{3})[^\w]{1,2}(\d{4})"</span><span class="p">)</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str3</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
@@ -834,11 +831,11 @@ batty
 <div class="prompt input_prompt">In [17]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"The patient, aged 62, has BP measuring 130.6 over 25."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b\d+[.]*\d*\b"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"The patient, aged 62, has BP measuring 130.6 over 25."</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b\d+[.]*\d*\b"</span><span class="p">)</span>
 
 
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">"**CENSORED**"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"**CENSORED**"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -867,8 +864,8 @@ batty
 <div class="prompt input_prompt">In [19]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"The patient, aged 62, presented with blood pressure measuring 130.6 over 25."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b(?<!--\d[.])\d+(?![.]\d)\b"</span--><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"The patient, aged 62, presented with blood pressure measuring 130.6 over 25."</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b(?<!--\d[.])\d+(?![.]\d)\b"</span--><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">replace_with</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
     <span class="n">txt</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
@@ -903,8 +900,8 @@ batty
 <div class="prompt input_prompt">In [151]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"He was carefully disguised but captured quickly by police."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"\b\w+ly\b"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"He was carefully disguised but captured quickly by police."</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b\w+ly\b"</span><span class="p">)</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
@@ -935,10 +932,10 @@ batty
 <div class="prompt input_prompt">In [168]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str1</span> <span class="o">=</span> <span class="s2">"myfile.bmp"</span>
-<span class="n">inp_str2</span> <span class="o">=</span> <span class="s2">"myfile2.bat"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str1</span> <span class="o">=</span> <span class="s">"myfile.bmp"</span>
+<span class="n">inp_str2</span> <span class="o">=</span> <span class="s">"myfile2.bat"</span>
 
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(.+)[.](?!bat)(.+)"</span><span class="p">)</span> <span class="c1"># Use a negative look ahead</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(.+)[.](?!bat)(.+)"</span><span class="p">)</span> <span class="c"># Use a negative look ahead</span>
 <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str1</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -959,7 +956,7 @@ batty
 <div class="prompt input_prompt">In [170]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str2</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">type</span><span class="p">(</span><span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str2</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -988,9 +985,9 @@ batty
 <div class="prompt input_prompt">In [21]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"They say 'stop, in the name of love'. I quite agree!"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"They say 'stop, in the name of love'. I quite agree!"</span>
 
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"[^\w\d\s]+"</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[^\w\d\s]+"</span><span class="p">)</span>
 <span class="n">regx</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1020,8 +1017,8 @@ batty
 <div class="prompt input_prompt">In [22]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">"&lt; img src=test.png>this is a pic</img> &lt; div>this is a div</div>"</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">r"(?<=>)([^<>]*)(?=<!--)"</span--><span class="p">)</span>  <span class="c1"># yeah this breaks for content with greater/less than</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"&lt; img src=test.png>this is a pic</img> &lt; div>this is a div</div>"</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(?<=>)([^<>]*)(?=<!--)"</span--><span class="p">)</span>  <span class="c"># yeah this breaks for content with greater/less than</span>
 <span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -120,10 +120,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -158,7 +156,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -204,15 +201,15 @@ of water level in a reservoir."</em></p>
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.io</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
 </div>
@@ -224,7 +221,7 @@ of water level in a reservoir."</em></p>
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk6</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk6</span>
 </pre></div>
 </div>
 </div>
@@ -254,7 +251,7 @@ of water level in a reservoir."</em></p>
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"dam_water_data.pickle"</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"dam_water_data.pickle"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xval</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Xall</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">yall</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
     
 <span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span>
@@ -300,10 +297,10 @@ of water level in a reservoir."</em></p>
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize the data.</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Visualize the data.</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Change of Water Level"</span><span class="p">,</span> <span class="s2">"Outflow of Water"</span><span class="p">,</span> <span class="s2">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -595,10 +592,10 @@ TkSuQmCC
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create and then fit our Linear Regression Class</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create and then fit our Linear Regression Class</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">SGDRegressor</span>
-<span class="n">reg_bias</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"squared_loss"</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s2">"none"</span><span class="p">)</span>  <span class="c1"># No regularization means no penalty</span>
-<span class="n">reg_bias</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ytrain</span><span class="p">))</span>  <span class="c1"># Remember, this parameter is dumb out-of-the-box.</span>
+<span class="n">reg_bias</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">"squared_loss"</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s">"none"</span><span class="p">)</span>  <span class="c"># No regularization means no penalty</span>
+<span class="n">reg_bias</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ytrain</span><span class="p">))</span>  <span class="c"># Remember, this parameter is dumb out-of-the-box.</span>
 
 <span class="n">reg_bias</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span> 
 </pre></div>
@@ -632,7 +629,7 @@ TkSuQmCC
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get a set of predictions for plotting</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Get a set of predictions for plotting</span>
 <span class="n">x_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg_bias</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_pred</span><span class="p">)</span>
 </pre></div>
@@ -645,13 +642,13 @@ TkSuQmCC
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize performance of model. </span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Visualize performance of model. </span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"data"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Fitted 1st Order Linear Model"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"data"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"Fitted 1st Order Linear Model"</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Change of Water Level"</span><span class="p">,</span> <span class="s2">"Outflow of Water"</span><span class="p">,</span> <span class="s2">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper left"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1044,9 +1041,9 @@ CIKK8z9N4EacEGkRKAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [144]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make our new matrix of features with higher order terms</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make our new matrix of features with higher order terms</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">PolynomialFeatures</span>
-<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># Will create features up to 12 degrees</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>  <span class="c"># Will create features up to 12 degrees</span>
 <span class="n">Xtrain_p</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1067,10 +1064,10 @@ CIKK8z9N4EacEGkRKAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [145]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scale our features back to reasonable magnitudes</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Scale our features back to reasonable magnitudes</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">)</span>  <span class="c1"># Train the transformer object so it knows what means and variances to use</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">)</span>  <span class="c"># Train the transformer object so it knows what means and variances to use</span>
 <span class="n">Xtrain_p</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">)</span>  
 </pre></div>
 </div>
@@ -1082,9 +1079,9 @@ CIKK8z9N4EacEGkRKAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [149]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create and then fit our Linear Regression Class</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create and then fit our Linear Regression Class</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
-<span class="n">reg_var</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">"squared_loss"</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s2">"none"</span><span class="p">)</span>
+<span class="n">reg_var</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">"squared_loss"</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s">"none"</span><span class="p">)</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mf">6.5</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ytrain</span><span class="p">))</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">power_t</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
@@ -1110,7 +1107,7 @@ CIKK8z9N4EacEGkRKAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [150]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make some predictions from the polynomial model</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make some predictions from the polynomial model</span>
 <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="mi">120</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">xs_p</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
 <span class="n">xs_p</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">xs_p</span><span class="p">)</span>
@@ -1124,13 +1121,13 @@ CIKK8z9N4EacEGkRKAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [152]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data and the predictions</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the data and the predictions</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"data"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"12th degree Polynomial Model"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"data"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"12th degree Polynomial Model"</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Change of Water Level"</span><span class="p">,</span> <span class="s2">"Outflow of Water"</span><span class="p">,</span> <span class="s2">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper left"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1571,12 +1568,12 @@ EARB0HTCuARBEARN5/8Becyw8y7Oy1UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [24]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make LC with our estimator object from above, use MSE metric</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make LC with our estimator object from above, use MSE metric</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">learning_curve</span>
 
 <span class="n">train_sz</span><span class="p">,</span> <span class="n">train_errs</span><span class="p">,</span> <span class="n">cv_errs</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">reg_bias</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">Xall</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">yall</span><span class="p">,</span>
                                               <span class="n">train_sizes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-                                              <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_mean_squared_error"</span><span class="p">)</span>  
+                                              <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -1596,7 +1593,7 @@ EARB0HTCuARBEARN5/8Becyw8y7Oy1UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [25]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sizes of the training subsets used to fit</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Sizes of the training subsets used to fit</span>
 <span class="n">train_sz</span>
 </pre></div>
 </div>
@@ -1618,7 +1615,7 @@ EARB0HTCuARBEARN5/8Becyw8y7Oy1UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [26]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Error on the training set after fitting with the different sized subsets</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Error on the training set after fitting with the different sized subsets</span>
 <span class="n">train_errs</span>
 </pre></div>
 </div>
@@ -1688,14 +1685,14 @@ EARB0HTCuARBEARN5/8Becyw8y7Oy1UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Learning Curve data with estimator reg_bias</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create Learning Curve data with estimator reg_bias</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">learning_curve</span>
 
 <span class="n">train_sz</span><span class="p">,</span> <span class="n">train_errs</span><span class="p">,</span> <span class="n">cv_errs</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">reg_bias</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">Xall</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">yall</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
                                               <span class="n">train_sizes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-                                              <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_mean_squared_error"</span><span class="p">)</span>  
+                                              <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>  
 
-<span class="c1"># For each training subset, compute average error over the 3-fold cross val</span>
+<span class="c"># For each training subset, compute average error over the 3-fold cross val</span>
 <span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cv_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -1708,13 +1705,13 @@ EARB0HTCuARBEARN5/8Becyw8y7Oy1UAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [199]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the errors to make a learning curve!</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the errors to make a learning curve!</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"training error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"cv error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"training error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"cv error"</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Training Set Size"</span><span class="p">,</span> <span class="s2">"Score (4-Fold CV avg)"</span><span class="p">,</span> <span class="s2">"LC with High Bias"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Training Set Size"</span><span class="p">,</span> <span class="s">"Score (4-Fold CV avg)"</span><span class="p">,</span> <span class="s">"LC with High Bias"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2124,9 +2121,9 @@ m1dNHK9aVYoAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [153]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prep the X data with polynomial transforms and scaling</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Prep the X data with polynomial transforms and scaling</span>
 <span class="n">Xall_p</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xall</span><span class="p">)</span>
-<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xall_p</span><span class="p">)</span>  <span class="c1"># Don't forget to re-fit, since Xall is different from Xtrain</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xall_p</span><span class="p">)</span>  <span class="c"># Don't forget to re-fit, since Xall is different from Xtrain</span>
 <span class="n">Xall_p</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xall_p</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2138,10 +2135,10 @@ m1dNHK9aVYoAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [154]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Learning Curve data with estimator reg_var</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create Learning Curve data with estimator reg_var</span>
 <span class="n">train_sz</span><span class="p">,</span> <span class="n">train_errs</span><span class="p">,</span> <span class="n">cv_errs</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">reg_var</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">Xall_p</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">yall</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
                                               <span class="n">train_sizes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-                                              <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_mean_squared_error"</span><span class="p">)</span>  
+                                              <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -2152,7 +2149,7 @@ m1dNHK9aVYoAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [155]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compute average errors of the k-fold validation</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Compute average errors of the k-fold validation</span>
 <span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cv_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
@@ -2165,13 +2162,13 @@ m1dNHK9aVYoAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [156]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the errors to make a learning curve!</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the errors to make a learning curve!</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"training error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"cv error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"training error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"cv error"</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Training Set Size"</span><span class="p">,</span> <span class="s2">"Negative MSE (8-Fold CV avg)"</span><span class="p">,</span> <span class="s2">"Learning Curve with High Variance"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Training Set Size"</span><span class="p">,</span> <span class="s">"Negative MSE (8-Fold CV avg)"</span><span class="p">,</span> <span class="s">"Learning Curve with High Variance"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2622,16 +2619,16 @@ QRAEQU0ThioIgiCoacJQBUEQBDVNGKogCIKgpvl/SmZCUhLDGXUAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [157]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change the regularization penalty of our estimator from 'None' to L2 norm</span>
-<span class="n">reg_var</span><span class="o">.</span><span class="n">penalty</span> <span class="o">=</span> <span class="s2">"l2"</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Change the regularization penalty of our estimator from 'None' to L2 norm</span>
+<span class="n">reg_var</span><span class="o">.</span><span class="n">penalty</span> <span class="o">=</span> <span class="s">"l2"</span>
 
-<span class="c1"># Construct the validation curve with estimator reg_va</span>
+<span class="c"># Construct the validation curve with estimator reg_va</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">validation_curve</span>
-<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># The different parameter values to try</span>
+<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c"># The different parameter values to try</span>
 
 <span class="n">train_scores</span><span class="p">,</span> <span class="n">cv_scores</span> <span class="o">=</span> <span class="n">validation_curve</span><span class="p">(</span><span class="n">reg_var</span><span class="p">,</span> <span class="n">Xall_p</span><span class="p">,</span> <span class="n">yall</span><span class="p">,</span> 
-                                           <span class="n">param_name</span><span class="o">=</span><span class="s2">"alpha"</span><span class="p">,</span> <span class="n">param_range</span><span class="o">=</span><span class="n">alphas</span><span class="p">,</span> 
-                                           <span class="n">scoring</span><span class="o">=</span><span class="s2">"neg_mean_squared_error"</span><span class="p">)</span>
+                                           <span class="n">param_name</span><span class="o">=</span><span class="s">"alpha"</span><span class="p">,</span> <span class="n">param_range</span><span class="o">=</span><span class="n">alphas</span><span class="p">,</span> 
+                                           <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2651,16 +2648,16 @@ QRAEQU0ThioIgiCoacJQBUEQBDVNGKogCIKgpvl/SmZCUhLDGXUAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [158]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cv_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"training error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"cv error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"training error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"cv error"</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Regularization Strength"</span><span class="p">,</span> <span class="s2">"Negative MSE (3-Fold CV avg)"</span><span class="p">,</span> <span class="s2">"Validation Curve for Regularization"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">"log"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"lower right"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Regularization Strength"</span><span class="p">,</span> <span class="s">"Negative MSE (3-Fold CV avg)"</span><span class="p">,</span> <span class="s">"Validation Curve for Regularization"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s">"log"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3122,7 +3119,7 @@ UgqCIAiqhlBKQRAEQdXw/wFFiTmkA4/KZQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [159]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alphas</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cv_err</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">alphas</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cv_err</span><span class="p">)]</span>
 </pre></div>
 </div>
 </div>
@@ -3151,7 +3148,7 @@ UgqCIAiqhlBKQRAEQdXw/wFFiTmkA4/KZQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [160]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create and then fit our Linear Regression Class</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Create and then fit our Linear Regression Class</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.078</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
 </pre></div>
@@ -3176,13 +3173,13 @@ UgqCIAiqhlBKQRAEQdXw/wFFiTmkA4/KZQAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [163]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data and the predictions</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the data and the predictions</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xall</span><span class="p">,</span> <span class="n">yall</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"data"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"12th degree Polynomial Model - Regularized"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xall</span><span class="p">,</span> <span class="n">yall</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"data"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"12th degree Polynomial Model - Regularized"</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Change of Water Level"</span><span class="p">,</span> <span class="s2">"Outflow of Water"</span><span class="p">,</span> <span class="s2">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper left"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper left"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

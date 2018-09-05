@@ -118,10 +118,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -156,7 +154,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -182,7 +179,7 @@
 <div class="prompt input_prompt">In [157]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -217,7 +214,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">tensorflow</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">conda</span> <span class="n">create</span> <span class="o">--</span><span class="n">name</span><span class="o">=</span><span class="n">tensorflow</span>
 <span class="n">conda</span> <span class="n">activate</span> <span class="n">tensorflow</span> 
 <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">installed</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">storage</span><span class="o">.</span><span class="n">googleapis</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">/</span><span class="n">windows</span><span class="o">/</span><span class="n">cpu</span><span class="o">/</span><span class="n">tensorflow</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">cp35</span><span class="o">-</span><span class="n">cp35m</span><span class="o">-</span><span class="n">win_x86_64</span><span class="o">.</span><span class="n">whl</span>
 </pre></div>
@@ -239,7 +236,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">tensorflow</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">cp35</span><span class="o">-</span><span class="n">cp35m</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">pip</span> <span class="n">install</span> <span class="n">tensorflow</span><span class="o">-</span><span class="mf">1.0</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">cp35</span><span class="o">-</span><span class="n">cp35m</span><span class="o">-</span><span class="n">win_amd64</span><span class="o">.</span><span class="n">whl</span>
 </pre></div>
 </div>
 </div>
@@ -259,7 +256,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">jupyter</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">conda</span> <span class="n">install</span> <span class="n">jupyter</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="n">ipykernel</span>
 <span class="n">conda</span> <span class="n">install</span> <span class="n">nb_conda_kernels</span>
 </pre></div>
@@ -281,8 +278,8 @@
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
-<span class="n">hello</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="s1">'Hello, TensorFlow!'</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="n">hello</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="s">'Hello, TensorFlow!'</span><span class="p">)</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">hello</span><span class="p">))</span>
 </pre></div>
@@ -332,58 +329,58 @@
 <div class="prompt input_prompt">In [30]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># from IPython.display import clear_output, Image, display, HTML</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># from IPython.display import clear_output, Image, display, HTML</span>
 
-<span class="c1"># # Helper functions for TF Graph visualization</span>
-<span class="c1"># def strip_consts(graph_def, max_const_size=32):</span>
-<span class="c1">#     """Strip large constant values from graph_def."""</span>
-<span class="c1">#     strip_def = tf.GraphDef()</span>
-<span class="c1">#     for n0 in graph_def.node:</span>
-<span class="c1">#         n = strip_def.node.add() </span>
-<span class="c1">#         n.MergeFrom(n0)</span>
-<span class="c1">#         if n.op == 'Const':</span>
-<span class="c1">#             tensor = n.attr['value'].tensor</span>
-<span class="c1">#             size = len(tensor.tensor_content)</span>
-<span class="c1">#             if size > max_const_size:</span>
-<span class="c1">#                 tensor.tensor_content = bytes("<stripped %d bytes>"%size, 'utf-8')</span>
-<span class="c1">#     return strip_def</span>
+<span class="c"># # Helper functions for TF Graph visualization</span>
+<span class="c"># def strip_consts(graph_def, max_const_size=32):</span>
+<span class="c">#     """Strip large constant values from graph_def."""</span>
+<span class="c">#     strip_def = tf.GraphDef()</span>
+<span class="c">#     for n0 in graph_def.node:</span>
+<span class="c">#         n = strip_def.node.add() </span>
+<span class="c">#         n.MergeFrom(n0)</span>
+<span class="c">#         if n.op == 'Const':</span>
+<span class="c">#             tensor = n.attr['value'].tensor</span>
+<span class="c">#             size = len(tensor.tensor_content)</span>
+<span class="c">#             if size > max_const_size:</span>
+<span class="c">#                 tensor.tensor_content = bytes("<stripped %d bytes>"%size, 'utf-8')</span>
+<span class="c">#     return strip_def</span>
   
-<span class="c1"># def rename_nodes(graph_def, rename_func):</span>
-<span class="c1">#     res_def = tf.GraphDef()</span>
-<span class="c1">#     for n0 in graph_def.node:</span>
-<span class="c1">#         n = res_def.node.add() </span>
-<span class="c1">#         n.MergeFrom(n0)</span>
-<span class="c1">#         n.name = rename_func(n.name)</span>
-<span class="c1">#         for i, s in enumerate(n.input):</span>
-<span class="c1">#             n.input[i] = rename_func(s) if s[0]!='^' else '^'+rename_func(s[1:])</span>
-<span class="c1">#     return res_def</span>
+<span class="c"># def rename_nodes(graph_def, rename_func):</span>
+<span class="c">#     res_def = tf.GraphDef()</span>
+<span class="c">#     for n0 in graph_def.node:</span>
+<span class="c">#         n = res_def.node.add() </span>
+<span class="c">#         n.MergeFrom(n0)</span>
+<span class="c">#         n.name = rename_func(n.name)</span>
+<span class="c">#         for i, s in enumerate(n.input):</span>
+<span class="c">#             n.input[i] = rename_func(s) if s[0]!='^' else '^'+rename_func(s[1:])</span>
+<span class="c">#     return res_def</span>
   
-<span class="c1"># def show_graph(graph_def=None, max_const_size=32):</span>
-<span class="c1">#     """Visualize TensorFlow graph."""</span>
+<span class="c"># def show_graph(graph_def=None, max_const_size=32):</span>
+<span class="c">#     """Visualize TensorFlow graph."""</span>
     
-<span class="c1">#     # If no input graph is given, get the default graph</span>
-<span class="c1">#     if graph_def is None:</span>
-<span class="c1">#         graph_def = tf.get_default_graph().as_graph_def()</span>
+<span class="c">#     # If no input graph is given, get the default graph</span>
+<span class="c">#     if graph_def is None:</span>
+<span class="c">#         graph_def = tf.get_default_graph().as_graph_def()</span>
         
-<span class="c1">#     if hasattr(graph_def, 'as_graph_def'):</span>
-<span class="c1">#         graph_def = graph_def.as_graph_def()</span>
-<span class="c1">#     strip_def = strip_consts(graph_def, max_const_size=max_const_size)</span>
-<span class="c1">#     code = """</span>
-<span class="c1">#         <script></span>
-<span class="c1">#           function load() {{</span>
-<span class="c1">#             document.getElementById("{id}").pbtxt = {data};</span>
-<span class="c1">#           }}</span>
-<span class="c1">#         </script></span>
-<span class="c1">#         <link rel="import" href="https://tensorboard.appspot.com/tf-graph-basic.build.html" onload="load()"></span>
-<span class="c1">#         <div style="height:600px"></span>
-<span class="c1">#           <tf-graph-basic id="{id}"></tf-graph-basic></span>
-<span class="c1">#         </div></span>
-<span class="c1">#     """.format(data=repr(str(strip_def)), id='graph'+str(np.random.rand()))</span>
+<span class="c">#     if hasattr(graph_def, 'as_graph_def'):</span>
+<span class="c">#         graph_def = graph_def.as_graph_def()</span>
+<span class="c">#     strip_def = strip_consts(graph_def, max_const_size=max_const_size)</span>
+<span class="c">#     code = """</span>
+<span class="c">#         <script></span>
+<span class="c">#           function load() {{</span>
+<span class="c">#             document.getElementById("{id}").pbtxt = {data};</span>
+<span class="c">#           }}</span>
+<span class="c">#         </script></span>
+<span class="c">#         <link rel="import" href="https://tensorboard.appspot.com/tf-graph-basic.build.html" onload="load()"></span>
+<span class="c">#         <div style="height:600px"></span>
+<span class="c">#           <tf-graph-basic id="{id}"></tf-graph-basic></span>
+<span class="c">#         </div></span>
+<span class="c">#     """.format(data=repr(str(strip_def)), id='graph'+str(np.random.rand()))</span>
   
-<span class="c1">#     iframe = """</span>
-<span class="c1">#         <iframe seamless style="width:800px;height:620px;border:0" srcdoc="{}"></iframe></span>
-<span class="c1">#     """.format(code.replace('"', '&quot;'))</span>
-<span class="c1">#     display(HTML(iframe))</span>
+<span class="c">#     iframe = """</span>
+<span class="c">#         <iframe seamless style="width:800px;height:620px;border:0" srcdoc="{}"></iframe></span>
+<span class="c">#     """.format(code.replace('"', '&quot;'))</span>
+<span class="c">#     display(HTML(iframe))</span>
 </pre></div>
 </div>
 </div>
@@ -412,7 +409,7 @@
 <div class="prompt input_prompt">In [28]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c1"># To clear the default graph </span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c"># To clear the default graph </span>
 </pre></div>
 </div>
 </div>
@@ -452,12 +449,12 @@
 <div class="prompt input_prompt">In [316]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c1"># To clear the default graph </span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c"># To clear the default graph </span>
 
-<span class="n">node1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"firstconst"</span><span class="p">)</span>
-<span class="n">node2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"secondconst"</span><span class="p">)</span>
-<span class="n">node3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sum"</span><span class="p">)</span>
-<span class="n">node4</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">node3</span><span class="p">,</span> <span class="n">node1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sumdiv"</span><span class="p">)</span>
+<span class="n">node1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"firstconst"</span><span class="p">)</span>
+<span class="n">node2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"secondconst"</span><span class="p">)</span>
+<span class="n">node3</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"sum"</span><span class="p">)</span>
+<span class="n">node4</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">node3</span><span class="p">,</span> <span class="n">node1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"sumdiv"</span><span class="p">)</span>
 
 <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">node1</span><span class="p">,</span> <span class="n">node2</span><span class="p">,</span> <span class="n">node3</span><span class="p">,</span> <span class="n">node4</span><span class="p">])</span>
@@ -489,7 +486,7 @@
 <div class="prompt input_prompt">In [314]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">show_graph</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">show_graph</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -528,7 +525,7 @@
 <div class="prompt input_prompt">In [315]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">graphdef</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_graph_def</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">graphdef</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span><span class="o">.</span><span class="n">as_graph_def</span><span class="p">()</span>
 <span class="n">nodes</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">graphdef</span><span class="o">.</span><span class="n">node</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">nodes</span><span class="p">))</span>
 </pre></div>
@@ -579,11 +576,11 @@ attr {
 <div class="prompt input_prompt">In [105]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c1"># To clear the default graph </span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c"># To clear the default graph </span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span class="n">adder_node</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c1"># + provides a shortcut for tf.add(a, b)</span>
+<span class="n">adder_node</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>  <span class="c"># + provides a shortcut for tf.add(a, b)</span>
 
 <span class="n">show_graph</span><span class="p">()</span>
 </pre></div>
@@ -624,7 +621,7 @@ attr {
 <div class="prompt input_prompt">In [106]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">adder_node</span><span class="p">,</span> <span class="p">{</span><span class="n">a</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">]}))</span>
 </pre></div>
 </div>
@@ -655,11 +652,11 @@ attr {
 <div class="prompt input_prompt">In [122]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c1"># To clear the default graph </span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>  <span class="c"># To clear the default graph </span>
 
-<span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"W"</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">-.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"b"</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"x"</span><span class="p">)</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"W"</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">-.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"b"</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"x"</span><span class="p">)</span>
 
 <span class="n">show_graph</span><span class="p">()</span>
 </pre></div>
@@ -700,7 +697,7 @@ attr {
 <div class="prompt input_prompt">In [123]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">linear_model</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">linear_model</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
 <span class="n">show_graph</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -740,8 +737,8 @@ attr {
 <div class="prompt input_prompt">In [125]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize all the variables</span>
-<span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span> <span class="c1"># Create nodes necessary for initialization, return handle to subgraph</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Initialize all the variables</span>
+<span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span> <span class="c"># Create nodes necessary for initialization, return handle to subgraph</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
 <span class="n">show_graph</span><span class="p">()</span>
 </pre></div>
@@ -792,7 +789,7 @@ input: "^b/Assign"
 <div class="prompt input_prompt">In [127]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Run the graph with initialization computations in the graph</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Run the graph with initialization computations in the graph</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
 </pre></div>
@@ -814,7 +811,7 @@ input: "^b/Assign"
 <div class="prompt input_prompt">In [129]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Run the graph to evaluate the node linear_model for different placeholder values</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Run the graph to evaluate the node linear_model for different placeholder values</span>
 <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">linear_model</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]})</span>
 </pre></div>
 </div>
@@ -844,10 +841,10 @@ input: "^b/Assign"
 <div class="prompt input_prompt">In [131]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Add nodes into our pre-existing graph</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"y"</span><span class="p">)</span>  <span class="c1"># The ground truth passed at runtime</span>
-<span class="n">squared_deltas</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">linear_model</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sq_err"</span><span class="p">)</span>  <span class="c1"># Subgraph to get a vector of sq. errs.</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">squared_deltas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sq_err_sum"</span><span class="p">)</span>  <span class="c1"># Subgraph that sums across the vector ("reduces")</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Add nodes into our pre-existing graph</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"y"</span><span class="p">)</span>  <span class="c"># The ground truth passed at runtime</span>
+<span class="n">squared_deltas</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">linear_model</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"sq_err"</span><span class="p">)</span>  <span class="c"># Subgraph to get a vector of sq. errs.</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">squared_deltas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"sq_err_sum"</span><span class="p">)</span>  <span class="c"># Subgraph that sums across the vector ("reduces")</span>
 
 <span class="n">show_graph</span><span class="p">()</span>
 </pre></div>
@@ -888,8 +885,8 @@ input: "^b/Assign"
 <div class="prompt input_prompt">In [132]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Evaluate the loss subgraph with a set of inputs x and y</span>
-<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">y</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]})</span>  <span class="c1"># Run graph to compute the output of the loss node</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Evaluate the loss subgraph with a set of inputs x and y</span>
+<span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">loss</span><span class="p">,</span> <span class="p">{</span><span class="n">x</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">y</span><span class="p">:[</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">]})</span>  <span class="c"># Run graph to compute the output of the loss node</span>
 </pre></div>
 </div>
 </div>
@@ -918,7 +915,7 @@ input: "^b/Assign"
 <div class="prompt input_prompt">In [148]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.0002</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.0002</span><span class="p">)</span>
 <span class="n">train_step</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
 <span class="n">show_graph</span><span class="p">()</span>
 </pre></div>
@@ -960,9 +957,9 @@ input: "^b/Assign"
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
-<span class="n">grads_and_vars</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">compute_gradients</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>  <span class="c1"># Subgraph to compute gradients of loss w.r.t. all Variable nodes (default)</span>
-<span class="n">updates</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span><span class="n">grads</span><span class="p">)</span>  <span class="c1"># Subgraph to update the Variable nodes using the computed gradients</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="n">grads_and_vars</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">compute_gradients</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>  <span class="c"># Subgraph to compute gradients of loss w.r.t. all Variable nodes (default)</span>
+<span class="n">updates</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">apply_gradients</span><span class="p">(</span><span class="n">grads</span><span class="p">)</span>  <span class="c"># Subgraph to update the Variable nodes using the computed gradients</span>
 </pre></div>
 </div>
 </div>
@@ -982,7 +979,7 @@ input: "^b/Assign"
 <div class="prompt input_prompt">In [150]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span><span class="o">.</span><span class="n">get_operations</span><span class="p">():</span> <span class="nb">print</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">op</span> <span class="ow">in</span> <span class="n">tf</span><span class="o">.</span><span class="n">get_default_graph</span><span class="p">()</span><span class="o">.</span><span class="n">get_operations</span><span class="p">():</span> <span class="nb">print</span><span class="p">(</span><span class="n">op</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1099,13 +1096,13 @@ GradientDescent
 <div class="prompt input_prompt">In [271]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make date for the model y = 2x + 4 + random noise and plot it</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Make date for the model y = 2x + 4 + random noise and plot it</span>
 <span class="n">x_train</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">x_data</span><span class="p">))</span>
 <span class="n">y_train</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x_train</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">noise</span>
 
-<span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="s1">'.'</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Example X Data"</span><span class="p">,</span> <span class="s2">"Example Y Data"</span><span class="p">,</span> <span class="s2">"Example Data for TensorFlow Linear Regression"</span><span class="p">)</span>
+<span class="n">pylab</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="s">'.'</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Example X Data"</span><span class="p">,</span> <span class="s">"Example Y Data"</span><span class="p">,</span> <span class="s">"Example Data for TensorFlow Linear Regression"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1322,22 +1319,22 @@ jfn/Hik0D4IOl4YAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [286]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">tf</span><span class="o">.</span><span class="n">reset_default_graph</span><span class="p">()</span>
 
-<span class="c1"># Model parameters</span>
+<span class="c"># Model parameters</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">([</span><span class="o">-.</span><span class="mi">3</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 
-<span class="c1"># Model input and output</span>
+<span class="c"># Model input and output</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">linear_model</span> <span class="o">=</span> <span class="n">W</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">b</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"y"</span><span class="p">)</span>  <span class="c1"># The ground truth passed at runtime</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"y"</span><span class="p">)</span>  <span class="c"># The ground truth passed at runtime</span>
 
-<span class="c1"># Loss</span>
-<span class="n">squared_deltas</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">linear_model</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sq_err"</span><span class="p">)</span>  <span class="c1"># Subgraph to get a vector of sq. errs.</span>
-<span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">squared_deltas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"sq_err_sum"</span><span class="p">)</span>  <span class="c1"># Subgraph that sums across the vector ("reduces")</span>
+<span class="c"># Loss</span>
+<span class="n">squared_deltas</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">linear_model</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"sq_err"</span><span class="p">)</span>  <span class="c"># Subgraph to get a vector of sq. errs.</span>
+<span class="n">loss</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">squared_deltas</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s">"sq_err_sum"</span><span class="p">)</span>  <span class="c"># Subgraph that sums across the vector ("reduces")</span>
 
-<span class="c1"># Optimization Algorithm</span>
+<span class="c"># Optimization Algorithm</span>
 <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)</span>
 <span class="n">train_step</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss</span><span class="p">)</span>
 </pre></div>
@@ -1359,7 +1356,7 @@ jfn/Hik0D4IOl4YAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [293]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Training the Model</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Training the Model</span>
 <span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
 <span class="n">sess</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
 <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span> 
@@ -1370,9 +1367,9 @@ jfn/Hik0D4IOl4YAAAAASUVORK5CYII=
     <span class="n">bs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bb</span><span class="p">)</span>
     <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">los</span><span class="p">)</span>
 
-<span class="c1"># Evaluate performance</span>
+<span class="c"># Evaluate performance</span>
 <span class="n">fitted_W</span><span class="p">,</span> <span class="n">fitted_b</span><span class="p">,</span> <span class="n">optimized_loss</span>  <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">W</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">loss</span><span class="p">],</span> <span class="p">{</span><span class="n">x</span><span class="p">:</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span><span class="n">y_train</span><span class="p">})</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"W = </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">b = </span><span class="si">%s</span><span class="s2"> </span><span class="se">\n</span><span class="s2">loss= </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="n">fitted_W</span><span class="p">,</span> <span class="n">fitted_b</span><span class="p">,</span> <span class="n">optimized_loss</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s">"W = %s </span><span class="se">\n</span><span class="s">b = %s </span><span class="se">\n</span><span class="s">loss= %s"</span> <span class="o">%</span> <span class="p">(</span><span class="n">fitted_W</span><span class="p">,</span> <span class="n">fitted_b</span><span class="p">,</span> <span class="n">optimized_loss</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1395,13 +1392,13 @@ loss= 1.05975
 <div class="prompt input_prompt">In [294]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Number of Epochs of Training"</span><span class="p">,</span> <span class="s2">"Loss"</span><span class="p">,</span> <span class="s2">"Loss Training"</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Number of Epochs of Training"</span><span class="p">,</span> <span class="s">"Loss"</span><span class="p">,</span> <span class="s">"Loss Training"</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">axs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Number of Epochs of Training"</span><span class="p">,</span> <span class="s2">"Value of Parameters"</span><span class="p">,</span> <span class="s2">"Parameter Values Training"</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"W"</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"b"</span><span class="p">)</span>
-<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"best"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Number of Epochs of Training"</span><span class="p">,</span> <span class="s">"Value of Parameters"</span><span class="p">,</span> <span class="s">"Parameter Values Training"</span><span class="p">,</span> <span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ws</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"W"</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"b"</span><span class="p">)</span>
+<span class="n">axs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"best"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

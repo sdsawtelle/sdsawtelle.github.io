@@ -119,10 +119,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -157,7 +155,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -227,13 +224,13 @@ the digits 1 to 9 are labeled as 1 to 9 in their natural order.</em></p>
 <div class="prompt input_prompt">In [297]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>
-<span class="c1"># snp.prettyplot(matplotlib)</span>
+<span class="c"># snp.prettyplot(matplotlib)</span>
 </pre></div>
 </div>
 </div>
@@ -244,7 +241,7 @@ the digits 1 to 9 are labeled as 1 to 9 in their natural order.</em></p>
 <div class="prompt input_prompt">In [298]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk4</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk4</span>
 </pre></div>
 </div>
 </div>
@@ -266,9 +263,9 @@ C:\Users\Sonya\Box Sync\Projects\course-machine-learning\hw-wk4
 <div class="prompt input_prompt">In [299]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_images</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"X.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">df_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">"y.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="n">df_labels</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"label"</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df_images</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"X.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="k">None</span><span class="p">)</span>
+<span class="n">df_labels</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">"y.csv"</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="k">None</span><span class="p">)</span>
+<span class="n">df_labels</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s">"label"</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -288,7 +285,7 @@ C:\Users\Sonya\Box Sync\Projects\course-machine-learning\hw-wk4
 <div class="prompt input_prompt">In [300]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_images</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  
+<div class=" highlight hl-ipython3"><pre><span class="n">df_images</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>  
 </pre></div>
 </div>
 </div>
@@ -460,7 +457,7 @@ C:\Users\Sonya\Box Sync\Projects\course-machine-learning\hw-wk4
 <div class="prompt input_prompt">In [301]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">df_images</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">df_images</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -489,10 +486,10 @@ C:\Users\Sonya\Box Sync\Projects\course-machine-learning\hw-wk4
 <div class="prompt input_prompt">In [302]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">im</span> <span class="o">=</span> <span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1020</span><span class="p">]</span>  <span class="c1"># picked a row at random</span>
-<span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">"F"</span><span class="p">)</span>  <span class="c1">#"F" means read/write by 1st index changing fastest, last index slowest. </span>
+<div class=" highlight hl-ipython3"><pre><span class="n">im</span> <span class="o">=</span> <span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1020</span><span class="p">]</span>  <span class="c"># picked a row at random</span>
+<span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s">"F"</span><span class="p">)</span>  <span class="c">#"F" means read/write by 1st index changing fastest, last index slowest. </span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">snp</span><span class="o">.</span><span class="n">newfig</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"None"</span><span class="p">)</span>  <span class="c1"># interpolation blurs to interpolate b/w pixels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">"None"</span><span class="p">)</span>  <span class="c"># interpolation blurs to interpolate b/w pixels</span>
 </pre></div>
 </div>
 </div>
@@ -620,19 +617,19 @@ RU5ErkJggg==
 <div class="prompt input_prompt">In [303]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">random</span> <span class="k">as</span> <span class="n">rnd</span> 
-<span class="n">indxs</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># take a random sample of size 100 from set of index values</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="n">random</span> <span class="k">as</span> <span class="n">rnd</span> 
+<span class="n">indxs</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>  <span class="c"># take a random sample of size 100 from set of index values</span>
 
- <span class="c1"># Create a new figure with 100 axes objects inside it (subplots)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> 
-<span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># The returned axs is actually a matrix holding the handles to all the subplot axes objects</span>
-<span class="n">graymap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">"gray"</span><span class="p">)</span>
+ <span class="c"># Create a new figure with 100 axes objects inside it (subplots)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> 
+<span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c"># The returned axs is actually a matrix holding the handles to all the subplot axes objects</span>
+<span class="n">graymap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s">"gray"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">indx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">indxs</span><span class="p">):</span>
-    <span class="n">im_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indx</span><span class="p">],</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">"F"</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_mat</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">graymap</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"None"</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Hide the axes labels for clarity</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> 
+    <span class="n">im_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indx</span><span class="p">],</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s">"F"</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_mat</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">graymap</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">"None"</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="k">False</span><span class="p">)</span>  <span class="c"># Hide the axes labels for clarity</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="k">False</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -1661,8 +1658,8 @@ RCpfnohoNd4AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [304]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LogisticRegression</span>
-<span class="n">logregressor</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">"liblinear"</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s2">"ovr"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LogisticRegression</span>
+<span class="n">logregressor</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">"liblinear"</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s">"ovr"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1673,7 +1670,7 @@ RCpfnohoNd4AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [305]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">train_y</span> <span class="o">=</span> <span class="n">df_labels</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c1"># To get the right vector-like shape call as_matrix on the single column</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">train_y</span> <span class="o">=</span> <span class="n">df_labels</span><span class="p">[</span><span class="s">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>  <span class="c"># To get the right vector-like shape call as_matrix on the single column</span>
 <span class="n">train_X</span> <span class="o">=</span> <span class="n">df_images</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
 <span class="n">logregressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
 </pre></div>
@@ -1707,22 +1704,22 @@ RCpfnohoNd4AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [306]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">indxs</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># take a random sample of size 100 from set of index values</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">indxs</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>  <span class="c"># take a random sample of size 100 from set of index values</span>
 
- <span class="c1"># Create a new figure with 100 axes objects inside it (subplots)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> 
-<span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c1"># The returned axs is actually a matrix holding the handles to all the subplot axes objects</span>
-<span class="n">graymap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">"gray"</span><span class="p">)</span>
+ <span class="c"># Create a new figure with 100 axes objects inside it (subplots)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> 
+<span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>  <span class="c"># The returned axs is actually a matrix holding the handles to all the subplot axes objects</span>
+<span class="n">graymap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s">"gray"</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">indx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">indxs</span><span class="p">):</span>
-    <span class="n">im_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indx</span><span class="p">],</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">"F"</span><span class="p">)</span>
+    <span class="n">im_mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indx</span><span class="p">],</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s">"F"</span><span class="p">)</span>
     <span class="n">labl</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">logregressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indx</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>  
     
-    <span class="c1"># Plot the image along with the label it is assigned by the fitted model.</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_mat</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">graymap</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s2">"None"</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">labl</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s2">"axes fraction"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Hide the axes labels for clarity</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> 
+    <span class="c"># Plot the image along with the label it is assigned by the fitted model.</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">im_mat</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">graymap</span><span class="p">,</span> <span class="n">interpolation</span><span class="o">=</span><span class="s">"None"</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">labl</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">),</span> <span class="n">xycoords</span><span class="o">=</span><span class="s">"axes fraction"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="k">False</span><span class="p">)</span>  <span class="c"># Hide the axes labels for clarity</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="k">False</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -2234,9 +2231,9 @@ DwAAcB4LHgAA4Lz/B5xOmJ0WBT0WAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [307]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_labels</span><span class="p">[</span><span class="s2">"assigned"</span><span class="p">]</span> <span class="o">=</span> <span class="n">logregressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_X</span><span class="p">)</span>
-<span class="n">df_labels</span><span class="p">[</span><span class="s2">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_labels</span><span class="p">[</span><span class="s2">"assigned"</span><span class="p">]</span> <span class="o">==</span> <span class="n">train_y</span><span class="p">)</span>
-<span class="n">df_labels</span> <span class="o">=</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">"label"</span><span class="p">})</span>  <span class="c1"># Just to make it look nicer</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df_labels</span><span class="p">[</span><span class="s">"assigned"</span><span class="p">]</span> <span class="o">=</span> <span class="n">logregressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_X</span><span class="p">)</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="s">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_labels</span><span class="p">[</span><span class="s">"assigned"</span><span class="p">]</span> <span class="o">==</span> <span class="n">train_y</span><span class="p">)</span>
+<span class="n">df_labels</span> <span class="o">=</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s">"label"</span><span class="p">})</span>  <span class="c"># Just to make it look nicer</span>
 <span class="n">df_labels</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -2316,9 +2313,9 @@ DwAAcB4LHgAA4Lz/B5xOmJ0WBT0WAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [308]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"label"</span><span class="p">):</span>
-    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s2">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Success rate for labeling digit </span><span class="si">%i</span><span class="s2"> was </span><span class="si">%f</span><span class="s2"> "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"label"</span><span class="p">):</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">"Success rate for labeling digit %i was %f "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2358,17 +2355,17 @@ Success rate for labeling digit 10 was 0.992000
 <div class="prompt input_prompt">In [309]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">"Misclassifications For Each Digit"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="k">False</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s">"Misclassifications For Each Digit"</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">18</span><span class="p">)</span>
 <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"label"</span><span class="p">):</span>
-    <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="s2">"assigned"</span><span class="p">]</span> <span class="o">!=</span> <span class="n">name</span><span class="p">]</span>  <span class="c1"># Get rid of correct predictions - they swamp the histogram!</span>
-    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">name</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># How convenient :)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s2">"assigned"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s2">"digit </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span><span class="k">name</span>), bins=np.arange(1, 11, 1)+0.5)  # Shift the bins to get labels aligned
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"label"</span><span class="p">):</span>
+    <span class="n">group</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">group</span><span class="p">[</span><span class="s">"assigned"</span><span class="p">]</span> <span class="o">!=</span> <span class="n">name</span><span class="p">]</span>  <span class="c"># Get rid of correct predictions - they swamp the histogram!</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">name</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># How convenient :)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s">"assigned"</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="p">(</span><span class="s">"digit %i"</span> <span class="o">%</span><span class="k">name</span>), bins=np.arange(1, 11, 1)+0.5)  # Shift the bins to get labels aligned
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">"upper right"</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper right"</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="k">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2827,13 +2824,13 @@ ZcUAK0mSpKwYYCVJkpQVA6wkSZKyYoCVJElSVgywkiRJysr/A3MsdAdKIvKWAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [310]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">logregressor</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">"sag"</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s2">"ovr"</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_y</span><span class="p">)))</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">logregressor</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">"sag"</span><span class="p">,</span> <span class="n">multi_class</span><span class="o">=</span><span class="s">"ovr"</span><span class="p">,</span> <span class="n">max_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">train_y</span><span class="p">)))</span>
 <span class="n">logregressor</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
-<span class="n">df_labels</span><span class="p">[</span><span class="s2">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_y</span> <span class="o">==</span> <span class="n">logregressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_X</span><span class="p">))</span>
+<span class="n">df_labels</span><span class="p">[</span><span class="s">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_y</span> <span class="o">==</span> <span class="n">logregressor</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_X</span><span class="p">))</span>
 
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"label"</span><span class="p">):</span>
-    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s2">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Success rate for labeling digit </span><span class="si">%i</span><span class="s2"> was </span><span class="si">%f</span><span class="s2"> "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"label"</span><span class="p">):</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">"Success rate for labeling digit %i was %f "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -2898,7 +2895,7 @@ Success rate for labeling digit 10 was 0.992000
 <div class="prompt input_prompt">In [314]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="k">import</span> <span class="n">MLPClassifier</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.neural_network</span> <span class="k">import</span> <span class="n">MLPClassifier</span>
 </pre></div>
 </div>
 </div>
@@ -2918,7 +2915,7 @@ Success rate for labeling digit 10 was 0.992000
 <div class="prompt input_prompt">In [315]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">classifier</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s2">"sgd"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">classifier</span> <span class="o">=</span> <span class="n">MLPClassifier</span><span class="p">(</span><span class="n">solver</span><span class="o">=</span><span class="s">"sgd"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2974,8 +2971,8 @@ J_{\textrm{neural}}(\theta) = \sum_{k=1}^KJ_k(\theta) = \sum_{k=1}^K\bigg[\frac{
 <div class="prompt input_prompt">In [316]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">classifier</span><span class="o">.</span><span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="p">(</span><span class="mi">40</span><span class="p">,)</span>  <span class="c1"># Remember funny notation for tuple with single element</span>
-<span class="n">classifier</span><span class="o">.</span><span class="n">activation</span> <span class="o">=</span> <span class="s2">"logistic"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">classifier</span><span class="o">.</span><span class="n">hidden_layer_sizes</span> <span class="o">=</span> <span class="p">(</span><span class="mi">40</span><span class="p">,)</span>  <span class="c"># Remember funny notation for tuple with single element</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">activation</span> <span class="o">=</span> <span class="s">"logistic"</span>
 </pre></div>
 </div>
 </div>
@@ -2996,7 +2993,7 @@ As a final note, this object does default to doing $L2$ penalized fitting with a
 <div class="prompt input_prompt">In [317]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3038,10 +3035,10 @@ As a final note, this object does default to doing $L2$ penalized fitting with a
 <div class="prompt input_prompt">In [318]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">snp</span><span class="o">.</span><span class="n">newfig</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">loss_curve_</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"number of steps"</span><span class="p">,</span> <span class="s2">"loss function"</span><span class="p">,</span> <span class="s2">"Loss During GD (Rate=0.001)"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"number of steps"</span><span class="p">,</span> <span class="s">"loss function"</span><span class="p">,</span> <span class="s">"Loss During GD (Rate=0.001)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3515,7 +3512,7 @@ BTERkeygfigirZD6iImIiIikiWrERERERNJEQUxEREQkTRTERERERNJEQUxEREQkTRTERERERNLk
 <div class="prompt input_prompt">In [319]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">classifier</span><span class="o">.</span><span class="n">learning_rate_init</span> <span class="o">=</span> <span class="mi">1</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">classifier</span><span class="o">.</span><span class="n">learning_rate_init</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="p">,</span> <span class="n">train_y</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3542,9 +3539,9 @@ BTERkeygfigirZD6iImIiIikiWrERERERNJEQUxEREQkTRTERERERNJEQUxEREQkTRTERERERNLk
 <div class="prompt input_prompt">In [320]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">snp</span><span class="o">.</span><span class="n">newfig</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">snp</span><span class="o">.</span><span class="n">newfig</span><span class="p">()</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">loss_curve_</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"number of steps"</span><span class="p">,</span> <span class="s2">"loss function"</span><span class="p">,</span> <span class="s2">"Loss During GD (rate=1)"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"number of steps"</span><span class="p">,</span> <span class="s">"loss function"</span><span class="p">,</span> <span class="s">"Loss During GD (rate=1)"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3918,11 +3915,11 @@ xhhjjDEtwoGXMcYYY0yLcOBljDHGGNMiHHgZY4wxxrSI/wMbtLZkg/bLPAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [321]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_labels</span><span class="p">[</span><span class="s2">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_y</span> <span class="o">==</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_X</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">df_labels</span><span class="p">[</span><span class="s">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">train_y</span> <span class="o">==</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">train_X</span><span class="p">))</span>
 
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"label"</span><span class="p">):</span>
-    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s2">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Success rate for labeling digit </span><span class="si">%i</span><span class="s2"> was </span><span class="si">%f</span><span class="s2"> "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"label"</span><span class="p">):</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">"Success rate for labeling digit %i was %f "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -3962,17 +3959,17 @@ Success rate for labeling digit 10 was 1.000000
 <div class="prompt input_prompt">In [357]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">indxs</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># take a random sample of size 1000 from set of index values</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">indxs</span> <span class="o">=</span> <span class="n">rnd</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">df_images</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>  <span class="c"># take a random sample of size 1000 from set of index values</span>
 
-<span class="c1"># To be kept in reserve</span>
-<span class="n">reserve_X</span> <span class="o">=</span> <span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indxs</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c1"># Avoid returning a view to original df</span>
+<span class="c"># To be kept in reserve</span>
+<span class="n">reserve_X</span> <span class="o">=</span> <span class="n">df_images</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indxs</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>  <span class="c"># Avoid returning a view to original df</span>
 <span class="n">reserve_y</span> <span class="o">=</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indxs</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="c1"># To be used for fitting</span>
+<span class="c"># To be used for fitting</span>
 <span class="n">train_X</span> <span class="o">=</span> <span class="n">df_images</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">indxs</span><span class="p">)</span>
 <span class="n">train_y</span> <span class="o">=</span> <span class="n">df_labels</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">indxs</span><span class="p">)</span>
 
-<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(),</span> <span class="n">train_y</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">())</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">train_X</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">(),</span> <span class="n">train_y</span><span class="p">[</span><span class="s">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
@@ -3998,11 +3995,11 @@ Success rate for labeling digit 10 was 1.000000
 <div class="prompt input_prompt">In [358]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">reserve_y</span><span class="p">[</span><span class="s2">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">reserve_y</span><span class="p">[</span><span class="s2">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">reserve_X</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()))</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">reserve_y</span><span class="p">[</span><span class="s">"success"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">reserve_y</span><span class="p">[</span><span class="s">"label"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">==</span> <span class="n">classifier</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">reserve_X</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()))</span>
 
-<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">reserve_y</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">"label"</span><span class="p">):</span>
-    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s2">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Success rate for labeling digit </span><span class="si">%i</span><span class="s2"> was </span><span class="si">%f</span><span class="s2"> "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">reserve_y</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s">"label"</span><span class="p">):</span>
+    <span class="n">frac</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s">"success"</span><span class="p">])</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s">"Success rate for labeling digit %i was %f "</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">frac</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -4053,7 +4050,7 @@ Success rate for labeling digit 10 was 0.980000
 <div class="prompt input_prompt">In [332]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">np</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -4073,7 +4070,7 @@ Success rate for labeling digit 10 was 0.980000
 <div class="prompt input_prompt">In [333]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">intercepts_</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -4102,9 +4099,9 @@ Success rate for labeling digit 10 was 0.980000
 <div class="prompt input_prompt">In [334]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">"gray"</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"Neuron in input layer"</span><span class="p">,</span> <span class="s2">"Neuron in output layer"</span><span class="p">,</span> <span class="s2">"Weights $\Theta^{(1)}$"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s">"gray"</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s">"auto"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Neuron in input layer"</span><span class="p">,</span> <span class="s">"Neuron in output layer"</span><span class="p">,</span> <span class="s">"Weights $\Theta^{(1)}$"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7268,11 +7265,11 @@ YII=
 <div class="prompt input_prompt">In [351]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">hidden_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">16</span><span class="p">]</span>  <span class="c1"># Pull weightings on inputs to the 2nd neuron in the first hidden layer</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">hidden_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">classifier</span><span class="o">.</span><span class="n">coefs_</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">16</span><span class="p">]</span>  <span class="c"># Pull weightings on inputs to the 2nd neuron in the first hidden layer</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">hidden_2</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">"gray"</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">"horizontal pixel"</span><span class="p">,</span> <span class="s2">"vertical pixel"</span><span class="p">,</span> <span class="s2">"17th Hidden Unit Weights $\Theta^{(1)}_1j$"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">hidden_2</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s">"gray"</span><span class="p">),</span> <span class="n">aspect</span><span class="o">=</span><span class="s">"auto"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"horizontal pixel"</span><span class="p">,</span> <span class="s">"vertical pixel"</span><span class="p">,</span> <span class="s">"17th Hidden Unit Weights $\Theta^{(1)}_1j$"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

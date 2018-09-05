@@ -118,10 +118,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -156,7 +154,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -192,7 +189,7 @@
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </pre></div>
@@ -229,7 +226,7 @@
 <div class="prompt input_prompt">In [143]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="mi">2</span> <span class="ow">in</span> <span class="n">li</span>
 </pre></div>
 </div>
@@ -259,7 +256,7 @@
 <div class="prompt input_prompt">In [144]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">li_itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> 
+<div class=" highlight hl-ipython3"><pre><span class="n">li_itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">li</span><span class="p">)</span> 
 <span class="nb">type</span><span class="p">(</span><span class="n">li_itr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -289,7 +286,7 @@
 <div class="prompt input_prompt">In [145]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">li_itr</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">li_itr</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">next</span><span class="p">(</span><span class="n">li_itr</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">li_itr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -319,7 +316,7 @@
 <div class="prompt input_prompt">In [146]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">li</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
 </pre></div>
@@ -353,8 +350,8 @@
 <div class="prompt input_prompt">In [147]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="k">while</span> <span class="k">True</span><span class="p">:</span>
     <span class="k">try</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="n">itr</span><span class="p">))</span>
     <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
@@ -390,7 +387,7 @@
 <div class="prompt input_prompt">In [148]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dict_itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">({</span><span class="s1">'one'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s1">'two'</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span> 
+<div class=" highlight hl-ipython3"><pre><span class="n">dict_itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">({</span><span class="s">'one'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="s">'two'</span><span class="p">:</span><span class="mi">2</span><span class="p">})</span> 
 <span class="nb">next</span><span class="p">(</span><span class="n">dict_itr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -411,7 +408,7 @@
 <div class="prompt input_prompt">In [149]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">str_itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="s2">"alohamora"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">str_itr</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="s">"alohamora"</span><span class="p">)</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">str_itr</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -441,7 +438,7 @@
 <div class="prompt input_prompt">In [45]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">int_iter</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">class</span> <span class="nc">int_iter</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">start_int</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span> <span class="o">=</span> <span class="n">start_int</span>
     
@@ -450,8 +447,8 @@
     
     <span class="k">def</span> <span class="nf">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c1"># Update this attribute to the next integer value</span>
-        <span class="k">return</span> <span class="n">temp</span>  <span class="c1"># Return the previous "current value"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr_value</span> <span class="o">+=</span> <span class="mi">1</span>  <span class="c"># Update this attribute to the next integer value</span>
+        <span class="k">return</span> <span class="n">temp</span>  <span class="c"># Return the previous "current value"</span>
 </pre></div>
 </div>
 </div>
@@ -462,7 +459,7 @@
 <div class="prompt input_prompt">In [46]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_it</span> <span class="o">=</span> <span class="n">int_iter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">my_it</span> <span class="o">=</span> <span class="n">int_iter</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">my_it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">my_it</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -492,7 +489,7 @@
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">itertools</span> <span class="k">as</span> <span class="nn">it</span>
 </pre></div>
 </div>
 </div>
@@ -512,7 +509,7 @@
 <div class="prompt input_prompt">In [47]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cnt</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">3.26</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cnt</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">3.26</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">cnt</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">cnt</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -542,7 +539,7 @@
 <div class="prompt input_prompt">In [48]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cyc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s2">"a"</span><span class="p">,</span> <span class="s2">"b"</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cyc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">cycle</span><span class="p">([</span><span class="s">"a"</span><span class="p">,</span> <span class="s">"b"</span><span class="p">])</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">cyc</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">cyc</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">cyc</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -572,7 +569,7 @@
 <div class="prompt input_prompt">In [138]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">itr1</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="s2">"ab"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">itr1</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="s">"ab"</span><span class="p">)</span>
 <span class="n">itr2</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">itr_chain</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="n">itr1</span><span class="p">,</span> <span class="n">itr2</span><span class="p">)</span>
 </pre></div>
@@ -585,7 +582,7 @@
 <div class="prompt input_prompt">In [139]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">itr_chain</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">itr_chain</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">itr_chain</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">next</span><span class="p">(</span><span class="n">itr_chain</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">itr_chain</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">itr_chain</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -614,7 +611,7 @@
 <div class="prompt input_prompt">In [119]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cnt</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cnt</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cnt_slc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">cnt</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -626,7 +623,7 @@
 <div class="prompt input_prompt">In [120]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">cnt_slc</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">cnt_slc</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -675,12 +672,12 @@
 <div class="prompt input_prompt">In [86]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define a Generator Function</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Define a Generator Function</span>
 <span class="k">def</span> <span class="nf">gen_fun</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
     <span class="k">yield</span> <span class="n">val</span>
     <span class="k">yield</span> <span class="n">val</span><span class="o">*</span><span class="mi">2</span>
-    <span class="k">yield</span> <span class="s2">"wheee!"</span>
-    <span class="c1"># Nothing explicitly "returned", a Generator Iterator will be implicitly returned though.</span>
+    <span class="k">yield</span> <span class="s">"wheee!"</span>
+    <span class="c"># Nothing explicitly "returned", a Generator Iterator will be implicitly returned though.</span>
 </pre></div>
 </div>
 </div>
@@ -691,7 +688,7 @@
 <div class="prompt input_prompt">In [87]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Call the Generator Function to get a Generator Iterator</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># Call the Generator Function to get a Generator Iterator</span>
 <span class="n">gen_it</span> <span class="o">=</span> <span class="n">gen_fun</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -713,7 +710,7 @@
 <div class="prompt input_prompt">In [88]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">next</span><span class="p">(</span><span class="n">gen_it</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="nb">next</span><span class="p">(</span><span class="n">gen_it</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -733,7 +730,7 @@
 <div class="prompt input_prompt">In [89]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">gen_it</span><span class="p">:</span> 
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">gen_it</span><span class="p">:</span> 
     <span class="nb">print</span><span class="p">(</span><span class="n">elem</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -774,11 +771,11 @@ wheee!
 <div class="prompt input_prompt">In [74]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="sd">'''Yield elements of a container in reverse.'''</span>
     <span class="n">idx</span><span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="k">yield</span> <span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>  <span class="c1"># Here it will pause until next() is called again</span>
+    <span class="k">while</span> <span class="k">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">data</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>  <span class="c"># Here it will pause until next() is called again</span>
         <span class="n">idx</span> <span class="o">-=</span> <span class="mi">1</span>
 </pre></div>
 </div>
@@ -790,7 +787,7 @@ wheee!
 <div class="prompt input_prompt">In [76]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gen_it</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s2">"god"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">gen_it</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s">"god"</span><span class="p">)</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">gen_it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen_it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">gen_it</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -829,7 +826,7 @@ wheee!
 <div class="prompt input_prompt">In [101]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">firstn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">firstn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="sd">'''Yield first n non-negative integers.'''</span>
     <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">while</span> <span class="n">num</span> <span class="o"><</span> <span class="n">n</span><span class="p">:</span>
@@ -845,7 +842,7 @@ wheee!
 <div class="prompt input_prompt">In [102]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gen_it</span> <span class="o">=</span> <span class="n">firstn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">gen_it</span> <span class="o">=</span> <span class="n">firstn</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">gen_it</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -866,7 +863,7 @@ wheee!
 <div class="prompt input_prompt">In [103]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">gen_it</span> <span class="o">=</span> <span class="n">firstn</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">gen_it</span> <span class="o">=</span> <span class="n">firstn</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">gen_it</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -896,7 +893,7 @@ wheee!
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># As a list comp</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># As a list comp</span>
 <span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)]</span>
 <span class="nb">sum</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
 </pre></div>
@@ -918,7 +915,7 @@ wheee!
 <div class="prompt input_prompt">In [107]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># More efficiently as a generator expression</span>
+<div class=" highlight hl-ipython3"><pre><span class="c"># More efficiently as a generator expression</span>
 <span class="n">gen_it</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">))</span>
 <span class="nb">sum</span><span class="p">(</span><span class="n">gen_it</span><span class="p">)</span>
 </pre></div>
@@ -949,7 +946,7 @@ wheee!
 <div class="prompt input_prompt">In [97]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> sum(n for n in range(1000000))  # Here we can omit the parentheses for the gen. expr.
+<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">timeit</span> sum(n for n in range(1000000))  # Here we can omit the parentheses for the gen. expr.
 </pre></div>
 </div>
 </div>
@@ -970,7 +967,7 @@ wheee!
 <div class="prompt input_prompt">In [99]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">timeit</span> sum([n for n in range(1000000)])
+<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">timeit</span> sum([n for n in range(1000000)])
 </pre></div>
 </div>
 </div>
@@ -1000,7 +997,7 @@ wheee!
 <div class="prompt input_prompt">In [109]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)][</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)][</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1029,7 +1026,7 @@ wheee!
 <div class="prompt input_prompt">In [112]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slice_it</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">slice_it</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">((</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">slice_it</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">slice_it</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1068,7 +1065,7 @@ wheee!
 <div class="prompt input_prompt">In [140]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">li_it</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
 <span class="n">firstval</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">li_it</span><span class="p">)</span>
 </pre></div>
@@ -1090,7 +1087,7 @@ wheee!
 <div class="prompt input_prompt">In [204]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">7</span> == 0)
+<div class=" highlight hl-ipython3"><pre><span class="nb">sum</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="k">7</span> == 0)
 </pre></div>
 </div>
 </div>
@@ -1119,11 +1116,11 @@ wheee!
 <div class="prompt input_prompt">In [205]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="k">def</span> <span class="nf">gen_fun_randwalk</span><span class="p">(</span><span class="n">start</span><span class="p">):</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">start</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">while</span> <span class="k">True</span><span class="p">:</span>
         <span class="n">step</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">x</span> <span class="o">+=</span> <span class="n">step</span>
         <span class="k">yield</span> <span class="n">x</span>
@@ -1146,8 +1143,8 @@ wheee!
 <div class="prompt input_prompt">In [206]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mywalk</span> <span class="o">=</span> <span class="n">gen_fun_randwalk</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Random walk generator that starts at 0</span>
-<span class="n">walk_slc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">mywalk</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>  <span class="c1"># Slice of the random walk generator that yields first 1 mill values</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">mywalk</span> <span class="o">=</span> <span class="n">gen_fun_randwalk</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># Random walk generator that starts at 0</span>
+<span class="n">walk_slc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">mywalk</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>  <span class="c"># Slice of the random walk generator that yields first 1 mill values</span>
 </pre></div>
 </div>
 </div>
@@ -1158,7 +1155,7 @@ wheee!
 <div class="prompt input_prompt">In [208]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">walk_slc</span><span class="p">))</span>
 </pre></div>
@@ -1473,8 +1470,8 @@ QRBCQ4yMIAiCEBr/H3m+GRPV9fRwAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [219]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mywalk</span> <span class="o">=</span> <span class="n">gen_fun_randwalk</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Random walk generator that starts at 0</span>
-<span class="n">walk_slc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">mywalk</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>  <span class="c1"># Slice of the random walk generator that yields first 1 mill values</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">mywalk</span> <span class="o">=</span> <span class="n">gen_fun_randwalk</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># Random walk generator that starts at 0</span>
+<span class="n">walk_slc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">mywalk</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>  <span class="c"># Slice of the random walk generator that yields first 1 mill values</span>
 
 <span class="n">pos_walk</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">walk_slc</span> <span class="k">if</span> <span class="n">x</span> <span class="o">></span> <span class="mi">0</span><span class="p">)</span> 
 </pre></div>
@@ -1496,8 +1493,8 @@ QRBCQ4yMIAiCEBr/H3m+GRPV9fRwAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [220]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mywalk</span> <span class="o">=</span> <span class="n">gen_fun_randwalk</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Random walk generator that starts at 0</span>
-<span class="n">walk_slc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">mywalk</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>  <span class="c1"># Slice of the random walk generator that yields first 1 mill values</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">mywalk</span> <span class="o">=</span> <span class="n">gen_fun_randwalk</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c"># Random walk generator that starts at 0</span>
+<span class="n">walk_slc</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">mywalk</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1000000</span><span class="p">)</span>  <span class="c"># Slice of the random walk generator that yields first 1 mill values</span>
 
 <span class="n">pos_walk</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">filterfalse</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o"><</span><span class="mi">0</span><span class="p">,</span> <span class="n">walk_slc</span><span class="p">)</span>
 </pre></div>
@@ -1510,7 +1507,7 @@ QRBCQ4yMIAiCEBr/H3m+GRPV9fRwAAAAAElFTkSuQmCC
 <div class="prompt input_prompt">In [221]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class=" highlight hl-ipython3"><pre><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pos_walk</span><span class="p">))</span>
 </pre></div>
@@ -1822,7 +1819,7 @@ TkSuQmCC
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">fnmatch</span>
 
 <span class="k">def</span> <span class="nf">gen_file_find</span><span class="p">(</span><span class="n">filepat</span><span class="p">,</span><span class="n">top</span><span class="p">):</span>
@@ -1848,14 +1845,14 @@ TkSuQmCC
 <div class="prompt input_prompt">In [230]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="k">import</span> <span class="n">binomial</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="k">import</span> <span class="n">binomial</span>
 
 <span class="k">def</span> <span class="nf">flip_fair</span><span class="p">(</span><span class="n">p</span><span class="p">):</span>
-    <span class="n">outcomes</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"H"</span><span class="p">,</span> <span class="s2">"T"</span><span class="p">]</span>
-    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">),</span> <span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>  <span class="c1"># Flip two unfair coins</span>
-        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>  <span class="c1"># proceed only if we are in the HT or TH case</span>
-            <span class="k">yield</span> <span class="n">outcomes</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>  <span class="c1"># half the time x will be 0, half it will be 1</span>
+    <span class="n">outcomes</span> <span class="o">=</span> <span class="p">[</span><span class="s">"H"</span><span class="p">,</span> <span class="s">"T"</span><span class="p">]</span>
+    <span class="k">while</span> <span class="k">True</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">),</span> <span class="n">binomial</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>  <span class="c"># Flip two unfair coins</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">y</span><span class="p">:</span>  <span class="c"># proceed only if we are in the HT or TH case</span>
+            <span class="k">yield</span> <span class="n">outcomes</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>  <span class="c"># half the time x will be 0, half it will be 1</span>
 </pre></div>
 </div>
 </div>
@@ -1866,7 +1863,7 @@ TkSuQmCC
 <div class="prompt input_prompt">In [231]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">flips</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">flip_fair</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">flips</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">islice</span><span class="p">(</span><span class="n">flip_fair</span><span class="p">(</span><span class="mf">0.1</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">flips</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1896,7 +1893,7 @@ TkSuQmCC
 <div class="prompt input_prompt">In [247]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">x</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">xyz</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">tee</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">xyz</span>
 </pre></div>
@@ -1920,7 +1917,7 @@ TkSuQmCC
 <div class="prompt input_prompt">In [248]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pt_gen</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">xyz</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">pt_gen</span> <span class="o">=</span> <span class="n">it</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">xyz</span><span class="p">)</span>
 <span class="nb">next</span><span class="p">(</span><span class="n">pt_gen</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">pt_gen</span><span class="p">),</span> <span class="nb">next</span><span class="p">(</span><span class="n">pt_gen</span><span class="p">)</span>
 </pre></div>
 </div>

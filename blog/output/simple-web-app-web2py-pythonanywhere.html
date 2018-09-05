@@ -118,10 +118,8 @@
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -156,7 +154,6 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
-.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
@@ -225,7 +222,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">web2py</span><span class="o">/</span><span class="n">web2py</span><span class="o">.</span><span class="n">git</span> <span class="o">--</span><span class="n">recursive</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">web2py</span><span class="o">/</span><span class="n">web2py</span><span class="o">.</span><span class="n">git</span> <span class="o">--</span><span class="n">recursive</span>
 </pre></div>
 </div>
 </div>
@@ -245,8 +242,8 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">web2py</span>
-<span class="n">python</span> <span class="n">web2py</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8000</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s2">"password"</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">web2py</span>
+<span class="n">python</span> <span class="n">web2py</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">ip</span><span class="o">=</span><span class="mf">127.0</span><span class="o">.</span><span class="mf">0.1</span> <span class="o">--</span><span class="n">port</span><span class="o">=</span><span class="mi">8000</span> <span class="o">--</span><span class="n">password</span><span class="o">=</span><span class="s">"password"</span>
 </pre></div>
 </div>
 </div>
@@ -278,9 +275,9 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">gluon.compileapp</span>
-<span class="n">gluon</span><span class="o">.</span><span class="n">compileapp</span><span class="o">.</span><span class="n">remove_compiled_application</span><span class="p">(</span><span class="s2">"applications/my_new_app"</span><span class="p">)</span>
-<span class="n">gluon</span><span class="o">.</span><span class="n">compileapp</span><span class="o">.</span><span class="n">compile_application</span><span class="p">(</span><span class="s2">"applications/my_new_app"</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">gluon.compileapp</span>
+<span class="n">gluon</span><span class="o">.</span><span class="n">compileapp</span><span class="o">.</span><span class="n">remove_compiled_application</span><span class="p">(</span><span class="s">"applications/my_new_app"</span><span class="p">)</span>
+<span class="n">gluon</span><span class="o">.</span><span class="n">compileapp</span><span class="o">.</span><span class="n">compile_application</span><span class="p">(</span><span class="s">"applications/my_new_app"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -300,7 +297,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">applications</span><span class="o">/</span><span class="n">init</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="o">/</span><span class="n">applications</span><span class="o">/</span><span class="n">init</span>
 <span class="n">git</span> <span class="n">init</span>
 <span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">origin</span> <span class="o"><</span><span class="n">https</span> <span class="n">to</span> <span class="n">your</span> <span class="n">github</span> <span class="n">repo</span><span class="o">></span>
 <span class="n">git</span> <span class="n">push</span> <span class="o">-</span><span class="n">u</span> <span class="n">origin</span> <span class="n">master</span>
@@ -323,7 +320,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">*.</span><span class="n">pyc</span> 
+<div class=" highlight hl-ipython3"><pre><span class="o">*.</span><span class="n">pyc</span> 
 <span class="n">cache</span><span class="o">/</span> 
 <span class="n">databases</span><span class="o">/</span>
 <span class="n">errors</span><span class="o">/</span> 
@@ -361,7 +358,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">myenv</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">myenv</span> <span class="n">python</span><span class="o">=</span><span class="mf">2.7</span>
 <span class="n">actvate</span> <span class="n">myenv</span>
 </pre></div>
 </div>
@@ -382,9 +379,9 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="n">beautiful</span><span class="o">-</span><span class="n">soup</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">conda</span> <span class="n">install</span> <span class="n">beautiful</span><span class="o">-</span><span class="n">soup</span>
 <span class="n">conda</span> <span class="nb">list</span> <span class="o">--</span><span class="n">explicit</span> <span class="o">></span> <span class="n">spec</span><span class="o">-</span><span class="n">file</span><span class="o">.</span><span class="n">txt</span>
-<span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">></span> <span class="n">myenv</span><span class="o">.</span><span class="n">yml</span>  <span class="c1"># Another file that conda can use to recreate the environment</span>
+<span class="n">conda</span> <span class="n">env</span> <span class="n">export</span> <span class="o">></span> <span class="n">myenv</span><span class="o">.</span><span class="n">yml</span>  <span class="c"># Another file that conda can use to recreate the environment</span>
 <span class="n">pip</span> <span class="n">freeze</span> <span class="o">></span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 <span class="n">deactivate</span>
 </pre></div>
@@ -429,7 +426,7 @@
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">web2py</span><span class="o">/</span><span class="n">applications</span>
+<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">web2py</span><span class="o">/</span><span class="n">applications</span>
 <span class="n">git</span> <span class="n">clone</span> <span class="o"><</span><span class="n">https</span> <span class="n">to</span> <span class="n">your</span> <span class="n">github</span> <span class="n">repo</span><span class="o">></span>
 </pre></div>
 </div>
