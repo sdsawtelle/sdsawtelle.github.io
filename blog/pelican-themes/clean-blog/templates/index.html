@@ -30,7 +30,7 @@
                     {{ article.title }}
                 </h2>
             </a>
-            {% if article.summary %}
+            {% if article.summary and SHOW_SUMMARIES %}
                 {{ article.summary|truncate(140) }}
             {% endif %}
             <p class="post-meta">Posted by

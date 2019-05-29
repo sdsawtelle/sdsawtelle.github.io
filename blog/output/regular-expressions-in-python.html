@@ -11,7 +11,7 @@
         <title>Evening Session</title>
 
             <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -111,15 +111,1055 @@
 *
 * IPython notebook
 *
-*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
 <style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -154,12 +1194,15 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -170,31 +1213,67 @@
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-learn-how-to-cook-word-salad-with-a-side-of-alphabet-soup.">In which I learn how to cook word salad with a side of alphabet soup.<a class="anchor-link" href="#In-which-I-learn-how-to-cook-word-salad-with-a-side-of-alphabet-soup.">¶</a></h1><p>Here I'll outline what exactly a regex <em>is</em>, the general anatomy of a regex and the specific python syntax for constructing them. I'm using the adorably tiny book <a href="https://www.amazon.com/Regular-Expression-Pocket-Reference-Expressions/dp/0596514271">Regular Expression Pocket Reference</a> as well as the <a href="https://docs.python.org/3.5/library/re.html#module-re">official docs</a> for the <code>re</code> module.</p>
+<h1 id="In-which-I-learn-how-to-cook-word-salad-with-a-side-of-alphabet-soup.">In which I learn how to cook word salad with a side of alphabet soup.<a class="anchor-link" href="#In-which-I-learn-how-to-cook-word-salad-with-a-side-of-alphabet-soup.">&#182;</a></h1><p>Here I'll outline what exactly a regex <em>is</em>, the general anatomy of a regex and the specific python syntax for constructing them. I'm using the adorably tiny book <a href="https://www.amazon.com/Regular-Expression-Pocket-Reference-Expressions/dp/0596514271">Regular Expression Pocket Reference</a> as well as the <a href="https://docs.python.org/3.5/library/re.html#module-re">official docs</a> for the <code>re</code> module.</p>
 <blockquote><p>Tools covered:</p>
 <ul>
 <li>constructing regex with proper syntax in python</li>
 <li>searching, replacing and splitting by regexes using the <code>re</code> module</li>
 </ul>
 </blockquote>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="General-Principles-of-Regexes">General Principles of Regexes<a class="anchor-link" href="#General-Principles-of-Regexes">¶</a></h1><p>In his pocket reference Tony has done a great job condensing the essence of regex principles and syntax, so let me start by quoting him directly.</p>
+<h1 id="General-Principles-of-Regexes">General Principles of Regexes<a class="anchor-link" href="#General-Principles-of-Regexes">&#182;</a></h1><p>In his pocket reference Tony has done a great job condensing the essence of regex principles and syntax, so let me start by quoting him directly.</p>
 <blockquote><p>[Regexes] are a way to describe text through pattern matching... Regular expression syntax defines a language you use to describe text.</p>
 </blockquote>
 <p>In a regex the particular character pattern you are trying to match is described by some combination of normal characters, which mean exactly what they say (<code>a</code> means the letter "a"), and metacharacters and metasequences, which have special meaning like the quantity or location of characters. Sadly the particular syntax of a regex is specific to each programming language.</p>
@@ -203,47 +1282,44 @@
 <li><strong>The leftmost match wins.</strong> The parser will return you the first section of text it finds which completely matches your described pattern even if there might be another full match later on in the input string. </li>
 <li><strong>Most quantifiers are greedy</strong>. If a part of your pattern describes an unspecified number of characters, the parser will keep matching input characters to it as long as possible. If the full pattern ultimately fails to be matched, only then will the parser try <em>backtracking</em> and giving up characters to the next part of the regex.</li>
 </ol>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Character-Sets-and-Encodings">Character Sets and Encodings<a class="anchor-link" href="#Character-Sets-and-Encodings">¶</a></h1><p>"Characters" are not just standard printed symbols like letters, digits and punctation, but also things like newline and tab characters which create specific whitespace. There are even characters to control output "devices" in various ways, like an "enquire" character that requests a response from the device. <strong>A common division is between "printed" and "control" characters, the former being all visual symbols, not including whitespace.</strong></p>
+<h1 id="Character-Sets-and-Encodings">Character Sets and Encodings<a class="anchor-link" href="#Character-Sets-and-Encodings">&#182;</a></h1><p>"Characters" are not just standard printed symbols like letters, digits and punctation, but also things like newline and tab characters which create specific whitespace. There are even characters to control output "devices" in various ways, like an "enquire" character that requests a response from the device. <strong>A common division is between "printed" and "control" characters, the former being all visual symbols, not including whitespace.</strong></p>
 <p>The smallest element of computer memory is a bit, which has two states $\{0, 1\}$, so that with a single bit you can only encode two different characters, say <em>a</em> and <em>b</em>. With two bits you have four possible states, $\{00, 01, 10, 11\}$ and so you can encode four different characters. Eight bits is called a <em>byte</em> and has 256 possible states.</p>
-<h2 id="Ascii">Ascii<a class="anchor-link" href="#Ascii">¶</a></h2><p>This is a standard encoding for a specific set of characters that uses 1 byte per character. It specifies an encoding for 128 different printed and control characters ("extended" ASCII encodes an additional 128 characters). The letters in ASCII are only english.</p>
-<h2 id="Unicode">Unicode<a class="anchor-link" href="#Unicode">¶</a></h2><p>This is a standard encoding that has a few variants like <code>utf-8</code>. For the characters in the ASCII char set, Unicode uses all the same binary encodings as ASCII, but it also augments this set by permitting more than 1 byte to be used for encoding and thus more total characters to be encoded. Unicode includes, for instance, letters from non-english languages.</p>
+<h2 id="Ascii">Ascii<a class="anchor-link" href="#Ascii">&#182;</a></h2><p>This is a standard encoding for a specific set of characters that uses 1 byte per character. It specifies an encoding for 128 different printed and control characters ("extended" ASCII encodes an additional 128 characters). The letters in ASCII are only english.</p>
+<h2 id="Unicode">Unicode<a class="anchor-link" href="#Unicode">&#182;</a></h2><p>This is a standard encoding that has a few variants like <code>utf-8</code>. For the characters in the ASCII char set, Unicode uses all the same binary encodings as ASCII, but it also augments this set by permitting more than 1 byte to be used for encoding and thus more total characters to be encoded. Unicode includes, for instance, letters from non-english languages.</p>
 <p>It's common to label and identify the specific characters of a char set not by our usual integers but instead in terms of base-8 (or base-16 for unicode) which is called "octal" (or "hexadecimal"). Note that this <strong>standard numbering gives a natural ordering to the characters, which is useful in defining "slices" of a char set in regexes</strong>, like <em>"a through z"</em>.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Anatomy-of-a-Regex">Anatomy of a Regex<a class="anchor-link" href="#Anatomy-of-a-Regex">¶</a></h1><p>In his book Tony defines some really helpful categories of regex constructs that I'll repeat here with examples in Python regex syntax. Understanding the kinds of constructs that will show up should help us see the forest for the trees, so to speak.</p>
-<h2 id="Normal-vs.-Metacharacters">Normal vs. Metacharacters<a class="anchor-link" href="#Normal-vs.-Metacharacters">¶</a></h2><p>First recall that within a regex there are normal characters, which mean exactly what they say (<code>a</code> means the letter "a"), and metacharacters, which have special meaning in the regex. In python the special metacharacters are:</p>
+<h1 id="Anatomy-of-a-Regex">Anatomy of a Regex<a class="anchor-link" href="#Anatomy-of-a-Regex">&#182;</a></h1><p>In his book Tony defines some really helpful categories of regex constructs that I'll repeat here with examples in Python regex syntax. Understanding the kinds of constructs that will show up should help us see the forest for the trees, so to speak.</p>
+<h2 id="Normal-vs.-Metacharacters">Normal vs. Metacharacters<a class="anchor-link" href="#Normal-vs.-Metacharacters">&#182;</a></h2><p>First recall that within a regex there are normal characters, which mean exactly what they say (<code>a</code> means the letter "a"), and metacharacters, which have special meaning in the regex. In python the special metacharacters are:</p>
 <blockquote><p>. ^ $ * + ? { } [ ] \ | ( )</p>
 </blockquote>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Denoting-Single-Characters">Denoting Single Characters<a class="anchor-link" href="#Denoting-Single-Characters">¶</a></h2><p>There are several ways in which specific individual characters can be referred to within a regex.</p>
+<h2 id="Denoting-Single-Characters">Denoting Single Characters<a class="anchor-link" href="#Denoting-Single-Characters">&#182;</a></h2><p>There are several ways in which specific individual characters can be referred to within a regex.</p>
 <ul>
 <li>Normal characters (not metacharacters) can just be written as-is like <code>a</code> means the letter "a".</li>
 <li>Some control characters have special shorthand like <code>\n</code> for newline.</li>
 <li>Characters can be denoted by escaped octal numbers like <code>\012</code> for newline.</li>
 <li>Characters can be denoted by escaped and lettered hexadecimal numbers like <code>\x0D</code> for a two-digit and <code>\uFFFF</code> for a four-digit</li>
 </ul>
-<h2 id="Character-Classes">Character Classes<a class="anchor-link" href="#Character-Classes">¶</a></h2><p>Classes are specific subsets of characters and a regex engine will try to match a single character of the input string to a character from the set. There is a variety of syntax for specifying different sets, and inside a class you can use the dash <code>-</code> to mean a slice.</p>
+<h2 id="Character-Classes">Character Classes<a class="anchor-link" href="#Character-Classes">&#182;</a></h2><p>Classes are specific subsets of characters and a regex engine will try to match a single character of the input string to a character from the set. There is a variety of syntax for specifying different sets, and inside a class you can use the dash <code>-</code> to mean a slice.</p>
 <ul>
 <li><code>[ ]</code> matches any of the included characters like <code>[a-z]</code> means match any character in the set a through z (all the lowercase letters). </li>
 <li><code>[^ ]</code> matches the <em>complement</em> of the specified characters.</li>
@@ -251,7 +1327,7 @@
 <li><code>\d</code>, <code>\w</code>, and <code>\s</code> match all digits, word characters (alphanumerics plus underscore) and space characters, respectively. Using the uppercase like <code>\D</code> means their complement. </li>
 </ul>
 <p>Inside the <code>[ ]</code> subset definition all the metacharacters are stripped of their meaning and revert being regular characters, except that special classes will still be recognized. Thus <code>[\d$]</code> means the set including all digits and the dollars sign character, and <code>[.]</code> means match the actual period symbol (which is otherwise a metacharacter).</p>
-<h2 id="Anchors">Anchors<a class="anchor-link" href="#Anchors">¶</a></h2><p>Anchor are metacharacters and metasequences that match a specific <em>position</em> in the input string rather than matching characters. They are also called "zero-width assertions" because they don't actually consume a character of the input string when they match.</p>
+<h2 id="Anchors">Anchors<a class="anchor-link" href="#Anchors">&#182;</a></h2><p>Anchor are metacharacters and metasequences that match a specific <em>position</em> in the input string rather than matching characters. They are also called "zero-width assertions" because they don't actually consume a character of the input string when they match.</p>
 <ul>
 <li><code>^</code> matches the start of the input string</li>
 <li><code>$</code> matches the end of the input string</li>
@@ -260,61 +1336,60 @@
 <p>Lookarounds are a different kind of zero-width assertion. They match <em>positions</em> where a specified sub-pattern <em>would</em> have matched, but they don't actually consume those characters that match the sub-pattern.</p>
 <ul>
 <li>Lookahead matches locations where a subpattern is or is not matched in the <strong>subsequent</strong> text. Like <code>foo(?=bar)</code> matches all "foo"s followed by "bar"s, while <code>foo(?!bar)</code> matches all "foo"s <em>not</em> followed by "bar"s.</li>
-<li>Lookbehind matches locations where a subpattern is or is not matched in the <strong>preceeding</strong> text. LIke <code>(?<=foo)bar</code> matches all "bar"s preceeded by "foo"s, while <code>(?&lt;!foo)</code> bar matches all "bar"s <em>not</em> preeeded by "foo"s.</li>
+<li>Lookbehind matches locations where a subpattern is or is not matched in the <strong>preceeding</strong> text. LIke <code>(?&lt;=foo)bar</code> matches all "bar"s preceeded by "foo"s, while <code>(?&amp;lt!foo)</code> bar matches all "bar"s <em>not</em> preeeded by "foo"s.</li>
 </ul>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Control-Statements">Control Statements<a class="anchor-link" href="#Control-Statements">¶</a></h2><p>These are miscellaneous functionalities that are often handy.</p>
+<h2 id="Control-Statements">Control Statements<a class="anchor-link" href="#Control-Statements">&#182;</a></h2><p>These are miscellaneous functionalities that are often handy.</p>
 <ul>
 <li><code>...|...</code> tries the two specfied subpatterns in alteration like <code>a|b</code> will first try to match "a" then if that fails try to match "b"</li>
 <li><code>( )</code> groups a subpattern so that the entire subpattern can be referrred to by a quantifier or alternator like <code>(a/d)|(b/d)</code> will first try to match "a" followed by digit and if that fails try "b" followed by a digit. </li>
 </ul>
 <p>Note that if you don't use grouping by <code>()</code> wih the alernator <code>|</code> then it tries to match <em>everything</em> to the left of the pipe and then <em>everything</em> to the right of the pipe.</p>
-<h2 id="Quantifiers">Quantifiers<a class="anchor-link" href="#Quantifiers">¶</a></h2><p>Quantifiers control how many times the parser tries to match an element, and can be placed after single characters, character classes in brackets and subpatterns in parentheses. <strong>Greedy quantifiers will match as many times as allowed while lazy quantifiers will match as few times as allowed.</strong></p>
+<h2 id="Quantifiers">Quantifiers<a class="anchor-link" href="#Quantifiers">&#182;</a></h2><p>Quantifiers control how many times the parser tries to match an element, and can be placed after single characters, character classes in brackets and subpatterns in parentheses. <strong>Greedy quantifiers will match as many times as allowed while lazy quantifiers will match as few times as allowed.</strong></p>
 <ul>
 <li><code>*</code>, <code>+</code>, <code>?</code>, means greedily match at least 0 times, at least 1 time, and 0 or 1 times, respectively </li>
 <li><code>{x,y}</code> means greedily match at least x times but no more than y times like <code>a{3, 5}</code> means match the character "a" as many times as possible subject to the constraint of at least 3 but not more than 5 times.</li>
 <li><code>{n}</code> means match exactly n times</li>
 </ul>
 <p>Each greedy quantifier has a corresponding lazy quantifier whose syntax is identical just with an additional appended <code>?</code>, so for example <code>a+?</code> means match the character "a" as few times as possible subject to the constraint of at least one time.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="re-Module-for-Python-Regex"><code>re</code> Module for Python Regex<a class="anchor-link" href="#re-Module-for-Python-Regex">¶</a></h1><p>The <code>re</code> module in the python standard library is where all of Python's regex functionality lives, the <a href="https://docs.python.org/3.5/library/re.html">official docs</a> and this <a href="https://docs.python.org/3.5/howto/regex.html#regex-howto">simpler HOW TO</a> are both great resources.</p>
+<h1 id="re-Module-for-Python-Regex"><code>re</code> Module for Python Regex<a class="anchor-link" href="#re-Module-for-Python-Regex">&#182;</a></h1><p>The <code>re</code> module in the python standard library is where all of Python's regex functionality lives, the <a href="https://docs.python.org/3.5/library/re.html">official docs</a> and this <a href="https://docs.python.org/3.5/howto/regex.html#regex-howto">simpler HOW TO</a> are both great resources.</p>
 <p>In the <code>re</code> module you create a regex object from a pattern string by using the <code>compile()</code> function. The resulting object then has helper methods to do things like searching for matches or performing substitutions based on the pattern.</p>
 <p>It's important to write your regex pattern strings as python raw strings (<code>r""</code> rather than <code>""</code>) to avoid some craziness when it comes to backslash escaping. I'll just refer to this excellent <a href="http://stackoverflow.com/a/30164723">SO answer</a>.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">re</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 
-<span class="n">pattern_str</span> <span class="o">=</span> <span class="s">r"[bcf]at+y?"</span>  <span class="c"># see below for why the r-prefix</span>
+<span class="n">pattern_str</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;[bcf]at+y?&quot;</span>  <span class="c1"># see below for why the r-prefix</span>
 <span class="n">regx</span><span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">pattern_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>How will this regex match on "ba", "bat", "catty", "fattyy" or "faaty"? Let's break it down going from left to right through the regex pattern:</p>
 <ol>
@@ -324,195 +1399,280 @@
 <li>insist on 0 or 1 "y"s, but as few as possible</li>
 </ol>
 <p>So it won't match "ba" (no "t") or "faaty" (more than one "a"). From "bat" it returns "bat", from "catty" it returns "catt", and from "fattyy" it returns "fatty".</p>
-<h3 id="Look-for-a-match-with-search">Look for a match with <code>search</code><a class="anchor-link" href="#Look-for-a-match-with-search">¶</a></h3><p>This is how we actually use the regex pattern we compiled to check for matches against input strings. Remember, the regex will give us back the <em>leftmost</em> match and then stop.</p>
+<h3 id="Look-for-a-match-with-search">Look for a match with <code>search</code><a class="anchor-link" href="#Look-for-a-match-with-search">&#182;</a></h3><p>This is how we actually use the regex pattern we compiled to check for matches against input strings. Remember, the regex will give us back the <em>leftmost</em> match and then stop.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Search input string "ba" for a match to the regex - FAIL</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">"ba"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Search input string &quot;ba&quot; for a match to the regex - FAIL</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;ba&quot;</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>NoneType</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Search input string "bat" for a match to the regex - SUCCESS!</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">"fattyy"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Search input string &quot;bat&quot; for a match to the regex - SUCCESS!</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;fattyy&quot;</span><span class="p">)</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>_sre.SRE_Match</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Inspect-matches-as-match-objects">Inspect matches as <code>match</code> objects<a class="anchor-link" href="#Inspect-matches-as-match-objects">¶</a></h3>
+<h3 id="Inspect-matches-as-match-objects">Inspect matches as <code>match</code> objects<a class="anchor-link" href="#Inspect-matches-as-match-objects">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Look at what text the resulting "match" contains</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Look at what text the resulting &quot;match&quot; contains</span>
 <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;fatty&apos;</pre>
+<pre>&#39;fatty&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># The start and stop positions of the match within the original input string</span>
-<span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">()</span>  <span class="c"># "fattyy[0:5] = "fatty"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The start and stop positions of the match within the original input string</span>
+<span class="n">result</span><span class="o">.</span><span class="n">span</span><span class="p">()</span>  <span class="c1"># &quot;fattyy[0:5] = &quot;fatty&quot;</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>(0, 5)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Get-text-from-subpattern-groups">Get text from subpattern groups<a class="anchor-link" href="#Get-text-from-subpattern-groups">¶</a></h3><p>You may think that <code>group</code> is a weird name for a method that shows you the text that matched the pattern. Actually in regexes each subpattern group in parentheses, <code>( )</code>, has it's match text internally captured and saved. If our regex has several subpattern groups defined in it then we can get all the resulting group strings with <code>groups</code>, while the whole matched string we get from <code>group</code>.</p>
+<h3 id="Get-text-from-subpattern-groups">Get text from subpattern groups<a class="anchor-link" href="#Get-text-from-subpattern-groups">&#182;</a></h3><p>You may think that <code>group</code> is a weird name for a method that shows you the text that matched the pattern. Actually in regexes each subpattern group in parentheses, <code>( )</code>, has it's match text internally captured and saved. If our regex has several subpattern groups defined in it then we can get all the resulting group strings with <code>groups</code>, while the whole matched string we get from <code>group</code>.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [122]:</div>
+<div class="prompt input_prompt">In&nbsp;[122]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Compile and search a regex that has subpattern groups defined</span>
-<span class="n">regx_grp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(\w*)@(\w*)\.[\w]*"</span><span class="p">)</span>  <span class="c"># has two defined groups</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">regx_grp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">"coolemail@hotdomain.net"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compile and search a regex that has subpattern groups defined</span>
+<span class="n">regx_grp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\w*)@(\w*)\.[\w]*&quot;</span><span class="p">)</span>  <span class="c1"># has two defined groups</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">regx_grp</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s2">&quot;coolemail@hotdomain.net&quot;</span><span class="p">)</span>
 
 
-<span class="c"># Get a tuple of the text for matched groups</span>
+<span class="c1"># Get a tuple of the text for matched groups</span>
 <span class="n">result</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[122]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[122]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>(&apos;coolemail&apos;, &apos;hotdomain&apos;)</pre>
+<pre>(&#39;coolemail&#39;, &#39;hotdomain&#39;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [123]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Get the full matched text</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the full matched text</span>
 <span class="n">result</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[123]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[123]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;coolemail@hotdomain.net&apos;</pre>
+<pre>&#39;coolemail@hotdomain.net&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Get-ALL-the-matches!">Get ALL the matches!<a class="anchor-link" href="#Get-ALL-the-matches!">¶</a></h3><p>The <code>finditer()</code> method will return a generator that pops out a match object for each substring in the input string which matches the regex, while <code>findall()</code> just returns a list of the string matches!</p>
+<h3 id="Get-ALL-the-matches!">Get ALL the matches!<a class="anchor-link" href="#Get-ALL-the-matches!">&#182;</a></h3><p>The <code>finditer()</code> method will return a generator that pops out a match object for each substring in the input string which matches the regex, while <code>findall()</code> just returns a list of the string matches!</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s">"my fat cat was behaving in a very batty fashion."</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">finditer</span><span class="p">(</span><span class="s2">&quot;my fat cat was behaving in a very batty fashion.&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">mtch</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">mtch</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c"># print the matched substring for each match object</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">mtch</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">mtch</span><span class="o">.</span><span class="n">group</span><span class="p">())</span>  <span class="c1"># print the matched substring for each match object</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>fat
 cat
@@ -520,352 +1680,471 @@ batty
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">"my fat cat was behaving in a very batty fashion."</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s2">&quot;my fat cat was behaving in a very batty fashion.&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>[&apos;fat&apos;, &apos;cat&apos;, &apos;batty&apos;]</pre>
+<pre>[&#39;fat&#39;, &#39;cat&#39;, &#39;batty&#39;]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Replace-substrings-with-other-text">Replace substrings with other text<a class="anchor-link" href="#Replace-substrings-with-other-text">¶</a></h3><p>You can replace occurrences of the pattern in the input string with new text of your choosing, and you can specify how many replacements will occur with kwarg <code>count</code> (they will always happen leftmost-first).</p>
+<h3 id="Replace-substrings-with-other-text">Replace substrings with other text<a class="anchor-link" href="#Replace-substrings-with-other-text">&#182;</a></h3><p>You can replace occurrences of the pattern in the input string with new text of your choosing, and you can specify how many replacements will occur with kwarg <code>count</code> (they will always happen leftmost-first).</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [85]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"my fat cat was behaving in a very batty fashion."</span>
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"**CENSORED**"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c"># Only do the first two replacements</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;my fat cat was behaving in a very batty fashion.&quot;</span>
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot;**CENSORED**&quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Only do the first two replacements</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[85]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[85]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;my **CENSORED** **CENSORED** was behaving in a very batty fashion.&apos;</pre>
+<pre>&#39;my **CENSORED** **CENSORED** was behaving in a very batty fashion.&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can even pass it a function, to be run on each found match object, which will dictate the text that match is replaced by.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [86]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Define function which will uppercase the text of the match objects</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define function which will uppercase the text of the match objects</span>
 <span class="n">replace_with</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">match</span><span class="p">:</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="n">replace_with</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[86]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[86]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;my FAT CAT was behaving in a very BATTY fashion.&apos;</pre>
+<pre>&#39;my FAT CAT was behaving in a very BATTY fashion.&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Split-strings-based-on-pattern-matches">Split strings based on pattern matches<a class="anchor-link" href="#Split-strings-based-on-pattern-matches">¶</a></h3><p>At every occurrence of a match the matched text is removed from the input string and it is cleaved at that spot.</p>
+<h3 id="Split-strings-based-on-pattern-matches">Split strings based on pattern matches<a class="anchor-link" href="#Split-strings-based-on-pattern-matches">&#182;</a></h3><p>At every occurrence of a match the matched text is removed from the input string and it is cleaved at that spot.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [119]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">regx</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[119]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[119]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>[&apos;my &apos;, &apos; &apos;, &apos; was behaving in a very &apos;, &apos; fashion.&apos;]</pre>
+<pre>[&#39;my &#39;, &#39; &#39;, &#39; was behaving in a very &#39;, &#39; fashion.&#39;]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Compile-readable-regexes-in-Verbose-mode">Compile readable regexes in Verbose mode<a class="anchor-link" href="#Compile-readable-regexes-in-Verbose-mode">¶</a></h3><p>Regexes suck to try to read, the syntax is just too compact and confusing. If you want to write a regex that allows you to use liberal whitespace and even include comments then you can send the <code>re.Verbose</code> mode as an input to the compile function and using triple quotes to enclose your multi-line regex string.</p>
+<h3 id="Compile-readable-regexes-in-Verbose-mode">Compile readable regexes in Verbose mode<a class="anchor-link" href="#Compile-readable-regexes-in-Verbose-mode">&#182;</a></h3><p>Regexes suck to try to read, the syntax is just too compact and confusing. If you want to write a regex that allows you to use liberal whitespace and even include comments then you can send the <code>re.Verbose</code> mode as an input to the compile function and using triple quotes to enclose your multi-line regex string.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [125]:</div>
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"""</span>
-<span class="s"> [bcf]  # insist on starting with a single "b", "c" or "f"</span>
-<span class="s"> a      # insist on a single "a"</span>
-<span class="s"> t+     # insist on at least one "t", but as many as possible</span>
-<span class="s"> y?     # insist on 0 or 1 "y"s, but as many as possible</span>
-<span class="s">"""</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="s2"> [bcf]  # insist on starting with a single &quot;b&quot;, &quot;c&quot; or &quot;f&quot;</span>
+<span class="s2"> a      # insist on a single &quot;a&quot;</span>
+<span class="s2"> t+     # insist on at least one &quot;t&quot;, but as many as possible</span>
+<span class="s2"> y?     # insist on 0 or 1 &quot;y&quot;s, but as many as possible</span>
+<span class="s2">&quot;&quot;&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">VERBOSE</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Practice-Problems">Practice Problems<a class="anchor-link" href="#Practice-Problems">¶</a></h1><h3 id="Email-headers-have-the-form-&quot;From-hurst@missouri.co.jp--Fri-Aug-23-11:03:04-2002&quot;.-Write-a-regex-that-only-matches-a-string-of-this-form,-and-has-saved-subpattern-groups-for-the-email-address-and-time.--(Of-course-for-such-a-rigid-format-str.split()-would-work-just-as-well.)">Email headers have the form <em>"From hurst@missouri.co.jp  Fri Aug 23 11:03:04 2002"</em>. Write a regex that only matches a string of this form, and has saved subpattern groups for the email address and time.  (Of course for such a rigid format <code>str.split()</code> would work just as well.)<a class="anchor-link" href="#Email-headers-have-the-form-&quot;From-hurst@missouri.co.jp--Fri-Aug-23-11:03:04-2002&quot;.-Write-a-regex-that-only-matches-a-string-of-this-form,-and-has-saved-subpattern-groups-for-the-email-address-and-time.--(Of-course-for-such-a-rigid-format-str.split()-would-work-just-as-well.)">¶</a></h3>
+<h1 id="Practice-Problems">Practice Problems<a class="anchor-link" href="#Practice-Problems">&#182;</a></h1><h3 id="Email-headers-have-the-form-&quot;From-hurst@missouri.co.jp--Fri-Aug-23-11:03:04-2002&quot;.-Write-a-regex-that-only-matches-a-string-of-this-form,-and-has-saved-subpattern-groups-for-the-email-address-and-time.--(Of-course-for-such-a-rigid-format-str.split()-would-work-just-as-well.)">Email headers have the form <em>"From hurst@missouri.co.jp  Fri Aug 23 11:03:04 2002"</em>. Write a regex that only matches a string of this form, and has saved subpattern groups for the email address and time.  (Of course for such a rigid format <code>str.split()</code> would work just as well.)<a class="anchor-link" href="#Email-headers-have-the-form-&quot;From-hurst@missouri.co.jp--Fri-Aug-23-11:03:04-2002&quot;.-Write-a-regex-that-only-matches-a-string-of-this-form,-and-has-saved-subpattern-groups-for-the-email-address-and-time.--(Of-course-for-such-a-rigid-format-str.split()-would-work-just-as-well.)">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [143]:</div>
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"From hurst@missouri.co.jp Fri Aug 23 11:03:04 2002"</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"^From\s+(\S*)\s+\w+\s+\w+\s+\d+\s+([\d:]*)\s+\d{4}"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;From hurst@missouri.co.jp Fri Aug 23 11:03:04 2002&quot;</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;^From\s+(\S*)\s+\w+\s+\w+\s+\d+\s+([\d:]*)\s+\d</span><span class="si">{4}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[143]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>(&apos;hurst@missouri.co.jp&apos;, &apos;11:03:04&apos;)</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Replace-any-sequence-of-whitespaces-of-any-length-with-a-single-space.">Replace any sequence of whitespaces of any length with a single space.<a class="anchor-link" href="#Replace-any-sequence-of-whitespaces-of-any-length-with-a-single-space.">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [201]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"This    is a  crazily  spaced      sentence."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\s+"</span><span class="p">)</span>
 
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
-</pre></div>
+    </div>
 </div>
 </div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[201]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&apos;This is a crazily spaced sentence.&apos;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="[From-diveintopython]-You&#x27;re-working-with-addresses-and-you-need-to-replace-the-word-&quot;road&quot;-(could-be-any-case)-with-&quot;Rd.&quot;-but-only-when-it&#x27;s-at-the-end-of-the-string-(address).-Hint:-you-can-compile-a-case-insensitive-regex.">[From <a href="http://www.diveintopython3.net/regular-expressions.html">diveintopython</a>] You're working with addresses and you need to replace the word "road" (could be any case) with "Rd." but only when it's at the end of the string (address). Hint: you can compile a case-insensitive regex.<a class="anchor-link" href="#[From-diveintopython]-You&#x27;re-working-with-addresses-and-you-need-to-replace-the-word-&quot;road&quot;-(could-be-any-case)-with-&quot;Rd.&quot;-but-only-when-it&#x27;s-at-the-end-of-the-string-(address).-Hint:-you-can-compile-a-case-insensitive-regex.">¶</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [215]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str1</span> <span class="o">=</span> <span class="s">"540 Hard Road Road"</span>
-<span class="n">inp_str2</span> <span class="o">=</span> <span class="s">"78 RIVER ROAD"</span>
 
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"road$"</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"Rd."</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[215]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[143]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;540 Hard Road Rd.&apos;</pre>
+<pre>(&#39;hurst@missouri.co.jp&#39;, &#39;11:03:04&#39;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Replace-any-sequence-of-whitespaces-of-any-length-with-a-single-space.">Replace any sequence of whitespaces of any length with a single space.<a class="anchor-link" href="#Replace-any-sequence-of-whitespaces-of-any-length-with-a-single-space.">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [216]:</div>
+<div class="prompt input_prompt">In&nbsp;[201]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"Rd."</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str2</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;This    is a  crazily  spaced      sentence.&quot;</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">)</span>
+
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[216]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[201]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;78 RIVER Rd.&apos;</pre>
+<pre>&#39;This is a crazily spaced sentence.&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="[From-diveintopython]-You-need-to-parse-phone-numbers-to-get-the-area-code,-local-code,-and-last-four-digits.-The-phone-numbers-could-come-in-any-of-the-following-forms:">[From <a href="http://www.diveintopython3.net/regular-expressions.html">diveintopython</a>] You need to parse phone numbers to get the area code, local code, and last four digits. The phone numbers could come in any of the following forms:<a class="anchor-link" href="#[From-diveintopython]-You-need-to-parse-phone-numbers-to-get-the-area-code,-local-code,-and-last-four-digits.-The-phone-numbers-could-come-in-any-of-the-following-forms:">¶</a></h3><ul>
+<h3 id="[From-diveintopython]-You're-working-with-addresses-and-you-need-to-replace-the-word-&quot;road&quot;-(could-be-any-case)-with-&quot;Rd.&quot;-but-only-when-it's-at-the-end-of-the-string-(address).-Hint:-you-can-compile-a-case-insensitive-regex.">[From <a href="http://www.diveintopython3.net/regular-expressions.html">diveintopython</a>] You're working with addresses and you need to replace the word "road" (could be any case) with "Rd." but only when it's at the end of the string (address). Hint: you can compile a case-insensitive regex.<a class="anchor-link" href="#[From-diveintopython]-You're-working-with-addresses-and-you-need-to-replace-the-word-&quot;road&quot;-(could-be-any-case)-with-&quot;Rd.&quot;-but-only-when-it's-at-the-end-of-the-string-(address).-Hint:-you-can-compile-a-case-insensitive-regex.">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[215]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str1</span> <span class="o">=</span> <span class="s2">&quot;540 Hard Road Road&quot;</span>
+<span class="n">inp_str2</span> <span class="o">=</span> <span class="s2">&quot;78 RIVER ROAD&quot;</span>
+
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;road$&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">IGNORECASE</span><span class="p">)</span>
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot;Rd.&quot;</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[215]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;540 Hard Road Rd.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[216]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot;Rd.&quot;</span><span class="p">,</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[216]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;78 RIVER Rd.&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="[From-diveintopython]-You-need-to-parse-phone-numbers-to-get-the-area-code,-local-code,-and-last-four-digits.-The-phone-numbers-could-come-in-any-of-the-following-forms:">[From <a href="http://www.diveintopython3.net/regular-expressions.html">diveintopython</a>] You need to parse phone numbers to get the area code, local code, and last four digits. The phone numbers could come in any of the following forms:<a class="anchor-link" href="#[From-diveintopython]-You-need-to-parse-phone-numbers-to-get-the-area-code,-local-code,-and-last-four-digits.-The-phone-numbers-could-come-in-any-of-the-following-forms:">&#182;</a></h3><ul>
 <li>800-555-1212</li>
 <li>800 555 1212</li>
 <li>800.555.1212</li>
 <li>(800) 555-1212</li>
 <li>1-800-555-1212</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [224]:</div>
+<div class="prompt input_prompt">In&nbsp;[224]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str1</span> <span class="o">=</span> <span class="s">"800-555-1212"</span>
-<span class="n">inp_str2</span> <span class="o">=</span> <span class="s">"800.555.1212"</span>
-<span class="n">inp_str3</span> <span class="o">=</span> <span class="s">"(800) 555-1212"</span>
-<span class="n">inp_str4</span> <span class="o">=</span> <span class="s">"1-800-555-1212"</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r".*(\d{3})[^\w]{1,2}(\d{3})[^\w]{1,2}(\d{4})"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str1</span> <span class="o">=</span> <span class="s2">&quot;800-555-1212&quot;</span>
+<span class="n">inp_str2</span> <span class="o">=</span> <span class="s2">&quot;800.555.1212&quot;</span>
+<span class="n">inp_str3</span> <span class="o">=</span> <span class="s2">&quot;(800) 555-1212&quot;</span>
+<span class="n">inp_str4</span> <span class="o">=</span> <span class="s2">&quot;1-800-555-1212&quot;</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;.*(\d</span><span class="si">{3}</span><span class="s2">)[^\w]{1,2}(\d</span><span class="si">{3}</span><span class="s2">)[^\w]{1,2}(\d</span><span class="si">{4}</span><span class="s2">)&quot;</span><span class="p">)</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str3</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[224]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[224]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>(&apos;800&apos;, &apos;555&apos;, &apos;1212&apos;)</pre>
+<pre>(&#39;800&#39;, &#39;555&#39;, &#39;1212&#39;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Censor-every-occurrence-of-a-number-in-a-medical-statement-like-&quot;The-patient,-aged-62,-has-BP-measuring-130.6-over-25.&quot;-Use-your-favorite-censorship-stand-in.-Careful-of-floats-with-decimal-points!">Censor every occurrence of a number in a medical statement like <em>"The patient, aged 62, has BP measuring 130.6 over 25."</em> Use your favorite censorship stand-in. Careful of floats with decimal points!<a class="anchor-link" href="#Censor-every-occurrence-of-a-number-in-a-medical-statement-like-&quot;The-patient,-aged-62,-has-BP-measuring-130.6-over-25.&quot;-Use-your-favorite-censorship-stand-in.-Careful-of-floats-with-decimal-points!">¶</a></h3>
+<h3 id="Censor-every-occurrence-of-a-number-in-a-medical-statement-like-&quot;The-patient,-aged-62,-has-BP-measuring-130.6-over-25.&quot;-Use-your-favorite-censorship-stand-in.-Careful-of-floats-with-decimal-points!">Censor every occurrence of a number in a medical statement like <em>"The patient, aged 62, has BP measuring 130.6 over 25."</em> Use your favorite censorship stand-in. Careful of floats with decimal points!<a class="anchor-link" href="#Censor-every-occurrence-of-a-number-in-a-medical-statement-like-&quot;The-patient,-aged-62,-has-BP-measuring-130.6-over-25.&quot;-Use-your-favorite-censorship-stand-in.-Careful-of-floats-with-decimal-points!">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [17]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"The patient, aged 62, has BP measuring 130.6 over 25."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b\d+[.]*\d*\b"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;The patient, aged 62, has BP measuring 130.6 over 25.&quot;</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b\d+[.]*\d*\b&quot;</span><span class="p">)</span>
 
 
-<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">"**CENSORED**"</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
+<span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot;**CENSORED**&quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[17]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;The patient, aged **CENSORED**, has BP measuring **CENSORED** over **CENSORED**.&apos;</pre>
+<pre>&#39;The patient, aged **CENSORED**, has BP measuring **CENSORED** over **CENSORED**.&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Now-instead-replace-every-occurrence-of-an-integer-with-its-binary-equivalent----your-regex-should-not-match-floats!-Hint:-bin()-gives-a-text-representation-of-the-binary-equivalent-of-a-base-10-integer.">Now instead replace every occurrence of an <em>integer</em> with its binary equivalent  - your regex should not match floats! Hint: <code>bin()</code> gives a text representation of the binary equivalent of a base-10 integer.<a class="anchor-link" href="#Now-instead-replace-every-occurrence-of-an-integer-with-its-binary-equivalent----your-regex-should-not-match-floats!-Hint:-bin()-gives-a-text-representation-of-the-binary-equivalent-of-a-base-10-integer.">¶</a></h3>
+<h3 id="Now-instead-replace-every-occurrence-of-an-integer-with-its-binary-equivalent----your-regex-should-not-match-floats!-Hint:-bin()-gives-a-text-representation-of-the-binary-equivalent-of-a-base-10-integer.">Now instead replace every occurrence of an <em>integer</em> with its binary equivalent  - your regex should not match floats! Hint: <code>bin()</code> gives a text representation of the binary equivalent of a base-10 integer.<a class="anchor-link" href="#Now-instead-replace-every-occurrence-of-an-integer-with-its-binary-equivalent----your-regex-should-not-match-floats!-Hint:-bin()-gives-a-text-representation-of-the-binary-equivalent-of-a-base-10-integer.">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"The patient, aged 62, presented with blood pressure measuring 130.6 over 25."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b(?<!--\d[.])\d+(?![.]\d)\b"</span--><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;The patient, aged 62, presented with blood pressure measuring 130.6 over 25.&quot;</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b(?&lt;!\d[.])\d+(?![.]\d)\b&quot;</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">replace_with</span><span class="p">(</span><span class="n">match</span><span class="p">):</span>
     <span class="n">txt</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">()</span>
@@ -873,184 +2152,256 @@ batty
 
 <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="n">replace_with</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;The patient, aged 0b111110, presented with blood pressure measuring 130.6 over 0b11001.&apos;</pre>
+<pre>&#39;The patient, aged 0b111110, presented with blood pressure measuring 130.6 over 0b11001.&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="[From-the-official-docs].-Find-and-print-all-adverbs-in-a-sentence---you-can-assume-they-will-all-end-with-&quot;ly&quot;.-Hint:-make-sure-your-code-can-handle-adverbs-immediately-followed-by-punctuation!">[From the official docs]. Find and print all adverbs in a sentence - you can assume they will all end with "ly". Hint: make sure your code can handle adverbs immediately followed by punctuation!<a class="anchor-link" href="#[From-the-official-docs].-Find-and-print-all-adverbs-in-a-sentence---you-can-assume-they-will-all-end-with-&quot;ly&quot;.-Hint:-make-sure-your-code-can-handle-adverbs-immediately-followed-by-punctuation!">¶</a></h3>
+<h3 id="[From-the-official-docs].-Find-and-print-all-adverbs-in-a-sentence---you-can-assume-they-will-all-end-with-&quot;ly&quot;.-Hint:-make-sure-your-code-can-handle-adverbs-immediately-followed-by-punctuation!">[From the official docs]. Find and print all adverbs in a sentence - you can assume they will all end with "ly". Hint: make sure your code can handle adverbs immediately followed by punctuation!<a class="anchor-link" href="#[From-the-official-docs].-Find-and-print-all-adverbs-in-a-sentence---you-can-assume-they-will-all-end-with-&quot;ly&quot;.-Hint:-make-sure-your-code-can-handle-adverbs-immediately-followed-by-punctuation!">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [151]:</div>
+<div class="prompt input_prompt">In&nbsp;[151]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"He was carefully disguised but captured quickly by police."</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b\w+ly\b"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;He was carefully disguised but captured quickly by police.&quot;</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b\w+ly\b&quot;</span><span class="p">)</span>
 
 <span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[151]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[151]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>[&apos;carefully&apos;, &apos;quickly&apos;]</pre>
+<pre>[&#39;carefully&#39;, &#39;quickly&#39;]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="[From-the-HOWTO].-Match-all-filenames-whose-extension-is-not-&quot;.bat&quot;-and-capture-the-filename-and-extension-as-two-subpattern-groups.">[From the HOWTO]. Match all filenames whose extension is not <em>".bat"</em> and capture the filename and extension as two subpattern groups.<a class="anchor-link" href="#[From-the-HOWTO].-Match-all-filenames-whose-extension-is-not-&quot;.bat&quot;-and-capture-the-filename-and-extension-as-two-subpattern-groups.">¶</a></h3>
+<h3 id="[From-the-HOWTO].-Match-all-filenames-whose-extension-is-not-&quot;.bat&quot;-and-capture-the-filename-and-extension-as-two-subpattern-groups.">[From the HOWTO]. Match all filenames whose extension is not <em>".bat"</em> and capture the filename and extension as two subpattern groups.<a class="anchor-link" href="#[From-the-HOWTO].-Match-all-filenames-whose-extension-is-not-&quot;.bat&quot;-and-capture-the-filename-and-extension-as-two-subpattern-groups.">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [168]:</div>
+<div class="prompt input_prompt">In&nbsp;[168]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str1</span> <span class="o">=</span> <span class="s">"myfile.bmp"</span>
-<span class="n">inp_str2</span> <span class="o">=</span> <span class="s">"myfile2.bat"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str1</span> <span class="o">=</span> <span class="s2">&quot;myfile.bmp&quot;</span>
+<span class="n">inp_str2</span> <span class="o">=</span> <span class="s2">&quot;myfile2.bat&quot;</span>
 
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(.+)[.](?!bat)(.+)"</span><span class="p">)</span> <span class="c"># Use a negative look ahead</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(.+)[.](?!bat)(.+)&quot;</span><span class="p">)</span> <span class="c1"># Use a negative look ahead</span>
 <span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str1</span><span class="p">)</span><span class="o">.</span><span class="n">groups</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[168]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[168]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>(&apos;myfile&apos;, &apos;bmp&apos;)</pre>
+<pre>(&#39;myfile&#39;, &#39;bmp&#39;)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [170]:</div>
+<div class="prompt input_prompt">In&nbsp;[170]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">type</span><span class="p">(</span><span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str2</span><span class="p">))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">regx</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">inp_str2</span><span class="p">))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[170]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[170]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>NoneType</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Split-up-a-sentence-by-every-occurrence-of-punctuation-in-it.-Hint:-punctuation-is-not-a-letter,-digit,-or-whitespace">Split up a sentence by every occurrence of punctuation in it. Hint: punctuation is not a letter, digit, or whitespace<a class="anchor-link" href="#Split-up-a-sentence-by-every-occurrence-of-punctuation-in-it.-Hint:-punctuation-is-not-a-letter,-digit,-or-whitespace">¶</a></h3>
+<h3 id="Split-up-a-sentence-by-every-occurrence-of-punctuation-in-it.-Hint:-punctuation-is-not-a-letter,-digit,-or-whitespace">Split up a sentence by every occurrence of punctuation in it. Hint: punctuation is not a letter, digit, or whitespace<a class="anchor-link" href="#Split-up-a-sentence-by-every-occurrence-of-punctuation-in-it.-Hint:-punctuation-is-not-a-letter,-digit,-or-whitespace">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"They say 'stop, in the name of love'. I quite agree!"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;They say &#39;stop, in the name of love&#39;. I quite agree!&quot;</span>
 
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[^\w\d\s]+"</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[^\w\d\s]+&quot;</span><span class="p">)</span>
 <span class="n">regx</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[21]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[21]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>[&apos;They say &apos;, &apos;stop&apos;, &apos; in the name of love&apos;, &apos; I quite agree&apos;, &apos;&apos;]</pre>
+<pre>[&#39;They say &#39;, &#39;stop&#39;, &#39; in the name of love&#39;, &#39; I quite agree&#39;, &#39;&#39;]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Match-the-interior-content-of-all-the-html-tags-in-the-string.">Match the interior content of all the html tags in the string.<a class="anchor-link" href="#Match-the-interior-content-of-all-the-html-tags-in-the-string.">¶</a></h3>
+<h3 id="Match-the-interior-content-of-all-the-html-tags-in-the-string.">Match the interior content of all the html tags in the string.<a class="anchor-link" href="#Match-the-interior-content-of-all-the-html-tags-in-the-string.">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">inp_str</span> <span class="o">=</span> <span class="s">"&lt; img src=test.png>this is a pic</img> &lt; div>this is a div</div>"</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(?<=>)([^<>]*)(?=<!--)"</span--><span class="p">)</span>  <span class="c"># yeah this breaks for content with greater/less than</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">inp_str</span> <span class="o">=</span> <span class="s2">&quot;&amp;lt img src=test.png&gt;this is a pic&lt;/img&gt; &amp;lt div&gt;this is a div&lt;/div&gt;&quot;</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(?&lt;=&gt;)([^&lt;&gt;]*)(?=&lt;/)&quot;</span><span class="p">)</span>  <span class="c1"># yeah this breaks for content with greater/less than</span>
 <span class="n">regx</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">inp_str</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[22]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>[&apos;this is a pic&apos;, &apos;this is a div&apos;]</pre>
+<pre>[&#39;this is a pic&#39;, &#39;this is a div&#39;]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="More-Resources">More Resources<a class="anchor-link" href="#More-Resources">¶</a></h1><ul>
+<h1 id="More-Resources">More Resources<a class="anchor-link" href="#More-Resources">&#182;</a></h1><ul>
 <li>A <a href="http://www.regular-expressions.info/alternation.html">very thorough guide</a> to regex constructs and syntax</li>
 <li>An <a href="http://www.diveintopython3.net/regular-expressions.html">intro with lots of great examples</a></li>
 </ul>
+
 </div>
 </div>
 </div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -1067,6 +2418,7 @@ batty
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

@@ -1,7 +1,12 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
+import ast
 import os
 import json
+import re
+import six
+import tempfile
+from shutil import copyfile
 
 try:
     # Py3k
@@ -13,7 +18,7 @@ except ImportError:
 from pelican import signals
 from pelican.readers import MarkdownReader, HTMLReader, BaseReader
 
-from .ipynb import get_html_from_filepath, fix_css
+from .ipynb import get_html_from_filepath, parse_css
 
 
 def register():
@@ -42,28 +47,47 @@ class IPythonNB(BaseReader):
 
     def read(self, filepath):
         metadata = {}
-        metadata['ipython'] = True
+        metadata['jupyter_notebook'] = True
+        start = 0
+        end = None
 
         # Files
         filedir = os.path.dirname(filepath)
         filename = os.path.basename(filepath)
-        metadata_filename = filename.split('.')[0] + '.ipynb-meta'
+        metadata_filename = os.path.splitext(filename)[0] + '.nbdata'
         metadata_filepath = os.path.join(filedir, metadata_filename)
-
+        
         if os.path.exists(metadata_filepath):
-            # Metadata is on a external file, process using Pelican MD Reader
+            # When metadata is in an external file, process the MD file using Pelican MD Reader
             md_reader = MarkdownReader(self.settings)
             _content, metadata = md_reader.read(metadata_filepath)
         else:
-            # Load metadata from ipython notebook file
-            ipynb_file = open(filepath)
-            notebook_metadata = json.load(ipynb_file)['metadata']
-
-            # Change to standard pelican metadata
-            for key, value in notebook_metadata.items():
-                key = key.lower()
-                if key in ("title", "date", "category", "tags", "slug", "author"):
-                    metadata[key] = self.process_metadata(key, value)
+            # No external .md file: Load metadata from ipython notebook file
+            with open(filepath) as ipynb_file:
+                doc = json.load(ipynb_file)
+            if self.settings.get('IPYNB_USE_METACELL'):
+                # Option 2: Use metadata on the first notebook cell
+                metacell = "\n".join(doc['cells'][0]['source'])
+                # Convert Markdown title and listings to standard metadata items
+                metacell = re.sub(r'^#+\s+', 'title: ', metacell, flags=re.MULTILINE)
+                metacell = re.sub(r'^\s*[*+-]\s+', '', metacell, flags=re.MULTILINE)
+                # Unfortunately we can not pass MarkdownReader an in-memory
+                # string, so we have to work with a temporary file
+                with tempfile.NamedTemporaryFile('w+', encoding='utf-8') as metadata_file:
+                    md_reader = MarkdownReader(self.settings)
+                    metadata_file.write(metacell)
+                    metadata_file.flush()
+                    _content, metadata = md_reader.read(metadata_file.name)
+                # Skip metacell
+                start = 1
+            else:
+                # Option 3: Read metadata from inside the notebook
+                notebook_metadata = doc['metadata']
+                # Change to standard pelican metadata
+                for key, value in notebook_metadata.items():
+                    key = key.lower()
+                    if key in ("title", "date", "category", "tags", "slug", "author"):
+                        metadata[key] = self.process_metadata(key, value)
 
         keys = [k.lower() for k in metadata.keys()]
         if not set(['title', 'date']).issubset(set(keys)):
@@ -71,32 +95,49 @@ class IPythonNB(BaseReader):
             md_filename = filename.split('.')[0] + '.md'
             md_filepath = os.path.join(filedir, md_filename)
             if not os.path.exists(md_filepath):
-                raise Exception("Could not find metadata in `.ipynb-meta`, inside `.ipynb` or external `.md` file.")
+                raise Exception("Could not find metadata in `.nbdata` file or inside `.ipynb`")
             else:
-                raise Exception("Could not find metadata in `.ipynb-meta` or inside `.ipynb` but found `.md` file, "
+                raise Exception("Could not find metadata in `.nbdata` file or inside `.ipynb` but found `.md` file, "
                       "assuming that this notebook is for liquid tag usage if true ignore this error")
 
-        content, info = get_html_from_filepath(filepath)
+        if 'subcells' in metadata:
+            start, end = ast.literal_eval(metadata['subcells'])
 
-        # Generate Summary: Do it before cleaning CSS
-        if 'summary' not in [key.lower() for key in self.settings.keys()]:
+        preprocessors = self.settings.get('IPYNB_PREPROCESSORS', [])
+        template = self.settings.get('IPYNB_EXPORT_TEMPLATE', None)
+        content, info = get_html_from_filepath(filepath,
+                                               start=start, end=end,
+                                               preprocessors=preprocessors,
+                                               template=template,
+                                            )
+
+        # Generate summary: Do it before cleaning CSS
+        use_meta_summary = self.settings.get('IPYNB_GENERATE_SUMMARY', True)
+        if 'summary' not in keys and use_meta_summary:
             parser = MyHTMLParser(self.settings, filename)
-            if hasattr(content, 'decode'): # PY2
-                content = '<body>{0}</body>'.format(content.encode("utf-8"))    # So Pelican HTMLReader works
-                content = content.decode("utf-8")
+            if isinstance(content, six.binary_type):
+                # unicode_literals makes format() try to decode as ASCII. Enforce decoding as UTF-8.
+                content = '<body>{0}</body>'.format(content.decode("utf-8"))
             else:
                 # Content already decoded
                 content = '<body>{0}</body>'.format(content)
             parser.feed(content)
             parser.close()
-            content = parser.body
-            if ('IPYNB_USE_META_SUMMARY' in self.settings.keys() and \
-              self.settings['IPYNB_USE_META_SUMMARY'] == False) or \
-              'IPYNB_USE_META_SUMMARY' not in self.settings.keys():
-                metadata['summary'] = parser.summary
+            # content = parser.body
+            metadata['summary'] = parser.summary
 
-        ignore_css = True if 'IPYNB_IGNORE_CSS' in self.settings.keys() else False
-        content = fix_css(content, info, ignore_css=ignore_css)
+        # Write/fix content
+        fix_css = self.settings.get('IPYNB_FIX_CSS', True)
+        ignore_css = self.settings.get('IPYNB_SKIP_CSS', False)
+        content = parse_css(content, info, fix_css=fix_css, ignore_css=ignore_css)
+        if self.settings.get('IPYNB_NB_SAVE_AS'):
+            output_path = self.settings.get('OUTPUT_PATH')
+            nb_output_fullpath = self.settings.get('IPYNB_NB_SAVE_AS').format(**metadata)
+            nb_output_dir = os.path.join(output_path, os.path.dirname(nb_output_fullpath))
+            if not os.path.isdir(nb_output_dir):
+                os.makedirs(nb_output_dir, exist_ok=True)
+            copyfile(filepath, os.path.join(output_path, nb_output_fullpath))
+            metadata['nb_path'] = nb_output_fullpath
         return content, metadata
 
 
@@ -118,9 +159,7 @@ class MyHTMLParser(HTMLReader._HTMLParser):
         self.wordcount = 0
         self.summary = None
 
-        self.stop_tags = [('div', ('class', 'input')), ('div', ('class', 'output')), ('h2', ('id', 'Header-2'))]
-        if 'IPYNB_STOP_SUMMARY_TAGS' in self.settings.keys():
-            self.stop_tags = self.settings['IPYNB_STOP_SUMMARY_TAGS']
+        self.stop_tags = self.settings.get('IPYNB_STOP_SUMMARY_TAGS', [('div', ('class', 'input')), ('div', ('class', 'output')), ('h2', ('id', 'Header-2'))])
         if 'IPYNB_EXTEND_STOP_SUMMARY_TAGS' in self.settings.keys():
             self.stop_tags.extend(self.settings['IPYNB_EXTEND_STOP_SUMMARY_TAGS'])
 

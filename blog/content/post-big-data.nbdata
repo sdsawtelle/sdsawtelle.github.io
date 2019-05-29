@@ -1,0 +1,7 @@
+Title: Large Data Files with Pandas and SQLite
+Slug: large-data-files-pandas-sqlite
+Date: 2016-11-13 13:30
+Category: Python
+Tags: python, pandas, sqlite3, SQL, big data
+Author: Sonya Sawtelle
+Summary: In which I learn how not to set my computer on fire by trying to read a 3 GB CSV file.

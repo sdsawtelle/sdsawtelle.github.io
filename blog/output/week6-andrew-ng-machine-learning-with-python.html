@@ -11,7 +11,7 @@
         <title>Evening Session</title>
 
             <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -113,15 +113,1055 @@
 *
 * IPython notebook
 *
-*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
 <style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -156,12 +1196,15 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -172,96 +1215,155 @@
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-investigate-Bias-Variance-tradeoff-with-a-sample-data-set-from-Andrew-Ng&#x27;s-Machine-Learning-Course.">In which I investigate Bias-Variance tradeoff with a sample data set from Andrew Ng's Machine Learning Course.<a class="anchor-link" href="#In-which-I-investigate-Bias-Variance-tradeoff-with-a-sample-data-set-from-Andrew-Ng&#x27;s-Machine-Learning-Course.">¶</a></h1><p>Week 6 of Andrew Ng's ML course on Coursera focuses on how to properly evaluate the performance of your ML algorithm, how to diagnose various problems (like high bias or high variance), and what steps you might take for improvement. Here I use the homework data set to learn about the relevant python tools.</p>
-<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
+<h1 id="In-which-I-investigate-Bias-Variance-tradeoff-with-a-sample-data-set-from-Andrew-Ng's-Machine-Learning-Course.">In which I investigate Bias-Variance tradeoff with a sample data set from Andrew Ng's Machine Learning Course.<a class="anchor-link" href="#In-which-I-investigate-Bias-Variance-tradeoff-with-a-sample-data-set-from-Andrew-Ng's-Machine-Learning-Course.">&#182;</a></h1><p>Week 6 of Andrew Ng's ML course on Coursera focuses on how to properly evaluate the performance of your ML algorithm, how to diagnose various problems (like high bias or high variance), and what steps you might take for improvement. Here I use the homework data set to learn about the relevant python tools.</p>
+<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">&#182;</a></h2><ul>
 <li><code>SGDRegressor</code> for linear regression specifying a loss and penalty and fit using gradient descent</li>
 <li><code>learning_curve</code> for generating diagnostic plots of score vs. training size</li>
 <li><code>validation_curve</code> for generating diagnostic plots of score vs. meta-parameter value</li>
 <li>also <code>PolynomialFeatures</code> for getting higher order transforms of features and <code>StandardScaler</code> for normalizing features</li>
 </ul>
 </blockquote>
-<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">¶</a></h1><p>Before we get into the meat of the topic, let's glance at the data we're working with. From Professor Ng's homework: <em>"...you will implement regularized linear regression to predict the amount of water 
+<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">&#182;</a></h1><p>Before we get into the meat of the topic, let's glance at the data we're working with. From Professor Ng's homework: <em>"...you will implement regularized linear regression to predict the amount of water 
 flowing out of a dam using the change
 of water level in a reservoir."</em></p>
 <p>First, the niceties must be observed:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">scipy.io</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk6</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk6</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>C:\Users\Sonya\Box Sync\Projects\course-machine-learning\hw-wk6
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I've got variables that hold the complete list of $X$ and $y$ data, as well as variable that have it chunked into training, cross-validation, and test sets. I'll unpickle all of these and then we can see what we're dealing with.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"dam_water_data.pickle"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dam_water_data.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="n">Xtrain</span><span class="p">,</span> <span class="n">Xval</span><span class="p">,</span> <span class="n">Xtest</span><span class="p">,</span> <span class="n">Xall</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">yval</span><span class="p">,</span> <span class="n">ytest</span><span class="p">,</span> <span class="n">yall</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">myfile</span><span class="p">)</span>
     
 <span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>(array([[-15.93675813],
         [-29.15297922],
@@ -279,40 +1381,60 @@ of water level in a reservoir."</em></p>
           2.80896507,   2.12107248,  14.71026831,   2.61418439,
           3.74017167,   3.73169131,   7.62765885,  22.7524283 ]))</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Notice that $X$ is in true matrix format (an array of arrays), rather than being a 1D array - this is actally the format that most sklearn classes expect for your input features $X$. On the other hand sklearn expects a simple 1D array of <em>values</em> for the $y$ input. Since you'll get some annoying warnings later if you don't deal with this, let's use the super userful <code>numpy</code> function <code>ravel</code> which "unravels" higher dimension data structures in order to flatten them down to a single one-dimensional array of values</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Visualize the data.</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize the data.</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;Change of Water Level&quot;</span><span class="p">,</span> <span class="s2">&quot;Outflow of Water&quot;</span><span class="p">,</span> <span class="s2">&quot;Hydrostatics of a Dam&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.collections.pathcollection at 0x269fac4a470></pre>
+<pre>&lt;matplotlib.collections.PathCollection at 0x269fac4a470&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZcAAAElCAYAAAAoZK9zAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xe4XFW9//H3h4TepEOUXgSDAmLQK+0ECx1pchEQLihq
@@ -551,116 +1673,149 @@ h3VI18TMzOWbQxqBdnLZ++ChyHXelN9Ys46SO7y7gBXCf8Rmbcd9LtbWlOZFK9/3LtIw5KsdWMza
 k2su1tYkfZo0uuoK0nUQm5H6YAC2i8FnIzazFnBwsbYmaQKpfXxLUn/K86T2/5Mj4rZW5s3M+ufg
 YmZmdec+FzMzqzsHFzMzqzsHFzMzqzsHFzMzqzsHFzMzqzsHFzMzq7v/Dy7pDiUwVjPRAAAAAElF
 TkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A human can glance at this data and have a pretty good idea of the shape of the true physical relationship between the variables, and could draw a nice smooth curve to represent it. When it comes to machines though, there are two common failure modes for an algorithm trying to capture this relationship: Bias and Variance.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Bias-and-Variance-in-Algorithms">Bias and Variance in Algorithms<a class="anchor-link" href="#Bias-and-Variance-in-Algorithms">¶</a></h1><p>When your model doesn't generalize well you most likely have an underfitting problem (high bias) or overftting problem (high variance), and identifying which one can guide how you iterate on your model.</p>
+<h1 id="Bias-and-Variance-in-Algorithms">Bias and Variance in Algorithms<a class="anchor-link" href="#Bias-and-Variance-in-Algorithms">&#182;</a></h1><p>When your model doesn't generalize well you most likely have an underfitting problem (high bias) or overftting problem (high variance), and identifying which one can guide how you iterate on your model.</p>
 <p><strong>In underfitting, your procedure is not sufficiently responsive or sensitive to training data - it has a "bias" towards always landing on the same hypothesis regardless of the training data.</strong> This could be that the form of the model is not sufficiently complex so that it's simply not capable of representing the relationship of $y$ to the input features. Underfitting also occurs when you are regularizing too strongly and forcing the fit towards some constant.</p>
 <p><strong>In overfitting your procedure is instead <em>too</em> sensitive to the training points and so the specific fitted hypothesis can vary wildly with small changes in the training set, giving a large "variance" in the results.</strong> This can result from a model form that is very complex, with lots of free parameters, and thus is able to represent <em>all</em> the behavior in the training data, including the random noise. An overfit model will do very well on the training points but very poorly on validation and test points, since it's output is dependent on random noise.</p>
 <p>There is a very nice set of articles on <a href="http://www.astroml.org/sklearn_tutorial/practical.html">general advice on bias/variance in ML</a> on the official <code>sklearn</code> pages. Anyways, shut up and make with the examples, right? I'm going to build a high bias model and a high variance model, and then we'll see what the learning curves reveal for these two cases.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Underfit:-First-Order-Linear-Model">Underfit: First Order Linear Model<a class="anchor-link" href="#Underfit:-First-Order-Linear-Model">¶</a></h1><p>Obviously this is going to suck, but let's do it anyway. Our $X$ is a single feature, thus linear regression is going to fit a straight line with two parameters, slope and intercept. I'll use sklearn's gradient descent implementation, <code>SGDRegressor</code>.</p>
+<h1 id="Underfit:-First-Order-Linear-Model">Underfit: First Order Linear Model<a class="anchor-link" href="#Underfit:-First-Order-Linear-Model">&#182;</a></h1><p>Obviously this is going to suck, but let's do it anyway. Our $X$ is a single feature, thus linear regression is going to fit a straight line with two parameters, slope and intercept. I'll use sklearn's gradient descent implementation, <code>SGDRegressor</code>.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Create and then fit our Linear Regression Class</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create and then fit our Linear Regression Class</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">SGDRegressor</span>
-<span class="n">reg_bias</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">"squared_loss"</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s">"none"</span><span class="p">)</span>  <span class="c"># No regularization means no penalty</span>
-<span class="n">reg_bias</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ytrain</span><span class="p">))</span>  <span class="c"># Remember, this parameter is dumb out-of-the-box.</span>
+<span class="n">reg_bias</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared_loss&quot;</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>  <span class="c1"># No regularization means no penalty</span>
+<span class="n">reg_bias</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ytrain</span><span class="p">))</span>  <span class="c1"># Remember, this parameter is dumb out-of-the-box.</span>
 
 <span class="n">reg_bias</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span> 
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>SGDRegressor(alpha=0.0001, average=False, epsilon=0.1, eta0=0.01,
-       fit_intercept=True, l1_ratio=0.15, learning_rate=&apos;invscaling&apos;,
-       loss=&apos;squared_loss&apos;, n_iter=83334.0, penalty=&apos;none&apos;, power_t=0.25,
+       fit_intercept=True, l1_ratio=0.15, learning_rate=&#39;invscaling&#39;,
+       loss=&#39;squared_loss&#39;, n_iter=83334.0, penalty=&#39;none&#39;, power_t=0.25,
        random_state=None, shuffle=True, verbose=0, warm_start=False)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Easy enough. Let's look a little closer at the fitted model.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Get a set of predictions for plotting</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get a set of predictions for plotting</span>
 <span class="n">x_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">reg_bias</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_pred</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Visualize performance of model. </span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Visualize performance of model. </span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"data"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"Fitted 1st Order Linear Model"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_pred</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Fitted 1st Order Linear Model&quot;</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper left"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;Change of Water Level&quot;</span><span class="p">,</span> <span class="s2">&quot;Outflow of Water&quot;</span><span class="p">,</span> <span class="s2">&quot;Hydrostatics of a Dam&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1c927ac7a58></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1c927ac7a58&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZcAAAElCAYAAAAoZK9zAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xd4VFX6wPHvm0IRghTBigEpKgnYaCpgwK6wiiJrR1jL
@@ -1021,125 +2176,164 @@ neqAmxqpwz74npglSb8VuAfamNx9CFfkCr+UbmwQtCnSgvcgoKvFlzgItjtizSXYrpGfi5ZPOwx3
 Q54ehiUItk9i5BJs10j6Ie5dNRXfB9EXX4MBOMaaPo04CIIqEMYl2K6RdBQ+P34Evp6yFp//H2Nm
 c6pZtyAIGiaMSxAEQVBxYs0lCIIgqDhhXIIgCIKKE8YlCIIgqDhhXIIgCIKKE8YlCIIgqDhhXIIg
 CIKK8z9N4EacEGkRKAAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Overfit:-Large-Degree-Polynomial-Model">Overfit: Large Degree Polynomial Model<a class="anchor-link" href="#Overfit:-Large-Degree-Polynomial-Model">¶</a></h1><p>To avoid underfitting (high bias) one option is to add polynomial transforms of our features in order to achieve a more complex hypothesis form. Let's try it out using automated higher-order feature creation with the <code>PolynomialFeatures</code> class.</p>
+<h1 id="Overfit:-Large-Degree-Polynomial-Model">Overfit: Large Degree Polynomial Model<a class="anchor-link" href="#Overfit:-Large-Degree-Polynomial-Model">&#182;</a></h1><p>To avoid underfitting (high bias) one option is to add polynomial transforms of our features in order to achieve a more complex hypothesis form. Let's try it out using automated higher-order feature creation with the <code>PolynomialFeatures</code> class.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [144]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Make our new matrix of features with higher order terms</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make our new matrix of features with higher order terms</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">PolynomialFeatures</span>
-<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>  <span class="c"># Will create features up to 12 degrees</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">PolynomialFeatures</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>  <span class="c1"># Will create features up to 12 degrees</span>
 <span class="n">Xtrain_p</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This time let's try an alternative linear model algorithm from sklearn, <code>LinearRegression</code>, which uses the analytical normal equation solution rather than gradient descent. When you take high order polynomial transforms the magnitudes of features grow very quickly, so it's important to scale them all appropriately. We can use the built in <code>StandardScaler</code> for this.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [145]:</div>
+<div class="prompt input_prompt">In&nbsp;[145]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Scale our features back to reasonable magnitudes</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Scale our features back to reasonable magnitudes</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
-<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">)</span>  <span class="c"># Train the transformer object so it knows what means and variances to use</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">)</span>  <span class="c1"># Train the transformer object so it knows what means and variances to use</span>
 <span class="n">Xtrain_p</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">)</span>  
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [149]:</div>
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Create and then fit our Linear Regression Class</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create and then fit our Linear Regression Class</span>
 <span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
-<span class="n">reg_var</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s">"squared_loss"</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s">"none"</span><span class="p">)</span>
+<span class="n">reg_var</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s2">&quot;squared_loss&quot;</span><span class="p">,</span> <span class="n">penalty</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="mf">6.5</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">ytrain</span><span class="p">))</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">power_t</span> <span class="o">=</span> <span class="mf">0.05</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[149]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[149]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>SGDRegressor(alpha=0.0001, average=False, epsilon=0.1, eta0=0.01,
-       fit_intercept=True, l1_ratio=0.15, learning_rate=&apos;invscaling&apos;,
-       loss=&apos;squared_loss&apos;, n_iter=263524.0, penalty=&apos;none&apos;, power_t=0.05,
+       fit_intercept=True, l1_ratio=0.15, learning_rate=&#39;invscaling&#39;,
+       loss=&#39;squared_loss&#39;, n_iter=263524.0, penalty=&#39;none&#39;, power_t=0.05,
        random_state=None, shuffle=True, verbose=0, warm_start=False)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [150]:</div>
+<div class="prompt input_prompt">In&nbsp;[150]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Make some predictions from the polynomial model</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make some predictions from the polynomial model</span>
 <span class="n">xs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">),</span> <span class="mi">120</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">xs_p</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span>
 <span class="n">xs_p</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">xs_p</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [152]:</div>
+<div class="prompt input_prompt">In&nbsp;[152]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the data and the predictions</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data and the predictions</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"data"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"12th degree Polynomial Model"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xtrain</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;12th degree Polynomial Model&quot;</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper left"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;Change of Water Level&quot;</span><span class="p">,</span> <span class="s2">&quot;Outflow of Water&quot;</span><span class="p">,</span> <span class="s2">&quot;Hydrostatics of a Dam&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[152]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[152]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1c92c72ff60></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1c92c72ff60&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZcAAAElCAYAAAAoZK9zAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl4VOX1xz9nkrDKLigqBAVZkiBYCyIKBLEKISAqKogK
@@ -1527,103 +2721,128 @@ JrwNHzOTp90JN/6r6Oq+PTqLH4c79R/Be1A9nvL5EvCaLN0r8q5Dz1pX5O62G7K0W6b7fCfuQ3oG
 gxr5vGjFsP3xbsi3hGEJgsFJ1FyCQY2kT+O9q2bg4yDG4j4YgMOs99mIgyBoAWFcgkGNpIPx9vED
 cX/Karz9/2wzm9dK2YIg6J4wLkEQBEHTCZ9LEARB0HTCuARBEARNJ4xLEARB0HTCuARBEARNJ4xL
 EARB0HTCuARBEARN5/8Becyw8y7Oy1UAAAAASUVORK5CYII=
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We can see by eye that this is overfitting our data - we expect the true relationship to be much smoother.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Learning-Curves-For-Diagnosing-Bias-and-Variance">Learning Curves For Diagnosing Bias and Variance<a class="anchor-link" href="#Learning-Curves-For-Diagnosing-Bias-and-Variance">¶</a></h1><p>In the above examples it was easy to spot the bias and variance problems, but this doesn't hold once your data becomes higher dimensional. Instead we use Learning Curves to diagnose high bias or high variance in a particular procedure.</p>
+<h1 id="Learning-Curves-For-Diagnosing-Bias-and-Variance">Learning Curves For Diagnosing Bias and Variance<a class="anchor-link" href="#Learning-Curves-For-Diagnosing-Bias-and-Variance">&#182;</a></h1><p>In the above examples it was easy to spot the bias and variance problems, but this doesn't hold once your data becomes higher dimensional. Instead we use Learning Curves to diagnose high bias or high variance in a particular procedure.</p>
 <p>Recall that all algorithms fit a model by minimizing some cost function, $J$, over the parameter space. Now imagine you have split your data into training and CV subsets - how will $J_\textrm{train}$ and $J_\textrm{CV}$ change if you were to fit your model using progressively more and more points from the training set? Since it is easy to fit on one or two points we expect $J_\textrm{train}$ to start low, but then it should increase and eventually flatten as we add more points into the fitting. On the other hand, since we are probably not getting a very <em>good</em> estimate of parameters by using only one or two training points, we expect $J_\textrm{CV}$ to start high, and hopefully decrease as we use more and more training points for the fit. <strong>This plot of $J_\textrm{train}$ (calculated on the truncated training set) and $J_\textrm{CV}$ (calculated on the full CV set) as a function of size of the truncated training set, $m_\textrm{train}$, is a Learning Curve.</strong> In fact you can make this plot in terms of whatever performance metric you desire - instead of he loss $J$ you could plot 0-1 misclassification error, $F1$ score, $R^2$... the same ideas will hold.</p>
-<h3 id="Interpreting-Learning-Curves">Interpreting Learning Curves<a class="anchor-link" href="#Interpreting-Learning-Curves">¶</a></h3><p>If your specific hypothesis has high bias, then it can't support a sufficiently complex decision boundary <em>regardless</em> of how many points you use in fitting - thus $J_\textrm{CV}$ tends to flatten out quickly and not decrease with increasing $m_\textrm{train}$. We will also probably see $J_\textrm{CV}$ and $J_\textrm{train}$ end up at pretty similar values. Conversely, overfitting manifests as a very small $J_{train}$ and a large $J_\textrm{CV}$ which decreases slowly with $m_\textrm{train}$, though it will look like the two losses would converge if extrapolated out to very large number of training points.</p>
+<h3 id="Interpreting-Learning-Curves">Interpreting Learning Curves<a class="anchor-link" href="#Interpreting-Learning-Curves">&#182;</a></h3><p>If your specific hypothesis has high bias, then it can't support a sufficiently complex decision boundary <em>regardless</em> of how many points you use in fitting - thus $J_\textrm{CV}$ tends to flatten out quickly and not decrease with increasing $m_\textrm{train}$. We will also probably see $J_\textrm{CV}$ and $J_\textrm{train}$ end up at pretty similar values. Conversely, overfitting manifests as a very small $J_{train}$ and a large $J_\textrm{CV}$ which decreases slowly with $m_\textrm{train}$, though it will look like the two losses would converge if extrapolated out to very large number of training points.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Learning-Curves-in-scikit-learn">Learning Curves in scikit-learn<a class="anchor-link" href="#Learning-Curves-in-scikit-learn">¶</a></h1><p>Since <code>sklearn</code> is the best package that ever existed, for anything, ever... it of course has a built in Learning Curve function. Definitely take a look at the <a href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.learning_curve.html">official docs</a> for learning curves, and also this helpful example of <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html">plotting a learning curve</a>.</p>
+<h1 id="Learning-Curves-in-scikit-learn">Learning Curves in scikit-learn<a class="anchor-link" href="#Learning-Curves-in-scikit-learn">&#182;</a></h1><p>Since <code>sklearn</code> is the best package that ever existed, for anything, ever... it of course has a built in Learning Curve function. Definitely take a look at the <a href="http://scikit-learn.org/stable/modules/generated/sklearn.model_selection.learning_curve.html">official docs</a> for learning curves, and also this helpful example of <a href="http://scikit-learn.org/stable/auto_examples/model_selection/plot_learning_curve.html">plotting a learning curve</a>.</p>
 <p>The <code>learning_curve</code> function needs to be provided with your full data set ($X$ and $y$), it then handles chunking up the data into training and cross-validation sets. You also need to pass an <code>estimator</code> object (your algorithm) which has both <code>fit</code> and <code>predict</code> methods implemented. The kwarg <code>train_sizes</code> sets what training sizes, $m_{train}$ will be tried. Finally the <code>scoring</code> kwarg dictates what you want to see on the y-axis: the most common metrics are available as strings, the default is to try the <code>score</code> method of the estimator. The sklearn official docs has a great <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#r2-score">tutorial on model scoring</a>.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Make LC with our estimator object from above, use MSE metric</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make LC with our estimator object from above, use MSE metric</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">learning_curve</span>
 
 <span class="n">train_sz</span><span class="p">,</span> <span class="n">train_errs</span><span class="p">,</span> <span class="n">cv_errs</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">reg_bias</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">Xall</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">yall</span><span class="p">,</span>
                                               <span class="n">train_sizes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-                                              <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>  
+                                              <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">)</span>  
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The outputs of <code>learning_curve</code> are the sizes of the truncated training set, the training errors achieved for fits with those subsets, and the cross-validation errors achieved from fits with those subsets. Take a look at the returned training sizes and one of these error objects.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Sizes of the training subsets used to fit</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sizes of the training subsets used to fit</span>
 <span class="n">train_sz</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[25]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[25]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>array([ 3,  5,  7,  8, 10, 12, 13, 15, 17, 18, 20, 22, 24, 25, 27, 29, 30,
        32, 34, 36])</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Error on the training set after fitting with the different sized subsets</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Error on the training set after fitting with the different sized subsets</span>
 <span class="n">train_errs</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>array([[ -14.72845049,   -6.61076234,   -6.7527672 ],
        [  -9.57870238,  -34.13667689,  -46.75103318],
@@ -1646,84 +2865,103 @@ EARB0HTCuARBEARN5/8Becyw8y7Oy1UAAAAASUVORK5CYII=
        [ -79.92481006,  -66.58081682,  -64.44092976],
        [-106.04478323,  -57.9224502 ,  -54.45914262]])</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>You can see all the different subset sizes, $m_{train}$, that we specified. Each one of those subsets gets a row in the error object - but you might be wondering why there isn't just a single number (the "error") for each subset. The reason is that this function is doing <em>K-folds Cross-Validation</em></p>
-<h1 id="K-folds-Cross-Validation-for-Smother-LCs">K-folds Cross-Validation for Smother LCs<a class="anchor-link" href="#K-folds-Cross-Validation-for-Smother-LCs">¶</a></h1><p>Say you want a train/CV split of 75% / 25%. You could randomly choose 25% of the data and call that your one and only cross-validation set and run your relevant metrics with it. To get more robust results though, you might want to repeat this procedure, but with a different chunk of data as the cross-validation set. Then you could average the resulting metrics. <strong>In K-Folds cross-validation you evenly split your data set into $k$ non-overlapping pieces and use each piece in turn as the cross-validation set while the other $k-1$ pieces serve as the training set. You then average all the relevant results over the $k$ trials.</strong>  I'll reproduce an excellent graphic from this <a href="http://www.mdpi.com/1424-8220/12/9/12489/htm">academic paper</a>:
-<img src="http://www.mdpi.com/sensors/sensors-12-12489/article_deploy/html/images/sensors-12-12489f7-1024.png" width="400" /></p>
+<h1 id="K-folds-Cross-Validation-for-Smother-LCs">K-folds Cross-Validation for Smother LCs<a class="anchor-link" href="#K-folds-Cross-Validation-for-Smother-LCs">&#182;</a></h1><p>Say you want a train/CV split of 75% / 25%. You could randomly choose 25% of the data and call that your one and only cross-validation set and run your relevant metrics with it. To get more robust results though, you might want to repeat this procedure, but with a different chunk of data as the cross-validation set. Then you could average the resulting metrics. <strong>In K-Folds cross-validation you evenly split your data set into $k$ non-overlapping pieces and use each piece in turn as the cross-validation set while the other $k-1$ pieces serve as the training set. You then average all the relevant results over the $k$ trials.</strong>  I'll reproduce an excellent graphic from this <a href="http://www.mdpi.com/1424-8220/12/9/12489/htm">academic paper</a>:
+<img src=http://www.mdpi.com/sensors/sensors-12-12489/article_deploy/html/images/sensors-12-12489f7-1024.png width=400></img></p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This explains the mystery above - the default of <code>learning_curve</code> is to use the very common 3-fold cross validation protocol so that it has 3 non-overlapping sets to compute cross-validation error on. What we really want to plot here is the average error within each row of <code>train_errors</code>. Note that you can change the number of folds with the <code>cv</code> kwarg.</p>
 <p>So, without further ado, I give you the Learning Curves under high bias (underfitting) and high variance (overfitting).</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Learning-Curve-with-Underfitting">Learning Curve with Underfitting<a class="anchor-link" href="#Learning-Curve-with-Underfitting">¶</a></h1>
+<h1 id="Learning-Curve-with-Underfitting">Learning Curve with Underfitting<a class="anchor-link" href="#Learning-Curve-with-Underfitting">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [15]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Create Learning Curve data with estimator reg_bias</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Learning Curve data with estimator reg_bias</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">learning_curve</span>
 
 <span class="n">train_sz</span><span class="p">,</span> <span class="n">train_errs</span><span class="p">,</span> <span class="n">cv_errs</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">reg_bias</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">Xall</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">yall</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
                                               <span class="n">train_sizes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-                                              <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>  
+                                              <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">)</span>  
 
-<span class="c"># For each training subset, compute average error over the 3-fold cross val</span>
+<span class="c1"># For each training subset, compute average error over the 3-fold cross val</span>
 <span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cv_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [199]:</div>
+<div class="prompt input_prompt">In&nbsp;[199]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the errors to make a learning curve!</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the errors to make a learning curve!</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"training error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"cv error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;training error&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;cv error&quot;</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Training Set Size"</span><span class="p">,</span> <span class="s">"Score (4-Fold CV avg)"</span><span class="p">,</span> <span class="s">"LC with High Bias"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;Training Set Size&quot;</span><span class="p">,</span> <span class="s2">&quot;Score (4-Fold CV avg)&quot;</span><span class="p">,</span> <span class="s2">&quot;LC with High Bias&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[199]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[199]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x26981270eb8></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x26981270eb8&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaoAAAElCAYAAAC1aab7AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xd4lFX2wPHvSWgBQgelSVWQBFBBmpS4doxtdW2oqKwr
@@ -2092,95 +3330,120 @@ fYaxwI/Scc/gIca/NNAYZEis9RcEAwxJY/Ew3V5mdmXVeoJgcROOKggyJc0TtZnZO4W2wcAdwMb4
 g8DzqtIXBP1FhP6CIF9WBmZImoTPr62Gh7w2An4YTipYWghHFQT58hZwPZ62vXpqewRfLmhiZaqC
 oJ+J0F8QBEGQNfEcVRAEQZA14aiCIAiCrAlHFQRBEGRNOKogCIIga8JRBUEQBFkTjioIgiDImv8D
 m1dNHK9aVYoAAAAASUVORK5CYII=
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interpreting-the-LC-with-Underfitting">Interpreting the LC with Underfitting<a class="anchor-link" href="#Interpreting-the-LC-with-Underfitting">¶</a></h2><p>After using all our training data the model is doing about the same on the CV set as on the training set - that means we don't have overfitting (the model generalized very well). On the other hand in absolute terms the error is high for CV and train, and the curves flattened out very quickly which means our hypothesis didn't change much with the addition of more and more points. Both of those things scream underfitting. Of course you already knew that a straight line would underfit this data :)</p>
+<h2 id="Interpreting-the-LC-with-Underfitting">Interpreting the LC with Underfitting<a class="anchor-link" href="#Interpreting-the-LC-with-Underfitting">&#182;</a></h2><p>After using all our training data the model is doing about the same on the CV set as on the training set - that means we don't have overfitting (the model generalized very well). On the other hand in absolute terms the error is high for CV and train, and the curves flattened out very quickly which means our hypothesis didn't change much with the addition of more and more points. Both of those things scream underfitting. Of course you already knew that a straight line would underfit this data :)</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Learning-Curves-with-Overfitting">Learning Curves with Overfitting<a class="anchor-link" href="#Learning-Curves-with-Overfitting">¶</a></h1>
+<h1 id="Learning-Curves-with-Overfitting">Learning Curves with Overfitting<a class="anchor-link" href="#Learning-Curves-with-Overfitting">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [153]:</div>
+<div class="prompt input_prompt">In&nbsp;[153]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Prep the X data with polynomial transforms and scaling</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prep the X data with polynomial transforms and scaling</span>
 <span class="n">Xall_p</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">Xall</span><span class="p">)</span>
-<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xall_p</span><span class="p">)</span>  <span class="c"># Don't forget to re-fit, since Xall is different from Xtrain</span>
+<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xall_p</span><span class="p">)</span>  <span class="c1"># Don&#39;t forget to re-fit, since Xall is different from Xtrain</span>
 <span class="n">Xall_p</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">Xall_p</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [154]:</div>
+<div class="prompt input_prompt">In&nbsp;[154]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Create Learning Curve data with estimator reg_var</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create Learning Curve data with estimator reg_var</span>
 <span class="n">train_sz</span><span class="p">,</span> <span class="n">train_errs</span><span class="p">,</span> <span class="n">cv_errs</span> <span class="o">=</span> <span class="n">learning_curve</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">reg_var</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">Xall_p</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">yall</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
                                               <span class="n">train_sizes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.15</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
-                                              <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>  
+                                              <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">)</span>  
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [155]:</div>
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Compute average errors of the k-fold validation</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compute average errors of the k-fold validation</span>
 <span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cv_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_errs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [156]:</div>
+<div class="prompt input_prompt">In&nbsp;[156]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the errors to make a learning curve!</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the errors to make a learning curve!</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"training error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"cv error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;training error&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">train_sz</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;cv error&quot;</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Training Set Size"</span><span class="p">,</span> <span class="s">"Negative MSE (8-Fold CV avg)"</span><span class="p">,</span> <span class="s">"Learning Curve with High Variance"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;Training Set Size&quot;</span><span class="p">,</span> <span class="s2">&quot;Negative MSE (8-Fold CV avg)&quot;</span><span class="p">,</span> <span class="s2">&quot;Learning Curve with High Variance&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[156]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[156]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1c92c7aaa58></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1c92c7aaa58&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaoAAAEtCAYAAABZOiSWAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl4FFX2v9+TsENAAyIouyCERHFBCMjm4IpxdBS+I+7b
@@ -2589,87 +3852,108 @@ tcC98fBNG+AG5BV8lPi7AudkddI1vf9GOvLZDXjOzD6TtH+6hyHAT9J57+JTjDcVkTGoQSLWXxCs
 ZEgagk/THWZm91dbniBoa8JQBUGNktaJ2pvZkkxZB+BpoA++EfjjaskXBJUipv6CoHbpDLwi6TZ8
 fa0rPuXVG7gojFSwuhCGKghql4XAo7jb9iap7FU8XNCNVZMqCCpMTP0FQRAENU3sowqCIAhqmjBU
 QRAEQU0ThioIgiCoacJQBUEQBDVNGKogCIKgpvl/SmZCUhLDGXUAAAAASUVORK5CYII=
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Interpreting-the-LC-with-Overfitting">Interpreting the LC with Overfitting<a class="anchor-link" href="#Interpreting-the-LC-with-Overfitting">¶</a></h2><p>Here we see that the error on the training set begins and remains extremely low, while the error on the cross validation set is quite large. It does seem that the CV error is decreasing slowly with more data points. This is characteristic of overfitting, the model is exactly capturing the training data behavior but is therefore failing to generalize to new points.</p>
+<h2 id="Interpreting-the-LC-with-Overfitting">Interpreting the LC with Overfitting<a class="anchor-link" href="#Interpreting-the-LC-with-Overfitting">&#182;</a></h2><p>Here we see that the error on the training set begins and remains extremely low, while the error on the cross validation set is quite large. It does seem that the CV error is decreasing slowly with more data points. This is characteristic of overfitting, the model is exactly capturing the training data behavior but is therefore failing to generalize to new points.</p>
 <p>One powerful antidote to overfittng is regularization, where we include in the loss function a term that penalizes our parameters $\theta$ for having large values. This has the effect of driving the fit towards a constant and decreasing the variance of the fitting procedure. How to select the best regularization strength? That is a job for a different curve.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Validation-Curves-for-Assessing-Meta-Parameter-Values">Validation Curves for Assessing Meta Parameter Values<a class="anchor-link" href="#Validation-Curves-for-Assessing-Meta-Parameter-Values">¶</a></h1><p>Things like regularization strength and polynomial degree are often called meta parameters of your model, and they are typically "fit" by trying different values and choosing the ones which minimize the cross-validation error. This leads us to another very useful diagnostic tool: <strong>a Validation Curve plots the training and CV error as you vary a meta parameter.</strong> We'll try to find the optimal regularization parameter, <code>alpha</code>, for the polynomial model that was overfitting so badly. A large alpha means a small penalty on parameter magnitudes, because why be logical when you can be confusing.</p>
+<h1 id="Validation-Curves-for-Assessing-Meta-Parameter-Values">Validation Curves for Assessing Meta Parameter Values<a class="anchor-link" href="#Validation-Curves-for-Assessing-Meta-Parameter-Values">&#182;</a></h1><p>Things like regularization strength and polynomial degree are often called meta parameters of your model, and they are typically "fit" by trying different values and choosing the ones which minimize the cross-validation error. This leads us to another very useful diagnostic tool: <strong>a Validation Curve plots the training and CV error as you vary a meta parameter.</strong> We'll try to find the optimal regularization parameter, <code>alpha</code>, for the polynomial model that was overfitting so badly. A large alpha means a small penalty on parameter magnitudes, because why be logical when you can be confusing.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [157]:</div>
+<div class="prompt input_prompt">In&nbsp;[157]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Change the regularization penalty of our estimator from 'None' to L2 norm</span>
-<span class="n">reg_var</span><span class="o">.</span><span class="n">penalty</span> <span class="o">=</span> <span class="s">"l2"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Change the regularization penalty of our estimator from &#39;None&#39; to L2 norm</span>
+<span class="n">reg_var</span><span class="o">.</span><span class="n">penalty</span> <span class="o">=</span> <span class="s2">&quot;l2&quot;</span>
 
-<span class="c"># Construct the validation curve with estimator reg_va</span>
+<span class="c1"># Construct the validation curve with estimator reg_va</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">validation_curve</span>
-<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c"># The different parameter values to try</span>
+<span class="n">alphas</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>  <span class="c1"># The different parameter values to try</span>
 
 <span class="n">train_scores</span><span class="p">,</span> <span class="n">cv_scores</span> <span class="o">=</span> <span class="n">validation_curve</span><span class="p">(</span><span class="n">reg_var</span><span class="p">,</span> <span class="n">Xall_p</span><span class="p">,</span> <span class="n">yall</span><span class="p">,</span> 
-                                           <span class="n">param_name</span><span class="o">=</span><span class="s">"alpha"</span><span class="p">,</span> <span class="n">param_range</span><span class="o">=</span><span class="n">alphas</span><span class="p">,</span> 
-                                           <span class="n">scoring</span><span class="o">=</span><span class="s">"neg_mean_squared_error"</span><span class="p">)</span>
+                                           <span class="n">param_name</span><span class="o">=</span><span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="n">param_range</span><span class="o">=</span><span class="n">alphas</span><span class="p">,</span> 
+                                           <span class="n">scoring</span><span class="o">=</span><span class="s2">&quot;neg_mean_squared_error&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Just like with <code>learning_curve</code> the default is to do 3-fold cross-validation (which you can change using the <code>cv</code> kwarg), and you average the results at each meta-parameter value to give you a smoother idea of the behavior. Also notice that like the <code>learning_curve</code> function, you can decide what goes on the y-axis with the <code>scoring</code> kwarg.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [158]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tr_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">train_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">cv_err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">cv_scores</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"training error"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"-"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"b"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"cv error"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">tr_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;training error&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alphas</span><span class="p">,</span> <span class="n">cv_err</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;-&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;cv error&quot;</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Regularization Strength"</span><span class="p">,</span> <span class="s">"Negative MSE (3-Fold CV avg)"</span><span class="p">,</span> <span class="s">"Validation Curve for Regularization"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s">"log"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;Regularization Strength&quot;</span><span class="p">,</span> <span class="s2">&quot;Negative MSE (3-Fold CV avg)&quot;</span><span class="p">,</span> <span class="s2">&quot;Validation Curve for Regularization&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[158]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[158]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1c92c7f6d30></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1c92c7f6d30&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaUAAAEzCAYAAACR7RzwAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd4VGX2xz8nIUobSrAhvVggERtiQAKxKwYV13VtqyJr
@@ -3099,99 +4383,145 @@ grIhaRP8bbkhldYZf1vtDHS3wt2Jg6BoJLU3s1VZabvgnpFTzCzXWF9QQWJMKSgnOwAPJWNT8/BZ
 9yfgJqhTQiEFrUBtMg46BTc97oiPMa3CTZxBlRFKKSgni3FvtePwAeYv8AHzc83s3koKFmw0zMTH
 MH+MewbW4U41l5tZvrl2QQUJ810QBEFQNcQ8pSAIgqBqCKUUBEEQVA2hlIIgCIKqIZRSEARBUDWE
 UgqCIAiqhlBKQRAEQdXw/wFFiTmkA4/KZQAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>With low <code>alpha</code> we regularize too much and our model underfits, so cross-val and training errors are large. With high <code>alpha</code> we overfit so trainingerror goes to zero while cross val error gets large. The sweet spot that will minimize our total error of the model is where we did best on the cross-validation set:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [159]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">alphas</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cv_err</span><span class="p">)]</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">alphas</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">cv_err</span><span class="p">)]</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[159]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[159]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>0.078475997035146114</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Want to see what that particular model looks like against the data?</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [160]:</div>
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Create and then fit our Linear Regression Class</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create and then fit our Linear Regression Class</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.078</span>
 <span class="n">reg_var</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">Xtrain_p</span><span class="p">,</span> <span class="n">ytrain</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[160]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[160]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>SGDRegressor(alpha=0.078, average=False, epsilon=0.1, eta0=0.01,
-       fit_intercept=True, l1_ratio=0.15, learning_rate=&apos;invscaling&apos;,
-       loss=&apos;squared_loss&apos;, n_iter=263524.0, penalty=&apos;l2&apos;, power_t=0.05,
+       fit_intercept=True, l1_ratio=0.15, learning_rate=&#39;invscaling&#39;,
+       loss=&#39;squared_loss&#39;, n_iter=263524.0, penalty=&#39;l2&#39;, power_t=0.05,
        random_state=None, shuffle=True, verbose=0, warm_start=False)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [163]:</div>
+<div class="prompt input_prompt">In&nbsp;[163]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Plot the data and the predictions</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot the data and the predictions</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xall</span><span class="p">,</span> <span class="n">yall</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"data"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s">"--"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"12th degree Polynomial Model - Regularized"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">Xall</span><span class="p">,</span> <span class="n">yall</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xs</span><span class="p">,</span> <span class="n">reg_var</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">xs_p</span><span class="p">),</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;12th degree Polynomial Model - Regularized&quot;</span><span class="p">)</span>
 
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"Change of Water Level"</span><span class="p">,</span> <span class="s">"Outflow of Water"</span><span class="p">,</span> <span class="s">"Hydrostatics of a Dam"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"upper left"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;Change of Water Level&quot;</span><span class="p">,</span> <span class="s2">&quot;Outflow of Water&quot;</span><span class="p">,</span> <span class="s2">&quot;Hydrostatics of a Dam&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;upper left&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[163]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[163]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1c92db5bdd8></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1c92db5bdd8&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaYAAAElCAYAAACvVUZ1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl4VEXWh9/T6QACAVkERVkEZAuKjIK4QRBHZFUQBRRZ
@@ -3617,36 +4947,41 @@ HyJcfD0cSjc7CDZIUnDADGC8xcMeBCOCGGMKNgjk6/wVZXvgoeI3hlMKgpFDtJiCDQJJH8Gj2K7D
 57lMwcecAN5oA6/qHQRBRQjHFGwQSHotPh6wJz5+9Cw+3nGamd3eStuCIGiMcExBEARBpYgxpiAI
 gqBShGMKgiAIKkU4piAIgqBShGMKgiAIKkU4piAIgqBShGMKgiAIKsX/A4iOKa14+4mxAAAAAElF
 TkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This was simple enough with just regularization strength, but with several meta-parameters your validation curve lives in a high-dimensional meta-parameter-space. The <code>GridSearch</code> and <code>pipeline</code> tools are designed for those situations where you want to minimize the cross-validation error over several different meta parameters. I'll dig into those at a later time.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">¶</a></h1><p>A <strong>Learning Curve</strong> is a plot of $J_\textrm{train}$ (calculated on a truncated training set) and $J_\textrm{CV}$ (calculated on the full cross-val set) as a function of $m_\textrm{train}$ (the size of the truncated training set). In Learning Curves underfitting manifests as $J_\textrm{CV}$ flattening out quickly at something close to $J_\textrm{train}$, while overfitting manifests as a large $J_\textrm{CV}$ which decreases slowly, with a large gap from $J_\textrm{train}$ though it will look like the two losses would converge if extrapolated out. You can use <code>learning_curve</code> to generate these values, you just need to pass it an estimator object and your data. You can make a learning curve for any metric of interest, like 0-1 misclassification error, or $R^2$, just use the <code>scoring</code> kwarg.</p>
+<h1 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h1><p>A <strong>Learning Curve</strong> is a plot of $J_\textrm{train}$ (calculated on a truncated training set) and $J_\textrm{CV}$ (calculated on the full cross-val set) as a function of $m_\textrm{train}$ (the size of the truncated training set). In Learning Curves underfitting manifests as $J_\textrm{CV}$ flattening out quickly at something close to $J_\textrm{train}$, while overfitting manifests as a large $J_\textrm{CV}$ which decreases slowly, with a large gap from $J_\textrm{train}$ though it will look like the two losses would converge if extrapolated out. You can use <code>learning_curve</code> to generate these values, you just need to pass it an estimator object and your data. You can make a learning curve for any metric of interest, like 0-1 misclassification error, or $R^2$, just use the <code>scoring</code> kwarg.</p>
 <p>A <strong>Validation Curve</strong> is similar, it plots $J_\textrm{train}$ and $J_\textrm{CV}$ but as you vary a meta-parameter of your model, such as regularization strength. You can use <code>validation_curve</code> to generate these values, you just need to pass it an estimator object, your data, and the name of the estimators parameter that you would like vary along with the values it should take.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -3663,6 +4998,7 @@ TkSuQmCC
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

@@ -11,7 +11,7 @@
         <title>Evening Session</title>
 
             <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -114,15 +114,1055 @@
 *
 * IPython notebook
 *
-*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
 <style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -157,12 +1197,15 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -173,32 +1216,70 @@
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">In which the contents of numerous spam folders gradually erodes my faith in humanity.<a class="anchor-link" href="#In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">¶</a></h1><p>Week 7 of Andrew Ng's ML course on Coursera introduces the Support Vector Machine algorithm and challenges us to use it for classifying email as spam or ham. Here I use the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> to build an SVM spam email classifier in order to learn about the relevant python tools. Part I focuses on the preprocessing of individual emails while <a href="http://sdsawtelle.github.io/blog/output/spam-classification-gridsearch-svm.html">Part II</a> focuses on the actual classifier.</p>
-<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
+<h1 id="In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">In which the contents of numerous spam folders gradually erodes my faith in humanity.<a class="anchor-link" href="#In-which-the-contents-of-numerous-spam-folders-gradually-erodes-my-faith-in-humanity.">&#182;</a></h1><p>Week 7 of Andrew Ng's ML course on Coursera introduces the Support Vector Machine algorithm and challenges us to use it for classifying email as spam or ham. Here I use the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> to build an SVM spam email classifier in order to learn about the relevant python tools. Part I focuses on the preprocessing of individual emails while <a href="http://sdsawtelle.github.io/blog/output/spam-classification-gridsearch-svm.html">Part II</a> focuses on the actual classifier.</p>
+<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">&#182;</a></h2><ul>
 <li><code>re</code> for regular expressions to do Natural Language Processing (NLP)</li>
 <li><code>stopwords</code> text corpus for removing information-poor words in NLP</li>
 <li><code>SnowballStemmer</code> for stemming text in NLP</li>
 <li><code>BeautifulSoup</code> for HTML parsing</li>
 </ul>
 </blockquote>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Set up environment</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Set up environment</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
@@ -212,18 +1293,26 @@
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s">"stopwords"</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;stopwords&quot;</span><span class="p">)</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[nltk_data] Downloading package stopwords to
 [nltk_data]     C:\Users\Sonya\AppData\Roaming\nltk_data...
@@ -231,86 +1320,106 @@
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk7</span><span class="o">-</span><span class="n">spam</span><span class="o">-</span><span class="n">preprocessing</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk7</span><span class="o">-</span><span class="n">spam</span><span class="o">-</span><span class="n">preprocessing</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>C:\Users\Sonya\Box Sync\Projects\course-machine-learning\hw-wk7-spam-preprocessing
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">¶</a></h1><p>I'm going to pull a set of spam and "ham" (non-spam) emails from the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> data sets. Each email is stored a a plain text file with the email header information and the email body including HTML markup if applicable.</p>
+<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">&#182;</a></h1><p>I'm going to pull a set of spam and "ham" (non-spam) emails from the <a href="https://spamassassin.apache.org/publiccorpus/">SpamAssassin public corpus</a> data sets. Each email is stored a a plain text file with the email header information and the email body including HTML markup if applicable.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Setup for accessing all the spam and ham text files</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Setup for accessing all the spam and ham text files</span>
 <span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">listdir</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="k">import</span> <span class="n">isfile</span><span class="p">,</span> <span class="n">join</span>
 
-<span class="n">spampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s">"spam"</span><span class="p">)</span>
+<span class="n">spampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;spam&quot;</span><span class="p">)</span>
 <span class="n">spamfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">join</span><span class="p">(</span><span class="n">spampath</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">spampath</span><span class="p">)]</span>
 
-<span class="n">hampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s">"easy_ham"</span><span class="p">)</span>
+<span class="n">hampath</span> <span class="o">=</span> <span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s2">&quot;easy_ham&quot;</span><span class="p">)</span>
 <span class="n">hamfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">join</span><span class="p">(</span><span class="n">hampath</span><span class="p">,</span> <span class="n">fname</span><span class="p">)</span> <span class="k">for</span> <span class="n">fname</span> <span class="ow">in</span> <span class="n">listdir</span><span class="p">(</span><span class="n">hampath</span><span class="p">)]</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-Formatted--File">Example Formatted  File<a class="anchor-link" href="#Example-Formatted--File">¶</a></h2><p>Here is what an email would look like if viewed with proper formatting, like in your browser.</p>
+<h2 id="Example-Formatted--File">Example Formatted  File<a class="anchor-link" href="#Example-Formatted--File">&#182;</a></h2><p>Here is what an email would look like if viewed with proper formatting, like in your browser.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>From irregulars-admin@tb.tf  Thu Aug 22 14:23:39 2002
 
-Return-Path: <irregulars-admin@tb.tf>
+Return-Path: &lt;irregulars-admin@tb.tf&gt;
 
 Delivered-To: zzzz@localhost.netnoteinc.com
 
@@ -318,7 +1427,7 @@ Received: from localhost (localhost [127.0.0.1])
 
 	by phobos.labs.netnoteinc.com (Postfix) with ESMTP id 9DAE147C66
 
-	for <zzzz@localhost>; Thu, 22 Aug 2002 09:23:38 -0400 (EDT)
+	for &lt;zzzz@localhost&gt;; Thu, 22 Aug 2002 09:23:38 -0400 (EDT)
 
 Received: from phobos [127.0.0.1]
 
@@ -330,7 +1439,7 @@ Received: from web.tb.tf (route-64-131-126-36.telocity.com
 
     [64.131.126.36]) by dogma.slashnull.org (8.11.6/8.11.6) with ESMTP id
 
-    g7MDGOZ07922 for <zzzz-irr@example.com>; Thu, 22 Aug 2002 14:16:24 +0100
+    g7MDGOZ07922 for &lt;zzzz-irr@example.com&gt;; Thu, 22 Aug 2002 14:16:24 +0100
 
 Received: from web.tb.tf (localhost.localdomain [127.0.0.1]) by web.tb.tf
 
@@ -342,33 +1451,33 @@ Received: from red.harvee.home (red [192.168.25.1] (may be forged)) by
 
     web.tb.tf (8.11.6/8.11.6) with ESMTP id g7MDO4I16408 for
 
-    <irregulars@tb.tf>; Thu, 22 Aug 2002 09:24:04 -0400
+    &lt;irregulars@tb.tf&gt;; Thu, 22 Aug 2002 09:24:04 -0400
 
 Received: from prserv.net (out4.prserv.net [32.97.166.34]) by
 
     red.harvee.home (8.11.6/8.11.6) with ESMTP id g7MDFBD29237 for
 
-    <irregulars@tb.tf>; Thu, 22 Aug 2002 09:15:12 -0400
+    &lt;irregulars@tb.tf&gt;; Thu, 22 Aug 2002 09:15:12 -0400
 
 Received: from [209.202.248.109]
 
     (slip-32-103-249-10.ma.us.prserv.net[32.103.249.10]) by prserv.net (out4)
 
-    with ESMTP id <2002082213150220405qu8jce>; Thu, 22 Aug 2002 13:15:07 +0000
+    with ESMTP id &lt;2002082213150220405qu8jce&gt;; Thu, 22 Aug 2002 13:15:07 +0000
 
 MIME-Version: 1.0
 
 X-Sender: @ (Unverified)
 
-Message-Id: <p04330137b98a941c58a8@[209.202.248.109]>
+Message-Id: &lt;p04330137b98a941c58a8@[209.202.248.109]&gt;
 
 To: undisclosed-recipient: ;
 
-From: Monty Solomon <monty@roscom.com>
+From: Monty Solomon &lt;monty@roscom.com&gt;
 
-Content-Type: text/plain; charset="us-ascii"
+Content-Type: text/plain; charset=&#34;us-ascii&#34;
 
-Subject: [IRR] Klez: The Virus That  Won&apos;t Die
+Subject: [IRR] Klez: The Virus That  Won&#39;t Die
 
 Sender: irregulars-admin@tb.tf
 
@@ -380,27 +1489,27 @@ X-Mailman-Version: 2.0.6
 
 Precedence: bulk
 
-List-Help: <mailto:irregulars-request@tb.tf?subject=help>
+List-Help: &lt;mailto:irregulars-request@tb.tf?subject=help&gt;
 
-List-Post: <mailto:irregulars@tb.tf>
+List-Post: &lt;mailto:irregulars@tb.tf&gt;
 
-List-Subscribe: <http: tb.tf mailman listinfo irregulars>,
+List-Subscribe: &lt;http://tb.tf/mailman/listinfo/irregulars&gt;,
 
-    <mailto:irregulars-request@tb.tf?subject=subscribe>
+    &lt;mailto:irregulars-request@tb.tf?subject=subscribe&gt;
 
-List-Id: New home of the TBTF Irregulars mailing list <irregulars.tb.tf>
+List-Id: New home of the TBTF Irregulars mailing list &lt;irregulars.tb.tf&gt;
 
-List-Unsubscribe: <http: tb.tf mailman listinfo irregulars>,
+List-Unsubscribe: &lt;http://tb.tf/mailman/listinfo/irregulars&gt;,
 
-    <mailto:irregulars-request@tb.tf?subject=unsubscribe>
+    &lt;mailto:irregulars-request@tb.tf?subject=unsubscribe&gt;
 
-List-Archive: <http: tb.tf mailman private irregulars />
+List-Archive: &lt;http://tb.tf/mailman/private/irregulars/&gt;
 
 Date: Thu, 22 Aug 2002 09:15:25 -0400
 
 
 
-Klez: The Virus That Won&apos;t Die
+Klez: The Virus That Won&#39;t Die
 
  
 
@@ -410,7 +1519,7 @@ Already the most prolific virus ever, Klez continues to wreak havoc.
 
 Andrew Brandt
 
->>From the September 2002 issue of PC World magazine
+&gt;&gt;From the September 2002 issue of PC World magazine
 
 Posted Thursday, August 01, 2002
 
@@ -436,13 +1545,13 @@ British security firm MessageLabs estimates that 1 in every 300
 
 e-mail messages holds a variation of the Klez virus, and says that 
 
-Klez has already surpassed last summer&apos;s SirCam as the most prolific 
+Klez has already surpassed last summer&#39;s SirCam as the most prolific 
 
 virus ever.
 
 
 
-And some newer Klez variants aren&apos;t merely nuisances--they can carry 
+And some newer Klez variants aren&#39;t merely nuisances--they can carry 
 
 other viruses in them that corrupt your data.
 
@@ -467,132 +1576,166 @@ http://tb.tf/mailman/listinfo/irregulars
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example-Raw-File">Example Raw File<a class="anchor-link" href="#Example-Raw-File">¶</a></h2><p>Now we want to see what the actual strings look like that we will do all our processing on.</p>
+<h2 id="Example-Raw-File">Example Raw File<a class="anchor-link" href="#Example-Raw-File">&#182;</a></h2><p>Now we want to see what the actual strings look like that we will do all our processing on.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="n">lines</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&apos;From irregulars-admin@tb.tf  Thu Aug 22 14:23:39 2002\n&apos;, &apos;Return-Path: <irregulars-admin@tb.tf>\n&apos;, &apos;Delivered-To: zzzz@localhost.netnoteinc.com\n&apos;, &apos;Received: from localhost (localhost [127.0.0.1])\n&apos;, &apos;\tby phobos.labs.netnoteinc.com (Postfix) with ESMTP id 9DAE147C66\n&apos;, &apos;\tfor <zzzz@localhost>; Thu, 22 Aug 2002 09:23:38 -0400 (EDT)\n&apos;, &apos;Received: from phobos [127.0.0.1]\n&apos;, &apos;\tby localhost with IMAP (fetchmail-5.9.0)\n&apos;, &apos;\tfor zzzz@localhost (single-drop); Thu, 22 Aug 2002 14:23:38 +0100 (IST)\n&apos;, &apos;Received: from web.tb.tf (route-64-131-126-36.telocity.com\n&apos;, &apos;    [64.131.126.36]) by dogma.slashnull.org (8.11.6/8.11.6) with ESMTP id\n&apos;, &apos;    g7MDGOZ07922 for <zzzz-irr@example.com>; Thu, 22 Aug 2002 14:16:24 +0100\n&apos;, &apos;Received: from web.tb.tf (localhost.localdomain [127.0.0.1]) by web.tb.tf\n&apos;, &apos;    (8.11.6/8.11.6) with ESMTP id g7MDP9I16418; Thu, 22 Aug 2002 09:25:09\n&apos;, &apos;    -0400\n&apos;, &apos;Received: from red.harvee.home (red [192.168.25.1] (may be forged)) by\n&apos;, &apos;    web.tb.tf (8.11.6/8.11.6) with ESMTP id g7MDO4I16408 for\n&apos;, &apos;    <irregulars@tb.tf>; Thu, 22 Aug 2002 09:24:04 -0400\n&apos;, &apos;Received: from prserv.net (out4.prserv.net [32.97.166.34]) by\n&apos;, &apos;    red.harvee.home (8.11.6/8.11.6) with ESMTP id g7MDFBD29237 for\n&apos;, &apos;    <irregulars@tb.tf>; Thu, 22 Aug 2002 09:15:12 -0400\n&apos;, &apos;Received: from [209.202.248.109]\n&apos;, &apos;    (slip-32-103-249-10.ma.us.prserv.net[32.103.249.10]) by prserv.net (out4)\n&apos;, &apos;    with ESMTP id <2002082213150220405qu8jce>; Thu, 22 Aug 2002 13:15:07 +0000\n&apos;, &apos;MIME-Version: 1.0\n&apos;, &apos;X-Sender: @ (Unverified)\n&apos;, &apos;Message-Id: <p04330137b98a941c58a8@[209.202.248.109]>\n&apos;, &apos;To: undisclosed-recipient: ;\n&apos;, &apos;From: Monty Solomon <monty@roscom.com>\n&apos;, &apos;Content-Type: text/plain; charset="us-ascii"\n&apos;, "Subject: [IRR] Klez: The Virus That  Won&apos;t Die\n", &apos;Sender: irregulars-admin@tb.tf\n&apos;, &apos;Errors-To: irregulars-admin@tb.tf\n&apos;, &apos;X-Beenthere: irregulars@tb.tf\n&apos;, &apos;X-Mailman-Version: 2.0.6\n&apos;, &apos;Precedence: bulk\n&apos;, &apos;List-Help: <mailto:irregulars-request@tb.tf?subject=help>\n&apos;, &apos;List-Post: <mailto:irregulars@tb.tf>\n&apos;, &apos;List-Subscribe: <http: tb.tf mailman listinfo irregulars>,\n&apos;, &apos;    <mailto:irregulars-request@tb.tf?subject=subscribe>\n&apos;, &apos;List-Id: New home of the TBTF Irregulars mailing list <irregulars.tb.tf>\n&apos;, &apos;List-Unsubscribe: <http: tb.tf mailman listinfo irregulars>,\n&apos;, &apos;    <mailto:irregulars-request@tb.tf?subject=unsubscribe>\n&apos;, &apos;List-Archive: <http: tb.tf mailman private irregulars />\n&apos;, &apos;Date: Thu, 22 Aug 2002 09:15:25 -0400\n&apos;, &apos;\n&apos;, "Klez: The Virus That Won&apos;t Die\n", &apos; \n&apos;, &apos;Already the most prolific virus ever, Klez continues to wreak havoc.\n&apos;, &apos;\n&apos;, &apos;Andrew Brandt\n&apos;, &apos;>>From the September 2002 issue of PC World magazine\n&apos;, &apos;Posted Thursday, August 01, 2002\n&apos;, &apos;\n&apos;, &apos;\n&apos;, &apos;The Klez worm is approaching its seventh month of wriggling across \n&apos;, &apos;the Web, making it one of the most persistent viruses ever. And \n&apos;, &apos;experts warn that it may be a harbinger of new viruses that use a \n&apos;, &apos;combination of pernicious approaches to go from PC to PC.\n&apos;, &apos;\n&apos;, &apos;Antivirus software makers Symantec and McAfee both report more than \n&apos;, &apos;2000 new infections daily, with no sign of letup at press time. The \n&apos;, &apos;British security firm MessageLabs estimates that 1 in every 300 \n&apos;, &apos;e-mail messages holds a variation of the Klez virus, and says that \n&apos;, "Klez has already surpassed last summer&apos;s SirCam as the most prolific \n", &apos;virus ever.\n&apos;, &apos;\n&apos;, "And some newer Klez variants aren&apos;t merely nuisances--they can carry \n", &apos;other viruses in them that corrupt your data.\n&apos;, &apos;\n&apos;, &apos;...\n&apos;, &apos;\n&apos;, &apos;http://www.pcworld.com/news/article/0,aid,103259,00.asp\n&apos;, &apos;_______________________________________________\n&apos;, &apos;Irregulars mailing list\n&apos;, &apos;Irregulars@tb.tf\n&apos;, &apos;http://tb.tf/mailman/listinfo/irregulars\n&apos;, &apos;\n&apos;]
+<pre>[&#39;From irregulars-admin@tb.tf  Thu Aug 22 14:23:39 2002\n&#39;, &#39;Return-Path: &lt;irregulars-admin@tb.tf&gt;\n&#39;, &#39;Delivered-To: zzzz@localhost.netnoteinc.com\n&#39;, &#39;Received: from localhost (localhost [127.0.0.1])\n&#39;, &#39;\tby phobos.labs.netnoteinc.com (Postfix) with ESMTP id 9DAE147C66\n&#39;, &#39;\tfor &lt;zzzz@localhost&gt;; Thu, 22 Aug 2002 09:23:38 -0400 (EDT)\n&#39;, &#39;Received: from phobos [127.0.0.1]\n&#39;, &#39;\tby localhost with IMAP (fetchmail-5.9.0)\n&#39;, &#39;\tfor zzzz@localhost (single-drop); Thu, 22 Aug 2002 14:23:38 +0100 (IST)\n&#39;, &#39;Received: from web.tb.tf (route-64-131-126-36.telocity.com\n&#39;, &#39;    [64.131.126.36]) by dogma.slashnull.org (8.11.6/8.11.6) with ESMTP id\n&#39;, &#39;    g7MDGOZ07922 for &lt;zzzz-irr@example.com&gt;; Thu, 22 Aug 2002 14:16:24 +0100\n&#39;, &#39;Received: from web.tb.tf (localhost.localdomain [127.0.0.1]) by web.tb.tf\n&#39;, &#39;    (8.11.6/8.11.6) with ESMTP id g7MDP9I16418; Thu, 22 Aug 2002 09:25:09\n&#39;, &#39;    -0400\n&#39;, &#39;Received: from red.harvee.home (red [192.168.25.1] (may be forged)) by\n&#39;, &#39;    web.tb.tf (8.11.6/8.11.6) with ESMTP id g7MDO4I16408 for\n&#39;, &#39;    &lt;irregulars@tb.tf&gt;; Thu, 22 Aug 2002 09:24:04 -0400\n&#39;, &#39;Received: from prserv.net (out4.prserv.net [32.97.166.34]) by\n&#39;, &#39;    red.harvee.home (8.11.6/8.11.6) with ESMTP id g7MDFBD29237 for\n&#39;, &#39;    &lt;irregulars@tb.tf&gt;; Thu, 22 Aug 2002 09:15:12 -0400\n&#39;, &#39;Received: from [209.202.248.109]\n&#39;, &#39;    (slip-32-103-249-10.ma.us.prserv.net[32.103.249.10]) by prserv.net (out4)\n&#39;, &#39;    with ESMTP id &lt;2002082213150220405qu8jce&gt;; Thu, 22 Aug 2002 13:15:07 +0000\n&#39;, &#39;MIME-Version: 1.0\n&#39;, &#39;X-Sender: @ (Unverified)\n&#39;, &#39;Message-Id: &lt;p04330137b98a941c58a8@[209.202.248.109]&gt;\n&#39;, &#39;To: undisclosed-recipient: ;\n&#39;, &#39;From: Monty Solomon &lt;monty@roscom.com&gt;\n&#39;, &#39;Content-Type: text/plain; charset=&#34;us-ascii&#34;\n&#39;, &#34;Subject: [IRR] Klez: The Virus That  Won&#39;t Die\n&#34;, &#39;Sender: irregulars-admin@tb.tf\n&#39;, &#39;Errors-To: irregulars-admin@tb.tf\n&#39;, &#39;X-Beenthere: irregulars@tb.tf\n&#39;, &#39;X-Mailman-Version: 2.0.6\n&#39;, &#39;Precedence: bulk\n&#39;, &#39;List-Help: &lt;mailto:irregulars-request@tb.tf?subject=help&gt;\n&#39;, &#39;List-Post: &lt;mailto:irregulars@tb.tf&gt;\n&#39;, &#39;List-Subscribe: &lt;http://tb.tf/mailman/listinfo/irregulars&gt;,\n&#39;, &#39;    &lt;mailto:irregulars-request@tb.tf?subject=subscribe&gt;\n&#39;, &#39;List-Id: New home of the TBTF Irregulars mailing list &lt;irregulars.tb.tf&gt;\n&#39;, &#39;List-Unsubscribe: &lt;http://tb.tf/mailman/listinfo/irregulars&gt;,\n&#39;, &#39;    &lt;mailto:irregulars-request@tb.tf?subject=unsubscribe&gt;\n&#39;, &#39;List-Archive: &lt;http://tb.tf/mailman/private/irregulars/&gt;\n&#39;, &#39;Date: Thu, 22 Aug 2002 09:15:25 -0400\n&#39;, &#39;\n&#39;, &#34;Klez: The Virus That Won&#39;t Die\n&#34;, &#39; \n&#39;, &#39;Already the most prolific virus ever, Klez continues to wreak havoc.\n&#39;, &#39;\n&#39;, &#39;Andrew Brandt\n&#39;, &#39;&gt;&gt;From the September 2002 issue of PC World magazine\n&#39;, &#39;Posted Thursday, August 01, 2002\n&#39;, &#39;\n&#39;, &#39;\n&#39;, &#39;The Klez worm is approaching its seventh month of wriggling across \n&#39;, &#39;the Web, making it one of the most persistent viruses ever. And \n&#39;, &#39;experts warn that it may be a harbinger of new viruses that use a \n&#39;, &#39;combination of pernicious approaches to go from PC to PC.\n&#39;, &#39;\n&#39;, &#39;Antivirus software makers Symantec and McAfee both report more than \n&#39;, &#39;2000 new infections daily, with no sign of letup at press time. The \n&#39;, &#39;British security firm MessageLabs estimates that 1 in every 300 \n&#39;, &#39;e-mail messages holds a variation of the Klez virus, and says that \n&#39;, &#34;Klez has already surpassed last summer&#39;s SirCam as the most prolific \n&#34;, &#39;virus ever.\n&#39;, &#39;\n&#39;, &#34;And some newer Klez variants aren&#39;t merely nuisances--they can carry \n&#34;, &#39;other viruses in them that corrupt your data.\n&#39;, &#39;\n&#39;, &#39;...\n&#39;, &#39;\n&#39;, &#39;http://www.pcworld.com/news/article/0,aid,103259,00.asp\n&#39;, &#39;_______________________________________________\n&#39;, &#39;Irregulars mailing list\n&#39;, &#39;Irregulars@tb.tf\n&#39;, &#39;http://tb.tf/mailman/listinfo/irregulars\n&#39;, &#39;\n&#39;]
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Some preliminary thoughts: The first line of every file is the most basic header info about the originating address and time the email was sent. There follows a section of keyword-value pairs in the form <code>keyword: value\n</code>. Finally, <strong>the body of each email is separated from the meta info by two newline characters <code>\n\n</code>.</strong> Note that some of the email bodies contain HTML.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Easy-Mode:-Email-Body-as-a-Bag-of-Words">Easy Mode: Email Body as a Bag of Words<a class="anchor-link" href="#Easy-Mode:-Email-Body-as-a-Bag-of-Words">¶</a></h1><p>The first thing I'll try is just doing some NLP on only the email bodies, ignoring all the header info. Ultimately we need to represent each email in some numeric feature space in order to feed it into a classifier algorithm: this is where the <em>Bag of Words</em> model comes in. Each email is represented by a vector which quantifies the presence of specific vocab words in that email... that means we need to do some preprocessing.</p>
+<h1 id="Easy-Mode:-Email-Body-as-a-Bag-of-Words">Easy Mode: Email Body as a Bag of Words<a class="anchor-link" href="#Easy-Mode:-Email-Body-as-a-Bag-of-Words">&#182;</a></h1><p>The first thing I'll try is just doing some NLP on only the email bodies, ignoring all the header info. Ultimately we need to represent each email in some numeric feature space in order to feed it into a classifier algorithm: this is where the <em>Bag of Words</em> model comes in. Each email is represented by a vector which quantifies the presence of specific vocab words in that email... that means we need to do some preprocessing.</p>
 <p>First write a function that grabs only the body lines of a single email:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
-    <span class="sd">'''Get email body lines from fpath using first occurence of empty line.'''</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="s">"r"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Get email body lines from fpath using first occurence of empty line.&#39;&#39;&#39;</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">fpath</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span> 
             <span class="n">lines</span> <span class="o">=</span> <span class="n">myfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-            <span class="n">idx</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">)</span> <span class="c"># only grabs first instance</span>
-            <span class="k">return</span> <span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">:])</span>
+            <span class="n">idx</span> <span class="o">=</span> <span class="n">lines</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span> <span class="c1"># only grabs first instance</span>
+            <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">[</span><span class="n">idx</span><span class="p">:])</span>
         <span class="k">except</span><span class="p">:</span> 
-            <span class="nb">print</span><span class="p">(</span><span class="s">"Couldn't decode file %s"</span> <span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">,))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Couldn&#39;t decode file </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">fpath</span><span class="p">,))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Test it out </span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Test it out </span>
 <span class="n">body</span><span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">body</span>  <span class="c"># This is the actual string we are going to be processing</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>  <span class="c1"># This is the actual string we are going to be processing</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[6]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>"\nKlez: The Virus That Won&apos;t Die\n \nAlready the most prolific virus ever, Klez continues to wreak havoc.\n\nAndrew Brandt\n>>From the September 2002 issue of PC World magazine\nPosted Thursday, August 01, 2002\n\n\nThe Klez worm is approaching its seventh month of wriggling across \nthe Web, making it one of the most persistent viruses ever. And \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from PC to PC.\n\nAntivirus software makers Symantec and McAfee both report more than \n2000 new infections daily, with no sign of letup at press time. The \nBritish security firm MessageLabs estimates that 1 in every 300 \ne-mail messages holds a variation of the Klez virus, and says that \nKlez has already surpassed last summer&apos;s SirCam as the most prolific \nvirus ever.\n\nAnd some newer Klez variants aren&apos;t merely nuisances--they can carry \nother viruses in them that corrupt your data.\n\n...\n\nhttp://www.pcworld.com/news/article/0,aid,103259,00.asp\n_______________________________________________\nIrregulars mailing list\nIrregulars@tb.tf\nhttp://tb.tf/mailman/listinfo/irregulars\n\n"</pre>
+<pre>&#34;\nKlez: The Virus That Won&#39;t Die\n \nAlready the most prolific virus ever, Klez continues to wreak havoc.\n\nAndrew Brandt\n&gt;&gt;From the September 2002 issue of PC World magazine\nPosted Thursday, August 01, 2002\n\n\nThe Klez worm is approaching its seventh month of wriggling across \nthe Web, making it one of the most persistent viruses ever. And \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from PC to PC.\n\nAntivirus software makers Symantec and McAfee both report more than \n2000 new infections daily, with no sign of letup at press time. The \nBritish security firm MessageLabs estimates that 1 in every 300 \ne-mail messages holds a variation of the Klez virus, and says that \nKlez has already surpassed last summer&#39;s SirCam as the most prolific \nvirus ever.\n\nAnd some newer Klez variants aren&#39;t merely nuisances--they can carry \nother viruses in them that corrupt your data.\n\n...\n\nhttp://www.pcworld.com/news/article/0,aid,103259,00.asp\n_______________________________________________\nIrregulars mailing list\nIrregulars@tb.tf\nhttp://tb.tf/mailman/listinfo/irregulars\n\n&#34;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c"># This is what it would look like properly displayed</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c1"># This is what it would look like properly displayed</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
-Klez: The Virus That Won&apos;t Die
+Klez: The Virus That Won&#39;t Die
  
 Already the most prolific virus ever, Klez continues to wreak havoc.
 
 Andrew Brandt
->>From the September 2002 issue of PC World magazine
+&gt;&gt;From the September 2002 issue of PC World magazine
 Posted Thursday, August 01, 2002
 
 
@@ -605,10 +1748,10 @@ Antivirus software makers Symantec and McAfee both report more than
 2000 new infections daily, with no sign of letup at press time. The 
 British security firm MessageLabs estimates that 1 in every 300 
 e-mail messages holds a variation of the Klez virus, and says that 
-Klez has already surpassed last summer&apos;s SirCam as the most prolific 
+Klez has already surpassed last summer&#39;s SirCam as the most prolific 
 virus ever.
 
-And some newer Klez variants aren&apos;t merely nuisances--they can carry 
+And some newer Klez variants aren&#39;t merely nuisances--they can carry 
 other viruses in them that corrupt your data.
 
 ...
@@ -623,15 +1766,15 @@ http://tb.tf/mailman/listinfo/irregulars
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Preprocessing-Plan-of-Attack-(order-matters)">Preprocessing Plan of Attack (order matters)<a class="anchor-link" href="#Preprocessing-Plan-of-Attack-(order-matters)">¶</a></h1><p>The order of steps in text processing matters a lot if you are trying to extract other features alongside a simple "Bag of Words" or "Word Salad" model. For instance, if you want to count the number of question marks in the email text then you should probably do it <em>before</em> removing all punctuation, but <em>after</em> replacing all http addresses (which sometimes contain special characters).</p>
+<h1 id="Preprocessing-Plan-of-Attack-(order-matters)">Preprocessing Plan of Attack (order matters)<a class="anchor-link" href="#Preprocessing-Plan-of-Attack-(order-matters)">&#182;</a></h1><p>The order of steps in text processing matters a lot if you are trying to extract other features alongside a simple "Bag of Words" or "Word Salad" model. For instance, if you want to count the number of question marks in the email text then you should probably do it <em>before</em> removing all punctuation, but <em>after</em> replacing all http addresses (which sometimes contain special characters).</p>
 <p>Here is a rough outline of all the steps we'll take to get from a messy, marked-up raw text to a delicious word salad:</p>
 <ul>
 <li>Strip any HTML tags and leave only text content (also count HTML tags)</li>
@@ -645,276 +1788,342 @@ http://tb.tf/mailman/listinfo/irregulars
 <li>Stem all the words down to their root to simplify</li>
 </ul>
 <p>Now, when I say <em>count</em> what I really mean is substitute each occurrence with some fixed string: like every web address gets replaced with <code>"httpaddr"</code>. That way when we ultimately convert each email to a vector of word counts, we'll get a feature that reflects the occurrence of the word "httpaddr".</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Parsing-HTML">Parsing HTML<a class="anchor-link" href="#Parsing-HTML">¶</a></h2><p>Some of the email bodies contain HTML formatting - the amount of such formatting might be a helpful feature, but the tags themselves we want to strip away, along with some other HTML shorthand. Let's no reinvent the wheel though: a package called <code>beatiful soup</code> implements a great HTML parser. The parsed object can be interrogated in various ways as it contains all the information about the HTML structure of the original document. You should check out the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#get-text">official soup docs</a>.</p>
+<h2 id="Parsing-HTML">Parsing HTML<a class="anchor-link" href="#Parsing-HTML">&#182;</a></h2><p>Some of the email bodies contain HTML formatting - the amount of such formatting might be a helpful feature, but the tags themselves we want to strip away, along with some other HTML shorthand. Let's no reinvent the wheel though: a package called <code>beatiful soup</code> implements a great HTML parser. The parsed object can be interrogated in various ways as it contains all the information about the HTML structure of the original document. You should check out the <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/#get-text">official soup docs</a>.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Parse the email body into HTML elements</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parse the email body into HTML elements</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [24]:</div>
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Pull out only the non-markup tex</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pull out only the non-markup tex</span>
 <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 
-<span class="c"># Count the number of HTML elements and specific link elements</span>
+<span class="c1"># Count the number of HTML elements and specific link elements</span>
 <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
-<span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">))</span>
-<span class="c"># Sub in special strings for "counting"</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s">" linktag "</span>
+<span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>
+<span class="c1"># Sub in special strings for &quot;counting&quot;</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s2">&quot; htmltag &quot;</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s2">&quot; linktag &quot;</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lowercasing">Lowercasing<a class="anchor-link" href="#Lowercasing">¶</a></h2><p>We don't expect whether a word is capitalized or not to reflect some deep difference in tone or meaning, so we'll lowercase everything.</p>
+<h2 id="Lowercasing">Lowercasing<a class="anchor-link" href="#Lowercasing">&#182;</a></h2><p>We don't expect whether a word is capitalized or not to reflect some deep difference in tone or meaning, so we'll lowercase everything.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [25]:</div>
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Lowercase everything</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Lowercase everything</span>
 <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-email-and-web-addresses">Finding email and web addresses<a class="anchor-link" href="#Finding-email-and-web-addresses">¶</a></h2><p>We'll find and count the appearances of email and web addresses, and then replace each one with blank space. A very useful tool for all language processing is the <strong>regular expression</strong>, which is housed in the <code>re</code> module of the python standard lib. For more info you can refer to my brief but hopefully edifying <a href="http://sdsawtelle.github.io/blog/output/regular-expressions-in-python.html">overview of regexes in python</a>.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [26]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Replace all URLs with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(http|https)://[^\s]*"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c"># Replace all email addresses with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
-<span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-</pre></div>
+    </div>
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-email-and-web-addresses">Finding email and web addresses<a class="anchor-link" href="#Finding-email-and-web-addresses">&#182;</a></h2><p>We'll find and count the appearances of email and web addresses, and then replace each one with blank space. A very useful tool for all language processing is the <strong>regular expression</strong>, which is housed in the <code>re</code> module of the python standard lib. For more info you can refer to my brief but hopefully edifying <a href="http://sdsawtelle.github.io/blog/output/regular-expressions-in-python.html">overview of regexes in python</a>.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [27]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all URLs with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(http|https)://[^\s]*&quot;</span><span class="p">)</span>
+<span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; httpaddr &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+
+<span class="c1"># Replace all email addresses with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[^\s]+@[^\s]+[.][^\s]+\b&quot;</span><span class="p">)</span>
+<span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; emailaddr &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[27]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;\nklez  the virus that won t die\n \nalready the most prolific virus ever  klez continues to wreak havoc \n\nandrew brandt\n from the september  number  issue of pc world magazine\nposted thursday  august  number    number \n\n\nthe klez worm is approaching its seventh month of wriggling across \nthe web  making it one of the most persistent viruses ever  and \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from pc to pc \n\nantivirus software makers symantec and mcafee both report more than \n number  new infections daily  with no sign of letup at press time  the \nbritish security firm messagelabs estimates that  number  in every  number  \ne mail messages holds a variation of the klez virus  and says that \nklez has already surpassed last summer s sircam as the most prolific \nvirus ever \n\nand some newer klez variants aren t merely nuisances they can carry \nother viruses in them that corrupt your data \n\n \n\n httpaddr \n \nirregulars mailing list\n emailaddr \n httpaddr \n\n&apos;</pre>
+<pre>&#39;\nklez  the virus that won t die\n \nalready the most prolific virus ever  klez continues to wreak havoc \n\nandrew brandt\n from the september  number  issue of pc world magazine\nposted thursday  august  number    number \n\n\nthe klez worm is approaching its seventh month of wriggling across \nthe web  making it one of the most persistent viruses ever  and \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from pc to pc \n\nantivirus software makers symantec and mcafee both report more than \n number  new infections daily  with no sign of letup at press time  the \nbritish security firm messagelabs estimates that  number  in every  number  \ne mail messages holds a variation of the klez virus  and says that \nklez has already surpassed last summer s sircam as the most prolific \nvirus ever \n\nand some newer klez variants aren t merely nuisances they can carry \nother viruses in them that corrupt your data \n\n \n\n httpaddr \n \nirregulars mailing list\n emailaddr \n httpaddr \n\n&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-numbers,-dollar-signs,-and-punctuation">Finding numbers, dollar signs, and punctuation<a class="anchor-link" href="#Finding-numbers,-dollar-signs,-and-punctuation">¶</a></h2><p>We'd like to know the frequency of numbers and any punctuation which carries a tones, like exclamation marks, question marks, and dollar signs. After replacing the things we care about, we'll remove all other punctuation to get us closer to a pure bag of words.</p>
+<h2 id="Finding-numbers,-dollar-signs,-and-punctuation">Finding numbers, dollar signs, and punctuation<a class="anchor-link" href="#Finding-numbers,-dollar-signs,-and-punctuation">&#182;</a></h2><p>We'd like to know the frequency of numbers and any punctuation which carries a tones, like exclamation marks, question marks, and dollar signs. After replacing the things we care about, we'll remove all other punctuation to get us closer to a pure bag of words.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Replace all numbers with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[\d.]+\b"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all numbers with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[\d.]+\b&quot;</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; number &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c"># Replace all $, ! and ? with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[$]"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[!]"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[?]"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c1"># Replace all $, ! and ? with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[$]&quot;</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; dollar &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[!]&quot;</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; exclammark &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[?]&quot;</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; questmark &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c"># Remove all other punctuation (replace with white space)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c1"># Remove all other punctuation (replace with white space)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;([^\w\s]+)|([_-]+)&quot;</span><span class="p">)</span>  
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;\nklez  the virus that won t die\n \nalready the most prolific virus ever  klez continues to wreak havoc \n\nandrew brandt\n from the september  number  issue of pc world magazine\nposted thursday  august  number    number \n\n\nthe klez worm is approaching its seventh month of wriggling across \nthe web  making it one of the most persistent viruses ever  and \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from pc to pc \n\nantivirus software makers symantec and mcafee both report more than \n number  new infections daily  with no sign of letup at press time  the \nbritish security firm messagelabs estimates that  number  in every  number  \ne mail messages holds a variation of the klez virus  and says that \nklez has already surpassed last summer s sircam as the most prolific \nvirus ever \n\nand some newer klez variants aren t merely nuisances they can carry \nother viruses in them that corrupt your data \n\n \n\n httpaddr \n \nirregulars mailing list\n emailaddr \n httpaddr \n\n&apos;</pre>
+<pre>&#39;\nklez  the virus that won t die\n \nalready the most prolific virus ever  klez continues to wreak havoc \n\nandrew brandt\n from the september  number  issue of pc world magazine\nposted thursday  august  number    number \n\n\nthe klez worm is approaching its seventh month of wriggling across \nthe web  making it one of the most persistent viruses ever  and \nexperts warn that it may be a harbinger of new viruses that use a \ncombination of pernicious approaches to go from pc to pc \n\nantivirus software makers symantec and mcafee both report more than \n number  new infections daily  with no sign of letup at press time  the \nbritish security firm messagelabs estimates that  number  in every  number  \ne mail messages holds a variation of the klez virus  and says that \nklez has already surpassed last summer s sircam as the most prolific \nvirus ever \n\nand some newer klez variants aren t merely nuisances they can carry \nother viruses in them that corrupt your data \n\n \n\n httpaddr \n \nirregulars mailing list\n emailaddr \n httpaddr \n\n&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Standardizing-White-Space-and-Total-Word-Count">Standardizing White Space and Total Word Count<a class="anchor-link" href="#Standardizing-White-Space-and-Total-Word-Count">¶</a></h2><p>Standardizing white space is an important step, as it makes tokenizing the email into words straightforward. I do this as a last step since some of my preprocessing creates extra whitespace. The number of carriage returns (<code>\n</code>) and the number of blank lines (<code>\n\n</code>) might be predictive so we'll replace those with special strings.</p>
+<h2 id="Standardizing-White-Space-and-Total-Word-Count">Standardizing White Space and Total Word Count<a class="anchor-link" href="#Standardizing-White-Space-and-Total-Word-Count">&#182;</a></h2><p>Standardizing white space is an important step, as it makes tokenizing the email into words straightforward. I do this as a last step since some of my preprocessing creates extra whitespace. The number of carriage returns (<code>\n</code>) and the number of blank lines (<code>\n\n</code>) might be predictive so we'll replace those with special strings.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [30]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Replace all newlines and blanklines with special strings</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n\n"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace all newlines and blanklines with special strings</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\n&quot;</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; newline &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\n\n&quot;</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; blankline &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c"># Make all white space a single space</span>
-<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\s+"</span><span class="p">)</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+<span class="c1"># Make all white space a single space</span>
+<span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-<span class="c"># Remove any trailing or leading white space</span>
-<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+<span class="c1"># Remove any trailing or leading white space</span>
+<span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [31]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;newline klez the virus that won t die newline newline already the most prolific virus ever klez continues to wreak havoc newline newline andrew brandt newline from the september number issue of pc world magazine newline posted thursday august number number newline newline newline the klez worm is approaching its seventh month of wriggling across newline the web making it one of the most persistent viruses ever and newline experts warn that it may be a harbinger of new viruses that use a newline combination of pernicious approaches to go from pc to pc newline newline antivirus software makers symantec and mcafee both report more than newline number new infections daily with no sign of letup at press time the newline british security firm messagelabs estimates that number in every number newline e mail messages holds a variation of the klez virus and says that newline klez has already surpassed last summer s sircam as the most prolific newline virus ever newline newline and some newer klez variants aren t merely nuisances they can carry newline other viruses in them that corrupt your data newline newline newline newline httpaddr newline newline irregulars mailing list newline emailaddr newline httpaddr newline newline&apos;</pre>
+<pre>&#39;newline klez the virus that won t die newline newline already the most prolific virus ever klez continues to wreak havoc newline newline andrew brandt newline from the september number issue of pc world magazine newline posted thursday august number number newline newline newline the klez worm is approaching its seventh month of wriggling across newline the web making it one of the most persistent viruses ever and newline experts warn that it may be a harbinger of new viruses that use a newline combination of pernicious approaches to go from pc to pc newline newline antivirus software makers symantec and mcafee both report more than newline number new infections daily with no sign of letup at press time the newline british security firm messagelabs estimates that number in every number newline e mail messages holds a variation of the klez virus and says that newline klez has already surpassed last summer s sircam as the most prolific newline virus ever newline newline and some newer klez variants aren t merely nuisances they can carry newline other viruses in them that corrupt your data newline newline newline newline httpaddr newline newline irregulars mailing list newline emailaddr newline httpaddr newline newline&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This is a true bag of words, so now we can get our total word count to use in normalizing things like number of exclamation marks:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [32]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">nwords</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nwords</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">))</span>
 <span class="n">nwords</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>200</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Remove-Stop-Words-with-nltk">Remove Stop Words with <code>nltk</code><a class="anchor-link" href="#Remove-Stop-Words-with-nltk">¶</a></h2><p>Each email is going to have lots of common words which are the "glue" of the english language but don't carry much information. These are called <a href="https://en.wikipedia.org/wiki/Stop_words">Stop Words</a> and we will go ahead and strip them out from the start.</p>
+<h2 id="Remove-Stop-Words-with-nltk">Remove Stop Words with <code>nltk</code><a class="anchor-link" href="#Remove-Stop-Words-with-nltk">&#182;</a></h2><p>Each email is going to have lots of common words which are the "glue" of the english language but don't carry much information. These are called <a href="https://en.wikipedia.org/wiki/Stop_words">Stop Words</a> and we will go ahead and strip them out from the start.</p>
 <p>The Natural Language Tool Kit module (<code>ntlk</code>) defines a ton of functionality for processing text, including a corpus of these so-called stop words.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [33]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">nltk</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="k">import</span> <span class="n">stopwords</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s">"stopwords"</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;stopwords&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[nltk_data] Downloading package stopwords to
 [nltk_data]     C:\Users\Sonya\AppData\Roaming\nltk_data...
@@ -922,316 +2131,413 @@ http://tb.tf/mailman/listinfo/irregulars
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[33]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>True</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [34]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">"english"</span><span class="p">))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[34]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[34]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>153</pre>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [35]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">"english"</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[35]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>[&apos;i&apos;, &apos;me&apos;, &apos;my&apos;, &apos;myself&apos;, &apos;we&apos;, &apos;our&apos;, &apos;ours&apos;, &apos;ourselves&apos;, &apos;you&apos;, &apos;your&apos;]</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [36]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Remove all useless stopwords</span>
-<span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
-<span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)]</span>
-<span class="n">body</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keepwords</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [37]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[37]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&apos;newline klez virus die newline newline already prolific virus ever klez continues wreak havoc newline newline andrew brandt newline september number issue pc world magazine newline posted thursday august number number newline newline newline klez worm approaching seventh month wriggling across newline web making one persistent viruses ever newline experts warn may harbinger new viruses use newline combination pernicious approaches go pc pc newline newline antivirus software makers symantec mcafee report newline number new infections daily sign letup press time newline british security firm messagelabs estimates number every number newline e mail messages holds variation klez virus says newline klez already surpassed last summer sircam prolific newline virus ever newline newline newer klez variants merely nuisances carry newline viruses corrupt data newline newline newline newline httpaddr newline newline irregulars mailing list newline emailaddr newline httpaddr newline newline&apos;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Stemming-with-nltk">Stemming with <code>nltk</code><a class="anchor-link" href="#Stemming-with-nltk">¶</a></h2><p>This classifier is trying to determine the intent or tone of an email (spam vs. ham) by virtue of the specific words in that email. But we don't expect that a variation on the same root word, like "battery" versus "batteries", carries much difference in intent or tone. <strong>In "stemming" we replace all the variants of each root with the root itself: this reduces the complexity of the email representation without really reducing the information.</strong> The <code>nltk</code> module has several options for out-of-the-box stemmers.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [38]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
-<span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s">"english"</span><span class="p">)</span>
 
-<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s">"generously"</span><span class="p">)</span>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[38]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[35]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;generous&apos;</pre>
+<pre>[&#39;i&#39;, &#39;me&#39;, &#39;my&#39;, &#39;myself&#39;, &#39;we&#39;, &#39;our&#39;, &#39;ours&#39;, &#39;ourselves&#39;, &#39;you&#39;, &#39;your&#39;]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove all useless stopwords</span>
+<span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)]</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">keepwords</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;newline klez virus die newline newline already prolific virus ever klez continues wreak havoc newline newline andrew brandt newline september number issue pc world magazine newline posted thursday august number number newline newline newline klez worm approaching seventh month wriggling across newline web making one persistent viruses ever newline experts warn may harbinger new viruses use newline combination pernicious approaches go pc pc newline newline antivirus software makers symantec mcafee report newline number new infections daily sign letup press time newline british security firm messagelabs estimates number every number newline e mail messages holds variation klez virus says newline klez already surpassed last summer sircam prolific newline virus ever newline newline newer klez variants merely nuisances carry newline viruses corrupt data newline newline newline newline httpaddr newline newline irregulars mailing list newline emailaddr newline httpaddr newline newline&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Stemming-with-nltk">Stemming with <code>nltk</code><a class="anchor-link" href="#Stemming-with-nltk">&#182;</a></h2><p>This classifier is trying to determine the intent or tone of an email (spam vs. ham) by virtue of the specific words in that email. But we don't expect that a variation on the same root word, like "battery" versus "batteries", carries much difference in intent or tone. <strong>In "stemming" we replace all the variants of each root with the root itself: this reduces the complexity of the email representation without really reducing the information.</strong> The <code>nltk</code> module has several options for out-of-the-box stemmers.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [39]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Stem all words</span>
-<span class="n">words</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem.snowball</span> <span class="k">import</span> <span class="n">SnowballStemmer</span>
+<span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span>
+
+<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s2">&quot;generously&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;generous&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Stem all words</span>
+<span class="n">words</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">words</span><span class="p">]</span>
-<span class="n">body</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+<span class="n">body</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [40]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">body</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">body</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[40]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[40]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;newlin klez virus die newlin newlin alreadi prolif virus ever klez continu wreak havoc newlin newlin andrew brandt newlin septemb number issu pc world magazin newlin post thursday august number number newlin newlin newlin klez worm approach seventh month wriggl across newlin web make one persist virus ever newlin expert warn may harbing new virus use newlin combin pernici approach go pc pc newlin newlin antivirus softwar maker symantec mcafe report newlin number new infect daili sign letup press time newlin british secur firm messagelab estim number everi number newlin e mail messag hold variat klez virus say newlin klez alreadi surpass last summer sircam prolif newlin virus ever newlin newlin newer klez variant mere nuisanc carri newlin virus corrupt data newlin newlin newlin newlin httpaddr newlin newlin irregular mail list newlin emailaddr newlin httpaddr newlin newlin&apos;</pre>
+<pre>&#39;newlin klez virus die newlin newlin alreadi prolif virus ever klez continu wreak havoc newlin newlin andrew brandt newlin septemb number issu pc world magazin newlin post thursday august number number newlin newlin newlin klez worm approach seventh month wriggl across newlin web make one persist virus ever newlin expert warn may harbing new virus use newlin combin pernici approach go pc pc newlin newlin antivirus softwar maker symantec mcafe report newlin number new infect daili sign letup press time newlin british secur firm messagelab estim number everi number newlin e mail messag hold variat klez virus say newlin klez alreadi surpass last summer sircam prolif newlin virus ever newlin newlin newer klez variant mere nuisanc carri newlin virus corrupt data newlin newlin newlin newlin httpaddr newlin newlin irregular mail list newlin emailaddr newlin httpaddr newlin newlin&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Encapsulate-Preprocessing-in-a-Function">Encapsulate Preprocessing in a Function<a class="anchor-link" href="#Encapsulate-Preprocessing-in-a-Function">¶</a></h1><p>All of the above steps can into a function that spits out the final processed word salad.</p>
+<h1 id="Encapsulate-Preprocessing-in-a-Function">Encapsulate Preprocessing in a Function<a class="anchor-link" href="#Encapsulate-Preprocessing-in-a-Function">&#182;</a></h1><p>All of the above steps can into a function that spits out the final processed word salad.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [41]:</div>
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
-    <span class="sd">'''Produce a word salad from email body.'''</span>    
-    <span class="c"># Parse HTML extract content only (but count tags)</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s">'html.parser'</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;Produce a word salad from email body.&#39;&#39;&#39;</span>    
+    <span class="c1"># Parse HTML extract content only (but count tags)</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
     
-    <span class="c"># Pull out only the non-markup tex</span>
+    <span class="c1"># Pull out only the non-markup tex</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span>
 
-    <span class="c"># Count the number of HTML elements and specific link elements</span>
+    <span class="c1"># Count the number of HTML elements and specific link elements</span>
     <span class="n">nhtml</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">())</span>
-    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">))</span>
-    <span class="c"># Sub in special strings for "counting"</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s">" htmltag "</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s">" linktag "</span>
+    <span class="n">nlinks</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">))</span>
+    <span class="c1"># Sub in special strings for &quot;counting&quot;</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span> <span class="o">+</span> <span class="n">nhtml</span><span class="o">*</span><span class="s2">&quot; htmltag &quot;</span> <span class="o">+</span> <span class="n">nlinks</span><span class="o">*</span><span class="s2">&quot; linktag &quot;</span>
     
-    <span class="c"># lowercase everything</span>
+    <span class="c1"># lowercase everything</span>
     <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     
-    <span class="c"># Replace all URLs with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"(http|https)://[^\s]*"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" httpaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c1"># Replace all URLs with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(http|https)://[^\s]*&quot;</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nhttps</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; httpaddr &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c"># Replace all email addresses with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[^\s]+@[^\s]+[.][^\s]+\b"</span><span class="p">)</span>
-    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" emailaddr "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c1"># Replace all email addresses with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[^\s]+@[^\s]+[.][^\s]+\b&quot;</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">nemails</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">subn</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; emailaddr &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
     
-    <span class="c"># Replace all numbers with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\b[\d.]+\b"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" number "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c1"># Replace all numbers with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\b[\d.]+\b&quot;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; number &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c"># Replace all $, ! and ? with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[$]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" dollar "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[!]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" exclammark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"[?]"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" questmark "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c1"># Replace all $, ! and ? with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[$]&quot;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; dollar &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[!]&quot;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; exclammark &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;[?]&quot;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; questmark &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c"># Remove all other punctuation (replace with white space)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"([^\w\s]+)|([_-]+)"</span><span class="p">)</span>  
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c1"># Remove all other punctuation (replace with white space)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;([^\w\s]+)|([_-]+)&quot;</span><span class="p">)</span>  
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
     
-    <span class="c"># Replace all newlines and blanklines with special strings</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" newline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\n\n"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" blankline "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c1"># Replace all newlines and blanklines with special strings</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\n&quot;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; newline &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\n\n&quot;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; blankline &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c"># Make all white space a single space</span>
-    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s">r"\s+"</span><span class="p">)</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s">" "</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
+    <span class="c1"># Make all white space a single space</span>
+    <span class="n">regx</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;\s+&quot;</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">regx</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">repl</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">string</span><span class="o">=</span><span class="n">body</span><span class="p">)</span>
 
-    <span class="c"># Remove any trailing or leading white space</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
+    <span class="c1"># Remove any trailing or leading white space</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
  
-    <span class="c"># Remove all useless stopwords</span>
-    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">" "</span><span class="p">)</span>
-    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s">'english'</span><span class="p">)]</span>
+    <span class="c1"># Remove all useless stopwords</span>
+    <span class="n">bodywords</span> <span class="o">=</span> <span class="n">body</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="n">keepwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">word</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">bodywords</span> <span class="k">if</span> <span class="n">word</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">)]</span>
 
-    <span class="c"># Stem all words</span>
-    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s">"english"</span><span class="p">)</span>
+    <span class="c1"># Stem all words</span>
+    <span class="n">stemmer</span> <span class="o">=</span> <span class="n">SnowballStemmer</span><span class="p">(</span><span class="s2">&quot;english&quot;</span><span class="p">)</span>
     <span class="n">stemwords</span> <span class="o">=</span> <span class="p">[</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">wd</span><span class="p">)</span> <span class="k">for</span> <span class="n">wd</span> <span class="ow">in</span> <span class="n">keepwords</span><span class="p">]</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">stemwords</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">body</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [42]:</div>
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Try out our function</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Try out our function</span>
 <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">[</span><span class="mi">179</span><span class="p">])</span>
 <span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 <span class="n">processed</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[42]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>&apos;newlin newlin newlin hello emailaddr newlin newlin seen nbc cbs cnn even oprah exclammark health newlin discoveri actual revers age burn fat newlin without diet exercis exclammark proven discoveri even newlin report new england journal medicin newlin forget age diet forev exclammark guarante exclammark newlin newlin reduc bodi fat build lean muscl without exercis exclammark newlin enhac sexual perform newlin remov wrinkl cellulit newlin lower blood pressur improv cholesterol profil newlin improv sleep vision memori newlin restor hair color growth newlin strengthen immun system newlin increas energi cardiac output newlin turn back bodi biolog time clock number number year newlin number month usag exclammark exclammark exclammark newlin free inform get free newlin number month suppli hgh click newlin receiv email subscrib newlin opt america mail list newlin remov relat maillist newlin newlin click newlin newlin newlin htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag linktag linktag&apos;</pre>
+<pre>&#39;newlin newlin newlin hello emailaddr newlin newlin seen nbc cbs cnn even oprah exclammark health newlin discoveri actual revers age burn fat newlin without diet exercis exclammark proven discoveri even newlin report new england journal medicin newlin forget age diet forev exclammark guarante exclammark newlin newlin reduc bodi fat build lean muscl without exercis exclammark newlin enhac sexual perform newlin remov wrinkl cellulit newlin lower blood pressur improv cholesterol profil newlin improv sleep vision memori newlin restor hair color growth newlin strengthen immun system newlin increas energi cardiac output newlin turn back bodi biolog time clock number number year newlin number month usag exclammark exclammark exclammark newlin free inform get free newlin number month suppli hgh click newlin receiv email subscrib newlin opt america mail list newlin remov relat maillist newlin newlin click newlin newlin newlin htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag htmltag linktag linktag&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Building-Our-Corpus-of--Emails">Building Our Corpus of  Emails<a class="anchor-link" href="#Building-Our-Corpus-of--Emails">¶</a></h1><p>Whatever algorithm we ultimately use for classification will require numeric feature vectors, so mapping each word salad to such a vector is the next main task. We'll start by building a corpus of the raw email bodies, that is just a list of email body strings, and we'll build alongside it a list of the processed email body strings for our own inspection. These lists can later be fed into algorithms for vectorization.</p>
+<h1 id="Building-Our-Corpus-of--Emails">Building Our Corpus of  Emails<a class="anchor-link" href="#Building-Our-Corpus-of--Emails">&#182;</a></h1><p>Whatever algorithm we ultimately use for classification will require numeric feature vectors, so mapping each word salad to such a vector is the next main task. We'll start by building a corpus of the raw email bodies, that is just a list of email body strings, and we'll build alongside it a list of the processed email body strings for our own inspection. These lists can later be fed into algorithms for vectorization.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [43]:</div>
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">emails_raw</span> <span class="o">=</span>  <span class="p">[</span><span class="s">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c"># Reserve in memory, faster than append</span>
-<span class="n">emails_processed</span> <span class="o">=</span>  <span class="p">[</span><span class="s">"email"</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c"># Reserve in memory, faster than append</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">)</span>  <span class="c"># Ground truth vector</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emails_raw</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Reserve in memory, faster than append</span>
+<span class="n">emails_processed</span> <span class="o">=</span>  <span class="p">[</span><span class="s2">&quot;email&quot;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Reserve in memory, faster than append</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">hamfiles</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">spamfiles</span><span class="p">)</span>  <span class="c1"># Ground truth vector</span>
 
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">fpath</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">hamfiles</span> <span class="o">+</span> <span class="n">spamfiles</span><span class="p">):</span>
-    <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>  <span class="c"># Extract only the email body text</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="n">get_body</span><span class="p">(</span><span class="n">fpath</span><span class="p">)</span>  <span class="c1"># Extract only the email body text</span>
     <span class="n">emails_raw</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">body</span>
-    <span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c"># All preprocessing</span>
+    <span class="n">processed</span> <span class="o">=</span> <span class="n">word_salad</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>  <span class="c1"># All preprocessing</span>
     <span class="n">emails_processed</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">processed</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [44]:</div>
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Pickle these objects for easier access later</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"easyham_and_spam_corpus_raw_and_processed_and_y.pickle"</span><span class="p">,</span> <span class="s">"wb"</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Pickle these objects for easier access later</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;easyham_and_spam_corpus_raw_and_processed_and_y.pickle&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">myfile</span><span class="p">:</span>
     <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">([</span><span class="n">emails_raw</span><span class="p">,</span> <span class="n">emails_processed</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">myfile</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>We're now in position to start mapping emails into a numeric vector space. It turns out there are a lot of ways in which to do this and the proper ML approach would be to search over this space using cross-validation to identify the best approach. This is the subject of Spam Part II. We'll explore different vectorization schemes and feed these vectors into a Support Vector Machine to classify each email.</p>
+
 </div>
 </div>
 </div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -1248,6 +2554,7 @@ http://tb.tf/mailman/listinfo/irregulars
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

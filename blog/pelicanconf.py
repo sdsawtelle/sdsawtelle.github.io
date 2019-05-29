@@ -2,10 +2,6 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-import sys
-# reload(sys)
-# sys.setdefaultencoding("utf-8")
-
 AUTHOR = u'Sonya Sawtelle'
 SITENAME = u'Evening Session'
 SITESUBTITLE = u'exploring data science and python'
@@ -38,7 +34,6 @@ DEFAULT_PAGINATION = 100
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
-
 MARKUP = ('md', 'ipynb')
 
 PLUGIN_PATH = './plugins'
@@ -46,3 +41,5 @@ PLUGINS = ['ipynb.markup']
 
 LOAD_CONTENT_CACHE = False
 THEME = "pelican-themes/clean-blog"
+
+# SHOW_SUMMARIES = False

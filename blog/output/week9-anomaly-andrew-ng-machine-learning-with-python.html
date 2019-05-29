@@ -11,7 +11,7 @@
         <title>Evening Session</title>
 
             <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -112,15 +112,1055 @@
 *
 * IPython notebook
 *
-*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
 <style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -155,12 +1195,15 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -171,17 +1214,54 @@
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-implement-Anomaly-Detection-for-a-sample-data-set-from-Andrew-Ng&#x27;s-Machine-Learning-Course.">In which I implement Anomaly Detection for a sample data set from Andrew Ng's Machine Learning Course.<a class="anchor-link" href="#In-which-I-implement-Anomaly-Detection-for-a-sample-data-set-from-Andrew-Ng&#x27;s-Machine-Learning-Course.">¶</a></h1><p>Week 9 of Andrew Ng's ML course on Coursera discusses two very common applied ML algorithms: anomaly detection (think fraud detection or manufacturing quality control) and recommender systems (think Amazon or Netflix). Here I focus on the anomaly detection portion and use the homework data set to learn about the relevant python tools.</p>
-<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
+<h1 id="In-which-I-implement-Anomaly-Detection-for-a-sample-data-set-from-Andrew-Ng's-Machine-Learning-Course.">In which I implement Anomaly Detection for a sample data set from Andrew Ng's Machine Learning Course.<a class="anchor-link" href="#In-which-I-implement-Anomaly-Detection-for-a-sample-data-set-from-Andrew-Ng's-Machine-Learning-Course.">&#182;</a></h1><p>Week 9 of Andrew Ng's ML course on Coursera discusses two very common applied ML algorithms: anomaly detection (think fraud detection or manufacturing quality control) and recommender systems (think Amazon or Netflix). Here I focus on the anomaly detection portion and use the homework data set to learn about the relevant python tools.</p>
+<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">&#182;</a></h2><ul>
 <li><code>EllipticEnvelope</code> for fitting a multivariate Gaussian with a robust covariance estimate</li>
 <li><code>IsolationForest</code> for a decision-tree approach to anomaly detection in higher dimensions</li>
 <li><code>countourf</code> and <code>meshgrid</code> for plotting countours of a 3D function</li>
@@ -189,24 +1269,23 @@
 <li><code>GridSearchCV</code> with <code>make_scorer</code> for using a different evaluation metric than your estimator's default</li>
 </ul>
 </blockquote>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">¶</a></h1>
+<h1 id="Quick-Look-at-the-Data">Quick Look at the Data<a class="anchor-link" href="#Quick-Look-at-the-Data">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [158]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">scipy.io</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">scipy.stats</span> <span class="k">as</span> <span class="nn">stats</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span> 
@@ -214,126 +1293,174 @@
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pickle</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk9</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cd</span> <span class="n">hw</span><span class="o">-</span><span class="n">wk9</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>C:\Users\Sonya\Box Sync\Projects\course-machine-learning\hw-wk9
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Anomaly-Detection:-Node-Failure-in-a-Network-of-Servers">Anomaly Detection: Node Failure in a Network of Servers<a class="anchor-link" href="#Anomaly-Detection:-Node-Failure-in-a-Network-of-Servers">¶</a></h3><p>In the anomaly detection part of this homework we are trying to predict when a particular server in a network is going to fail - hopefully an anomalous event! We have two data sets from this system to practice on: a toy set with only two features, and a higher dimensional data set that presents more of a challenge. In both sets each observation is a "response" from a server, which has certain characteristics like throughput in mb/sec and latency in milliseconds (the two features in the toy data set).</p>
+<h3 id="Anomaly-Detection:-Node-Failure-in-a-Network-of-Servers">Anomaly Detection: Node Failure in a Network of Servers<a class="anchor-link" href="#Anomaly-Detection:-Node-Failure-in-a-Network-of-Servers">&#182;</a></h3><p>In the anomaly detection part of this homework we are trying to predict when a particular server in a network is going to fail - hopefully an anomalous event! We have two data sets from this system to practice on: a toy set with only two features, and a higher dimensional data set that presents more of a challenge. In both sets each observation is a "response" from a server, which has certain characteristics like throughput in mb/sec and latency in milliseconds (the two features in the toy data set).</p>
 <p>For both data sets we have labels for the points, meaning we know which server responses actually heralded a server failure and are considered "anomalous".</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [796]:</div>
+<div class="prompt input_prompt">In&nbsp;[796]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s">"ex8data1.mat"</span><span class="p">)</span>
-<span class="n">trash</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">X1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"X"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"yval"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"Xval"</span><span class="p">]</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;ex8data1.mat&quot;</span><span class="p">)</span>
+<span class="n">trash</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">X1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;yval&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Xval&quot;</span><span class="p">]</span>
 <span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y1</span><span class="p">))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [829]:</div>
+<div class="prompt input_prompt">In&nbsp;[829]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s">"ex8data2.mat"</span><span class="p">)</span>
-<span class="n">X2_normal</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"X"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"yval"</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s">"Xval"</span><span class="p">]</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="s2">&quot;ex8data2.mat&quot;</span><span class="p">)</span>
+<span class="n">X2_normal</span><span class="p">,</span> <span class="n">y2</span><span class="p">,</span> <span class="n">X2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;X&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;yval&quot;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;Xval&quot;</span><span class="p">]</span>
 <span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y2</span><span class="p">))</span>
 <span class="n">y2_normal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">X2_normal</span><span class="p">))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [830]:</div>
+<div class="prompt input_prompt">In&nbsp;[830]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y2</span><span class="p">,</span> <span class="n">y2_normal</span><span class="p">])</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y2</span><span class="p">,</span> <span class="n">y2_normal</span><span class="p">])</span>
 <span class="n">X2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">X2</span><span class="p">,</span> <span class="n">X2_normal</span><span class="p">])</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [799]:</div>
+<div class="prompt input_prompt">In&nbsp;[799]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X2</span><span class="o">.</span><span class="n">shape</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X2</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[799]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[799]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>((307, 2), (1100, 11))</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [800]:</div>
+<div class="prompt input_prompt">In&nbsp;[800]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Toy Data: Server Responses"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"inliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;throughput&quot;</span><span class="p">,</span> <span class="s2">&quot;latency&quot;</span><span class="p">,</span> <span class="s2">&quot;Toy Data: Server Responses&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;inliers&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;outliers&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[800]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[800]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1decc9df668></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1decc9df668&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZUAAAElCAYAAAAskX9OAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl8lNXZ//HPlZ0EQwIhbEoAF1BUFrUURQT3rSoqLT6u
@@ -597,87 +1724,111 @@ ePy9Ov/jnPtb1Ht8Gvg10Bn4I/A/wf737/RCzn0AXI1PgA/gr/lZdcQluznzpX0RSSQz+wLIcM4d
 EOPxF+JHGxjunJsa1+BEGkElFZEWFNmGEbHuFOBA4J8tH5FIfKlNRaRl3WBmA/B3y1cAA/DVeSvx
 d+w3hQZ+lIRTUhFpWe/h21OuAtrhG/afB24I7v5vCtVlS8KpTUVEROJGbSoiIhI3SioiIhI3Sioi
 IhI3SioiIhI3SioiIhI3SioiIhI3/x/Av+ZW+87r7wAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Since this cluster is pretty isotropic we shouldn't have much trouble with simple independent Gaussian modeling assumption common in density estimation for anomaly detection.</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>The second data set is a more difficult (read: realistic) set, it lives in a higher dimensinoal space <em>and</em> has fewer observations. We can't plot this data set natively, but we can do PCA to cast it to 2D. In theory the mode of the data in $R^n$ should still look like the mode of the data in $R^2$, right? (Right??).</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [801]:</div>
+<div class="prompt input_prompt">In&nbsp;[801]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="k">import</span> <span class="n">PCA</span>
 <span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
-<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c"># Reduce to k=3 dimensions</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># Reduce to k=3 dimensions</span>
 <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [802]:</div>
+<div class="prompt input_prompt">In&nbsp;[802]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
 <span class="n">X_reduce</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [806]:</div>
+<div class="prompt input_prompt">In&nbsp;[806]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Plot all the ground truth points together with the predictions</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot all the ground truth points together with the predictions</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"x_composite_1"</span><span class="p">,</span> <span class="s">"x_composite_2"</span><span class="p">,</span> <span class="s">"Outliers in Reduced Dimension"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">"x_composite_3"</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;x_composite_1&quot;</span><span class="p">,</span> <span class="s2">&quot;x_composite_2&quot;</span><span class="p">,</span> <span class="s2">&quot;Outliers in Reduced Dimension&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;x_composite_3&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot the compressed data points</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"inliers"</span><span class="p">)</span>
+<span class="c1"># Plot the compressed data points</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;inliers&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot x's for the ground truth outliers</span>
+<span class="c1"># Plot x&#39;s for the ground truth outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outliers"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;outliers&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[806]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[806]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1decd410a20></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1decd410a20&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0AAADtCAYAAAAcNaZ2AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl4FFXWxn9VvWeHhJ2QBASVfVEQUEdEBBwdUVxAVBAX
@@ -1672,219 +2823,292 @@ V202MAQmDJls4LN5My+H7eURurmH2xwh9PTOCPEd59zEe3+x+/KWz9U5V0MoaoeKbLNEHg69pErB
 LWL8+1e7tO8YYsOVlM+l1puIecZIAA9IRMdYFRt1Q8yBKQ9eGzjzEqibL7K5iwR9jYo/R/RU3aMO
 hwVwBmo5zhTQRh91Iwx55t9VxCM3wAkJ/9ZybefYr4XEepTwxfyI6Wbk8wnTXaFukV64/8Raw77R
 ICOuZLgF2w0sY+4C35dJHQAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So even after some drastic compression (3-fold reduction) we can still see that outliers are more "marginal".</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Anomaly-Detection-(AD)">Anomaly Detection (AD)<a class="anchor-link" href="#Anomaly-Detection-(AD)">¶</a></h1><p><strong>The heart of all AD is that you want to fit a generating distribution or decision boundary for normal points, and then use this to label new points as normal (AKA inlier) or anomalous (AKA outlier)</strong> This comes in different flavors depending on the quality of your training data (see the <a href="http://scikit-learn.org/stable/modules/outlier_detection.html">official sklearn docs</a> and also <a href="https://perso.telecom-paristech.fr/~goix/nicolas_goix_osi_presentation.pdf">this presentation</a>):</p>
+<h1 id="Anomaly-Detection-(AD)">Anomaly Detection (AD)<a class="anchor-link" href="#Anomaly-Detection-(AD)">&#182;</a></h1><p><strong>The heart of all AD is that you want to fit a generating distribution or decision boundary for normal points, and then use this to label new points as normal (AKA inlier) or anomalous (AKA outlier)</strong> This comes in different flavors depending on the quality of your training data (see the <a href="http://scikit-learn.org/stable/modules/outlier_detection.html">official sklearn docs</a> and also <a href="https://perso.telecom-paristech.fr/~goix/nicolas_goix_osi_presentation.pdf">this presentation</a>):</p>
 <ul>
 <li><strong>Unsupservised (Outlier Detection)</strong>. We have an unlabeled training set that we assume contains normal and outlier points, and we want to use robust tools which have a way of fitting a density to just the mode of the data and ignoring points far from this mode.</li>
 <li><strong>Semi-Supervised (Novelty Detection)</strong>. We have a labeled training set containing only normal points that we fit a density for. Then we predict whether new points are anomalous or normal based on this density. </li>
 <li><strong>Fully Supervised</strong>. We have a labeled training set of known normal and known outlier points. We fit a density estimate using only normal points, and then fit a decision threshold on this density using a reserved sample of normal points and the known outliers. That is, you choose the probability threshold $\epsilon$ that gives you the best F1 score (or other evaluation metric suitable for skewed classes).</li>
 </ul>
-<h2 id="Anomaly-Detection-in-Sklearn">Anomaly Detection in Sklearn<a class="anchor-link" href="#Anomaly-Detection-in-Sklearn">¶</a></h2><p>Scikit-learn has a host of AD-related tools:</p>
+<h2 id="Anomaly-Detection-in-Sklearn">Anomaly Detection in Sklearn<a class="anchor-link" href="#Anomaly-Detection-in-Sklearn">&#182;</a></h2><p>Scikit-learn has a host of AD-related tools:</p>
 <ul>
 <li><strong><code>OneClassSVM</code></strong>: (supervised or semi-supervised) can fit a tight decision boundary around a set of normal points, but it will not do well with a mixed data set already containing outliers. </li>
 <li><strong><code>EllipticEnvelope</code></strong>: (unsupervised or supervised) it fits the tightest Gaussian (smallest volume ellipsoid) that it can while discarding some fixed fraction of <em>contamination</em> points set by the user. </li>
 <li><strong><code>IsolationForest</code></strong>: (unsupervised) this is a decision tree technique that works well in higher dimensional sets (since we've not covered decision trees I'll leave this alone).</li>
 </ul>
 <p>A wonderful graphic from <a href="http://scikit-learn.org/stable/auto_examples/covariance/plot_outlier_detection.html#sphx-glr-auto-examples-covariance-plot-outlier-detection-py">the sklearn user guide</a> shows a comparison of the performance of these tools on different data sets:</p>
-<p><img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_outlier_detection_0011.png" width="600" />
-<img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_outlier_detection_0021.png" width="600" />
-<img src="http://scikit-learn.org/stable/_images/sphx_glr_plot_outlier_detection_0031.png" width="600" /></p>
+<p><img src=http://scikit-learn.org/stable/_images/sphx_glr_plot_outlier_detection_0011.png width=600></img>
+<img src=http://scikit-learn.org/stable/_images/sphx_glr_plot_outlier_detection_0021.png width=600></img>
+<img src=http://scikit-learn.org/stable/_images/sphx_glr_plot_outlier_detection_0031.png width=600></img></p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Unsupervised-AD-with-EllipticEnvelope">Unsupervised AD with EllipticEnvelope<a class="anchor-link" href="#Unsupervised-AD-with-EllipticEnvelope">¶</a></h2><p>First let's pretend we don't have labels, i.e. we don't know which server responses actually heralded a server failure and are considered "anomalous". Let's see how reasonable of a picture we can paint with an unsupervised approach.</p>
+<h2 id="Unsupervised-AD-with-EllipticEnvelope">Unsupervised AD with EllipticEnvelope<a class="anchor-link" href="#Unsupervised-AD-with-EllipticEnvelope">&#182;</a></h2><p>First let's pretend we don't have labels, i.e. we don't know which server responses actually heralded a server failure and are considered "anomalous". Let's see how reasonable of a picture we can paint with an unsupervised approach.</p>
 <p>A relatively simple model for the inlier-generating distribution is the multivariate Gaussian, which is parameterized by $\mu \in R^n$ and a covariance matrix $\Sigma \in R^{nxn}$. This model can capture <em>correlations</em> between the data, so it can distort the Gaussian along any $x_i = x_2$ line and take an ellipsoid shape generally. The class <code>EllipticEnvelope</code> takes your unlabeled $X$ and <code>fit</code>s such a multivariate Gaussian density to it.</p>
 <p><strong>The presence of outliers in $X$ can cause a huge distortion in the fitted Gaussian, but a more robust estimate can be had by modifying the parameter <code>contamination</code> which indicates the fraction of points in $X$ which the class is free to discard in fitting.</strong> <code>EllipticEnvelope</code> will then determine which points to discard such that it can fit the ellipsoid with smallest volume. With an unlableled data set we'll have to guess a reasonable level for outlier contamination: something between 0 and 5 % should be realistic if your dealing with <em>actual</em> outliers.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [612]:</div>
+<div class="prompt input_prompt">In&nbsp;[612]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="k">import</span> <span class="n">EllipticEnvelope</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.covariance</span> <span class="k">import</span> <span class="n">EllipticEnvelope</span>
 <span class="n">outlier_frac</span> <span class="o">=</span> <span class="mf">0.035</span>
 <span class="n">ell</span> <span class="o">=</span> <span class="n">EllipticEnvelope</span><span class="p">(</span><span class="n">contamination</span><span class="o">=</span><span class="n">outlier_frac</span><span class="p">)</span>
 <span class="n">ell</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[612]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[612]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>EllipticEnvelope(assume_centered=False, contamination=0.035,
          random_state=None, store_precision=True, support_fraction=None)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Per usual, this class implements a <code>predict</code> method which returns a binary "outlier" or "not outlier" decision. Alternatively the <code>decision_function</code> method returns a continuous value that reflects the fitted density at the input point(s).</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [613]:</div>
+<div class="prompt input_prompt">In&nbsp;[613]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Binary prediction of normal vs. outlier</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Binary prediction of normal vs. outlier</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
-<span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Outlier points are predicted as -1</span>
+<span class="nb">sum</span><span class="p">(</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Outlier points are predicted as -1</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[613]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[613]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>11</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [614]:</div>
+<div class="prompt input_prompt">In&nbsp;[614]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Continuous output of the decision_function</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Continuous output of the decision_function</span>
 <span class="n">decision</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 <span class="n">decision</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">decision</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[614]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[614]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>(-4.3761070113275036, 2.0039418560521365)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [615]:</div>
+<div class="prompt input_prompt">In&nbsp;[615]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Get the "thresholding" value from the decision function</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Get the &quot;thresholding&quot; value from the decision function</span>
 <span class="n">threshold</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">scoreatpercentile</span><span class="p">(</span><span class="n">ell</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X1</span><span class="p">),</span> <span class="mi">100</span><span class="o">*</span><span class="n">outlier_frac</span><span class="p">)</span>
 <span class="n">threshold</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[615]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[615]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>0.00057344596350503152</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A good way to visualize the fitted Gaussian distributions are with a countour plot over a <code>meshgrid</code> representing our feature plane.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [616]:</div>
+<div class="prompt input_prompt">In&nbsp;[616]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># First make a meshgrid for the (x1, x2) feature space</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># First make a meshgrid for the (x1, x2) feature space</span>
 <span class="n">x1s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">x2s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>
 <span class="n">x1grid</span><span class="p">,</span> <span class="n">x2grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x1s</span><span class="p">,</span> <span class="n">x2s</span><span class="p">)</span> 
 </pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [617]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Now make predictions for each point on the grid </span>
-<span class="n">Xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x1grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">x2grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>  <span class="c"># Feature matrix containing all grid points</span>
-<span class="n">dens</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">Xgrid</span><span class="p">)</span>
-<span class="n">densgrid</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x1grid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c"># Reshape the vector of densities back onto the "grid"</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [618]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Use the densites as the "z" values in a contour plot on the grid</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Outlier Decision Function Contours"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x1grid</span><span class="p">,</span> <span class="n">x2grid</span><span class="p">,</span> <span class="n">densgrid</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">dens</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
 
-<span class="c"># Pot circles around the predicted outliers</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  
-           <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[617]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Now make predictions for each point on the grid </span>
+<span class="n">Xgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x1grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">x2grid</span><span class="o">.</span><span class="n">ravel</span><span class="p">()))</span>  <span class="c1"># Feature matrix containing all grid points</span>
+<span class="n">dens</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">Xgrid</span><span class="p">)</span>
+<span class="n">densgrid</span> <span class="o">=</span> <span class="n">dens</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x1grid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># Reshape the vector of densities back onto the &quot;grid&quot;</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[618]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use the densites as the &quot;z&quot; values in a contour plot on the grid</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;throughput&quot;</span><span class="p">,</span> <span class="s2">&quot;latency&quot;</span><span class="p">,</span> <span class="s2">&quot;Outlier Decision Function Contours&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x1grid</span><span class="p">,</span> <span class="n">x2grid</span><span class="p">,</span> <span class="n">densgrid</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">dens</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
+
+<span class="c1"># Pot circles around the predicted outliers</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  
+           <span class="n">facecolors</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted outliers&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[618]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[618]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1dec5bd5f98></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1dec5bd5f98&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYsAAAElCAYAAAAV9s4VAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJztnXl4FFXWh9/TSdgJEBZF2cQVEMQBN0SNuILouKGIgqgg
@@ -2211,53 +3435,74 @@ YtX5eeXYpaQoYnndiqK4iYj8DGQaY9rH+P1LsUa3n2iMmRVX4xQF9SwUJak42wgcaWcAhwIfJt8i
 RYkObbNQlORyl4gcjjU6exNwOFZYLR9rhHh10An/lIShYqEoyeVzrPaKkUADrAbxV4C77NHm1UFj
 ykrC0DYLRVEUpVK0zUJRFEWpFBULRVEUpVJULBRFUZRKUbFQFEVRKkXFQlEURakUFQtFURSlUv4f
 1pg+KixTQsIAAAAASUVORK5CYII=
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Overly-Robust-Covariance-Estimation">Overly Robust Covariance Estimation<a class="anchor-link" href="#Overly-Robust-Covariance-Estimation">¶</a></h3><p>Using a contamination value of 3.5% looks reasonable, but not great. What happens if we just don't tell the class how much contamination there is? To my eye it gets a little overexcited in discarding points... Probably better in most cases to set a reasonable contamination value.</p>
+<h3 id="Overly-Robust-Covariance-Estimation">Overly Robust Covariance Estimation<a class="anchor-link" href="#Overly-Robust-Covariance-Estimation">&#182;</a></h3><p>Using a contamination value of 3.5% looks reasonable, but not great. What happens if we just don't tell the class how much contamination there is? To my eye it gets a little overexcited in discarding points... Probably better in most cases to set a reasonable contamination value.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [599]:</div>
+<div class="prompt input_prompt">In&nbsp;[599]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Let it discard as many points as it wants in fitting</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Let it discard as many points as it wants in fitting</span>
 <span class="n">ell</span> <span class="o">=</span> <span class="n">EllipticEnvelope</span><span class="p">()</span>
 <span class="n">ell</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 
-<span class="c"># Use the densites as the "z" values in a contour plot on the grid</span>
+<span class="c1"># Use the densites as the &quot;z&quot; values in a contour plot on the grid</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Maximally Robust Fit"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;throughput&quot;</span><span class="p">,</span> <span class="s2">&quot;latency&quot;</span><span class="p">,</span> <span class="s2">&quot;Maximally Robust Fit&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">x1grid</span><span class="p">,</span> <span class="n">x2grid</span><span class="p">,</span> <span class="n">densgrid</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues_r</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">dens</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">threshold</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
 
-<span class="c"># Pot circles around the predicted outliers</span>
+<span class="c1"># Pot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  
-           <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outliers"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
+           <span class="n">facecolors</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted outliers&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[599]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[599]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1dec5863ac8></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1dec5863ac8&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAYsAAAElCAYAAAAV9s4VAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd4FFXbh+9nN5WSTu8IKCBNUKQoAQsgiIiiWChSFVBB
@@ -2604,209 +3849,256 @@ IlaVnnEN8DngFcA3gCty+e/1uVHEFuDzJMd2F8nml9fRy3QoSr1uY0wzkbQDeHFEvH6Q1y8izW6f
 HRGbh1Q5Y3DPwpgRpRgjKMjeC5wP/GLkNTJmYDhmYczIskzSDNLs7GeBGaRhtX2kGeInghf8M8OG
 nYUxI8tDpHjFEmASKSC+DliWZ5ufCB5TNsOGYxbGGGMa4piFMcaYhthZGGOMaYidhTHGmIbYWRhj
 jGmInYUxxpiG2FkYY4xpyP8BNqNg0O57S7UAAAAASUVORK5CYII=
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Supervised-AD-with-EllipticEnvelope-and-GridSearchCV">Supervised AD with EllipticEnvelope and GridSearchCV<a class="anchor-link" href="#Supervised-AD-with-EllipticEnvelope-and-GridSearchCV">¶</a></h2><p>Obviously we don't want to just <em>guess</em> a good contamination value - and in higher dimensional sets we'd be hard-pressed to get any kind of visual feedback on our guesses. Since we have labels for our data we can run use <code>EllipticEnvelope</code> in a supervised way with a grid search through the <code>contamination</code> parameter. This turns out to be not quite so straightforward as with some estimators...</p>
+<h2 id="Supervised-AD-with-EllipticEnvelope-and-GridSearchCV">Supervised AD with EllipticEnvelope and GridSearchCV<a class="anchor-link" href="#Supervised-AD-with-EllipticEnvelope-and-GridSearchCV">&#182;</a></h2><p>Obviously we don't want to just <em>guess</em> a good contamination value - and in higher dimensional sets we'd be hard-pressed to get any kind of visual feedback on our guesses. Since we have labels for our data we can run use <code>EllipticEnvelope</code> in a supervised way with a grid search through the <code>contamination</code> parameter. This turns out to be not quite so straightforward as with some estimators...</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>First we need to recast our y-values into the form that <code>EllipticEnvelope</code> uses: 1 and -1 rather than 0 and 1.</strong> We'll also reshape it to the right sklearn shape (a true vector rather than an array of arrays).</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [736]:</div>
+<div class="prompt input_prompt">In&nbsp;[736]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
 <span class="n">y1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">y1</span><span class="p">[</span><span class="n">y1</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Sadly with very skewed classes we can't do simple K-Fold cross-validation because we probably won't get a good sampling of the underrepresented class in each fold. We instead want <code>StratifiedKFold</code>, which  pays attention to lables to ensure a representative balance in each fold. This would* be what <code>GridSearchCV</code> uses by default if our estimator was a classifier, but <code>EllipticEnvelope</code> is not. So instead we need to specify the grid search <code>cv</code> as an iterable which contains manual train/test splits... boo :(</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [621]:</div>
+<div class="prompt input_prompt">In&nbsp;[621]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">StratifiedKFold</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">StratifiedKFold</span>
 <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">folds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">y1</span><span class="p">))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Finally, the default scoring for <code>EllipticEnvelope</code> is mean classification accuracy, which is absolutely terrible for skewed class applications (it does very well by just ignoring the underrepresented class entirely). We'll want to instead use the <code>recall_score</code> metric which reflects how well the algorithm can correctly identify positive examples (outliers). This metric can be transformed into a sklearn scoring function using the <code>make_scorer</code> function.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [622]:</div>
+<div class="prompt input_prompt">In&nbsp;[622]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="k">import</span> <span class="n">GridSearchCV</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">make_scorer</span>
 
 <span class="n">f1sc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">)</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s">"contamination"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;contamination&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">ell</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">ps</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1sc</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
 <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X1</span><span class="p">,</span> <span class="n">y1</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[622]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[622]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>GridSearchCV(cv=[(array([102, 103, ..., 305, 306]), array([  0,   1, ..., 101, 300])), (array([  0,   1, ..., 305, 306]), array([102, 103, ..., 302, 303])), (array([  0,   1, ..., 302, 303]), array([201, 202, ..., 305, 306]))],
-       error_score=&apos;raise&apos;,
+       error_score=&#39;raise&#39;,
        estimator=EllipticEnvelope(assume_centered=False, contamination=0.035,
          random_state=None, store_precision=True, support_fraction=None),
        fit_params={}, iid=True, n_jobs=1,
-       param_grid={&apos;contamination&apos;: array([ 0.     ,  0.00357,  0.00714,  0.01071,  0.01429,  0.01786,
+       param_grid={&#39;contamination&#39;: array([ 0.     ,  0.00357,  0.00714,  0.01071,  0.01429,  0.01786,
         0.02143,  0.025  ,  0.02857,  0.03214,  0.03571,  0.03929,
         0.04286,  0.04643,  0.05   ])},
-       pre_dispatch=&apos;2*n_jobs&apos;, refit=True, return_train_score=True,
+       pre_dispatch=&#39;2*n_jobs&#39;, refit=True, return_train_score=True,
        scoring=make_scorer(f1_score), verbose=0)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [623]:</div>
+<div class="prompt input_prompt">In&nbsp;[623]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[[</span><span class="s">"mean_test_score"</span><span class="p">,</span> <span class="s">"std_test_score"</span><span class="p">,</span> <span class="s">"params"</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">"mean_test_score"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">,</span> <span class="s2">&quot;std_test_score&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[623]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[623]:</div>
+
+
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>mean_test_score</th>
-<th>std_test_score</th>
-<th>params</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>5</th>
-<td>0.996678</td>
-<td>0.004675</td>
-<td>{'contamination': 0.0178571428571}</td>
-</tr>
-<tr>
-<th>4</th>
-<td>0.995009</td>
-<td>0.004045</td>
-<td>{'contamination': 0.0142857142857}</td>
-</tr>
-<tr>
-<th>6</th>
-<td>0.993288</td>
-<td>0.004736</td>
-<td>{'contamination': 0.0214285714286}</td>
-</tr>
-<tr>
-<th>3</th>
-<td>0.990050</td>
-<td>0.003985</td>
-<td>{'contamination': 0.0107142857143}</td>
-</tr>
-<tr>
-<th>0</th>
-<td>0.988413</td>
-<td>0.004629</td>
-<td>{'contamination': 0.0}</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>params</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>0.996678</td>
+      <td>0.004675</td>
+      <td>{'contamination': 0.0178571428571}</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.995009</td>
+      <td>0.004045</td>
+      <td>{'contamination': 0.0142857142857}</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.993288</td>
+      <td>0.004736</td>
+      <td>{'contamination': 0.0214285714286}</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.990050</td>
+      <td>0.003985</td>
+      <td>{'contamination': 0.0107142857143}</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>0.988413</td>
+      <td>0.004629</td>
+      <td>{'contamination': 0.0}</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [624]:</div>
+<div class="prompt input_prompt">In&nbsp;[624]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Make predictions with our optimized envelope fit</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make predictions with our optimized envelope fit</span>
 <span class="n">optimal_ell</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">optimal_ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X1</span><span class="p">)</span>
 
-<span class="c"># Use the densites as the "z" values in a contour plot on the grid</span>
+<span class="c1"># Use the densites as the &quot;z&quot; values in a contour plot on the grid</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"throughput"</span><span class="p">,</span> <span class="s">"latency"</span><span class="p">,</span> <span class="s">"Outlier Decision Function Contours"</span><span class="p">)</span>
-<span class="c"># ax.contourf(x1grid, x2grid, densgrid, cmap=plt.cm.Blues_r, levels=np.linspace(dens.min(), threshold, 7))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"g"</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;throughput&quot;</span><span class="p">,</span> <span class="s2">&quot;latency&quot;</span><span class="p">,</span> <span class="s2">&quot;Outlier Decision Function Contours&quot;</span><span class="p">)</span>
+<span class="c1"># ax.contourf(x1grid, x2grid, densgrid, cmap=plt.cm.Blues_r, levels=np.linspace(dens.min(), threshold, 7))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot circles around the predicted outliers</span>
+<span class="c1"># Plot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">pred</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>  
-           <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outliers"</span><span class="p">)</span>
+           <span class="n">facecolors</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted outliers&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot x's for the ground truth outliers</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> 
-           <span class="n">color</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"ground truth outliers"</span><span class="p">)</span>
+<span class="c1"># Plot x&#39;s for the ground truth outliers</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X1</span><span class="p">[</span><span class="n">y1</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> 
+           <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;ground truth outliers&quot;</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">"lower right"</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s2">&quot;lower right&quot;</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[624]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[624]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1dec5c59c18></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1dec5c59c18&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZUAAAElCAYAAAAskX9OAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3Xl4VOX1wPHvmQQCKmEHkS0goggIClapW0BANrcCAqKA
@@ -3114,136 +4406,172 @@ GLbPd7193Skij+J6032mqgXanYyxkopJKqr6Le6LsjowC3gM90scCq+mCV8X9foSVf0G+BWwABiK
 9cNxow10VdU3YhqcMSVgJRVjKpC/DcO3rC/QDni54iMyJrasTcWYinWziJyMu1r+Z+BkXHXeFtwV
 +2VhAz+auLOkYkzFehPXnjIJqIlr2F8A3Oxd/V8WVpdt4s7aVIwxxsSMtakYY4yJGUsqxhhjYsaS
 ijHGmJixpGKMMSZmLKkYY4yJGUsqxhhjYub/AVMwunQXpVepAAAAAElFTkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Higher-Dimensional-Anomaly-Detection">Higher Dimensional Anomaly Detection<a class="anchor-link" href="#Higher-Dimensional-Anomaly-Detection">¶</a></h2><p>Now let's try this on the high-dimensional data set. This is going to be much more difficult because now we have 11 features and only 100 observations! First get $y2$ ship shape:</p>
+<h2 id="Higher-Dimensional-Anomaly-Detection">Higher Dimensional Anomaly Detection<a class="anchor-link" href="#Higher-Dimensional-Anomaly-Detection">&#182;</a></h2><p>Now let's try this on the high-dimensional data set. This is going to be much more difficult because now we have 11 features and only 100 observations! First get $y2$ ship shape:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [835]:</div>
+<div class="prompt input_prompt">In&nbsp;[835]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
 <span class="n">y2</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 <span class="n">y2</span><span class="p">[</span><span class="n">y2</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Don&#x27;t-Use-EllipticEnvelope-Unless-You-Have-Lots-of-Data">Don't Use EllipticEnvelope Unless You Have Lots of Data<a class="anchor-link" href="#Don&#x27;t-Use-EllipticEnvelope-Unless-You-Have-Lots-of-Data">¶</a></h3><p>To fit the full multivariate Gaussian we need at least $n^2/2$ points, where $n$ is the number of features. We really don't have enough data to do a good job with this model, so let me just show you how bad it actually is...</p>
+<h3 id="Don't-Use-EllipticEnvelope-Unless-You-Have-Lots-of-Data">Don't Use EllipticEnvelope Unless You Have Lots of Data<a class="anchor-link" href="#Don't-Use-EllipticEnvelope-Unless-You-Have-Lots-of-Data">&#182;</a></h3><p>To fit the full multivariate Gaussian we need at least $n^2/2$ points, where $n$ is the number of features. We really don't have enough data to do a good job with this model, so let me just show you how bad it actually is...</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [808]:</div>
+<div class="prompt input_prompt">In&nbsp;[808]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Grid Search over contamination fraction</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Grid Search over contamination fraction</span>
 <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">folds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>
 <span class="n">ell</span> <span class="o">=</span> <span class="n">EllipticEnvelope</span><span class="p">()</span>
 <span class="n">f1sc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">)</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s">"contamination"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;contamination&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">15</span><span class="p">)}</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">ell</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">ps</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1sc</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
 <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[808]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[808]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>GridSearchCV(cv=[(array([  38,   59, ..., 1098, 1099]), array([  0,   1, ..., 372, 373])), (array([   0,    1, ..., 1098, 1099]), array([ 38,  59, ..., 735, 736])), (array([  0,   1, ..., 735, 736]), array([  88,   91, ..., 1098, 1099]))],
-       error_score=&apos;raise&apos;,
+       error_score=&#39;raise&#39;,
        estimator=EllipticEnvelope(assume_centered=False, contamination=0.1, random_state=None,
          store_precision=True, support_fraction=None),
        fit_params={}, iid=True, n_jobs=1,
-       param_grid={&apos;contamination&apos;: array([ 0.     ,  0.00357,  0.00714,  0.01071,  0.01429,  0.01786,
+       param_grid={&#39;contamination&#39;: array([ 0.     ,  0.00357,  0.00714,  0.01071,  0.01429,  0.01786,
         0.02143,  0.025  ,  0.02857,  0.03214,  0.03571,  0.03929,
         0.04286,  0.04643,  0.05   ])},
-       pre_dispatch=&apos;2*n_jobs&apos;, refit=True, return_train_score=True,
+       pre_dispatch=&#39;2*n_jobs&#39;, refit=True, return_train_score=True,
        scoring=make_scorer(f1_score), verbose=0)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Remember, we're in $R^{11}$ so we'll need our PCA-compressed representations to visualize these results.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [809]:</div>
+<div class="prompt input_prompt">In&nbsp;[809]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Make predictions with our optimized envelope fit</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make predictions with our optimized envelope fit</span>
 <span class="n">optimal_ell</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">optimal_ell</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [811]:</div>
+<div class="prompt input_prompt">In&nbsp;[811]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"x_composite_1"</span><span class="p">,</span> <span class="s">"x_composite_2"</span><span class="p">,</span> <span class="s">"Outliers in Reduced Dimension"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">"x_composite_3"</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;x_composite_1&quot;</span><span class="p">,</span> <span class="s2">&quot;x_composite_2&quot;</span><span class="p">,</span> <span class="s2">&quot;Outliers in Reduced Dimension&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;x_composite_3&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot the reduced dimensionality data points</span>
+<span class="c1"># Plot the reduced dimensionality data points</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c"># Plot circles around the predicted outliers</span>
+<span class="c1"># Plot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted outlier&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot x's for the ground truth outliers</span>
+<span class="c1"># Plot x&#39;s for the ground truth outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;outlier&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[811]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[811]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1decd596e10></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1decd596e10&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0AAADtCAYAAAAcNaZ2AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8FHX+/58z29OB0EvoghRBEATBo4iKel85C4IoXcTC
@@ -4256,166 +5584,213 @@ FArnXygiv1fVXtOXWn36RWQGzhX1Dm6T7ZSvHoJbScUAdyxovE3tGL8/jPMNx0WFSVR8EOfzvIID
 wHdxIHoA28XGPQ1xGjjBbX9t2M/cBMyxsHi7PoED9Gbc5s97uKUME9ZWAAAAVUlEQVTqNdwTDq8B
 /wVmjKBNYdfG53BPIzxNpP97Es4feRG4hQP+VqtrwQjKewwH1vt9YVe4Tz7dAeozGp/uedzTIkVh
 /fviPml99K0B8sV8uGPM/wc8kKQAVVnNnAAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Try-IsolationForests-for-High-Dimensions">Try IsolationForests for High Dimensions<a class="anchor-link" href="#Try-IsolationForests-for-High-Dimensions">¶</a></h2>
+<h2 id="Try-IsolationForests-for-High-Dimensions">Try IsolationForests for High Dimensions<a class="anchor-link" href="#Try-IsolationForests-for-High-Dimensions">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [909]:</div>
+<div class="prompt input_prompt">In&nbsp;[909]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">IsolationForest</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.ensemble</span> <span class="k">import</span> <span class="n">IsolationForest</span>
 <span class="n">forest</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">()</span>
 
-<span class="c"># Grid Search over contamination fraction</span>
+<span class="c1"># Grid Search over contamination fraction</span>
 <span class="n">skf</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> 
 <span class="n">folds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">skf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">))</span>
 <span class="n">forest</span> <span class="o">=</span> <span class="n">IsolationForest</span><span class="p">()</span>
 <span class="n">forest</span><span class="o">.</span><span class="n">contamination</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">y2</span><span class="p">)</span>
 <span class="n">f1sc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">)</span>
-<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s">"n_estimators"</span><span class="p">:</span> <span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">115</span><span class="p">)}</span>
+<span class="n">ps</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;n_estimators&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mi">55</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">115</span><span class="p">)}</span>
 <span class="n">search</span> <span class="o">=</span> <span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="o">=</span><span class="n">forest</span><span class="p">,</span> <span class="n">param_grid</span><span class="o">=</span><span class="n">ps</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="n">f1sc</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">folds</span><span class="p">)</span>
 <span class="n">search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[909]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[909]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
 <pre>GridSearchCV(cv=[(array([  38,   59, ..., 1098, 1099]), array([  0,   1, ..., 372, 373])), (array([   0,    1, ..., 1098, 1099]), array([ 38,  59, ..., 735, 736])), (array([  0,   1, ..., 735, 736]), array([  88,   91, ..., 1098, 1099]))],
-       error_score=&apos;raise&apos;,
+       error_score=&#39;raise&#39;,
        estimator=IsolationForest(bootstrap=False, contamination=0.0090909090909090905,
-        max_features=1.0, max_samples=&apos;auto&apos;, n_estimators=100, n_jobs=1,
+        max_features=1.0, max_samples=&#39;auto&#39;, n_estimators=100, n_jobs=1,
         random_state=None, verbose=0),
        fit_params={}, iid=True, n_jobs=1,
-       param_grid={&apos;n_estimators&apos;: (55, 75, 95, 115)},
-       pre_dispatch=&apos;2*n_jobs&apos;, refit=True, return_train_score=True,
+       param_grid={&#39;n_estimators&#39;: (55, 75, 95, 115)},
+       pre_dispatch=&#39;2*n_jobs&#39;, refit=True, return_train_score=True,
        scoring=make_scorer(f1_score), verbose=0)</pre>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [910]:</div>
+<div class="prompt input_prompt">In&nbsp;[910]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[[</span><span class="s">"mean_test_score"</span><span class="p">,</span> <span class="s">"std_test_score"</span><span class="p">,</span> <span class="s">"params"</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s">"mean_test_score"</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="k">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">,</span> <span class="s2">&quot;std_test_score&quot;</span><span class="p">,</span> <span class="s2">&quot;params&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;mean_test_score&quot;</span><span class="p">],</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[910]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[910]:</div>
+
+
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>mean_test_score</th>
-<th>std_test_score</th>
-<th>params</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>3</th>
-<td>0.994958</td>
-<td>0.001296</td>
-<td>{'n_estimators': 115}</td>
-</tr>
-<tr>
-<th>1</th>
-<td>0.994034</td>
-<td>0.000657</td>
-<td>{'n_estimators': 75}</td>
-</tr>
-<tr>
-<th>2</th>
-<td>0.992650</td>
-<td>0.001311</td>
-<td>{'n_estimators': 95}</td>
-</tr>
-<tr>
-<th>0</th>
-<td>0.991720</td>
-<td>0.000011</td>
-<td>{'n_estimators': 55}</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>params</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>0.994958</td>
+      <td>0.001296</td>
+      <td>{'n_estimators': 115}</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.994034</td>
+      <td>0.000657</td>
+      <td>{'n_estimators': 75}</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.992650</td>
+      <td>0.001311</td>
+      <td>{'n_estimators': 95}</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>0.991720</td>
+      <td>0.000011</td>
+      <td>{'n_estimators': 55}</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [907]:</div>
+<div class="prompt input_prompt">In&nbsp;[907]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Make predictions with our optimized decision tree</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Make predictions with our optimized decision tree</span>
 <span class="n">optimal_forest</span> <span class="o">=</span> <span class="n">search</span><span class="o">.</span><span class="n">best_estimator_</span>
 <span class="n">pred</span> <span class="o">=</span> <span class="n">optimal_forest</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X2</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [911]:</div>
+<div class="prompt input_prompt">In&nbsp;[911]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot all the reduced-dimensionality ground truth points together with the predictions</span>
 <span class="kn">from</span> <span class="nn">mpl_toolkits.mplot3d</span> <span class="k">import</span> <span class="n">Axes3D</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s">'3d'</span><span class="p">)</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"x_composite_1"</span><span class="p">,</span> <span class="s">"x_composite_2"</span><span class="p">,</span> <span class="s">"Outliers in Reduced Dimension"</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s">"x_composite_3"</span><span class="p">)</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s1">&#39;3d&#39;</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;x_composite_1&quot;</span><span class="p">,</span> <span class="s2">&quot;x_composite_2&quot;</span><span class="p">,</span> <span class="s2">&quot;Outliers in Reduced Dimension&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">&quot;x_composite_3&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot the reduced dimensionality data points</span>
+<span class="c1"># Plot the reduced dimensionality data points</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-<span class="c"># Plot circles around the predicted outliers</span>
+<span class="c1"># Plot circles around the predicted outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">pred</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s">"none"</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s">"r"</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"predicted outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">facecolors</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;predicted outlier&quot;</span><span class="p">)</span>
 
-<span class="c"># Plot x's for the ground truth outliers</span>
+<span class="c1"># Plot x&#39;s for the ground truth outliers</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">zs</span><span class="o">=</span><span class="n">X_reduce</span><span class="p">[</span><span class="n">y2</span><span class="o">==-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> 
-           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s">"x"</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s">"red"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">"outlier"</span><span class="p">)</span>
+           <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;outlier&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[911]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[911]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><matplotlib.legend.legend at 0x1ded100db00></pre>
+<pre>&lt;matplotlib.legend.Legend at 0x1ded100db00&gt;</pre>
 </div>
+
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAV0AAADtCAYAAAAcNaZ2AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl8VNX5/9/nzp6QjQQCQgi7IoigCILQsrhhbUvFBUQF
@@ -5448,17 +6823,24 @@ Lck90Gzz7UKmRWimG3W7vNpBMz11Bub7JwohPiXZKMuLMj8mIYQRminqGrRJtsO6fAhoI6kBwu0J
 9LaqPeB+HQfNNmzTwk+0CA+DZvMshUaA16GR6A7IWWxoqyGOAjiEO/Zas535DIBR0s9OXn8HjdDP
 Qpv8qYE2VP0B2gqHvwC4BcDYjWcymzYeh7Ya4Q+wtH87QLNHngdQC434r8q8RnQjvQnQyPpDnV8p
 7pFN10p+7sam+x201SKTzeWvC3tYvqN/sXLfgA23h93/A+ZbDvXmfcXGAAAAAElFTkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -5475,6 +6857,7 @@ Qpv8qYE2VP0B2gqHvwC4BcDYjWcymzYeh7Ya4Q+wtH87QLNHngdQC434r8q8RnQjvQnQyPpDnV8p
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

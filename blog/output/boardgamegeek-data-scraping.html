@@ -11,7 +11,7 @@
         <title>Evening Session</title>
 
             <link href="sdsawtelle.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Full Atom Feed" />
-            <link href="sdsawtelle.github.io/feeds/python.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
+            <link href="sdsawtelle.github.io/feeds/{slug}.atom.xml" type="application/atom+xml" rel="alternate" title="Evening Session Categories Atom Feed" />
 
         <!-- Bootstrap Core CSS -->
         <link href="./theme/css/bootstrap.min.css" rel="stylesheet">
@@ -114,15 +114,1055 @@
 *
 * IPython notebook
 *
-*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+*/
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
+.ansibold {
+  font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
+  border-color: #ababab;
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
+}
+@media print {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  min-width: 0;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell > div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area > div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area > div.highlight > pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the <head> if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
+  border: 0;
+  border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev <Maniac@SoftwareManiacs.Org>
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+div.output_area .mglyph > img {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 1px 0 1px 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+
+
+
+.rendered_html pre,
+
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell > div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+</style>
 <style type="text/css">.highlight .hll { background-color: #ffffcc }
 .highlight  { background: #f8f8f8; }
 .highlight .c { color: #408080; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
 .highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
 .highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
 .highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
 .highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
@@ -157,12 +1197,15 @@
 .highlight .nv { color: #19177C } /* Name.Variable */
 .highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
 .highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
 .highlight .mf { color: #666666 } /* Literal.Number.Float */
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -173,36 +1216,74 @@
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<style type="text/css">
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+</style>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">In which I am continually distracted from scraping board game info by the board games themselves.<a class="anchor-link" href="#In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">¶</a></h1><p><em>This is part 1 of a series of posts about a recommender system deployed as a web app. In <a href="http://sdsawtelle.github.io/blog/output/recommender-system-neighborhood-methods-boardgamegeek.html">part 2</a> I build out the actual recommender algorithm from my scraped data. In <a href="http://sdsawtelle.github.io/blog/output/simple-web-app-web2py-pythonanywhere.html">part 3</a> I talk about actually implementing the app using the <code>web2py</code> framework and the <code>d3.js</code> library.</em></p>
+<h1 id="In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">In which I am continually distracted from scraping board game info by the board games themselves.<a class="anchor-link" href="#In-which-I-am-continually-distracted-from-scraping-board-game-info-by-the-board-games-themselves.">&#182;</a></h1><p><em>This is part 1 of a series of posts about a recommender system deployed as a web app. In <a href="http://sdsawtelle.github.io/blog/output/recommender-system-neighborhood-methods-boardgamegeek.html">part 2</a> I build out the actual recommender algorithm from my scraped data. In <a href="http://sdsawtelle.github.io/blog/output/simple-web-app-web2py-pythonanywhere.html">part 3</a> I talk about actually implementing the app using the <code>web2py</code> framework and the <code>d3.js</code> library.</em></p>
 <p><a href="https://boardgamegeek.com/">Boardgamegeek.com</a> (BGG) is an online community for board game enthusiasts that provides social network features as well as a huge database of board games with ratings, comments, statistics, and other features of each game. Now, I quite like board games, especially the more complex Euro-style games (like Settlers of Catan and Ticket to Ride). But what I <em>really</em> like is a gigantic steaming pile of data like this site. BGG also has a (recently improved) API so we can mostly avoid the heartache of trying to parse HTML from a page in the wild.</p>
 <p>So what would I do with all this data, besides fill a pool with it and swim around Scrooge McDuck style? My idea was to make a recommender system tool for helping people find more "GeekBuddies" on the site: you input your user name and get a visualization of your GeekBuddy social graph out to two-degrees of separation (friends-of-friends) where 2nd-degree connections are colored according to some metric of similarity with the user. I was picturing something very fancy like this:
-<img src="https://maxdemarzidotcom.files.wordpress.com/2012/02/network.png?w=580&amp;h=478" width="250"></image></img></p>
+<img src=https://maxdemarzidotcom.files.wordpress.com/2012/02/network.png?w=580&h=478 width=250>&lt;/image&gt;</p>
 <p>The first step seemed to be actually, you know, getting the data, and that is what this post is about!</p>
-<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">¶</a></h2><ul>
+<blockquote><h2 id="Tools-Covered:">Tools Covered:<a class="anchor-link" href="#Tools-Covered:">&#182;</a></h2><ul>
 <li><code>requests</code> package for retrieving HTML pages and using APIs</li>
 <li><code>bs4</code> package for parsing HTML and XML documents</li>
 <li><code>sqlite3</code> for interacting with local SQLite databases via python</li>
 <li><code>df.to_sql()</code> and <code>df.from_sql()</code> for seamlessly moving data between a DB and pandas DF</li>
 </ul>
 </blockquote>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">requests</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">from</span> <span class="nn">bs4</span> <span class="k">import</span> <span class="n">BeautifulSoup</span>
 <span class="kn">import</span> <span class="nn">scipy.io</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -213,16 +1294,24 @@
 <span class="kn">from</span> <span class="nn">time</span> <span class="k">import</span> <span class="n">sleep</span>
 <span class="kn">import</span> <span class="nn">timeit</span>
 
-<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c"># my snippets</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c"># my aesthetic preferences for plotting</span>
+<span class="kn">import</span> <span class="nn">snips</span> <span class="k">as</span> <span class="nn">snp</span>  <span class="c1"># my snippets</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">prettyplot</span><span class="p">(</span><span class="n">matplotlib</span><span class="p">)</span>  <span class="c1"># my aesthetic preferences for plotting</span>
 <span class="o">%</span><span class="k">matplotlib</span> inline
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>a
 [1, 2]
@@ -230,161 +1319,182 @@
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">req</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
-    <span class="sd">"""Make fault tolerant BGG server requests."""</span>
-    <span class="c"># Sleep to make sure you are not pinging the server to frequently</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">req</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make fault tolerant BGG server requests.&quot;&quot;&quot;</span>
+    <span class="c1"># Sleep to make sure you are not pinging the server to frequently</span>
     <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
-    <span class="c"># Keep trying requests until status-code is 200</span>
+    <span class="c1"># Keep trying requests until status-code is 200</span>
     <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>
     <span class="k">while</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
         <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="n">status_code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
-            <span class="c"># if status_code != 200:</span>
-                <span class="c"># print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
+            <span class="c1"># if status_code != 200:</span>
+                <span class="c1"># print(&quot;Server Error! Response Code %i. Retrying...&quot; % (r.status_code))</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="c"># print("An exception has occurred, probably a momentory loss of connection. Waiting three seconds...")</span>
+            <span class="c1"># print(&quot;An exception has occurred, probably a momentory loss of connection. Waiting three seconds...&quot;)</span>
             <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">r</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="The-Anatomy-of-Scraping-and-API-Calls">The Anatomy of Scraping and API Calls<a class="anchor-link" href="#The-Anatomy-of-Scraping-and-API-Calls">¶</a></h3><p>Using <code>requests</code> with <code>BeatifulSoup</code> is almost too easy. You send the server a single URL and it sends you back a response - you'll get HTML if your URL was just a normal page on the site, and you'll get XML back if instead your URL reflects the API format. (I'm just talking about the BGG API here - the documentation for which is <a href="https://boardgamegeek.com/wiki/page/BGG_XML_API#">here (version 1)</a> and <a href="https://boardgamegeek.com/wiki/page/BGG_XML_API2#toc11">here (version 2)</a>). Then you simply parse the response text with <code>BeatifulSoup</code> using the appropriate parser. Here is the basic anatomy of what we'll be doing (this example is an API call, returning XML):</p>
+<h3 id="The-Anatomy-of-Scraping-and-API-Calls">The Anatomy of Scraping and API Calls<a class="anchor-link" href="#The-Anatomy-of-Scraping-and-API-Calls">&#182;</a></h3><p>Using <code>requests</code> with <code>BeatifulSoup</code> is almost too easy. You send the server a single URL and it sends you back a response - you'll get HTML if your URL was just a normal page on the site, and you'll get XML back if instead your URL reflects the API format. (I'm just talking about the BGG API here - the documentation for which is <a href="https://boardgamegeek.com/wiki/page/BGG_XML_API#">here (version 1)</a> and <a href="https://boardgamegeek.com/wiki/page/BGG_XML_API2#toc11">here (version 2)</a>). Then you simply parse the response text with <code>BeatifulSoup</code> using the appropriate parser. Here is the basic anatomy of what we'll be doing (this example is an API call, returning XML):</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/user?name=Zazz&top;=1"</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>  <span class="c"># Use the xml parser for API responses and the html_parser for scraping</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c"># 404 not found and the like. Hopefully 200!</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.boardgamegeek.com/xmlapi2/user?name=Zazz&amp;top=1&quot;</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>  <span class="c1"># Use the xml parser for API responses and the html_parser for scraping</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>  <span class="c1"># 404 not found and the like. Hopefully 200!</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>200
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Sometimes a server will spazz out and flub your request or sometimes your connection will blink out in the middle of reading a response, so it's good to wrap <code>requests.get()</code> in something a little more fault tolerant:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-    <span class="sd">'''A wrapper to make robust https requests.'''</span>
-    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c"># Want to get a status-code of 200</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">request</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span> <span class="n">slp</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;A wrapper to make robust https requests.&#39;&#39;&#39;</span>
+    <span class="n">status_code</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># Want to get a status-code of 200</span>
     <span class="k">while</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>  <span class="c"># Don't ping the server too often</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="n">slp</span><span class="p">)</span>  <span class="c1"># Don&#39;t ping the server too often</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="n">status_code</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span>
             <span class="k">if</span> <span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s">"Server Error! Response Code %i. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying...&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
         <span class="k">except</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s">"An exception has occurred, probably a momentory loss of connection. Waiting one seconds..."</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;An exception has occurred, probably a momentory loss of connection. Waiting one seconds...&quot;</span><span class="p">)</span>
             <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">r</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Scraping-to-Get-Game-IDs">Scraping to Get Game IDs<a class="anchor-link" href="#Scraping-to-Get-Game-IDs">¶</a></h1><p>In an ideal world I'd have access to a list of all game IDs and a list of user names, and I could just start making API requests. This is not an ideal world, so instead I'm going to scrape the "Browse" section of BGG to acquire a list of game IDs.</p>
+<h1 id="Scraping-to-Get-Game-IDs">Scraping to Get Game IDs<a class="anchor-link" href="#Scraping-to-Get-Game-IDs">&#182;</a></h1><p>In an ideal world I'd have access to a list of all game IDs and a list of user names, and I could just start making API requests. This is not an ideal world, so instead I'm going to scrape the "Browse" section of BGG to acquire a list of game IDs.</p>
 <p>The <code>requests</code> package can be used in conjuntion with <code>bs4</code> to do some pretty powerful web scraping stuff. Here I'm going to request the HTLM for each page in the pages of results for browsing all boardgames. This actually works quite well as I can specify that I want to browse a list sorted by number of ratings, in descending order, and in this way I can cut off the scraping when I reach whatever ratings sparsity I want (maybe somewhere around 100 ratings per game?). I'm starting the scrape from <a href="https://boardgamegeek.com/browse/boardgame/page/1?sort=numvoters&amp;sortdir=desc">this page</a>. Remember to code in a short time delay (one or two seconds) between server requests, otherwise you might get your IP blacklisted, you hacker! For now the only info I'll pull is the game ID (an integer), the game name, the number of ratings, and the URL for a thumbnail pic of the game.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Initialize a DF to hold all our scraped game info</span>
-<span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"id"</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">,</span> <span class="s">"pic_url"</span><span class="p">])</span>
-<span class="n">min_nrate</span> <span class="o">=</span> <span class="mi">1</span><span class="n">e5</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Initialize a DF to hold all our scraped game info</span>
+<span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;nrate&quot;</span><span class="p">,</span> <span class="s2">&quot;pic_url&quot;</span><span class="p">])</span>
+<span class="n">min_nrate</span> <span class="o">=</span> <span class="mf">1e5</span>
 <span class="n">npage</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="c"># Scrap successful pages in the results until we get down to games with < 1000 ratings each</span>
-<span class="k">while</span> <span class="n">min_nrate</span> <span class="o">></span> <span class="mi">1000</span><span class="p">:</span>
-    <span class="c"># Get full HTML for a specific page in the full listing of boardgames sorted by </span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s">"https://boardgamegeek.com/browse/boardgame/page/%i?sort=numvoters&sortdir;=desc"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,))</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"html.parser"</span><span class="p">)</span>    
+<span class="c1"># Scrap successful pages in the results until we get down to games with &lt; 1000 ratings each</span>
+<span class="k">while</span> <span class="n">min_nrate</span> <span class="o">&gt;</span> <span class="mi">1000</span><span class="p">:</span>
+    <span class="c1"># Get full HTML for a specific page in the full listing of boardgames sorted by </span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">&quot;https://boardgamegeek.com/browse/boardgame/page/</span><span class="si">%i</span><span class="s2">?sort=numvoters&amp;sortdir=desc&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;html.parser&quot;</span><span class="p">)</span>    
     
-    <span class="c"># Get rows for the table listing all the games on this page</span>
-    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"tr"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">"id"</span><span class="p">:</span> <span class="s">"row_"</span><span class="p">})</span>  <span class="c"># Get list of all the rows (tags) in the list of games on this page</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"id"</span><span class="p">,</span> <span class="s">"name"</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">,</span> <span class="s">"pic_url"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)))</span>  <span class="c"># DF to hold this pages results</span>
+    <span class="c1"># Get rows for the table listing all the games on this page</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;tr&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;row_&quot;</span><span class="p">})</span>  <span class="c1"># Get list of all the rows (tags) in the list of games on this page</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;nrate&quot;</span><span class="p">,</span> <span class="s2">&quot;pic_url&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">table</span><span class="p">)))</span>  <span class="c1"># DF to hold this pages results</span>
     
-    <span class="c"># Loop through each row and pull out the info for that game</span>
+    <span class="c1"># Loop through each row and pull out the info for that game</span>
     <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
-        <span class="c"># Row may or may not start with a "boardgame rank" link, if YES then strip it</span>
-        <span class="n">links</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"a"</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s">"name"</span> <span class="ow">in</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="c1"># Row may or may not start with a &quot;boardgame rank&quot; link, if YES then strip it</span>
+        <span class="n">links</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s2">&quot;name&quot;</span> <span class="ow">in</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="k">del</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">gamelink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c"># Get the relative URL for the specific game</span>
-        <span class="n">gameid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gamelink</span><span class="p">[</span><span class="s">"href"</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">"/"</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>  <span class="c"># Get the game ID by parsing the relative URL</span>
-        <span class="n">gamename</span> <span class="o">=</span> <span class="n">gamelink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># Get the actual name of the game as the link contents</span>
-        <span class="n">imlink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c"># Get the URL for the game thumbnail</span>
-        <span class="n">thumbnail</span> <span class="o">=</span> <span class="n">imlink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"src"</span><span class="p">]</span>
+        <span class="n">gamelink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Get the relative URL for the specific game</span>
+        <span class="n">gameid</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">gamelink</span><span class="p">[</span><span class="s2">&quot;href&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># Get the game ID by parsing the relative URL</span>
+        <span class="n">gamename</span> <span class="o">=</span> <span class="n">gamelink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the actual name of the game as the link contents</span>
+        <span class="n">imlink</span> <span class="o">=</span> <span class="n">links</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># Get the URL for the game thumbnail</span>
+        <span class="n">thumbnail</span> <span class="o">=</span> <span class="n">imlink</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;src&quot;</span><span class="p">]</span>
 
-        <span class="n">ratings_str</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s">"td"</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s">"class"</span><span class="p">:</span> <span class="s">"collection_bggrating"</span><span class="p">})[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">nratings</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s">""</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ratings_str</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
+        <span class="n">ratings_str</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s2">&quot;td&quot;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;collection_bggrating&quot;</span><span class="p">})[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">contents</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">nratings</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ratings_str</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
 
         <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="p">[</span><span class="n">gameid</span><span class="p">,</span> <span class="n">gamename</span><span class="p">,</span> <span class="n">nratings</span><span class="p">,</span> <span class="n">thumbnail</span><span class="p">]</span>
 
-    <span class="c"># Concatenate the results of this page to the master dataframe</span>
-    <span class="n">min_nrate</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c"># The smallest number of ratings of any game on the page</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">"Page %i scraped, minimum number of ratings was %i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,</span> <span class="n">min_nrate</span><span class="p">))</span>
+    <span class="c1"># Concatenate the results of this page to the master dataframe</span>
+    <span class="n">min_nrate</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>  <span class="c1"># The smallest number of ratings of any game on the page</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Page </span><span class="si">%i</span><span class="s2"> scraped, minimum number of ratings was </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">npage</span><span class="p">,</span> <span class="n">min_nrate</span><span class="p">))</span>
     <span class="n">df_all</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_all</span><span class="p">,</span> <span class="n">df</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">npage</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c"># Keep the BGG server happy.</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># Keep the BGG server happy.</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Page 1 scraped, minimum number of ratings was 13045
 Page 2 scraped, minimum number of ratings was 8634
@@ -408,131 +1518,164 @@ Page 19 scraped, minimum number of ratings was 956
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="c"># Reset the index since we concatenated a bunch of DFs with the same index into one DF</span>
-<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="k">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-<span class="c"># Write the DF to .csv for future use</span>
-<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">"bgg_gamelist.csv"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s">"utf-8"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df_all</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Reset the index since we concatenated a bunch of DFs with the same index into one DF</span>
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Write the DF to .csv for future use</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;bgg_gamelist.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>nrate</th>
-<th>pic_url</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>0</th>
-<td>13</td>
-<td>Catan</td>
-<td>64963</td>
-<td>//cf.geekdo-images.com/images/pic2419375_mt.jpg</td>
-</tr>
-<tr>
-<th>1</th>
-<td>822</td>
-<td>Carcassonne</td>
-<td>64197</td>
-<td>//cf.geekdo-images.com/images/pic2337577_mt.jpg</td>
-</tr>
-<tr>
-<th>2</th>
-<td>30549</td>
-<td>Pandemic</td>
-<td>58807</td>
-<td>//cf.geekdo-images.com/images/pic1534148_mt.jpg</td>
-</tr>
-<tr>
-<th>3</th>
-<td>36218</td>
-<td>Dominion</td>
-<td>53785</td>
-<td>//cf.geekdo-images.com/images/pic394356_mt.jpg</td>
-</tr>
-<tr>
-<th>4</th>
-<td>68448</td>
-<td>7 Wonders</td>
-<td>48945</td>
-<td>//cf.geekdo-images.com/images/pic860217_mt.jpg</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>nrate</th>
+      <th>pic_url</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>13</td>
+      <td>Catan</td>
+      <td>64963</td>
+      <td>//cf.geekdo-images.com/images/pic2419375_mt.jpg</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>822</td>
+      <td>Carcassonne</td>
+      <td>64197</td>
+      <td>//cf.geekdo-images.com/images/pic2337577_mt.jpg</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>30549</td>
+      <td>Pandemic</td>
+      <td>58807</td>
+      <td>//cf.geekdo-images.com/images/pic1534148_mt.jpg</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>36218</td>
+      <td>Dominion</td>
+      <td>53785</td>
+      <td>//cf.geekdo-images.com/images/pic394356_mt.jpg</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>68448</td>
+      <td>7 Wonders</td>
+      <td>48945</td>
+      <td>//cf.geekdo-images.com/images/pic860217_mt.jpg</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"Number of games with > 1000 ratings is approximately %i"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s">"Total number of ratings from all these games is %i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Number of games with &gt; 1000 ratings is approximately </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total number of ratings from all these games is </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Number of games with > 1000 ratings is approximately 1900
+<pre>Number of games with &gt; 1000 ratings is approximately 1900
 Total number of ratings from all these games is 7593766
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Lets get a sense of how common different amounts of ratings are by histogramming.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
-<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s">"LOG(# Ratings)"</span><span class="p">,</span> <span class="s">"Count"</span><span class="p">,</span> <span class="s">"Distribution of LOG(# Ratings)"</span><span class="p">)</span>
-<span class="n">__</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">snp</span><span class="o">.</span><span class="n">labs</span><span class="p">(</span><span class="s2">&quot;LOG(# Ratings)&quot;</span><span class="p">,</span> <span class="s2">&quot;Count&quot;</span><span class="p">,</span> <span class="s2">&quot;Distribution of LOG(# Ratings)&quot;</span><span class="p">)</span>
+<span class="n">__</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)),</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaEAAAElCAYAAABNiV0MAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzt3XmcHHWd//HXO9xXhARCQAnhBsGVQ0RQyKCAICyC4OpP
@@ -720,580 +1863,669 @@ Fpa9h3Qfz3xSL75fkrqW/xaYXrX9OqQv83mkwL0YmJDX1Uq/zLK8fMO87TdqLL8yl+WFfCw2IgWh
 VKP7ckT8ZCDKZ+XzNSGz3h0H7Cxpj7ILMpRJWrnG4q+SmuL+tw9ZfoVUW/rv/pTLhjbXhMysJfL4
 cI+TmklH0X2v0+3ApPCXjdXgIGRmLSHpWOATwERSZ4MnSV3lT4iIl0osmg1hDkJmZlYaXxMyM7PS
 OAiZmVlpHITMzKw0DkJmZlYaByEzMyuNg5CZmZXm/wMXAL/xFW0ougAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Using-API-to-Get-Ratings-for-Games">Using API to Get Ratings for Games<a class="anchor-link" href="#Using-API-to-Get-Ratings-for-Games">¶</a></h1><p>Now that we have the integer game IDs, the specific ratings information for any game can be had, in XML form, directly from the API. This XML response is a lot cleaner and easier to parse than the HTML we had to scrape to get our list of game IDs. Each rating lives in it's own simple <code>comment</code> type div.</p>
+<h1 id="Using-API-to-Get-Ratings-for-Games">Using API to Get Ratings for Games<a class="anchor-link" href="#Using-API-to-Get-Ratings-for-Games">&#182;</a></h1><p>Now that we have the integer game IDs, the specific ratings information for any game can be had, in XML form, directly from the API. This XML response is a lot cleaner and easier to parse than the HTML we had to scrape to get our list of game IDs. Each rating lives in it's own simple <code>comment</code> type div.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Getting the ratings of specific board game (each is in a "comment" div)</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=213578&ratingcomments;=1"</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
-<span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">"comment"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Getting the ratings of specific board game (each is in a &quot;comment&quot; div)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">&quot;http://www.boardgamegeek.com/xmlapi2/thing?id=213578&amp;ratingcomments=1&quot;</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+<span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">&quot;comment&quot;</span><span class="p">)</span>
 <span class="n">comments</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>[<comment rating="10" username="naruko" value="" />,
- <comment rating="10" username="JavierKensei" value="" />,
- <comment rating="10" username="Grizzlylizard" value="" />,
- <comment rating="10" username="Globulor" value="This kickstarter rocks!!!!!" />,
- <comment rating="10" username="Yue99" value="Very good project, awesome minis!" />,
- <comment rating="10" username="Nargash" value="This game is now in kickstarter and will be so amayzing !!!!  Come and plede with all community help us to improve all we can have and reach in SG." />,
- <comment rating="10" username="Wimmoes" value="" />,
- <comment rating="9" username="Tefen" value="" />,
- <comment rating="8" username="Boost3r" value="" />,
- <comment rating="1" username="cadwal" value="Kickstarter exclusive miniatures make it impossible to complete the collection after release." />]</pre>
+<pre>[&lt;comment rating=&#34;10&#34; username=&#34;naruko&#34; value=&#34;&#34;/&gt;,
+ &lt;comment rating=&#34;10&#34; username=&#34;JavierKensei&#34; value=&#34;&#34;/&gt;,
+ &lt;comment rating=&#34;10&#34; username=&#34;Grizzlylizard&#34; value=&#34;&#34;/&gt;,
+ &lt;comment rating=&#34;10&#34; username=&#34;Globulor&#34; value=&#34;This kickstarter rocks!!!!!&#34;/&gt;,
+ &lt;comment rating=&#34;10&#34; username=&#34;Yue99&#34; value=&#34;Very good project, awesome minis!&#34;/&gt;,
+ &lt;comment rating=&#34;10&#34; username=&#34;Nargash&#34; value=&#34;This game is now in kickstarter and will be so amayzing !!!!  Come and plede with all community help us to improve all we can have and reach in SG.&#34;/&gt;,
+ &lt;comment rating=&#34;10&#34; username=&#34;Wimmoes&#34; value=&#34;&#34;/&gt;,
+ &lt;comment rating=&#34;9&#34; username=&#34;Tefen&#34; value=&#34;&#34;/&gt;,
+ &lt;comment rating=&#34;8&#34; username=&#34;Boost3r&#34; value=&#34;&#34;/&gt;,
+ &lt;comment rating=&#34;1&#34; username=&#34;cadwal&#34; value=&#34;Kickstarter exclusive miniatures make it impossible to complete the collection after release.&#34;/&gt;]</pre>
+</div>
+
+</div>
+
 </div>
 </div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;naruko&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Paged-API-Calls">Paged API Calls<a class="anchor-link" href="#Paged-API-Calls">&#182;</a></h3><p>With the BGG API ratings retrieval is paged, meaning when you send the URL requesting ratings for a particular item, you get back only a chunk of 100 ratings at a time. The chunk you get is controlled by the <code>page</code> parameter of the request so you should make a loop which keeps sending request, incrementing page each time, until the result is empty (you incremented past the last page of stuff). Remember that an empty list will evaluate to boolean <code>False</code> so we can use that to control our loop.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Start-Small:-Get-A-Toy-Data-Set">Start Small: Get A Toy Data Set<a class="anchor-link" href="#Start-Small:-Get-A-Toy-Data-Set">&#182;</a></h1><p>Ultimately I am going to want to pull ratings from all games with any significant number of ratings (like 50 or more). That is going to end up being  shit ton of games and ratings. More than my laptop can handle. So lets first get a toy data set to play with, so we can do all our troubleshooting and development with dataframe that won't melt my harddrive.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">comments</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s">"username"</span><span class="p">]</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dropping the 20 most-rated games would give a total number of ratings of </span><span class="si">%i</span><span class="s2">&quot;</span> 
+      <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">500</span><span class="p">:,</span> <span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
-<div class="output_text output_subarea output_execute_result">
-<pre>&apos;naruko&apos;</pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Paged-API-Calls">Paged API Calls<a class="anchor-link" href="#Paged-API-Calls">¶</a></h3><p>With the BGG API ratings retrieval is paged, meaning when you send the URL requesting ratings for a particular item, you get back only a chunk of 100 ratings at a time. The chunk you get is controlled by the <code>page</code> parameter of the request so you should make a loop which keeps sending request, incrementing page each time, until the result is empty (you incremented past the last page of stuff). Remember that an empty list will evaluate to boolean <code>False</code> so we can use that to control our loop.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Start-Small:-Get-A-Toy-Data-Set">Start Small: Get A Toy Data Set<a class="anchor-link" href="#Start-Small:-Get-A-Toy-Data-Set">¶</a></h1><p>Ultimately I am going to want to pull ratings from all games with any significant number of ratings (like 50 or more). That is going to end up being  shit ton of games and ratings. More than my laptop can handle. So lets first get a toy data set to play with, so we can do all our troubleshooting and development with dataframe that won't melt my harddrive.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [10]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"Dropping the 20 most-rated games would give a total number of ratings of %i"</span> 
-      <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">500</span><span class="p">:,</span> <span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(),))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="output_wrapper">
-<div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Dropping the 20 most-rated games would give a total number of ratings of 2592934
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="nb">print</span><span class="p">(</span><span class="s">"Thresholding at 2000 ratings gives %i games and %i total ratings"</span>
-     <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> 
-        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thresholding at 2000 ratings gives </span><span class="si">%i</span><span class="s2"> games and </span><span class="si">%i</span><span class="s2"> total ratings&quot;</span>
+     <span class="o">%</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> 
+        <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">,</span> <span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Thresholding at 2000 ratings gives 911 games and 1242793 total ratings
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Restrict the data set to fewer games that have fewer ratings (our toy data set!)</span>
-<span class="n">df_toy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span> <span class="o"><</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Restrict the data set to fewer games that have fewer ratings (our toy data set!)</span>
+<span class="n">df_toy</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">2000</span><span class="p">,</span> <span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I think I'll stick with the 2000 ratings or fewer threshold. Since we stopped scraping board games at 1000 ratings this is kind of a small range - only games with between 1000 and 2000 ratings! That's OK, it's just a toy set for now. Since we are going to grab about 1.2 million ratings in total, if we do it just in batches of 100, with a delay of 2 seconds per API ping, this would take an unacceptably long time.</p>
-<h3 id="Getting-Ratings-for-Multiple-Games-at-Once">Getting Ratings for Multiple Games at Once<a class="anchor-link" href="#Getting-Ratings-for-Multiple-Games-at-Once">¶</a></h3><p>Instead of going game-by-game, each API call I make will request the $n^{th}$ page of ratings for multiple games at once - I can do this just by providing a list of integer game IDs in the <code>id=</code> parameter of the URL. I'll set up a vector that initializes to the number of <em>full</em> (meaning has 100 comments) pages for each game ID, and then after each API call I'll decrement every element by one. Each call will include in its <code>id=</code> list only game ids who still have $npages > 0$. Even when we provide a list of IDs the response comments don't have any attribute indicating which game they belong to (why???), but they will be ordered according to the <code>id</code> list. That's why I will only be pulling <em>full</em> pages of ratings - that allows me to know that the first 100 comments map to the first game ID that I provided etc. At the end we can run through game-by-game and grab the last partial page of ratings for each game. And finally, to complicate things even further, we can't provide a list of all the game ids at once because the response will be too big, so we'll have to do the above procedure on just one chunk of the games at a time.</p>
+<h3 id="Getting-Ratings-for-Multiple-Games-at-Once">Getting Ratings for Multiple Games at Once<a class="anchor-link" href="#Getting-Ratings-for-Multiple-Games-at-Once">&#182;</a></h3><p>Instead of going game-by-game, each API call I make will request the $n^{th}$ page of ratings for multiple games at once - I can do this just by providing a list of integer game IDs in the <code>id=</code> parameter of the URL. I'll set up a vector that initializes to the number of <em>full</em> (meaning has 100 comments) pages for each game ID, and then after each API call I'll decrement every element by one. Each call will include in its <code>id=</code> list only game ids who still have $npages &gt; 0$. Even when we provide a list of IDs the response comments don't have any attribute indicating which game they belong to (why???), but they will be ordered according to the <code>id</code> list. That's why I will only be pulling <em>full</em> pages of ratings - that allows me to know that the first 100 comments map to the first game ID that I provided etc. At the end we can run through game-by-game and grab the last partial page of ratings for each game. And finally, to complicate things even further, we can't provide a list of all the game ids at once because the response will be too big, so we'll have to do the above procedure on just one chunk of the games at a time.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Prepare a "# of FULL pages of ratings" column to track # API calls needed</span>
-<span class="n">df_toy</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c"># Round DOWN to nearest 100</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Prepare a &quot;# of FULL pages of ratings&quot; column to track # API calls needed</span>
+<span class="n">df_toy</span><span class="p">[</span><span class="s2">&quot;nfullpages&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Round DOWN to nearest 100</span>
 <span class="n">df_toy</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>id</th>
-<th>name</th>
-<th>nrate</th>
-<th>pic_url</th>
-<th>nfullpages</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>162</th>
-<td>438</td>
-<td>Scotland Yard</td>
-<td>9996</td>
-<td>//cf.geekdo-images.com/images/pic172295_mt.jpg</td>
-<td>99</td>
-</tr>
-<tr>
-<th>163</th>
-<td>164153</td>
-<td>Star Wars: Imperial Assault</td>
-<td>9986</td>
-<td>//cf.geekdo-images.com/images/pic2247647_mt.jpg</td>
-<td>99</td>
-</tr>
-<tr>
-<th>164</th>
-<td>66690</td>
-<td>Dominion: Prosperity</td>
-<td>9965</td>
-<td>//cf.geekdo-images.com/images/pic1747320_mt.jpg</td>
-<td>99</td>
-</tr>
-<tr>
-<th>165</th>
-<td>25669</td>
-<td>Qwirkle</td>
-<td>9865</td>
-<td>//cf.geekdo-images.com/images/pic309353_mt.jpg</td>
-<td>98</td>
-</tr>
-<tr>
-<th>166</th>
-<td>37380</td>
-<td>Roll Through the Ages: The Bronze Age</td>
-<td>9824</td>
-<td>//cf.geekdo-images.com/images/pic986758_mt.jpg</td>
-<td>98</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>nrate</th>
+      <th>pic_url</th>
+      <th>nfullpages</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>162</th>
+      <td>438</td>
+      <td>Scotland Yard</td>
+      <td>9996</td>
+      <td>//cf.geekdo-images.com/images/pic172295_mt.jpg</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>164153</td>
+      <td>Star Wars: Imperial Assault</td>
+      <td>9986</td>
+      <td>//cf.geekdo-images.com/images/pic2247647_mt.jpg</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>66690</td>
+      <td>Dominion: Prosperity</td>
+      <td>9965</td>
+      <td>//cf.geekdo-images.com/images/pic1747320_mt.jpg</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>165</th>
+      <td>25669</td>
+      <td>Qwirkle</td>
+      <td>9865</td>
+      <td>//cf.geekdo-images.com/images/pic309353_mt.jpg</td>
+      <td>98</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>37380</td>
+      <td>Roll Through the Ages: The Bronze Age</td>
+      <td>9824</td>
+      <td>//cf.geekdo-images.com/images/pic986758_mt.jpg</td>
+      <td>98</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Writing-Results-to-a-SQLite-Database">Writing Results to a SQLite Database<a class="anchor-link" href="#Writing-Results-to-a-SQLite-Database">¶</a></h3><p>Eventually this is going to be a big data set - a lot more than 1000 games a lot more than 1.2 million ratings. So let's set up the infrastructure of a local database right from the start. Every time I finish grabbing full pages of ratings from a chunk of games I'll push the resulting dataframe into this database.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [12]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Create the database and make a cursor to talk to it.</span>
-<span class="kn">import</span> <span class="nn">sqlite3</span>
-<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings_toy.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
-<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c"># This object lets us actually send messages to our DB and receive results</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#############################################################</span>
-<span class="c"># Gathering all ratings from all games in toy data set</span>
-<span class="c">#############################################################</span>
-<span class="c"># Get ratings page-by-page for all games, but do it in chunks of 250 games</span>
-<span class="k">for</span> <span class="n">nm</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">))</span><span class="o">//</span><span class="mi">150</span><span class="p">):</span>
-    <span class="c"># Initialize a DF to hold all the responses for this chunk of games</span>
-    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">,</span> <span class="s">"username"</span><span class="p">,</span> <span class="s">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">+</span><span class="mi">100000</span><span class="p">))</span>
 
-    <span class="c"># Initialize indices for writing to the ratings dataframe</span>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Writing-Results-to-a-SQLite-Database">Writing Results to a SQLite Database<a class="anchor-link" href="#Writing-Results-to-a-SQLite-Database">&#182;</a></h3><p>Eventually this is going to be a big data set - a lot more than 1000 games a lot more than 1.2 million ratings. So let's set up the infrastructure of a local database right from the start. Every time I finish grabbing full pages of ratings from a chunk of games I'll push the resulting dataframe into this database.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create the database and make a cursor to talk to it.</span>
+<span class="kn">import</span> <span class="nn">sqlite3</span>
+<span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;bgg_ratings_toy.db&quot;</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#############################################################</span>
+<span class="c1"># Gathering all ratings from all games in toy data set</span>
+<span class="c1">#############################################################</span>
+<span class="c1"># Get ratings page-by-page for all games, but do it in chunks of 250 games</span>
+<span class="k">for</span> <span class="n">nm</span><span class="p">,</span> <span class="n">grp</span> <span class="ow">in</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">))</span><span class="o">//</span><span class="mi">150</span><span class="p">):</span>
+    <span class="c1"># Initialize a DF to hold all the responses for this chunk of games</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gameid&quot;</span><span class="p">,</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">+</span><span class="mi">100000</span><span class="p">))</span>
+
+    <span class="c1"># Initialize indices for writing to the ratings dataframe</span>
     <span class="n">dfidx_start</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">dfidx</span> <span class="o">=</span> <span class="mi">0</span>
     
-    <span class="c"># For this group of games, make calls until all FULL pages of every game have been pulled</span>
+    <span class="c1"># For this group of games, make calls until all FULL pages of every game have been pulled</span>
     <span class="n">pagenum</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">])</span> <span class="o">></span> <span class="mi">0</span><span class="p">:</span> 
-        <span class="c"># Get a restricted DF with only still-active games (have ratings pages left)</span>
-        <span class="n">active_games</span> <span class="o">=</span> <span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">></span> <span class="mi">0</span><span class="p">]</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s2">&quot;nfullpages&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span> 
+        <span class="c1"># Get a restricted DF with only still-active games (have ratings pages left)</span>
+        <span class="n">active_games</span> <span class="o">=</span> <span class="n">grp</span><span class="p">[</span><span class="n">grp</span><span class="p">[</span><span class="s2">&quot;nfullpages&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
 
-        <span class="c"># Set the next chunk of the DF "gameid" column using the list of game IDs</span>
+        <span class="c1"># Set the next chunk of the DF &quot;gameid&quot; column using the list of game IDs</span>
         <span class="n">id_list</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s">"id"</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">game</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]:</span>
             <span class="n">id_list</span> <span class="o">+=</span> <span class="p">[</span><span class="n">game</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
         <span class="n">dfidx_end</span> <span class="o">=</span> <span class="n">dfidx_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
-        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;gameid&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
 
-        <span class="c"># Make the request with the list of all game IDs that have ratings left</span>
-        <span class="n">id_strs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span> <span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s">"id"</span><span class="p">]]</span>
-        <span class="n">gameids</span> <span class="o">=</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">id_strs</span><span class="p">)</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>  <span class="c"># Keep the server happy</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%s&ratingcomments;=1&page;=%i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
-<span class="c">#         while r.status_code != 200:</span>
-<span class="c">#             sleep(2)  # Keep the server happy</span>
-<span class="c">#             print("Server Error! Response Code %i. Retrying..." % (r.status_code))</span>
-<span class="c">#             r = requests.get("http://www.boardgamegeek.com/xmlapi2/thing?id=%s&ratingcomments;=1&page;=%i" % (gameids, pagenum))        </span>
-        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
-        <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">"comment"</span><span class="p">)</span>
-<span class="c">#         print("Response status was %i - number of ratings retrieved was %i" % (r.status_code, len(comments)))</span>
+        <span class="c1"># Make the request with the list of all game IDs that have ratings left</span>
+        <span class="n">id_strs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span> <span class="k">for</span> <span class="n">gid</span> <span class="ow">in</span> <span class="n">active_games</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]]</span>
+        <span class="n">gameids</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">id_strs</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">request</span><span class="p">(</span><span class="s2">&quot;http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%s</span><span class="s2">&amp;ratingcomments=1&amp;page=</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameids</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+<span class="c1">#         while r.status_code != 200:</span>
+<span class="c1">#             sleep(2)  # Keep the server happy</span>
+<span class="c1">#             print(&quot;Server Error! Response Code %i. Retrying...&quot; % (r.status_code))</span>
+<span class="c1">#             r = requests.get(&quot;http://www.boardgamegeek.com/xmlapi2/thing?id=%s&amp;ratingcomments=1&amp;page=%i&quot; % (gameids, pagenum))        </span>
+        <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+        <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">&quot;comment&quot;</span><span class="p">)</span>
+<span class="c1">#         print(&quot;Response status was %i - number of ratings retrieved was %i&quot; % (r.status_code, len(comments)))</span>
 
-        <span class="c"># Parse the response and assign it into the dataframe</span>
+        <span class="c1"># Parse the response and assign it into the dataframe</span>
         <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
         <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">active_games</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span>
         <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">comm</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
-            <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span>
-            <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s">"rating"</span><span class="p">])</span>
+            <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+            <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s2">&quot;rating&quot;</span><span class="p">])</span>
             <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
-        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
+        <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;rating&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
 
         
-        <span class="n">grp</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c"># Decrement the number of FULL pages of each game id</span>
+        <span class="n">grp</span><span class="p">[</span><span class="s2">&quot;nfullpages&quot;</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c1"># Decrement the number of FULL pages of each game id</span>
         <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>     
         <span class="n">pagenum</span> <span class="o">+=</span> <span class="mi">1</span>  
-        <span class="nb">print</span><span class="p">(</span><span class="s">"pagenum updated to %i"</span> <span class="o">%</span><span class="p">(</span><span class="n">pagenum</span><span class="p">,))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pagenum updated to </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">pagenum</span><span class="p">,))</span>
     
-    <span class="c"># Strip off the empty rows</span>
-    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s">"all"</span><span class="p">)</span>
-    <span class="c"># Write this batch of all FULL pages of ratings for this chunk of games to the DB</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>    
-    <span class="nb">print</span><span class="p">(</span><span class="s">"Processed ratings for batch #%i of games."</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">))</span>
+    <span class="c1"># Strip off the empty rows</span>
+    <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+    <span class="c1"># Write this batch of all FULL pages of ratings for this chunk of games to the DB</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Processed ratings for batch #</span><span class="si">%i</span><span class="s2"> of games.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>So that pulled all the full pages of ratings for all the games in our toy set. The final step is to pull the last partial page of ratings for every game individually. Keep in mind that we no longer know how many comment we'll receive from each response - this is why we need to request each game individually.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c">#############################################################</span>
-<span class="c"># Request the final partial page of ratings for each game</span>
-<span class="c">#############################################################</span>
-<span class="c"># Restore the correct number of FULL pages</span>
-<span class="n">df_toy</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"nrate"</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c"># Round DOWN to nearest 100, then divide by 100</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#############################################################</span>
+<span class="c1"># Request the final partial page of ratings for each game</span>
+<span class="c1">#############################################################</span>
+<span class="c1"># Restore the correct number of FULL pages</span>
+<span class="n">df_toy</span><span class="p">[</span><span class="s2">&quot;nfullpages&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">&quot;nrate&quot;</span><span class="p">]</span><span class="o">-</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="nb">round</span><span class="p">,</span> <span class="n">ndigits</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span>  <span class="c1"># Round DOWN to nearest 100, then divide by 100</span>
 
-<span class="c"># Initialize a DF to hold all the responses over all the chunks of games</span>
-<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">,</span> <span class="s">"username"</span><span class="p">,</span> <span class="s">"rating"</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
+<span class="c1"># Initialize a DF to hold all the responses over all the chunks of games</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;gameid&quot;</span><span class="p">,</span> <span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="s2">&quot;rating&quot;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_toy</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">))</span>
 
-<span class="c"># Initialize indices for writing to the ratings dataframe</span>
+<span class="c1"># Initialize indices for writing to the ratings dataframe</span>
 <span class="n">dfidx_start</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">dfidx</span> <span class="o">=</span> <span class="mi">0</span>
 
-<span class="c"># Loop through game-by-game and request the final page of ratings for each game</span>
+<span class="c1"># Loop through game-by-game and request the final page of ratings for each game</span>
 <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="c"># Get the game ID and the last page number to request</span>
-    <span class="n">pagenum</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">"nfullpages"</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="n">gameid</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span>
+    <span class="c1"># Get the game ID and the last page number to request</span>
+    <span class="n">pagenum</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;nfullpages&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">gameid</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
     
-    <span class="c"># Make the request for just the last page of ratings of this game</span>
-    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c"># Keep the server happy</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%i&ratingcomments;=1&page;=%i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+    <span class="c1"># Make the request for just the last page of ratings of this game</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&amp;ratingcomments=1&amp;page=</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
     <span class="k">while</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span><span class="p">:</span>
-        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c"># Keep the server happy</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s">"Server Error! Response Code %i. Retrying..."</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%i&ratingcomments;=1&page;=%i"</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
-    <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s">"comment"</span><span class="p">)</span>
-<span class="c">#         print("Response status was %i - length of comments is %i" % (r.status_code, len(comments)))</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Keep the server happy</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Server Error! Response Code </span><span class="si">%i</span><span class="s2">. Retrying...&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">))</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&amp;ratingcomments=1&amp;page=</span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">gameid</span><span class="p">,</span> <span class="n">pagenum</span><span class="p">))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+    <span class="n">comments</span> <span class="o">=</span> <span class="n">soup</span><span class="p">(</span><span class="s2">&quot;comment&quot;</span><span class="p">)</span>
+<span class="c1">#         print(&quot;Response status was %i - length of comments is %i&quot; % (r.status_code, len(comments)))</span>
 
-    <span class="c"># Set the next chunk of the DF "gameids" column with this gameid</span>
+    <span class="c1"># Set the next chunk of the DF &quot;gameids&quot; column with this gameid</span>
     <span class="n">id_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">gameid</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
     <span class="n">dfidx_end</span> <span class="o">=</span> <span class="n">dfidx_start</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"gameid"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;gameid&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">id_list</span>
 
-    <span class="c"># Parse the response and assign it into the dataframe</span>
+    <span class="c1"># Parse the response and assign it into the dataframe</span>
     <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
     <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">comments</span><span class="p">)</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">comm</span> <span class="ow">in</span> <span class="n">comments</span><span class="p">:</span>
-        <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span>
-        <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s">"rating"</span><span class="p">])</span>
+        <span class="n">l1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">comm</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span>
+        <span class="n">l2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">comm</span><span class="p">[</span><span class="s2">&quot;rating&quot;</span><span class="p">])</span>
         <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"username"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
-    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s">"rating"</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l1</span>
+    <span class="n">df_ratings</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">dfidx_start</span><span class="p">:</span><span class="n">dfidx_end</span><span class="p">,</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="s2">&quot;rating&quot;</span><span class="p">)]</span> <span class="o">=</span> <span class="n">l2</span>
 
-    <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>   <span class="c"># Increment the starting index for next round        </span>
+    <span class="n">dfidx_start</span> <span class="o">=</span> <span class="n">dfidx_end</span>   <span class="c1"># Increment the starting index for next round        </span>
 
     <span class="k">if</span> <span class="n">idx</span><span class="o">%</span><span class="k">100</span> == 0:
-        <span class="nb">print</span><span class="p">(</span><span class="s">"Finished with a chunk of 100 games."</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Finished with a chunk of 100 games.&quot;</span><span class="p">)</span>
         
-<span class="c"># Strip off the empty rows</span>
-<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s">"all"</span><span class="p">)</span>
+<span class="c1"># Strip off the empty rows</span>
+<span class="n">df_ratings</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
 
-<span class="c"># Write this final batch of all partial pages of ratings for this chunk of games to the DB</span>
-<span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s">"data"</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s">"append"</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="k">False</span><span class="p">)</span>    
+<span class="c1"># Write this final batch of all partial pages of ratings for this chunk of games to the DB</span>
+<span class="n">df_ratings</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">connex</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>    
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># Save our changes and close the connection</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Save our changes and close the connection</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Inspecting-the-Ratings-Data">Inspecting the Ratings Data<a class="anchor-link" href="#Inspecting-the-Ratings-Data">¶</a></h1>
+<h1 id="Inspecting-the-Ratings-Data">Inspecting the Ratings Data<a class="anchor-link" href="#Inspecting-the-Ratings-Data">&#182;</a></h1>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>That's it! Now all the ratings from our toy data set (board games with between 1k and 2k ratings) are stored in our database. Let's open the connection to the DB back up and read it all out into a pandas DF (since it's just the toy set, we can handle it).</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [63]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"bgg_ratings.db"</span><span class="p">)</span>  <span class="c"># Opens file if exists, else creates file</span>
-<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c"># This object lets us actually send messages to our DB and receive results</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data"</span> <span class="o">+</span> <span class="s">";"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">connex</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;bgg_ratings.db&quot;</span><span class="p">)</span>  <span class="c1"># Opens file if exists, else creates file</span>
+<span class="n">cur</span> <span class="o">=</span> <span class="n">connex</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>  <span class="c1"># This object lets us actually send messages to our DB and receive results</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM data&quot;</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span>
 <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[63]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[63]:</div>
+
+
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>gameid</th>
-<th>username</th>
-<th>rating</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>133545</th>
-<td>183880</td>
-<td>cjs65</td>
-<td>7.0</td>
-</tr>
-<tr>
-<th>1153233</th>
-<td>171905</td>
-<td>soccastar001</td>
-<td>8.0</td>
-</tr>
-<tr>
-<th>754653</th>
-<td>41569</td>
-<td>CorinnaS</td>
-<td>7.0</td>
-</tr>
-<tr>
-<th>1022434</th>
-<td>154182</td>
-<td>aeroflynn</td>
-<td>6.0</td>
-</tr>
-<tr>
-<th>310315</th>
-<td>98315</td>
-<td>Clockpunk</td>
-<td>8.0</td>
-</tr>
-<tr>
-<th>1152731</th>
-<td>6738</td>
-<td>edwardchow</td>
-<td>5.5</td>
-</tr>
-<tr>
-<th>251262</th>
-<td>62220</td>
-<td>liuyun0918</td>
-<td>4.0</td>
-</tr>
-<tr>
-<th>1060709</th>
-<td>20055</td>
-<td>Marechallannes</td>
-<td>9.0</td>
-</tr>
-<tr>
-<th>449232</th>
-<td>31920</td>
-<td>rmjordan</td>
-<td>5.0</td>
-</tr>
-<tr>
-<th>1046964</th>
-<td>2535</td>
-<td>Hugh_G_Rection</td>
-<td>8.5</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gameid</th>
+      <th>username</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>133545</th>
+      <td>183880</td>
+      <td>cjs65</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>1153233</th>
+      <td>171905</td>
+      <td>soccastar001</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>754653</th>
+      <td>41569</td>
+      <td>CorinnaS</td>
+      <td>7.0</td>
+    </tr>
+    <tr>
+      <th>1022434</th>
+      <td>154182</td>
+      <td>aeroflynn</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>310315</th>
+      <td>98315</td>
+      <td>Clockpunk</td>
+      <td>8.0</td>
+    </tr>
+    <tr>
+      <th>1152731</th>
+      <td>6738</td>
+      <td>edwardchow</td>
+      <td>5.5</td>
+    </tr>
+    <tr>
+      <th>251262</th>
+      <td>62220</td>
+      <td>liuyun0918</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>1060709</th>
+      <td>20055</td>
+      <td>Marechallannes</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>449232</th>
+      <td>31920</td>
+      <td>rmjordan</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>1046964</th>
+      <td>2535</td>
+      <td>Hugh_G_Rection</td>
+      <td>8.5</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Sanity-Check---Do-Our-Ratings-Distributions-Agree-with-Server-Stats?">Sanity Check - Do Our Ratings Distributions Agree with Server Stats?<a class="anchor-link" href="#Sanity-Check---Do-Our-Ratings-Distributions-Agree-with-Server-Stats?">¶</a></h3><p>Here's a good sanity check, let's make sure our distribution of ratings for a few games looks like the BGG distribution of ratings on the pages for those games.</p>
+<h3 id="Sanity-Check---Do-Our-Ratings-Distributions-Agree-with-Server-Stats?">Sanity Check - Do Our Ratings Distributions Agree with Server Stats?<a class="anchor-link" href="#Sanity-Check---Do-Our-Ratings-Distributions-Agree-with-Server-Stats?">&#182;</a></h3><p>Here's a good sanity check, let's make sure our distribution of ratings for a few games looks like the BGG distribution of ratings on the pages for those games.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [106]:</div>
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">axs</span> <span class="o">=</span> <span class="n">axs</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">999</span><span class="p">)):</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="p">[</span><span class="n">df_ratings</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">]</span>
-    <span class="n">nm</span> <span class="o">=</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_toy</span><span class="p">[</span><span class="s">"id"</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">,</span> <span class="s">"name"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">__</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s">"rating"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
-    <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s">"%s (%i)"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">game</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">"%s Our Data: Mean = %.2f. StdDev = %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s">"rating"</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
+<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">game</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">999</span><span class="p">)):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df_ratings</span><span class="p">[</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">&quot;gameid&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">]</span>
+    <span class="n">nm</span> <span class="o">=</span> <span class="n">df_toy</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_toy</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">game</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">__</span> <span class="o">=</span> <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;rating&quot;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">normed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">axs</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> (</span><span class="si">%i</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">game</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Our Data: Mean = </span><span class="si">%.2f</span><span class="s2">. StdDev = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;rating&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()))</span>
     
-    <span class="c"># Request actual stats from the server to compare with scraped data</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/thing?id=%i&stats;=1"</span> <span class="o">%</span> <span class="p">(</span><span class="n">game</span><span class="p">,))</span>
-    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
-    <span class="n">std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s">"stddev"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s">"value"</span><span class="p">])</span>
-    <span class="n">mn</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s">"average"</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s">"value"</span><span class="p">])</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s">"%s Server Stats: Mean = %.2f. StdDev = %.2f"</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">mn</span><span class="p">,</span><span class="n">std</span><span class="p">))</span>
+    <span class="c1"># Request actual stats from the server to compare with scraped data</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.boardgamegeek.com/xmlapi2/thing?id=</span><span class="si">%i</span><span class="s2">&amp;stats=1&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">game</span><span class="p">,))</span>
+    <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
+    <span class="n">std</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s2">&quot;stddev&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+    <span class="n">mn</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">soup</span><span class="p">(</span><span class="s2">&quot;average&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> Server Stats: Mean = </span><span class="si">%.2f</span><span class="s2">. StdDev = </span><span class="si">%.2f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nm</span><span class="p">,</span> <span class="n">mn</span><span class="p">,</span><span class="n">std</span><span class="p">))</span>
     <span class="n">sleep</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&apos;Star Realms: Crisis – Heroes&apos;] Our Data: Mean = 7.04. StdDev = 1.42
-[&apos;Star Realms: Crisis – Heroes&apos;] Server Stats: Mean = 7.03. StdDev = 1.41
-["War of the Ring Collector&apos;s Edition"] Our Data: Mean = 8.63. StdDev = 2.20
-["War of the Ring Collector&apos;s Edition"] Server Stats: Mean = 8.62. StdDev = 2.21
-[&apos;Quelf&apos;] Our Data: Mean = 5.44. StdDev = 2.02
-[&apos;Quelf&apos;] Server Stats: Mean = 5.44. StdDev = 2.02
+<pre>[&#39;Star Realms: Crisis – Heroes&#39;] Our Data: Mean = 7.04. StdDev = 1.42
+[&#39;Star Realms: Crisis – Heroes&#39;] Server Stats: Mean = 7.03. StdDev = 1.41
+[&#34;War of the Ring Collector&#39;s Edition&#34;] Our Data: Mean = 8.63. StdDev = 2.20
+[&#34;War of the Ring Collector&#39;s Edition&#34;] Server Stats: Mean = 8.62. StdDev = 2.21
+[&#39;Quelf&#39;] Our Data: Mean = 5.44. StdDev = 2.02
+[&#39;Quelf&#39;] Server Stats: Mean = 5.44. StdDev = 2.02
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA7sAAAEOCAYAAABIAgAZAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xu8XFV99/HPFwi3ACKXGKJAuJS7RlQQIchRH5CrFUPb
@@ -1639,216 +2871,255 @@ qTGO71VX5humq7d7u5sHfKRr2sjTN17L8s5ZVyJnXWGcdQ3krKucs644Tc06aFfelZ51ykfVZmZm
 ZmZmZkOjLffsmpmZmZmZmfXNB7tmZmZmZmY2dHywa2ZmZmZmZkPHB7tmZmZmZmY2dHywa2ZmZmZm
 ZkPHB7tmZmZmZmY2dHywa2ZmZmZmZkPHB7tmZmZmZmY2dHywa2ZmZmZmZkPn/+ERQzGLoOINAAAA
 AElFTkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>I am confident now that we didn't do anything wildly wrong when gathering the ratings data!</p>
+
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Restricting-to-Users-with-&gt;-10-Ratings">Restricting to Users with > 10 Ratings<a class="anchor-link" href="#Restricting-to-Users-with-&gt;-10-Ratings">¶</a></h3>
+<h3 id="Restricting-to-Users-with-&gt;-10-Ratings">Restricting to Users with &gt; 10 Ratings<a class="anchor-link" href="#Restricting-to-Users-with-&gt;-10-Ratings">&#182;</a></h3>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>To build our recommender system let's start by only keeping users who rated at least 10 of these games.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [115]:</div>
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="c"># A nifty and somewhat fault-tolerant way of constructing long SQL queries</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s">" "</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
-    <span class="s">"SELECT username"</span><span class="p">,</span>
-    <span class="s">"FROM (SELECT username, count(*) as freqn FROM data GROUP BY username)"</span><span class="p">,</span>
-    <span class="s">"AS tbl WHERE freqn > 10"</span><span class="p">,</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># A nifty and somewhat fault-tolerant way of constructing long SQL queries</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">((</span>
+    <span class="s2">&quot;SELECT username&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;FROM (SELECT username, count(*) as freqn FROM data GROUP BY username)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;AS tbl WHERE freqn &gt; 10&quot;</span><span class="p">,</span>
 <span class="p">))</span>
 
 <span class="n">users</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">users</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[115]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[115]:</div>
+
+
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>username</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>23795</th>
-<td>pedro_pete</td>
-</tr>
-<tr>
-<th>5630</th>
-<td>JawnMan</td>
-</tr>
-<tr>
-<th>19136</th>
-<td>hurkle</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>username</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>23795</th>
+      <td>pedro_pete</td>
+    </tr>
+    <tr>
+      <th>5630</th>
+      <td>JawnMan</td>
+    </tr>
+    <tr>
+      <th>19136</th>
+      <td>hurkle</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s">"'"</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s">"'"</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-<span class="n">str_matching</span> <span class="o">=</span> <span class="s">"("</span> <span class="o">+</span> <span class="s">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s">")"</span>  <span class="c"># Construct the string of SQL language</span>
-<span class="n">sql</span> <span class="o">=</span> <span class="s">"SELECT * FROM data WHERE username IN "</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s">";"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">usrs</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">usr</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="k">for</span> <span class="n">usr</span> <span class="ow">in</span> <span class="n">users</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">str_matching</span> <span class="o">=</span> <span class="s2">&quot;(&quot;</span> <span class="o">+</span> <span class="s2">&quot;,&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">usrs</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span>  <span class="c1"># Construct the string of SQL language</span>
+<span class="n">sql</span> <span class="o">=</span> <span class="s2">&quot;SELECT * FROM data WHERE username IN &quot;</span> <span class="o">+</span> <span class="n">str_matching</span> <span class="o">+</span> <span class="s2">&quot;;&quot;</span>
 <span class="n">df_ratings</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connex</span><span class="p">)</span>
 <span class="n">connex</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [120]:</div>
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_ratings</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[120]:</div>
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[120]:</div>
+
+
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>gameid</th>
-<th>username</th>
-<th>rating</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>458023</th>
-<td>1822</td>
-<td>tmarozas</td>
-<td>7.5</td>
-</tr>
-<tr>
-<th>911991</th>
-<td>152</td>
-<td>DangerMouse</td>
-<td>5.0</td>
-</tr>
-<tr>
-<th>826663</th>
-<td>392</td>
-<td>spindisc</td>
-<td>7.0</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>gameid</th>
+      <th>username</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>458023</th>
+      <td>1822</td>
+      <td>tmarozas</td>
+      <td>7.5</td>
+    </tr>
+    <tr>
+      <th>911991</th>
+      <td>152</td>
+      <td>DangerMouse</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>826663</th>
+      <td>392</td>
+      <td>spindisc</td>
+      <td>7.0</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
+
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>This is starting to look good as the raw data for a simple recommender system! Let's do one last calculation on the sparsity of this ratings data. If every user in our toy set rated every movie in our toy data we'd have a sparsity of 100%. Instead we have:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [123]:</div>
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">max_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s">"gameid"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s">"username"</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">max_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">&quot;gameid&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">[</span><span class="s2">&quot;username&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 <span class="n">actual_n_ratings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_ratings</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s">"Sparsity of Ratings Data is %.2f%%"</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">actual_n_ratings</span><span class="o">/</span><span class="n">max_n_ratings</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Sparsity of Ratings Data is </span><span class="si">%.2f%%</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">actual_n_ratings</span><span class="o">/</span><span class="n">max_n_ratings</span><span class="p">))</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
-</div>
+
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Sparsity of Ratings Data is 3.62%
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Note-on-Requesting-Collections-----Request-gets-Queued">Note on Requesting Collections  -  Request gets Queued<a class="anchor-link" href="#Note-on-Requesting-Collections-----Request-gets-Queued">¶</a></h3><p>I haven't tried to query and collections info with the API, but I just wanted to includ this note for future work. See <a href="https://boardgamegeek.com/thread/1188687/export-collections-has-been-updated-xmlapi-develop">forum post</a>. You just keep re-running the query until you don't get a "Your request has been queued" response.</p>
+<h3 id="Note-on-Requesting-Collections-----Request-gets-Queued">Note on Requesting Collections  -  Request gets Queued<a class="anchor-link" href="#Note-on-Requesting-Collections-----Request-gets-Queued">&#182;</a></h3><p>I haven't tried to query and collections info with the API, but I just wanted to includ this note for future work. See <a href="https://boardgamegeek.com/thread/1188687/export-collections-has-been-updated-xmlapi-develop">forum post</a>. You just keep re-running the query until you don't get a "Your request has been queued" response.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span class="n">r3</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">"http://www.boardgamegeek.com/xmlapi2/collection?username=odo_ital&rated;=1"</span><span class="p">)</span>
-<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s">"xml"</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">r3</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;http://www.boardgamegeek.com/xmlapi2/collection?username=odo_ital&amp;rated=1&quot;</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="s2">&quot;xml&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">r3</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 <span class="n">r3</span><span class="o">.</span><span class="n">text</span>
 </pre></div>
+
+    </div>
 </div>
 </div>
+
 </div>
-</div>
+ 
+
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -1865,6 +3136,7 @@ AElFTkSuQmCC
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";
