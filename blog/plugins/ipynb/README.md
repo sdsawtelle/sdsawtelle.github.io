@@ -166,17 +166,7 @@ PLUGINS = ['ipynb.liquid']
 After this you can use a liquid tag to include a notebook in any regular markdown article,
 for example `mypost.md`:
 
-```
-Title:
-Slug:
-Date:
-Category:
-Tags:
-Author:
-Summary:
-
-{% notebook path/from/content/dir/to/notebook.ipynb %}
-```
+EXAMPLE REMOVED B/C WAS BREAKING GITHUB PAGE BUILD (Sonya, 5/29/19)
 
 ## Recommend mode?
 
