@@ -1,6 +1,7 @@
 # TO-DO
 - Figure out how to get proper tab formatting for table of contents
 - Change article subtitles to be more serious (remove?)
+- Fix issues with theme for table formatting (see MAP post)
 
 
 # INSTALL
@@ -54,6 +55,9 @@ https://github.com/getpelican/pelican/issues/2489
 	
 
 # PROCESS FLOW
+Make sure you have activated the environment and navigated to the blog's root directory
+	conda activate blog_pelican
+	
 To build your output using the settings you specified in publishconf.py, from the blog root directory do
 	pelican content -s publishconf.py
 
@@ -61,10 +65,11 @@ To preview the output, start the pelican local server with
 	pelican --listen
 and then navigate your browser to http://localhost:8000/. Note that simply opening the HTML file in your browser may no give you a faithful preview depending on how absolute vs. relative links are used in the publishing process.
 
-Once satisfied, push the new changes to github by navigating to the root directory for the website (blog root lives inside this folder). Do:
+Once satisfied, push the new changes to github by opening git bash, navigating to the root directory for the website (blog root lives inside this folder). Do:
 	git add --all
 	git commit -m "message"
 	git push origin master
+
 
 # CUSTOMIZING THEME
 - In the index.html file located in the templates folder of the theme I have changed the code for displaying article summaries on the index to check for a new setting variable called SHOW_SUMMARIES in the publishconf.py. A summary is displayed below each article title only if the summary field exists in the metadata and SHOW_SUMMARIES = True.
@@ -74,7 +79,7 @@ Once satisfied, push the new changes to github by navigating to the root directo
 To update pelican just activate blog_pelican environment and run conda update pelican. To update the pelican-ipynb plugin just download the latest version of the repo and replace the old files in the ipynb plugin folder, then activate the environment and update any dependencies as need (refer to the readme).
 
 
-# RANDOM GOTCHAS
+# RANDOM ISSUES
 - The pelican-ipynb plugin seems to have issues recognizing latex blocks when there is no empty line between the preceeding markdown text and the beginning of the latex environment. For instance we need formatting like:
 	This is markdown text preceeding a latex environment.
 	
@@ -83,4 +88,8 @@ To update pelican just activate blog_pelican environment and run conda update pe
 	\end{align*}
 - Now that I am using the toc plugin for jupyter notebooks all my posts have a table of contents at the top. Not sure if I want to keep them or not, but they can be ignored by the plugin converter by adding the following line to each .nbdata:
 	Subcells: [1, None]
+
 	
+# RESOURCE
+https://www.dataquest.io/blog/how-to-setup-a-data-science-blog/
+http://blog.gabrielrezzonico.com/data-science-portfolio-using-pelican.html
