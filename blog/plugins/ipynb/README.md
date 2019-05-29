@@ -224,16 +224,4 @@ If you are using the Markup mode then just add this variables to your `pelicanco
 
 Example template for `IPYNB_EXPORT_TEMPLATE`:
 
-```
-{%- extends 'basic.tpl' -%}
-
-{% block header %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-<style type="text/css">
-div.code_cell {
-    border: 2px solid red;
-}
-</style>
-{%- endblock header %}
-```
+EXAMPLE REMOVED B/C WAS BREAKING GITHUB PAGE BUILD (Sonya, 5/29/19)
