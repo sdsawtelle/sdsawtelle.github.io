@@ -55,7 +55,9 @@ https://github.com/getpelican/pelican/issues/2489
 	
 
 # PROCESS FLOW
-Make sure you have activated the environment and navigated to the blog's root directory
+Copy the .ipynb notebook file into the content folder of the blog. Create a new .nbdata file with the same name as the notebook and edit it appropriately. Any images in the notebook should be stored in a folder with the same name as the notebook, and that folder should be placed in content/images.
+
+In the Anaconda terminal, navigate to the blog's root directory and activate the virtual environment
 	conda activate blog_pelican
 	
 To build your output using the settings you specified in publishconf.py, from the blog root directory do
@@ -63,7 +65,7 @@ To build your output using the settings you specified in publishconf.py, from th
 
 To preview the output, start the pelican local server with
 	pelican --listen
-and then navigate your browser to http://localhost:8000/. Note that simply opening the HTML file in your browser may no give you a faithful preview depending on how absolute vs. relative links are used in the publishing process.
+and then navigate your browser to http://localhost:8000/. Note that simply opening the HTML file in your browser may no give you a faithful preview depending on how absolute vs. relative links are used in the publishing process. Kill the server with a single Ctrl+c.
 
 Once satisfied, push the new changes to github by opening git bash, navigating to the root directory for the website (blog root lives inside this folder). Do:
 	git add --all
@@ -73,6 +75,11 @@ Once satisfied, push the new changes to github by opening git bash, navigating t
 
 # CUSTOMIZING THEME
 - In the index.html file located in the templates folder of the theme I have changed the code for displaying article summaries on the index to check for a new setting variable called SHOW_SUMMARIES in the publishconf.py. A summary is displayed below each article title only if the summary field exists in the metadata and SHOW_SUMMARIES = True.
+- The clean-blog theme is not formatting table headers correctly. I hacked a solution by adding the following to the end of bootstrap.css (and bootstrap.min.css)
+	th {
+		display: table-cell !important;
+		text-align: center !important;
+	}
 
 
 # UPDATING THE TECH STACK

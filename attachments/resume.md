@@ -2,7 +2,7 @@ Sonya Sawtelle
 ======
 
 #### Data enthusiast with a strong background in math, science and programming. 
-###### [ [sdsawtelle.github.io](http://sdsawtelle.github.io) ] . [ sonya.sawtelle@yale.edu ] . [ 802 461 3429 ]
+###### [ [sdsawtelle.github.io](http://sdsawtelle.github.io) ] . [ sonya.sawtelle@aya.yale.edu ] . [ 802 461 3429 ]
 
 Experience
 ---------
@@ -12,16 +12,16 @@ Experience
 - Exploratory analysis and machine learning with Python (SQL for data extraction).
 - Communicated results and insights to non-technical employees on product teams.
 
-**Graduate Researcher, Yale University** (2012-2018, New Haven CT)
+**Graduate Researcher, Yale University** (2012-2018)
 
 - Simulation and data analysis with Python, MATLAB, and C++.
 - Coursework in physics, engineering, and statistics.
 - Managed 4 undergraduate assistants.
 
 <!---
-**MCAT Instructor, Kaplan Test Prep** (2011-2012, New Haven CT)
+**Medical College Admission Test Instructor, Kaplan Test Prep** (2011-2012)
 
-- Planned and delivered lectures on Physics, Chemistry and Biology.
+- Planned and delivered lectures on undergraduate Physics, Chemistry and Biology.
 -->
 
 Education
@@ -34,16 +34,17 @@ Education
 
 - Baccalaureate with Departmental Honors and Highest Distinction, 3.98/4.0 GPA
 
-**MOOCs** (ongoing)
+**MOOCs**
 
-- Machine Learning (Andrew Ng), Neural Networks & Deep Learning (Andrew Ng)
+- Deep Learning 5-Course Specialization (deeplearning.ai), [Credential ID JKFBV29P5MPS](https://www.coursera.org/account/accomplishments/specialization/JKFBV29P5MPS)
+- Machine Learning (Stanford University)
 
 
 Skills
 ------
 **Programming:** Python, SQL, MATLAB, C++, R, git, HTML/CSS, d3.js
 
-**Python Packages:** Pandas, Numpy, Matplotlib, Scikit-learn, PyMC, Scipy
+**Python Packages:** Pandas, Numpy, Matplotlib, Scikit-learn, PyMC, Scipy, Tensorflow (among others)
 
 
 Awards

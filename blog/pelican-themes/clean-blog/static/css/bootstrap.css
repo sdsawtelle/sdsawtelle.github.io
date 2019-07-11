@@ -6359,5 +6359,6 @@ button.close {
 /*# sourceMappingURL=bootstrap.css.map */
 
 th {
-	display: !important;
+	display: table-cell !important;
+	text-align: center !important;
 }
