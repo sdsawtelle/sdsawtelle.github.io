@@ -65,7 +65,7 @@ To build your output using the settings you specified in publishconf.py, from th
 
 To preview the output, start the pelican local server with
 	pelican --listen
-and then navigate your browser to http://localhost:8000/. Note that simply opening the HTML file in your browser may no give you a faithful preview depending on how absolute vs. relative links are used in the publishing process. Kill the server with a single Ctrl+c.
+and then navigate your browser to http://localhost:8000/. Note that simply opening the HTML file in your browser may not give you a faithful preview depending on how absolute vs. relative links are used in the publishing process. Kill the server with a single Ctrl+c (be patient).
 
 Once satisfied, push the new changes to github by opening git bash, navigating to the root directory for the website (blog root lives inside this folder). Do:
 	git add --all

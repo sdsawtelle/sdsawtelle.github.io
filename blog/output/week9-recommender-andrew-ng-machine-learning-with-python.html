@@ -1334,16 +1334,14 @@ J(x^{(1)},..., x^{(n_M)}, \theta^{(1)}, ..., \theta^{(n_u)}) = \textrm{all squar
 <li>$r_{ui}$ is the rating given to the $i^{th}$ movie by the $u^{th}$ user</li>
 <li>$\kappa$ is the set of all pairs $(u, i)$ for which we have an existing rating</li>
 </ul>
-<p>Our estimator for user ratings is
+<p>Our estimator for user ratings is</p>
 \begin{align*}
-\hat{r_{ui}} = q_i^Tp_u,\\
+\hat{r}_{ui} = q_i^Tp_u,\\
 \textrm{or in other words} \; \mathbf{R} \sim \mathbf{R}' = \mathbf{Q}\mathbf{P}^T.
-\end{align*}</p>
-<p>while our objective is:
+\end{align*}<p>while our objective is:</p>
 \begin{align*}
 \qquad \min_{\textrm{all} \, q, p} J, \qquad J = \bigg[ \sum_{(u,i)\in\kappa} (r_{ui} - q_i^Tp_u)^2 + \lambda\big(||q_i||^2 + ||p_u||^2\big)\bigg].
-\end{align*}</p>
-<h3 id="Numerical-Optimization">Numerical Optimization<a class="anchor-link" href="#Numerical-Optimization">&#182;</a></h3><p>The objective function is minimized over the product space $q\times p$ typically by either Stochastic Gradient Descent (SGD) or Alternating Least Squares (ALS).</p>
+\end{align*}<h3 id="Numerical-Optimization">Numerical Optimization<a class="anchor-link" href="#Numerical-Optimization">&#182;</a></h3><p>The objective function is minimized over the product space $q\times p$ typically by either Stochastic Gradient Descent (SGD) or Alternating Least Squares (ALS).</p>
 
 </div>
 </div>
@@ -1351,34 +1349,30 @@ J(x^{(1)},..., x^{(n_M)}, \theta^{(1)}, ..., \theta^{(n_u)}) = \textrm{all squar
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>For implementing SGD the following framework is helfpul. First define the error between a prediction and the actual rating as:
+<p>For implementing SGD the following framework is helfpul. First define the error between a prediction and the actual rating as:</p>
 \begin{align*}
 e_{ui} \equiv r_{ui} - q_i^Tp_u,\\
 \mathbf{E} = \mathbf{R} - \mathbf{P}\mathbf{Q}^T
-\end{align*}</p>
-
+\end{align*}
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Consider the example below of the partial derivative of the loss with respect to a single latent factor: the $k^{th}$ component of the $i^{th}$ movie feature vector.
+<p>Consider the example below of the partial derivative of the loss with respect to a single latent factor: the $k^{th}$ component of the $i^{th}$ movie feature vector.</p>
 \begin{align*}
 \frac{\partial J}{(q_i)_k} = \sum_{(u,i)\in\kappa} 2(r_{ui} - q_i^Tp_u)^2(-(p_u)_k) + 2\lambda(q_i)_k
-\end{align*}</p>
-<p>Inspecting the above, we can see that the coordinate descent update rule for SGD for a single observation should be
+\end{align*}<p>Inspecting the above, we can see that the coordinate descent update rule for SGD for a single observation should be</p>
 \begin{align*}
 q_i \leftarrow q_i + \gamma(e_{ui}\cdot p_u - \lambda\cdot q_i)\\
 p_u \leftarrow p_u + \gamma(e_{ui}\cdot q_i - \lambda\cdot p_u),
-\end{align*}
-where $\gamma$ is the learning rate.</p>
-<p>Alternatively, the update rule for batch gradient descent can be heavily vectorized to yield 
+\end{align*}<p>where $\gamma$ is the learning rate.</p>
+<p>Alternatively, the update rule for batch gradient descent can be heavily vectorized to yield</p>
 \begin{align*}
 \mathbf{P} \leftarrow \mathbf{P} + \gamma\big(\mathbf{E}\mathbf{Q} - \lambda\mathbf{P}\big)\\
 \mathbf{Q} \leftarrow \mathbf{Q} + \gamma\big(\mathbf{E}^T\mathbf{Q} - \lambda\mathbf{Q}\big).
-\end{align*}</p>
-
+\end{align*}
 </div>
 </div>
 </div>

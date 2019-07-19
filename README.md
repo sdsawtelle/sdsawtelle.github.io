@@ -22,11 +22,12 @@ I have created python functions for the following functionality:
 - `update_blog()` copy/overwrites all post files to the git dir along with corresponding image folder. Then runs pelican on the /content folder of the git dir to produce the output HTML
 
 General workflow: 
-- create and edit the post as a jupyter notebook in /Projects/web-data-science-blog
-- open terminal and change directory to /Projects/web-data-science-blog, then run "ipython" to enter a python shell
+- create and edit the post as a jupyter notebook in /Projects/web-data-science-blog/post-name (or other location if necessary)
+- open terminal and change directory to the location of the jupyter notebook (usually /Projects/web-data-science-blog/post-name), then run "ipython" to enter a python shell
 - import my "snips" module (where the blog functions are written)
-- execute add_blog_post(ipynb_post_filename_without_extension)
-- execute update_blog()
+- execute `snips.add_blog_post(ipynb_post_filename_without_extension)`
+- edit the new .nbdata file appropriately
+- execute `snips.update_blog()`. NOTE: as of 7/19/19 pelican needs to be called from within the conda venv "blog_pelican" in order to work correctly. I think I have corrected snips.update_blog() so that this occurs, but if not then you will encounter "CRITICAL: TypeError: not all arguments converted during string formatting". Refer to the README within the blog root for more info.
 - check the newly created blogpost HTML file for conversion errors (note the LaTex is sometimes slow to render or requires a refresh)
 - open git bash and change directory to \Documents\Code_GitVC\Web\sdsawtelle.github.io
 - execute a git add, commit and push to update the blog files on the github server
