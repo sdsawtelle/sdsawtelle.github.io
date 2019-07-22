@@ -24,11 +24,11 @@ I have created python functions for the following functionality:
 General workflow: 
 - create and edit the post as a jupyter notebook in /Projects/web-data-science-blog/post-name (or other location if necessary)
 - open terminal and change directory to the location of the jupyter notebook (usually /Projects/web-data-science-blog/post-name), then run "ipython" to enter a python shell
-- import my "snips" module (where the blog functions are written)
+- import my "snips" module (where the blog functions are defined)
 - execute `snips.add_blog_post(ipynb_post_filename_without_extension)`
-- edit the new .nbdata file appropriately
+- edit the new .nbdata file appropriately (it should open automatically in notepad++ when `add_blog_post` is run).
 - execute `snips.update_blog()`. NOTE: as of 7/19/19 pelican needs to be called from within the conda venv "blog_pelican" in order to work correctly. I think I have corrected snips.update_blog() so that this occurs, but if not then you will encounter "CRITICAL: TypeError: not all arguments converted during string formatting". Refer to the README within the blog root for more info.
-- check the newly created blogpost HTML file for conversion errors (note the LaTex is sometimes slow to render or requires a refresh)
+- check the newly created blogpost HTML file for conversion errors (note the LaTex is sometimes slow to render or requires a refresh). Note the pelican server should start and the webpage should open automaticallywhen `update_blog` is called.
 - open git bash and change directory to \Documents\Code_GitVC\Web\sdsawtelle.github.io
 - execute a git add, commit and push to update the blog files on the github server
 
