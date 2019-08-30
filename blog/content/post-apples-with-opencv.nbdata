@@ -1,0 +1,8 @@
+Title: Naive Apple Detection with OpenCV
+Slug: apple-circle-detection-opencv
+Date: 2019-08-30 13:30
+Category: Python
+Tags: python, computer vision, opencv, hough transforms
+Author: Sonya Sawtelle
+Summary: In which I implement a very simple approach to detecting apples on a conveyer belt using OpenCV.
+Subcells: [1, None]

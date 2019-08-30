@@ -88,7 +88,7 @@ I have created python functions for the following functionality:
 - execute `snips.add_blog_post(ipynb_post_filename_without_extension)`
 - edit the new .nbdata file appropriately
 - execute `snips.update_blog()`. NOTE: as of 7/19/19 pelican needs to be called from within the conda venv "blog_pelican" in order to work correctly. I think I have corrected snips.update_blog() so that this occurs, but if not then you will encounter "CRITICAL: TypeError: not all arguments converted during string formatting". Refer to the README within the blog root for more info.
-- check the newly created blogpost HTML file for conversion errors (note the LaTex is sometimes slow to render or requires a refresh). Note the pelican server should start and the webpage should open automatically when `update_blog` is called.
+- check the newly created blogpost HTML file for conversion errors (note the LaTex is sometimes slow to render or requires a refresh). Note the pelican server should start and the webpage should open automatically when `update_blog` is called. If not, navigate your browser to http://localhost:8000/
 - open git bash and change directory to \Documents\Code_GitVC\Web\sdsawtelle.github.io
 - execute a git add, commit and push to update the blog files on the github server:
 	git add --all
