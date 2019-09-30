@@ -1,0 +1,8 @@
+Title: Automated Readout of Analog Gauges with OpenCV
+Slug: automated-gauge-readout-with-opencv
+Date: 2019-09-30 13:30
+Category: Python
+Tags: python, machine learning, sklearn, linear regression
+Author: Sonya Sawtelle
+Summary: In which I implement a pipeline for reading out analog gauges from dashboard images using OpenCV.
+Subcells: [1, None]
